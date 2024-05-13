@@ -1,24 +1,3 @@
-# README
+# Ja E - Artsy News Portal
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is our repository for the project **Já é** - a website focused on bringing the latest news on all cultural events happening in Rio de Janeiro- Brazil.
