@@ -1,0 +1,2 @@
+class LeisuresController < ApplicationController
+end
