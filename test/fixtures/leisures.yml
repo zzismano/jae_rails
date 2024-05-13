@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: one
+  venue: one
+  picture: MyString
+  link: MyString
+  title: MyString
+  subtitle: MyString
+  director: MyString
+  country: MyString
+  description: MyText
+  features: MyString
+  min_age: 1
+  duration: 1
+  time: 2024-05-13 15:10:40
+  start_date: 2024-05-13
+  end_date: 2024-05-13
+
+two:
+  category: two
+  venue: two
+  picture: MyString
+  link: MyString
+  title: MyString
+  subtitle: MyString
+  director: MyString
+  country: MyString
+  description: MyText
+  features: MyString
+  min_age: 1
+  duration: 1
+  time: 2024-05-13 15:10:40
+  start_date: 2024-05-13
+  end_date: 2024-05-13
