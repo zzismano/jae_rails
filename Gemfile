@@ -11,6 +11,12 @@ gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
 # gem "sqlite3", "~> 1.4"
 
+# Use dotenv-rails to hide API keys
+gem "dotenv-rails"
+
+# Use cloudinary to save media 
+gem "cloudinary"
+
 # Use postgresql as the database for Active Record
 gem 'postgresql', '~> 1.0'
 
