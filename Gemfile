@@ -14,7 +14,7 @@ gem "sprockets-rails"
 # Use dotenv-rails to hide API keys
 gem "dotenv-rails"
 
-# Use cloudinary to save media 
+# Use cloudinary to save media
 gem "cloudinary"
 
 # Use postgresql as the database for Active Record
@@ -46,6 +46,9 @@ gem "jbuilder"
 
 # Use Devise for Authentication
 gem "devise"
+
+# Use Pundit for Authorization
+gem "pundit"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
