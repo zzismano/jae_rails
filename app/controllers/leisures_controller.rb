@@ -1,5 +1,6 @@
 class LeisuresController < ApplicationController
+
   def index
-    @leisures = Leisure.all
+    @leisures = policy_scope(Leisure)
   end
 end
