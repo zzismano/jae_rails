@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "leisures#index"
+
+  #Leisures routes
+  resources :leisures, only: %i[index new create]
 end
