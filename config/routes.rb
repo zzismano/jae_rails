@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   root "leisures#index"
 
   #Leisures routes
-  resources :leisures, only: %i[index new create]
+  resources :leisures, only: %i[new create]
 end

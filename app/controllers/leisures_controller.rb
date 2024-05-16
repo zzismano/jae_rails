@@ -6,6 +6,7 @@ class LeisuresController < ApplicationController
 
   def new
     @leisure = Leisure.new
+    authorize @leisure
   end
 
   def create
