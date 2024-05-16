@@ -11,4 +11,10 @@ Rails.application.routes.draw do
 
   #Leisures routes
   resources :leisures, only: %i[new create]
+  #Categories routes
+  resources :categories, only: %i[new create]
+  #Venues routes
+  resources :venues, only: %i[new create]
+  #Genres routes
+  resources :genres, only: %i[new create]
 end

@@ -11,13 +11,14 @@ class LeisuresController < ApplicationController
 
   def create
     @leisure = Leisure.new(leisure_params)
+    authorize @leisure
     @leisure.save
   end
 
   private
 
   def leisure_params
-    params.require(:leisure).permit()
+    params.require(:leisure).permit(:category_id, :venue_id, :picture, :genre, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date)
   end
 
 end
