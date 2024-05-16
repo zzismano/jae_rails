@@ -53,6 +53,8 @@ gem "pundit"
 # Use Simple Form for Simpler Forms
 gem "simple_form"
 
+gem "country_select"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
