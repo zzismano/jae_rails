@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root "leisures#index"
 
   #Leisures routes
-  resources :leisures, only: %i[new create]
+  resources :leisures, only: %i[new create edit update destroy]
   #Categories routes
   resources :categories, only: %i[new create]
   #Venues routes
