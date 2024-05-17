@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_14_182642) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_17_135033) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,9 +55,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_14_182642) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "leisure_genres", force: :cascade do |t|
+    t.bigint "leisure_id", null: false
+    t.bigint "genre_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_leisure_genres_on_genre_id"
+    t.index ["leisure_id"], name: "index_leisure_genres_on_leisure_id"
+  end
+
   create_table "leisures", force: :cascade do |t|
-    t.integer "category_id", null: false
-    t.integer "venue_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "venue_id", null: false
     t.string "picture"
     t.string "link"
     t.string "title"
@@ -78,8 +87,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_14_182642) do
   end
 
   create_table "leisures_genres", force: :cascade do |t|
-    t.integer "leisure_id", null: false
-    t.integer "genre_id", null: false
+    t.bigint "leisure_id", null: false
+    t.bigint "genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_leisures_genres_on_genre_id"
@@ -110,6 +119,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_14_182642) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "leisure_genres", "genres"
+  add_foreign_key "leisure_genres", "leisures"
   add_foreign_key "leisures", "categories"
   add_foreign_key "leisures", "venues"
   add_foreign_key "leisures_genres", "genres"
