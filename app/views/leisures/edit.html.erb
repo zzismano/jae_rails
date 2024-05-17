@@ -1,0 +1,18 @@
+<%= simple_form_for (@leisure) do |f| %>
+  <%= f.input :title, label: 'Título', error: 'Título é obrigatório.' %>
+  <%= f.input :subtitle, label: 'Subtítulo' %>
+  <%= f.input :description, label: 'Sinopse', error: 'Sinopse é obrigatória.' %>
+  <%= f.input :country, label: 'País' %>
+  <%= f.input :director, label: 'Diretor' %>
+  <%= f.input :features, label: 'Protagonistas' %>
+  <%= f.input :min_age, label: 'Faixa etária' %>
+  <%= f.input :duration, label: 'Duração' %>
+  <%= f.input :time, label: 'Horário' %>
+  <%= f.input :start_date, label: 'Data de início' %>
+  <%= f.input :end_date, label: 'Data do fim' %>
+  <%= f.select :category, Category.all.map { |cat| cat.name } %>
+  <%= f.select :venue, Venue.all.map { |venue| venue.name } %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :link %>
+  <%= f.submit %>
+<% end %>

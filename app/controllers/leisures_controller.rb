@@ -17,6 +17,7 @@ class LeisuresController < ApplicationController
   end
 
   def edit
+    authorize @leisure
     
   end
 
