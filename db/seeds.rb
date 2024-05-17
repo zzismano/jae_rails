@@ -14,7 +14,7 @@ admin2.save!
 
 puts "Creating venues..."
 
-cinemark = Venue.new(name: 'Cinemark', address: 'Praia de Botafogo', capacity: 100, site: 'www.cinemark.com.br')
+cinemark = Venue.new(name: 'Cinemark', address: 'Praia de Botafogo', capacity: 100, website: 'www.cinemark.com.br')
 
 cinemark.save!
 
