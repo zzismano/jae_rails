@@ -53,3 +53,10 @@ artsy.save!
 
 cartaz = Genre.new(name: 'Em cartaz')
 cartaz.save!
+
+puts "Creating leisure_genre..."
+
+join = LeisureGenre.new(leisure: leisure2, genre: artsy)
+join.save!
+
+puts "Seeding is done!"
