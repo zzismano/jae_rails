@@ -1,4 +1,5 @@
 class LeisuresController < ApplicationController
+  before_action :set_leisure, only: [:edit, :update, :destroy]
 
   def index
     @leisures = policy_scope(Leisure)
@@ -15,10 +16,30 @@ class LeisuresController < ApplicationController
     @leisure.save
   end
 
+  def edit
+    authorize @leisure
+  end
+
+  def update
+    authorize @leisure
+    @leisure.update(leisure_params)
+
+    redirect_to root_path
+  end
+
+  def destroy
+    authorize @leisure
+    @leisure.destroy
+  end
+
   private
 
   def leisure_params
-    params.require(:leisure).permit(:category_id, :venue_id, :picture, :genre, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date)
+    params.require(:leisure).permit(:category_id, :venue_id, :photo, :genre, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date)
+  end
+
+  def set_leisure
+    @leisure = Leisure.find(params[:id])
   end
 
 end

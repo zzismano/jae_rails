@@ -14,6 +14,12 @@ gem "sprockets-rails"
 # Use dotenv-rails to hide API keys
 gem "dotenv-rails"
 
+# Use Bootstrap for CSS
+gem "bootstrap", "~> 5.2"
+
+# Use Sass to allow Boostrap bundle install
+gem "sassc-rails"
+
 # Use cloudinary to save media
 gem "cloudinary"
 
