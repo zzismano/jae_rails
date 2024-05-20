@@ -1,5 +1,5 @@
 class LeisuresController < ApplicationController
-  before_action :set_leisure, only: [:edit, :update]
+  before_action :set_leisure, only: [:edit, :update, :destroy]
 
   def index
     @leisures = policy_scope(Leisure)
@@ -18,13 +18,18 @@ class LeisuresController < ApplicationController
 
   def edit
     authorize @leisure
-    
   end
 
   def update
+    authorize @leisure
+    @leisure.update(leisure_params)
+
+    redirect_to root_path
   end
 
   def destroy
+    authorize @leisure
+    @leisure.destroy
   end
 
   private

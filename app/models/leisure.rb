@@ -5,3 +5,4 @@ class Leisure < ApplicationRecord
   has_many :genres, through: :leisure_genres
   has_one_attached :photo
 end
+
