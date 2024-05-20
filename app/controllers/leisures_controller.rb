@@ -24,12 +24,17 @@ class LeisuresController < ApplicationController
     authorize @leisure
     @leisure.update(leisure_params)
 
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   def destroy
     authorize @leisure
     @leisure.destroy
+  end
+
+  def dashboard
+    @leisures = Leisure.all
+    authorize @leisures
   end
 
   private

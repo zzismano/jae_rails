@@ -16,4 +16,11 @@ class VenuePolicy < ApplicationPolicy
     user.admin?
   end
 
+  def edit?
+    update?
+  end
+
+  def update?
+    user.admin
+  end
 end
