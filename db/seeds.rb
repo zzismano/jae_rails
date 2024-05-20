@@ -1,8 +1,9 @@
-User.destroy_all
-Venue.destroy_all
-Leisure.destroy_all
-Category.destroy_all
+LeisureGenre.destroy_all
 Genre.destroy_all
+Leisure.destroy_all
+Venue.destroy_all
+Category.destroy_all
+User.destroy_all
 
 puts "Creating admin users..."
 

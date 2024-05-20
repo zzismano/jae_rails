@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_17_174010) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_20_151957) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,12 +47,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_174010) do
     t.text "subcategories"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_genres_on_user_id"
   end
 
   create_table "leisure_genres", force: :cascade do |t|
@@ -81,7 +85,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_174010) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["category_id"], name: "index_leisures_on_category_id"
+    t.index ["user_id"], name: "index_leisures_on_user_id"
     t.index ["venue_id"], name: "index_leisures_on_venue_id"
   end
 
@@ -114,14 +120,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_174010) do
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_venues_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "categories", "users"
+  add_foreign_key "genres", "users"
   add_foreign_key "leisure_genres", "genres"
   add_foreign_key "leisure_genres", "leisures"
   add_foreign_key "leisures", "categories"
+  add_foreign_key "leisures", "users"
   add_foreign_key "leisures", "venues"
   add_foreign_key "leisures_genres", "genres"
   add_foreign_key "leisures_genres", "leisures"
+  add_foreign_key "venues", "users"
 end
