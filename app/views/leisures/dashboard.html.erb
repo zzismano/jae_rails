@@ -17,12 +17,13 @@
     <tr>
       <td><%=link_to "#{leisure.title}", edit_leisure_path(leisure)%></td>
       <td><%=link_to "#{leisure.venue.name}", edit_venue_path(leisure.venue)%></td>
-      <td>
-        <% leisure.genres.each do |genre|%>
-          <%=genre.name%>
-        <%end%>
+      <td> <% if leisure.genres.empty? %>
+          sem gênero
+          <%else%>
+           <%= link_to "#{leisure.genres.first.name}", edit_genre_path(leisure.genres.first) %>
+          <% end%>
       </td>
-      <td><%=leisure.category.name%></td>
+      <td><%=link_to "#{leisure.category.name}", edit_category_path(leisure.category)%></td>
     </tr>
     <%end%>
   </tbody>

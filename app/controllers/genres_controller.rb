@@ -1,5 +1,10 @@
 class GenresController < ApplicationController
   before_action :set_genre, only: [:edit, :update]
+
+  def index
+    @genres = policy_scope(Genre)
+  end
+
   def new
     @genre = Genre.new
     authorize @genre
@@ -29,6 +34,6 @@ class GenresController < ApplicationController
   end
 
   def set_genre
-    @genre = genre.find(params[:id])
+    @genre = Genre.find(params[:id])
   end
 end

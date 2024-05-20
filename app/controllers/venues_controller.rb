@@ -1,6 +1,10 @@
 class VenuesController < ApplicationController
   before_action :set_venue, only: [:edit, :update]
 
+  def index
+    @venues = policy_scope(Venue)
+  end
+
   def new
     @venue = Venue.new
     authorize @venue

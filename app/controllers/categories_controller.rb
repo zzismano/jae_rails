@@ -1,5 +1,10 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:edit, :update]
+
+  def index
+    @categories = policy_scope(Category)
+  end
+
   def new
     @category = Category.new
     authorize @category
@@ -28,6 +33,6 @@ class CategoriesController < ApplicationController
   end
 
   def set_category
-    @category = category.find(params[:id])
+    @category = Category.find(params[:id])
   end
 end
