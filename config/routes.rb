@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   #Leisures routes
   resources :leisures, only: %i[new create edit update destroy]
   #Categories routes
-  resources :categories, only: %i[new create]
+  resources :categories, only: %i[new create edit update]
   #Venues routes
   resources :venues, only: %i[new create edit update]
   #Genres routes
-  resources :genres, only: %i[new create]
+  resources :genres, only: %i[new create edit update]
 end
