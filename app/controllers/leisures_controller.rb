@@ -32,6 +32,11 @@ class LeisuresController < ApplicationController
     @leisure.destroy
   end
 
+  def dashboard
+    @leisures = Leisure.all
+    authorize @leisures
+  end
+
   private
 
   def leisure_params

@@ -1,0 +1,25 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Evento <%= link_to "+", new_leisure_path%></th>
+      <th scope="col">Estabelecimento <%= link_to "+", new_venue_path%> </th>
+      <th scope="col">Gênero <%= link_to "+", new_genre_path%> </th>
+      <th scope="col">Categoria <%= link_to "+", new_category_path%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @leisures.each do |leisure|%>
+    <tr>
+      <td><%=link_to "#{leisure.title}", edit_leisure_path(leisure)%></td>
+      <td><%=leisure.venue.name%></td>
+      <td>
+        <% leisure.genres.each do |genre|%>
+          <%=genre.name%>
+        <%end%>
+      </td>
+      <td><%=leisure.category.name%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

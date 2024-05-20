@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "leisures#index"
-
+  #admin routes
+  get "dashboard", to: "leisures#dashboard"
   #Leisures routes
   resources :leisures, only: %i[new create edit update destroy]
   #Categories routes
