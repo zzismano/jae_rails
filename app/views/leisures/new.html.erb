@@ -1,19 +1,44 @@
-<%= simple_form_for(@leisure) do |f| %>
-  <%= f.input :category_id %>
-  <%= f.input :venue_id %>
-  <%= f.input :title %>
-  <%= f.input :subtitle %>
-  <%= f.input :director %>
-  <%= f.input :country %>
-  <%= f.input :description %>
-  <%= f.input :features %>
-  <%= f.input :min_age %>
-  <%= f.input :duration %>
-  <%= f.input :time %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :link %>
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-8 col-12 bg-light rounded p-4">
+      <h2 class="text-center h3 mb-3 fw-bold">Editar evento</h2>
+      <%= simple_form_for (@leisure) do |f| %>
+        <%= f.input :title, label: 'Título:' , error: 'Título é obrigatório.', label_html: { class: 'fw-bold' } %>
+        <%= f.input :subtitle, label: 'Subtítulo:', label_html: { class: 'fw-bold' } %>
+        <%= f.input :description, as: :text, label: 'Sinopse:' , error: 'Sinopse é obrigatória.', label_html: { class: 'fw-bold' } %>
+        <%= f.input :country, label: 'País:', label_html: { class: 'fw-bold' } %>
+        <%= f.input :director, label: 'Diretor(a):', label_html: { class: 'fw-bold' } %>
+        <%= f.input :features, label: 'Protagonistas:', label_html: { class: 'fw-bold' } %>
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <%= f.input :min_age, label: 'Faixa etária:', label_html: { class: 'fw-bold' } %>
+          </div>
+          <div class="col-lg-6 col-12">
+            <%= f.input :duration, as: :string, label: 'Duração:', label_html: { class: 'fw-bold' }, placeholder: 'Ex: 1hr50mins' %>
+          </div>
+        </div>
+        <%= f.input :time, label: 'Horário:', label_html: { class: 'fw-bold' } %>
+        <%= f.input :start_date, label: 'Data de início:', label_html: { class: 'fw-bold' } %>
+        <%= f.input :end_date, label: 'Data do fim:', label_html: { class: 'fw-bold' } %>
 
-  <%= f.submit %>
-<% end %>
+          <div class="row">
+            <div class="col-lg-6 col-12">
+              <%= f.association :venue, label: 'Estabelecimento:', label_html: { class: 'fw-bold' }, input_html: { class: 'form-select' }, prompt: "Escolha um estabelecimento:" %>
+            </div>
+            <div class="col-lg-6 col-12">
+              <%= f.association :category, label: 'Categoria:', label_html: { class: 'fw-bold' }, input_html: { class: 'form-select' }, prompt: "Escolha uma categoria:" %>
+            </div>
+          </div>
+          
+
+        <%= f.input :photo, as: :file, label_html: { class: 'fw-bold' } %>
+        <%= f.input :link, label_html: { class: 'fw-bold' } %>
+        <div class="d-grid gap-2 col-6 mx-auto my-4">
+          <%= f.button :submit, "Salvar evento", class: 'btn btn-success fw-bold' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
