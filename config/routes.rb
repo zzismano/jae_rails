@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #Categories routes
   resources :categories, only: %i[new create]
   #Venues routes
-  resources :venues, only: %i[new create]
+  resources :venues, only: %i[new create edit update]
   #Genres routes
   resources :genres, only: %i[new create]
 end

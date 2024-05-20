@@ -12,7 +12,7 @@
     <% @leisures.each do |leisure|%>
     <tr>
       <td><%=link_to "#{leisure.title}", edit_leisure_path(leisure)%></td>
-      <td><%=leisure.venue.name%></td>
+      <td><%=link_to "#{leisure.venue.name}", edit_venue_path(leisure.venue)%></td>
       <td>
         <% leisure.genres.each do |genre|%>
           <%=genre.name%>
