@@ -1,4 +1,5 @@
 LeisureGenre.destroy_all
+LeisureVenue.destroy_all
 Genre.destroy_all
 Leisure.destroy_all
 Venue.destroy_all
@@ -12,6 +13,9 @@ admin1.save!
 
 admin2 = User.new(email: 'pedro@jae.com', password: 123456, admin: true)
 admin2.save!
+
+user = User.new(email: 'user@jae.com', password: 123456)
+user.save!
 
 users = [admin1, admin2]
 
@@ -41,11 +45,11 @@ teatro.save!
 
 puts "Creating leisure..."
 
-leisure = Leisure.new(category: filme, venue: uci, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'USA', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia', features: 'Wagner Moura', min_age: 16, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', user: users.sample)
+leisure = Leisure.new(category: filme, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'USA', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia', features: 'Wagner Moura', min_age: 16, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', user: users.sample)
 
 leisure.save!
 
-leisure2 = Leisure.new(category: teatro, venue: poeira, link: 'www.teatropoeira.com.br', title: "Sonata de Outono", subtitle: '', director: 'Marieta Severo', country: 'BR', description: 'Uma sonata dedicada à relação de mãe e filho', features: 'Marieta Severo, Andrea Beltrao', min_age: 18, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', user: users.sample)
+leisure2 = Leisure.new(category: teatro, link: 'www.teatropoeira.com.br', title: "Sonata de Outono", subtitle: 'Um subtitulo qualquer', director: 'Marieta Severo', country: 'BR', description: 'Uma sonata dedicada à relação de mãe e filho', features: 'Marieta Severo, Andrea Beltrao', min_age: 18, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', user: users.sample)
 
 leisure2.save!
 
@@ -59,7 +63,16 @@ cartaz.save!
 
 puts "Creating leisure_genre..."
 
-join = LeisureGenre.new(leisure: leisure2, genre: artsy)
-join.save!
+join_leisure_genre = LeisureGenre.new(leisure: leisure2, genre: artsy)
+join_leisure_genre.save!
+
+puts "Creating leisure leisure_venues..."
+
+join_leisure_venue1 = LeisureVenue.new(leisure: leisure, venue: uci)
+join_leisure_venue1.save!
+
+join_leisure_venue2 = LeisureVenue.new(leisure: leisure, venue: cinemark)
+
+join_leisure_venue2.save!
 
 puts "Seeding is done!"

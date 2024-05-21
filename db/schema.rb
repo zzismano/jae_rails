@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_21_183319) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_21_183834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -88,7 +88,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_183319) do
 
   create_table "leisures", force: :cascade do |t|
     t.bigint "category_id", null: false
-    t.bigint "venue_id", null: false
     t.string "link"
     t.string "title"
     t.string "subtitle"
@@ -106,7 +105,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_183319) do
     t.bigint "user_id", null: false
     t.index ["category_id"], name: "index_leisures_on_category_id"
     t.index ["user_id"], name: "index_leisures_on_user_id"
-    t.index ["venue_id"], name: "index_leisures_on_venue_id"
   end
 
   create_table "leisures_genres", force: :cascade do |t|
@@ -152,7 +150,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_183319) do
   add_foreign_key "leisure_venues", "venues"
   add_foreign_key "leisures", "categories"
   add_foreign_key "leisures", "users"
-  add_foreign_key "leisures", "venues"
   add_foreign_key "leisures_genres", "genres"
   add_foreign_key "leisures_genres", "leisures"
   add_foreign_key "venues", "users"
