@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   #admin routes
   get "dashboard", to: "leisures#dashboard"
   #Leisures routes
-  resources :leisures, only: %i[index new create edit update destroy]
+  resources :leisure_genres, only: %i[destroy]
+
+  resources :leisures, only: %i[index new create edit update destroy] do
+    resources :leisure_genres, only: %i[new create]
+  end
   #Categories routes
   resources :categories, only: %i[index new create edit update]
   #Venues routes
