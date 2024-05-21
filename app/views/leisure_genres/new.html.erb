@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <h1>Add new tag for <%= @leisure.title %></h1>
+
+      <%= simple_form_for [@leisure, @leisure_genre] do |f| %>
+        <%= f.input :genre, collection: Genre.all %>
+        <%= f.submit "Add genre", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

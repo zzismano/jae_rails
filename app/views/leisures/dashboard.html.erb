@@ -20,7 +20,11 @@
       <td> <% if leisure.genres.empty? %>
           sem gênero
           <%else%>
-           <%= link_to "#{leisure.genres.first.name}", edit_genre_path(leisure.genres.first) %>
+            <%leisure.genres.each do |genre|  %>
+              <%= link_to "#{genre.name}", edit_genre_path(genre) %>
+              <% leisure_genre = LeisureGenre.where(leisure_id: leisure.id, genre_id: genre.id)[0]  %>
+              <%= link_to "x", leisure_genre_path(leisure_genre), data: {turbo_method: :delete, turbo_confirm: "tem certeza?"} %>
+            <% end %>
           <% end%>
       </td>
       <td><%=link_to "#{leisure.category.name}", edit_category_path(leisure.category)%></td>
