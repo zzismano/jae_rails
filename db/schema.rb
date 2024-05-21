@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_20_151957) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_21_183319) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_20_151957) do
     t.index ["user_id"], name: "index_genres_on_user_id"
   end
 
+  create_table "heros", force: :cascade do |t|
+    t.string "caption_one"
+    t.string "caption_two"
+    t.string "caption_three"
+    t.string "caption_four"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "leisure_genres", force: :cascade do |t|
     t.bigint "leisure_id", null: false
     t.bigint "genre_id", null: false
@@ -66,6 +75,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_20_151957) do
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_leisure_genres_on_genre_id"
     t.index ["leisure_id"], name: "index_leisure_genres_on_leisure_id"
+  end
+
+  create_table "leisure_venues", force: :cascade do |t|
+    t.bigint "leisure_id", null: false
+    t.bigint "venue_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["leisure_id"], name: "index_leisure_venues_on_leisure_id"
+    t.index ["venue_id"], name: "index_leisure_venues_on_venue_id"
   end
 
   create_table "leisures", force: :cascade do |t|
@@ -130,6 +148,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_20_151957) do
   add_foreign_key "genres", "users"
   add_foreign_key "leisure_genres", "genres"
   add_foreign_key "leisure_genres", "leisures"
+  add_foreign_key "leisure_venues", "leisures"
+  add_foreign_key "leisure_venues", "venues"
   add_foreign_key "leisures", "categories"
   add_foreign_key "leisures", "users"
   add_foreign_key "leisures", "venues"
