@@ -12,8 +12,20 @@ class LeisuresController < ApplicationController
 
   def create
     @leisure = Leisure.new(leisure_params)
-    authorize @leisure
+    @leisure.user = current_user
     @leisure.save
+    # redirect_to leisure_leisure_venues_path(@leisure)
+    params[:leisure][:genre_ids].compact_blank.each do |genre_id|
+      @leisure_genre = LeisureGenre.new(leisure_id: @leisure.id, genre_id: genre_id)
+      @leisure_genre.save
+    end
+    params[:leisure][:venue_ids].compact_blank.each do |venue_id|
+      @leisure_venue = LeisureVenue.new(leisure_id: @leisure.id, venue_id: venue_id)
+      @leisure_venue.save
+    end
+    authorize @leisure
+    authorize @leisure_genre
+    authorize @leisure_venue
   end
 
   def edit
@@ -40,7 +52,7 @@ class LeisuresController < ApplicationController
   private
 
   def leisure_params
-    params.require(:leisure).permit(:category_id, :venue_id, :photo, :genre, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date)
+    params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date)
   end
 
   def set_leisure

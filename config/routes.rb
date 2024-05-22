@@ -12,9 +12,11 @@ Rails.application.routes.draw do
   get "dashboard", to: "leisures#dashboard"
   #Leisures routes
   resources :leisure_genres, only: %i[destroy]
+  resources :leisure_venues, only: %i[destroy]
 
   resources :leisures, only: %i[index new create edit update destroy] do
     resources :leisure_genres, only: %i[new create]
+    resources :leisure_venues, only: %i[new create]
   end
   #Categories routes
   resources :categories, only: %i[index new create edit update]
