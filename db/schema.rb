@@ -59,15 +59,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_183834) do
     t.index ["user_id"], name: "index_genres_on_user_id"
   end
 
-  create_table "heros", force: :cascade do |t|
-    t.string "caption_one"
-    t.string "caption_two"
-    t.string "caption_three"
-    t.string "caption_four"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "leisure_genres", force: :cascade do |t|
     t.bigint "leisure_id", null: false
     t.bigint "genre_id", null: false

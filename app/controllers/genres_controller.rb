@@ -12,6 +12,7 @@ class GenresController < ApplicationController
 
   def create
     @genre = Genre.new(genre_params)
+    @genre.user = current_user
     authorize @genre
     @genre.save
   end
