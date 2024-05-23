@@ -12,8 +12,12 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
+    @category.user = current_user
     authorize @category
     @category.save
+    if @category.save
+      redirect_to dashboard_path
+    end
   end
 
   def edit
