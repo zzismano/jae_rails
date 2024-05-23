@@ -15,6 +15,9 @@ class GenresController < ApplicationController
     @genre.user = current_user
     authorize @genre
     @genre.save
+    if @genre.save
+      redirect_to dashboard_path
+    end
   end
 
   def edit
