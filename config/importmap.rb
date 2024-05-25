@@ -9,3 +9,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 # pin "@popperjs/core", to: "@popperjs--core.js" # @2.11.8
 pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
+pin "tom-select" # @2.3.1
