@@ -1,39 +1,65 @@
 <ul>
-  <li>clique no + para criar</p>
+  <li>clique em <i class="fa-solid fa-circle-plus"></i>  para criar</li>
   <li>clique no nome para editar</li>
 </ul>
 
-<table class="table">
+<table class="table m-2 p-1">
   <thead>
     <tr>
-      <th scope="col">Evento <%= link_to "+", new_leisure_path%></th>
-      <th scope="col">Estabelecimentos <%= link_to "+", new_venue_path%> </th>
-      <th scope="col">Gêneros <%= link_to "+", new_genre_path%> </th>
-      <th scope="col">Categoria <%= link_to "+", new_category_path%></th>
+      <th scope="col">Evento
+        <%= link_to new_leisure_path do%>
+          <i class="fa-solid fa-circle-plus"></i>
+        <% end %>
+      </th>
+      <th scope="col">Categoria
+        <%= link_to new_category_path do %>
+          <i class="fa-solid fa-circle-plus"></i>
+        <% end %>
+      </th>
+      <th scope="col">Estabelecimentos
+        <%= link_to new_venue_path do %>
+          <i class="fa-solid fa-circle-plus"></i>
+        <% end %>
+      </th>
+      <th scope="col">Gêneros
+        <%= link_to new_genre_path do %>
+          <i class="fa-solid fa-circle-plus"></i>
+        <% end %>
+      </th>
     </tr>
   </thead>
   <tbody>
     <% @leisures.each do |leisure|%>
     <tr>
-      <td><%=link_to "#{leisure.title}", edit_leisure_path(leisure)%></td>
+      <td>
+        <%=link_to "#{leisure.title}", edit_leisure_path(leisure)%>
+      </td>
+      <td><%=link_to "#{leisure.category.name}", edit_category_path(leisure.category)%></td>
       <td>
         <% leisure.venues.each do |venue|  %>
           <% leisure_venue = LeisureVenue.where(leisure_id: leisure.id, venue_id: venue.id)[0]  %>
-          <%=link_to "#{venue.name}", edit_venue_path(venue)%>
-          <%= link_to "x", leisure_venue_path(leisure_venue), data: {turbo_method: :delete, turbo_confirm: "tem certeza?"} %>
+          <span class="badge badge-dark">
+            <%=link_to "#{venue.name}", edit_venue_path(venue) %>
+            <%= link_to leisure_venue_path(leisure_venue), data: {turbo_method: :delete, turbo_confirm: "tem certeza?"} do %>
+              <i class="fa-solid fa-delete-left"></i>
+            <% end %>
+          </span>
         <% end %>
       </td>
       <td> <% if leisure.genres.empty? %>
-          sem gênero
+          <i style="color: gray">sem gênero</i>
           <%else%>
             <%leisure.genres.each do |genre|  %>
-              <%= link_to "#{genre.name}", edit_genre_path(genre) %>
-              <% leisure_genre = LeisureGenre.where(leisure_id: leisure.id, genre_id: genre.id)[0]  %>
-              <%= link_to "x", leisure_genre_path(leisure_genre), data: {turbo_method: :delete, turbo_confirm: "tem certeza?"} %>
+              <span class="badge badge-dark">
+                <%= link_to "#{genre.name}", edit_genre_path(genre) %>
+                <% leisure_genre = LeisureGenre.where(leisure_id: leisure.id, genre_id: genre.id)[0]  %>
+                <%= link_to leisure_genre_path(leisure_genre), data: {turbo_method: :delete, turbo_confirm: "tem certeza?"} do %>
+                  <i class="fa-solid fa-delete-left"></i>
+                <% end %>
+              </span>
             <% end %>
           <% end%>
       </td>
-      <td><%=link_to "#{leisure.category.name}", edit_category_path(leisure.category)%></td>
     </tr>
     <%end%>
   </tbody>
