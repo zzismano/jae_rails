@@ -57,6 +57,9 @@ class LeisuresController < ApplicationController
   def destroy
     authorize @leisure
     @leisure.destroy
+    if @leisure.destroy
+      redirect_to dashboard_path
+    end
   end
 
   def dashboard

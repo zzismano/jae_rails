@@ -1,7 +1,15 @@
-<ul>
-  <li>clique em <i class="fa-solid fa-circle-plus"></i>  para criar</li>
-  <li>clique no nome para editar</li>
-</ul>
+<div class="card m-2" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><i class="fa-solid fa-circle-plus"></i>  para criar</li>
+    <li class="list-group-item"><i class="fa-solid fa-delete-left"></i> para excluir</li>
+    <li class="list-group-item">clique no nome para editar</li>
+  </ul>
+</div>
+<%# <ul>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul> %>
 
 <table class="table m-2 p-1">
   <thead>
@@ -33,6 +41,9 @@
     <tr>
       <td>
         <%=link_to "#{leisure.title.upcase}", edit_leisure_path(leisure)%>
+        <%= link_to leisure_path(leisure), data: {turbo_method: :delete, turbo_confirm: "tem certeza?"} do %>
+          <i class="fa-solid fa-delete-left"></i>
+        <% end %>
       </td>
       <td><%=link_to "#{leisure.category.name.upcase}", edit_category_path(leisure.category)%></td>
       <td><% if leisure.venues.empty? %>

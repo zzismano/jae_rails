@@ -25,6 +25,10 @@ class LeisurePolicy < ApplicationPolicy
     user.admin
   end
 
+  def destroy?
+    user.admin
+  end
+
   def dashboard?
     user.admin
   end
