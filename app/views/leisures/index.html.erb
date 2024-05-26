@@ -1,5 +1,33 @@
-<div class="container">
-  <p class="title">Hello, World!</p>
+<div class="row" style="margin-top: 7rem; margin-right: 0; margin-left: 0;">
+  <%= @leisures.each do |leisure| %>
+    <div class="filme col-12 col-m-12 col-lg-4 ">
+      <div class="letreiro">
+        <div class="foto-filme"></div>
+        <div class="infos-filme">
+          <strong><%= leisure.title.upcase %></strong>
+          <p> <% names = [] %>
+              <% leisure.genres.each do |genre| %>
+                <% names << genre.name %>
+              <% end %>
+              <%= names.join(" / ") %>
+            | dir. <%= leisure.director %> | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "sem país" %> | <%= leisure.min_age.to_s %> | <%= leisure.duration %>  </p>
+          <p id="horario">sex | 06/out | 22h </p>
+          <button class="button-small">comprar ingresso</button>
+        </div>
+      </div>
+      <div class="sinopse">
+        <p>
+          <%= leisure.description %>
+        </p>
+        <div class="legenda">
+          <strong><% venues = [] %>
+              <% leisure.venues.each do |venue| %>
+                <% venues << venue.name %>
+              <% end %>
+              <%= venues.join(" | ") %>
+          </strong>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
-
-cl
