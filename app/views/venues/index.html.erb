@@ -1,7 +1,11 @@
 <div class="container my-3">
   <div class="row justify-content-center">
     <div class="col-lg-8 col-md-8 col-12 bg-light rounded p-4">
-      <h2 class="text-center h3 mb-3 fw-bold">Estabelecimentos</h2>
+      <h2 class="text-center h3 mb-3 fw-bold">Estabelecimentos
+        <%= link_to new_venue_path do %>
+          <i class="fa-solid fa-circle-plus"></i>
+        <% end %>
+      </h2>
       <table class="table">
         <thead>
           <tr>
@@ -14,7 +18,12 @@
         <tbody>
           <% @venues.each do |venue|%>
             <tr>
-              <td><%= venue.name %></td>
+              <td>
+                <%= link_to "#{venue.name}", edit_venue_path(venue)%>
+                <%= link_to venue_path(venue), data: {turbo_method: :delete, turbo_confirm: "tem certeza?"} do %>
+                    <i class="fa-solid fa-delete-left"></i>
+                <% end %>
+              </td>
               <td><%= venue.capacity %></td>
               <td><%= venue.address %></td>
               <td><%= venue.website %></td>
