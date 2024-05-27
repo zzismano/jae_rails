@@ -20,6 +20,9 @@ gem "bootstrap", "~> 5.2"
 # Use Sass to allow Boostrap bundle install
 gem "sassc-rails"
 
+# Use Font Awesome for icons
+gem "font-awesome-sass", "~> 6.1"
+
 # Use cloudinary to save media
 gem "cloudinary"
 

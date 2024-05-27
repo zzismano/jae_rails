@@ -1,7 +1,17 @@
-<%= simple_form_for(@venue) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :capacity %>
-  <%= f.input :website %>
-  <%= f.submit %>
-<% end %>
+
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-8 col-12 bg-light rounded p-4">
+      <h2 class="text-center h3 mb-3 fw-bold">Editar Estabelecimento</h2>
+      <%= simple_form_for(@venue) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :capacity %>
+        <%= f.input :website %>
+        <div class="d-grid gap-2 col-6 mx-auto my-4">
+          <%= f.button :submit, 'Salvar estabelecimento', class: 'btn btn-success fw-bold' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
