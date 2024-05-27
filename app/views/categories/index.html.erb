@@ -2,11 +2,7 @@
 <div class="container my-3">
   <div class="row justify-content-center">
     <div class="col-lg-8 col-md-8 col-12 bg-light rounded p-4">
-      <h2 class="text-center h3 mb-3 fw-bold">Categorias
-        <%= link_to new_category_path do %>
-          <i class="fa-solid fa-circle-plus"></i>
-        <% end %>
-      </h2>
+      <h2 class="text-center h3 mb-3 fw-bold">Categorias</h2>
       <table class="table">
         <thead>
           <tr>
@@ -16,12 +12,7 @@
         <tbody>
           <% @categories.each do |category|%>
             <tr>
-              <td>
-                <%= link_to "#{category.name.upcase}", edit_category_path(category)%>
-                <%= link_to category_path(category), data: {turbo_method: :delete, turbo_confirm: "tem certeza?"} do %>
-                    <i class="fa-solid fa-delete-left"></i>
-                <% end %>
-              </td>
+              <td><%= category.name %></td>
               <td><%= category.subcategories %></td>
             </tr>
           <% end %>
