@@ -59,6 +59,7 @@ gem "pundit"
 # Use Simple Form for Simpler Forms
 gem "simple_form"
 
+#se country select to select country
 gem "country_select"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
