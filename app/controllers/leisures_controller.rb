@@ -15,17 +15,30 @@ class LeisuresController < ApplicationController
     @leisure.user = current_user
     @leisure.save
     # redirect_to leisure_leisure_venues_path(@leisure)
-    params[:leisure][:genre_ids].compact_blank.each do |genre_id|
-      @leisure_genre = LeisureGenre.new(leisure_id: @leisure.id, genre_id: genre_id)
-      @leisure_genre.save
+    if !params[:leisure][:genre_ids].empty?
+      params[:leisure][:genre_ids].compact_blank.each do |genre_id|
+        @leisure_genre = LeisureGenre.new(leisure_id: @leisure.id, genre_id: genre_id)
+        @leisure_genre.save
+      end
     end
-    params[:leisure][:venue_ids].compact_blank.each do |venue_id|
-      @leisure_venue = LeisureVenue.new(leisure_id: @leisure.id, venue_id: venue_id)
-      @leisure_venue.save
+
+    if !params[:leisure][:venue_ids].empty?
+      params[:leisure][:venue_ids].compact_blank.each do |venue_id|
+        @leisure_venue = LeisureVenue.new(leisure_id: @leisure.id, venue_id: venue_id)
+        @leisure_venue.save
+      end
     end
+
     authorize @leisure
-    authorize @leisure_genre
-    authorize @leisure_venue
+
+    if @leisure_genre
+      authorize @leisure_genre
+    end
+
+    if @leisure_venue
+      authorize @leisure_venue
+    end
+
     if @leisure.save
       redirect_to dashboard_path
     end
