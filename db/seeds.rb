@@ -1,3 +1,5 @@
+
+
 LeisureGenre.destroy_all
 LeisureVenue.destroy_all
 Genre.destroy_all
@@ -43,9 +45,9 @@ teatro = Category.new(name: 'Teatro', subcategories: ["Drama", "Horror", "Comedy
 
 teatro.save!
 
-puts "Creating leisure..."
+# puts "Creating leisure..."
 
-leisure = Leisure.new(category: filme, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'USA', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia', features: 'Wagner Moura', min_age: 16, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', user: users.sample)
+leisure = Leisure.new(category: filme, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'BR', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia', features: 'Wagner Moura', min_age: 16, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', user: users.sample)
 
 leisure.save!
 
@@ -76,3 +78,4 @@ join_leisure_venue2 = LeisureVenue.new(leisure: leisure, venue: cinemark)
 join_leisure_venue2.save!
 
 puts "Seeding is done!"
+
