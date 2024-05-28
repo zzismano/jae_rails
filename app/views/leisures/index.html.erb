@@ -10,7 +10,7 @@
                 <% names << genre.name %>
               <% end %>
               <%= names.join(" / ") %>
-            | dir. <%= leisure.director %> | <%= leisure.country %> | <%= leisure.min_age.to_s %> | <%= leisure.duration %>  </p>
+            | dir. <%= leisure.director %> | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "sem país"  %> | <%= leisure.min_age.to_s %> | <%= leisure.duration %>  </p>
           <p id="horario">sex | 06/out | 22h </p>
           <button class="button-small">comprar ingresso</button>
         </div>
