@@ -4,9 +4,13 @@
       <h2 class="text-center h3 mb-3 fw-bold">Novo evento</h2>
       <%= simple_form_for (@leisure) do |f| %>
         <%= f.input :title, label: 'Título:' , error: 'Título é obrigatório.', label_html: { class: 'fw-bold' } %>
+
         <%= f.input :subtitle, label: 'Subtítulo:', label_html: { class: 'fw-bold' } %>
+
         <%= f.input :description, as: :text, label: 'Sinopse:' , error: 'Sinopse é obrigatória.', label_html: { class: 'fw-bold' } %>
-        <%= f.input :country, label: 'País:', label_html: { class: 'fw-bold' } %>
+
+        <%= f.input :country, priority: ["BR", "US"], label: 'País:', label_html: { class: 'fw-bold' } %>
+
         <%= f.input :director, label: 'Diretor(a):', label_html: { class: 'fw-bold' } %>
         <%= f.input :features, label: 'Destaques:', label_html: { class: 'fw-bold' },  placeholder: 'Ex: Angelina Jolie, Brad Pitt e Lázaro Ramos' %>
         <div class="row">
