@@ -9,9 +9,10 @@
 
         <%= f.input :description, as: :text, label: 'Sinopse:' , error: 'Sinopse é obrigatória.', label_html: { class: 'fw-bold' } %>
 
-        <%= f.input :country, priority: ["BR", "US"], label: 'País:', label_html: { class: 'fw-bold' } %>
+        <%= f.input :country, priority: ["BR", "US"],  include_blank: 'Selecione um país:' , label: 'País:', label_html: { class: 'fw-bold' }, input_html: { class: 'form-select' } %>
 
         <%= f.input :director, label: 'Diretor(a):', label_html: { class: 'fw-bold' } %>
+
         <%= f.input :features, label: 'Destaques:', label_html: { class: 'fw-bold' },  placeholder: 'Ex: Angelina Jolie, Brad Pitt e Lázaro Ramos' %>
         <div class="row">
           <div class="col-lg-6 col-12">
@@ -22,7 +23,9 @@
           </div>
         </div>
         <%= f.input :time, label: 'Horário:', label_html: { class: 'fw-bold' }, include_blank: true %>
+
         <%= f.input :start_date, label: 'Data de início:', label_html: { class: 'fw-bold' } %>
+
         <%= f.input :end_date, label: 'Data do fim:', label_html: { class: 'fw-bold' } %>
 
           <div class="row">
