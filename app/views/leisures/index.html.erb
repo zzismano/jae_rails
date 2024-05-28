@@ -1,5 +1,5 @@
 <div class="row" style="margin-top: 7rem; margin-right: 0; margin-left: 0;">
-  <%= @leisures.each do |leisure| %>
+  <% @leisures.each do |leisure| %>
     <div class="filme col-12 col-m-12 col-lg-4 ">
       <div class="letreiro">
         <div class="foto-filme"></div>
@@ -10,7 +10,7 @@
                 <% names << genre.name %>
               <% end %>
               <%= names.join(" / ") %>
-            | dir. <%= leisure.director %> | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "sem país" %> | <%= leisure.min_age.to_s %> | <%= leisure.duration %>  </p>
+            | dir. <%= leisure.director %> | <%= leisure.country %> | <%= leisure.min_age.to_s %> | <%= leisure.duration %>  </p>
           <p id="horario">sex | 06/out | 22h </p>
           <button class="button-small">comprar ingresso</button>
         </div>
