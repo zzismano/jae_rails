@@ -3,6 +3,7 @@ class LeisuresController < ApplicationController
 
   def index
     @leisures = policy_scope(Leisure)
+    @banner = Banner.last
   end
 
   def new

@@ -1,10 +1,11 @@
 class BannersController < ApplicationController
-  before_action :set_banner, only: %i[show edit update destroy]
+  before_action :set_banner, only: %i[ edit update destroy ]
 
   def index
   end
 
   def show
+    
   end
 
   def new
