@@ -8,6 +8,7 @@ class BannersController < ApplicationController
 
   def new
     @banner = Banner.new
+    authorize @banner
   end
 
   def create

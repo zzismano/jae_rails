@@ -1,6 +1,8 @@
 <div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-8 col-12">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-8 col-12 bg-light rounded p-4">
+      <h1 class="fw-bold h3 text-center">Criar novo banner central:</h1>
+
       <%= simple_form_for (@banner) do |f| %>
         <%= f.input :photo_one, as: :file, label: 'Foto Um:', label_html: { class: 'fw-bold' } %>
         <%= f.input :caption_one %>
@@ -13,8 +15,12 @@
 
         <%= f.input :photo_four, as: :file, label: 'Foto Quatro:', label_html: { class: 'fw-bold' } %>
         <%= f.input :caption_four %>
+
+        <div class="d-grid gap-2 col-6 mx-auto my-4">
+          <%= f.submit 'Criar banner', class: 'btn btn-success fw-bold' %>
+        </div>
         
-        <%= f.submit 'Criar banner', class: 'btn btn-success fw-bold' %>
+        
       <% end %>
     </div>
   </div>

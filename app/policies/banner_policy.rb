@@ -11,4 +11,12 @@ class BannerPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+
+  def new?
+    create?
+  end
+
+  def create?
+    user.admin
+  end
 end
