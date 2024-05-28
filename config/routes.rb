@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   #Genres routes
   resources :genres, only: %i[index new create edit update]
   
-  resources :banner
+  resources :banners
 end
