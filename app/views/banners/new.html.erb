@@ -1,20 +1,33 @@
-<div class="container">
+<div class="container my-3">
   <div class="row justify-content-center">
     <div class="col-lg-8 col-md-8 col-12 bg-light rounded p-4">
-      <h1 class="fw-bold h3 text-center">Criar novo banner central:</h1>
+      <h1 class="fw-bold h3 mb-3 text-center">Criar novo banner central:</h1>
 
       <%= simple_form_for (@banner) do |f| %>
-        <%= f.input :photo_one, as: :file, label: 'Foto Um:', label_html: { class: 'fw-bold' } %>
-        <%= f.input :caption_one %>
 
-        <%= f.input :photo_two, as: :file, label: 'Foto Dois:', label_html: { class: 'fw-bold' } %>
-        <%= f.input :caption_two %>
+        <div class="border-start border-3 border-success-subtle px-3 py-2 my-2 bg-secondary-subtle rounded">
+          <%= f.input :photo_one, as: :file, label: 'Foto 1:', label_html: { class: 'fw-bold' } %>
 
-        <%= f.input :photo_three, as: :file, label: 'Foto Três:', label_html: { class: 'fw-bold' } %>
-        <%= f.input :caption_three %>
+          <%= f.input :caption_one, label: 'Legenda 1:', label_html: { class: 'fw-bold' } %>
+        </div>
 
-        <%= f.input :photo_four, as: :file, label: 'Foto Quatro:', label_html: { class: 'fw-bold' } %>
-        <%= f.input :caption_four %>
+        <div class="border-start border-3 border-success-subtle px-3 py-2 my-2 bg-secondary-subtle rounded">
+          <%= f.input :photo_two, as: :file, label: 'Foto 2:', label_html: { class: 'fw-bold' } %>
+
+          <%= f.input :caption_two, label: 'Legenda 2:', label_html: { class: 'fw-bold' } %>
+        </div>
+
+        <div class="border-start border-3 border-success-subtle px-3 py-2 my-2 bg-secondary-subtle rounded">
+          <%= f.input :photo_three, as: :file, label: 'Foto 3:', label_html: { class: 'fw-bold' } %>
+
+          <%= f.input :caption_three, label: 'Legenda 3:', label_html: { class: 'fw-bold' } %>
+        </div>
+
+        <div class="border-start border-3 border-success-subtle px-3 py-2 my-2 bg-secondary-subtle rounded">
+          <%= f.input :photo_four, as: :file, label: 'Foto 4:', label_html: { class: 'fw-bold' } %>
+
+          <%= f.input :caption_four, label: 'Legenda 4:', label_html: { class: 'fw-bold' } %>
+        </div>
 
         <div class="d-grid gap-2 col-6 mx-auto my-4">
           <%= f.submit 'Criar banner', class: 'btn btn-success fw-bold' %>
