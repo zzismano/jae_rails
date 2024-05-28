@@ -6,15 +6,15 @@
       <%= simple_form_for (@banner) do |f| %>
 
         <div class="border-start border-3 border-success-subtle px-3 py-2 my-2 bg-secondary-subtle rounded">
-          <%= f.input :photo_one, as: :file, label: 'Foto 1:', label_html: { class: 'fw-bold' } %>
+          <%= f.input :photo_one, as: :file, label: 'Foto 1:', label_html: { class: 'fw-bold' }, error: 'A foto 1 é obrigatória - adicione uma foto.' %>
 
-          <%= f.input :caption_one, label: 'Legenda 1:', label_html: { class: 'fw-bold' } %>
+          <%= f.input :caption_one, label: 'Legenda 1:', label_html: { class: 'fw-bold' }, error: 'A legenda 1 é obrigatória - adicione uma legenda.' %>
         </div>
 
         <div class="border-start border-3 border-success-subtle px-3 py-2 my-2 bg-secondary-subtle rounded">
-          <%= f.input :photo_two, as: :file, label: 'Foto 2:', label_html: { class: 'fw-bold' } %>
+          <%= f.input :photo_two, as: :file, label: 'Foto 2:', label_html: { class: 'fw-bold' }, error: 'A foto 2 é obrigatória - adicione uma foto.' %>
 
-          <%= f.input :caption_two, label: 'Legenda 2:', label_html: { class: 'fw-bold' } %>
+          <%= f.input :caption_two, label: 'Legenda 2:', label_html: { class: 'fw-bold' }, error: 'A legenda 2 é obrigatória - adicione uma legenda.' %>
         </div>
 
         <div class="border-start border-3 border-success-subtle px-3 py-2 my-2 bg-secondary-subtle rounded">
