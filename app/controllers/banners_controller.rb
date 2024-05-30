@@ -2,6 +2,7 @@ class BannersController < ApplicationController
   before_action :set_banner, only: %i[ edit update destroy ]
 
   def index
+    @banners = policy_scope(Banner)
   end
 
   def show
@@ -25,13 +26,22 @@ class BannersController < ApplicationController
   end
 
   def edit
-    
+    authorize @banner
   end
 
   def update
+    authorize @banner
+    @banner.update(banner_params)
+
+    redirect_to root_path
   end
 
   def destroy
+  end
+
+  def banner_config
+    @banner = Banner.last
+    authorize @banner
   end
 
   private 

@@ -7,9 +7,9 @@ class BannerPolicy < ApplicationPolicy
 
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
+    def resolve
+      scope.all
+    end
   end
 
   def new?
@@ -17,6 +17,18 @@ class BannerPolicy < ApplicationPolicy
   end
 
   def create?
+    user.admin
+  end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    user.admin
+  end
+
+  def banner_config?
     user.admin
   end
 end
