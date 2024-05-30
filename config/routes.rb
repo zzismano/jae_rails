@@ -24,4 +24,8 @@ Rails.application.routes.draw do
   resources :venues, only: %i[index new create edit update]
   #Genres routes
   resources :genres, only: %i[index new create edit update]
+  
+  resources :banners
+
+  get "banner_config", to: 'banners#banner_config'
 end

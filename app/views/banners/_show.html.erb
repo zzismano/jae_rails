@@ -1,0 +1,47 @@
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <%= cl_image_tag @banner.photo_one.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_one, class: 'd-block' %>
+      
+      <div class="legenda-carrosel">
+        <p><%= @banner.caption_one %></p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <%= cl_image_tag @banner.photo_two.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_two, class: 'd-block' %>
+      <div class="legenda-carrosel">
+        <p><%= @banner.caption_two %></p>
+      </div>
+    </div>
+
+    <% if @banner.caption_three? && @banner.photo_three.attached? %>
+      <div class="carousel-item">
+        <%= cl_image_tag @banner.photo_three.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_three, class: 'd-block' %>
+        <div class="legenda-carrosel">
+          <p><%= @banner.caption_three %></p>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @banner.caption_four? && @banner.photo_four.attached? %>
+      <div class="carousel-item">
+        <%= cl_image_tag @banner.photo_four.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_four, class: 'd-block' %>
+        <div class="legenda-carrosel">
+          <p><%= @banner.caption_four %></p>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+

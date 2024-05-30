@@ -56,6 +56,9 @@ gem "jbuilder"
 # Use Devise for Authentication
 gem "devise"
 
+# Use Pry Byebug to debug app
+# gem 'pry-byebug'
+
 # Use Pundit for Authorization
 gem "pundit"
 
