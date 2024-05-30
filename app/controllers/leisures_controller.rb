@@ -3,7 +3,8 @@ class LeisuresController < ApplicationController
 
   def index
     @leisures = policy_scope(Leisure)
-    @banner = Banner.last
+    # load hero banner on LP. 
+    @banner = Banner.first
   end
 
   def new

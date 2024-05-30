@@ -1,4 +1,6 @@
-
+require 'open-uri'
+require 'json'
+require 'pry-byebug'
 
 LeisureGenre.destroy_all
 LeisureVenue.destroy_all
@@ -7,6 +9,7 @@ Leisure.destroy_all
 Venue.destroy_all
 Category.destroy_all
 User.destroy_all
+Banner.destroy_all
 
 puts "Creating admin users..."
 
@@ -20,6 +23,64 @@ user = User.new(email: 'user@jae.com', password: 123456)
 user.save!
 
 users = [admin1, admin2]
+
+puts "Creating one single banner..."
+
+banner = Banner.new(caption_one: "Mussum Ipsum, cacilds vidis abertis. Pra lá, depois divoltis, paradis.", caption_two: "Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.", caption_three: "Delegadis gente finis, bibendum egestas augue arcu ut est.", caption_four: "Praesent lacinia ultrices consectetur. Sed non ipsum felis.")
+
+# API call to unsplash 
+
+url = "https://api.unsplash.com/photos/random/?client_id=#{ENV['UNSPLASH_API_KEY']}&orientation=landscape&query=nature"
+
+unsplash_api = URI.open(url).read
+response = JSON.parse(unsplash_api)
+photo_url = response["urls"]["regular"]
+file_one = URI.open(photo_url)
+
+puts "Found photo url one"
+
+
+banner.photo_one.attach(io: file_one, filename: "nature_one.png", content_type: "image/jpg")
+
+puts "Attached photo_one to banner"
+
+unsplash_api2 = URI.open(url).read
+response2 = JSON.parse(unsplash_api2)
+photo_url2 = response2["urls"]["regular"]
+file_two = URI.open(photo_url2)
+
+puts "Found photo url two"
+
+banner.photo_two.attach(io: file_two, filename: "nature_two.png", content_type: "image/jpg")
+
+puts "Attached photo_two to banner"
+
+unsplash_api3 = URI.open(url).read
+response3 = JSON.parse(unsplash_api3)
+photo_url3 = response3["urls"]["regular"]
+file_three = URI.open(photo_url3)
+
+puts "Found photo url three"
+
+banner.photo_three.attach(io: file_three, filename: "nature_three.png", content_type: "image/jpg")
+
+puts "Attached photo_three to banner"
+
+unsplash_api4 = URI.open(url).read
+response4 = JSON.parse(unsplash_api4)
+photo_url4 = response4["urls"]["regular"]
+file_four = URI.open(photo_url4)
+
+puts "Found photo url four"
+
+banner.photo_four.attach(io: file_four, filename: "nature_four.png", content_type: "image/jpg")
+
+puts "Attached photo_four to banner"
+
+
+banner.save
+
+puts "Saved banner!"
 
 puts "Creating venues..."
 
