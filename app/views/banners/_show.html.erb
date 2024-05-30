@@ -2,14 +2,15 @@
   <div class="carousel-inner">
 
     <div class="carousel-item active">
-      <img src="<%= cl_image_path @banner.photo_one.key, height: 400, crop: :fill %>" class="d-block" alt="<%= @banner.caption_one %>">
+      <%= cl_image_tag @banner.photo_one.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_one, class: 'd-block' %>
+      
       <div class="legenda-carrosel">
         <p><%= @banner.caption_one %></p>
       </div>
     </div>
 
     <div class="carousel-item">
-      <img src="<%= cl_image_path @banner.photo_two.key, height: 400, crop: :fill %>" class="d-block" alt="<%= @banner.caption_two %>" class="d-block" alt="<%= @banner.caption_two %>">
+      <%= cl_image_tag @banner.photo_two.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_two, class: 'd-block' %>
       <div class="legenda-carrosel">
         <p><%= @banner.caption_two %></p>
       </div>
@@ -17,7 +18,7 @@
 
     <% if @banner.caption_three? && @banner.photo_three.attached? %>
       <div class="carousel-item">
-        <img src="<%= cl_image_path @banner.photo_three.key, height: 400, crop: :fill %>" class="d-block" alt="<%= @banner.caption_three %>">
+        <%= cl_image_tag @banner.photo_three.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_three, class: 'd-block' %>
         <div class="legenda-carrosel">
           <p><%= @banner.caption_three %></p>
         </div>
@@ -26,7 +27,7 @@
 
     <% if @banner.caption_four? && @banner.photo_four.attached? %>
       <div class="carousel-item">
-        <img src="<%= cl_image_path @banner.photo_four.key, height: 400, crop: :fill %>" class="d-block" alt="<%= @banner.caption_four %>">
+        <%= cl_image_tag @banner.photo_four.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_four, class: 'd-block' %>
         <div class="legenda-carrosel">
           <p><%= @banner.caption_four %></p>
         </div>
