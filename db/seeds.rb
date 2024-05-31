@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'json'
-require 'pry-byebug'
 
 LeisureGenre.destroy_all
 LeisureVenue.destroy_all
