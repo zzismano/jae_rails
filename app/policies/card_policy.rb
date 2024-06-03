@@ -20,6 +20,10 @@ class CardPolicy < ApplicationPolicy
     user.admin
   end
 
+  def destroy?
+    user.admin
+  end
+
   def card_config?
     user.admin
   end

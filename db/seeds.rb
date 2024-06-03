@@ -147,6 +147,10 @@ join_leisure_venue2 = LeisureVenue.new(leisure: leisure, venue: cinemark)
 
 join_leisure_venue2.save!
 
+join_leisure_venue3 = LeisureVenue.new(leisure: leisure2, venue: poeira)
+
+join_leisure_venue3.save!
+
 puts "Creating Card..."
 
 card = Card.new(leisure: leisure)
