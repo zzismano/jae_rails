@@ -27,5 +27,9 @@ Rails.application.routes.draw do
   
   resources :banners
 
+  resources :cards
+
   get "banner_config", to: 'banners#banner_config'
+
+  get 'card_config', to: 'cards#card_config'
 end
