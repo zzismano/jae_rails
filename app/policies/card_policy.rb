@@ -7,8 +7,20 @@ class CardPolicy < ApplicationPolicy
 
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
+    def resolve
+      scope.all
+    end
+  end
+
+  def new?
+    create?
+  end
+
+  def create?
+    user.admin
+  end
+
+  def card_config?
+    user.admin
   end
 end

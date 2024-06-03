@@ -1,0 +1,12 @@
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-8 col-12">
+      <%= simple_form_for (@card) do |f| %>
+        <%= f.association :leisure, label: 'Evento:', label_html: { class: 'fw-bold' }, input_html: {class: 'form-select' }, prompt: "Escolha um evento:" %>
+        <div class="d-grid gap-2 col-6 mx-auto my-4">
+          <%= f.button :submit, "Criar Card", class: 'btn btn-success fw-bold' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

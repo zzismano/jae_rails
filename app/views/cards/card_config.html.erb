@@ -1,0 +1,14 @@
+<div class="container mx-auto">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10 col-md-8">
+      <h1 class="text-center fw-bold">Configurações do Card</h1>
+      <p class="fw-light text-center"> Aqui você poderá criar, editar e deletar todos os cards que aparecem na landing page. </p>
+    </div>
+
+    <div class="col-12 col-lg-10 col-md-8">
+      <h2 class="h4 text-center fw-light mb-4">Estes são os cards que existem atualmente na landing page:</h2>
+
+      <%= render 'cards/list', cards: @cards %>
+    </div>
+  </div>
+</div>

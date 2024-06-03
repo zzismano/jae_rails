@@ -1,0 +1,18 @@
+<% cards.each do |card| %>
+  <div class="card p-3">
+    
+
+    <div class="card" style="width: 15rem;">
+      <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-img-top', alt: card.leisure.title %>
+      
+      <div class="card-body p-1 d-flex flex-column" style="height: 2.5rem; font-size: 11px;">
+        <div class="d-flex" style="height: 1rem;">
+          <p class="fw-light"><%= card.leisure.category.name %> | </p>
+          <p class="fw-bold px-1"> <%= card.leisure.title %></p>
+        </div>
+        <p> <%= calculate_date(card.leisure.start_date) %> |<%= card.leisure.time.hour %>h:<%= card.leisure.time.min == 0 && '00' %>| <%= card.leisure.leisure_venues[0].venue.name %></p>
+        
+      </div>
+    </div>
+  </div>
+<% end %>
