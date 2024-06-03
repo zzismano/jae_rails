@@ -1,3 +1,11 @@
+.sinopse p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--read-more-line-clamp, 2);
+}
+
+
 .menu-filme {
   background-color: rgb(42, 42, 93);
   background-image: linear-gradient(  rgb(42, 42, 93), rgb(236, 240, 251));

@@ -24,11 +24,12 @@
             <button class="button-small">comprar ingresso</button>
           </div>
         </div>
-        <div class="sinopse">
-          <p>
+        <div class="sinopse" data-controller="read-more" data-read-more-more-text-value="Ver mais" data-read-more-less-text-value="Ver menos">
+          <p class="mb-0" data-read-more-target="content">
             <%= leisure.description %>
           </p>
-          <div class="legenda">
+          <button class=" p-0" style="border: none; background: none" data-action="read-more#toggle">Ver Mais</button>
+          <div class="legenda" data-expander-target="venues">
             <strong><% venues = [] %>
                 <% leisure.venues.each do |venue| %>
                   <% venues << venue.name %>
@@ -40,5 +41,5 @@
       </div>
     <% end %>
   </div>
-  
+
 </div>
