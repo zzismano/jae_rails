@@ -1,0 +1,22 @@
+<% cards.each do |card| %>
+    
+  <div class="card card-film">
+    <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: card.leisure.title %>
+
+    <div class="card-film-body">
+      <p class="m-0"><span class="fw-light px-1"><%= card.leisure.category.name %></span> | <span class="fw-bold px-1"><%= card.leisure.title %></span></p>
+      <p class="px-1 m-0"> <%= calculate_date(card.leisure.start_date) %> | <%= card.leisure.time.hour %>h<%= card.leisure.time.min == 0 ? '00' : card.leisure.time.min %> | <%= card.leisure.leisure_venues[0].venue.name %></p>
+
+      <div class="d-flex justify-content-end">
+        <% if current_user.admin %>
+          <%= link_to card_path(card), class: 'text-danger p-2 bg-light',
+          data: {turbo_method: :delete, turbo_confirm: "Quer apagar este card?"} do
+          %>
+            <i class="fa-solid fa-delete-left"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+<% end %>

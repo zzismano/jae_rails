@@ -8,8 +8,10 @@
     </div>
     
     <div class="col-4 card p-3 mx-2">
-      <h2 class="text-center text-dark fw-bolder text-decoration-underline">Card</h2>
-      <p class="fw-light text-center text-secondary">Crie, Edite e Delete Cards</p>
+      <%= link_to card_config_path do %>
+        <h2 class="text-center text-dark fw-bolder text-decoration-underline">Card</h2>
+        <p class="fw-light text-center text-secondary">Crie, Edite e Delete Cards</p>
+      <% end %>
     </div>
 
   </div>
