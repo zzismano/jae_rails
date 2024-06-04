@@ -2,7 +2,7 @@
   <div class="carousel-inner">
 
     <div class="carousel-item active">
-      <%= cl_image_tag @banner.photo_one.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_one, class: 'd-block' %>
+      <%= cl_image_tag @banner.photo_one.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_one, class: 'd-block w-100' %>
       
       <div class="legenda-carrosel">
         <p><%= @banner.caption_one %></p>
@@ -10,7 +10,7 @@
     </div>
 
     <div class="carousel-item">
-      <%= cl_image_tag @banner.photo_two.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_two, class: 'd-block' %>
+      <%= cl_image_tag @banner.photo_two.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_two, class: 'd-block w-100' %>
       <div class="legenda-carrosel">
         <p><%= @banner.caption_two %></p>
       </div>
@@ -18,7 +18,7 @@
 
     <% if @banner.caption_three? && @banner.photo_three.attached? %>
       <div class="carousel-item">
-        <%= cl_image_tag @banner.photo_three.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_three, class: 'd-block' %>
+        <%= cl_image_tag @banner.photo_three.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_three, class: 'd-block w-100' %>
         <div class="legenda-carrosel">
           <p><%= @banner.caption_three %></p>
         </div>
@@ -27,7 +27,7 @@
 
     <% if @banner.caption_four? && @banner.photo_four.attached? %>
       <div class="carousel-item">
-        <%= cl_image_tag @banner.photo_four.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_four, class: 'd-block' %>
+        <%= cl_image_tag @banner.photo_four.key, height: 400, width: 910, aspect_ratio: '16:9', crop: :fill, alt: @banner.caption_four, class: 'd-block w-100' %>
         <div class="legenda-carrosel">
           <p><%= @banner.caption_four %></p>
         </div>
