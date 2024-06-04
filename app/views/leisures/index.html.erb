@@ -11,7 +11,7 @@
     <% @leisures.each do |leisure| %>
       <div class="filme col-12 col-m-12 col-lg-4 ">
         <div class="letreiro">
-          <div class="foto-filme"></div>
+          <div class="foto-filme" style="background-image: url('<%= cl_image_path leisure.photo.key %>')"></div>
           <div class="infos-filme">
             <strong><%= leisure.title.upcase %></strong>
             <p> <% names = [] %>
@@ -27,15 +27,17 @@
         <div class="sinopse" data-controller="read-more" data-read-more-more-text-value="Ver mais" data-read-more-less-text-value="Ver menos">
           <p class="mb-0" data-read-more-target="content">
             <%= leisure.description %>
-          </p>
-          <button class=" p-0" style="border: none; background: none" data-action="read-more#toggle">Ver Mais</button>
-          <div class="legenda" data-expander-target="venues">
             <strong><% venues = [] %>
                 <% leisure.venues.each do |venue| %>
                   <% venues << venue.name %>
                 <% end %>
                 <%= venues.join(" | ") %>
             </strong>
+          </p>
+          <% if leisure.description.length > 120 %>
+            <button class=" p-0" style="border: none; background: none" data-action="read-more#toggle">Ver Mais</button>
+          <% end %>
+          <div class="legenda" data-expander-target="venues">
           </div>
         </div>
       </div>
