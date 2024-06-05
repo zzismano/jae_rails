@@ -1,9 +1,15 @@
 .card-film {
-  width: 15.5em;
-  height: 27em;
+  // width: 15.5em;
+  height: 21.5em;
   margin: 0.4em;
+
   &-image {
-    height: 21em;
+    height: 17em;
+    width: 100%;
+  }
+  &-delete {
+    top: 5%;
+    right: 5%;
   }
   &-body {
     font-size: 0.9em;
@@ -12,10 +18,3 @@
   }
 }
 
-.card-venue {
-  height: 27em;
-  width: 20em;
-  &-image {
-    height: 20em;
-  }
-}
