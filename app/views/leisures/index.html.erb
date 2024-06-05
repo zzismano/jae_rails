@@ -21,24 +21,24 @@
                 <%= names.join(" / ") %>
               | dir. <%= leisure.director %> | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "sem país"  %> | <%= leisure.min_age.to_s %> | <%= leisure.duration %>  </p>
             <p id="horario">sex | 06/out | 22h </p>
-            <button class="button-small">comprar ingresso</button>
+            <a href="<% leisure.link %>"class="button-small">comprar ingresso</a>
           </div>
         </div>
         <div class="sinopse" data-controller="read-more" data-read-more-more-text-value="Ver mais" data-read-more-less-text-value="Ver menos">
           <p class="mb-0" data-read-more-target="content">
             <%= leisure.description %>
-            <strong><% venues = [] %>
+            <br>
+            <strong>
+                <% venues = [] %>
                 <% leisure.venues.each do |venue| %>
                   <% venues << venue.name %>
                 <% end %>
                 <%= venues.join(" | ") %>
             </strong>
           </p>
-          <% if leisure.description.length > 120 %>
+          <% if leisure.description.length > 40%>
             <button class=" p-0" style="border: none; background: none" data-action="read-more#toggle">Ver Mais</button>
           <% end %>
-          <div class="legenda" data-expander-target="venues">
-          </div>
         </div>
       </div>
     <% end %>
