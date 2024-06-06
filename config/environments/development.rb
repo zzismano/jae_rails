@@ -76,4 +76,6 @@ Rails.application.configure do
 
   # Default Url Options for Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.i18n.available_locales = [:pt, :en]
 end

@@ -4,7 +4,7 @@
       <%= render 'shared/sidebar' %>
     </div>
     <div class="col-11">
-      
+
       <%= render 'banners/show' %>
     </div>
   </div>
@@ -24,7 +24,10 @@
                 <% end %>
                 <%= names.join(" / ") %>
               | dir. <%= leisure.director %> | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "sem país"  %> | <%= leisure.min_age.to_s %> | <%= leisure.duration %>  </p>
-            <p id="horario">sex | 06/out | 22h </p>
+            <p id="horario"> <%=  calculate_date(leisure.start_date) %>/
+              <%= (I18n.t :abbr_month_names, :scope => :date)[Leisure.last.start_date.month] %> |
+              <%= leisure.time.hour %>h<%= leisure.time.min == 0 ? '00' : leisure.time.min %>
+            </p>
             <a href="<% leisure.link %>"class="button-small">comprar ingresso</a>
           </div>
         </div>
