@@ -1,0 +1,80 @@
+.menu-filme {
+  background-color: rgb(42, 42, 93);
+  background-image: linear-gradient(  rgb(42, 42, 93), rgb(236, 240, 251));
+  width: 80%;
+  height: 7rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 72px;
+  opacity: 95%;
+
+
+
+}
+
+.letreiro {
+  display: flex;
+  align-items: end;
+  width: 100%;
+}
+
+
+
+.filme {
+  background-color:  rgb(236, 240, 251);
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 4px solid rgb(42, 42, 93);
+
+}
+
+@media (min-width: 998px) {
+  .filme {
+    border-left: 2px solid rgb(42, 42, 93);
+    border-right: 2px solid rgb(42, 42, 93);
+
+
+  }
+
+  .menu-filme {
+    width: 90%;
+  }
+}
+
+.foto-filme {
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 5px;
+  width: 7em;
+  height: 8em;
+
+
+}
+
+
+.infos-filme {
+  text-wrap: wrap;
+  margin-left: 1px;
+
+
+}
+
+.infos-filme p {
+  font-weight: medium;
+  font-size: 12px;
+  margin-bottom: 0;
+  color:  rgb(42, 42, 93);
+  line-height: 1.2;
+  text-wrap: wrap;
+}
+
+.infos-filme strong {
+  line-height: 1.2;
+  color: rgb(42, 42, 93);
+  font-size: 14px;
+}

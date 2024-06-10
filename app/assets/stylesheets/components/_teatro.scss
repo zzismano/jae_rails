@@ -1,0 +1,44 @@
+.atores {
+  margin-bottom: 0px;
+  color: rgb(134, 43, 43);
+
+}
+
+.teatro {
+  background-color:  rgb(251, 230, 230);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 4px solid rgb(134, 43, 43);
+}
+
+.foto-teatro {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 7em;
+  height: 8em;
+}
+
+.infos-teatro {
+  text-wrap: wrap;
+  margin-left: 1px;
+
+}
+
+
+.infos-teatro p {
+  font-weight: medium;
+  font-size: 12px;
+  margin-bottom: 0;
+  color: rgb(134, 43, 43);
+  line-height: 1.2;
+  text-wrap: wrap;
+}
+
+.infos-teatro strong {
+  line-height: 1.2;
+  color: rgb(134, 43, 43);
+  font-size: 14px;
+  text-wrap: wrap;
+}
