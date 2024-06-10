@@ -1,18 +1,27 @@
+
+.sinopse {
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
 .sinopse p {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--read-more-line-clamp, 2);
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .button-small {
-  height: 22px;
-  width: 110px;
+  // height: 1em;
+  // width: 5em;
   font-size: 11px;
   border: none;
   color: rgb(231, 228, 228);
   background-color: rgb(137,	42,	91);
   margin-top: 5px;
+  padding: 5px;
 }
 #horario {
   font-weight: bold;
@@ -75,9 +84,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: 5px;
-  margin-right: 10px;
-  width: 8em;
-  height: 12em;
+  width: 7em;
+  height: 8em;
 
 
 }
@@ -85,6 +93,7 @@
 
 .infos-filme {
   text-wrap: wrap;
+  margin-left: 1px;
 
 
 }
@@ -102,4 +111,45 @@
   line-height: 1.2;
   color: rgb(42, 42, 93);
   font-size: 14px;
+}
+
+// teatro
+
+.teatro {
+  background-color:  rgb(251, 230, 230);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 4px solid rgb(134, 43, 43);
+}
+
+.foto-teatro {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 7em;
+  height: 8em;
+}
+
+.infos-teatro {
+  text-wrap: wrap;
+  margin-left: 1px;
+
+}
+
+
+.infos-teatro p {
+  font-weight: medium;
+  font-size: 12px;
+  margin-bottom: 0;
+  color: rgb(134, 43, 43);
+  line-height: 1.2;
+  text-wrap: wrap;
+}
+
+.infos-teatro strong {
+  line-height: 1.2;
+  color: rgb(134, 43, 43);
+  font-size: 14px;
+  text-wrap: wrap;
 }
