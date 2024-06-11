@@ -3,16 +3,12 @@
     <div class="foto-<%= leisure.category.name.downcase %>" style="background-image: url('<%= cl_image_path leisure.photo.key %>')"></div>
     <div class="infos-<%= leisure.category.name.downcase %>">
       <strong><%= leisure.title.upcase %></strong>
-      <p> <% names = [] %>
-          <% leisure.genres.each do |genre| %>
-            <% names << genre.name %>
-          <% end %>
-          <%= names.join(" / ") %>
-        | dir. <%= leisure.director %> | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "sem país"  %> | <%= leisure.min_age.to_s %>+ | <%= leisure.duration %>  </p>
+      <p><%= leisure.subtitle %></p>
       <p id="horario"> <%=  calculate_date(leisure.start_date) %>/
         <%= (I18n.t :abbr_month_names, :scope => :date)[leisure.start_date.month]%> |
         <%= leisure.time.hour %>h<%= leisure.time.min == 0 ? '00' : leisure.time.min %>
       </p>
+      <p id="venue"><%=leisure.venues.first.name  %></p>
       <a href="<% leisure.link %>"class="button-small">comprar ingresso</a>
     </div>
   </div>
@@ -21,13 +17,7 @@
       <%= leisure.description %>
       <br>
       <br>
-      <strong>
-          <% venues = [] %>
-          <% leisure.venues.each do |venue| %>
-            <% venues << venue.name %>
-          <% end %>
-          <%= venues.join(" | ") %>
-      </strong>
+      <%= leisure.venues.first.address %>
     </p>
     <% if leisure.description.length > 40%>
       <button class=" p-0" style="border: none; background: none" data-action="read-more#toggle">Ver Mais</button>
