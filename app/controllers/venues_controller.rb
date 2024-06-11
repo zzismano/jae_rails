@@ -15,6 +15,9 @@ class VenuesController < ApplicationController
     @venue.user = current_user
     authorize @venue
     @venue.save
+    if @venue.save
+      redirect_to dashboard_path
+    end
   end
 
   def edit

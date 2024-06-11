@@ -13,11 +13,26 @@
   border-bottom: 4px solid rgb(134, 43, 43);
 }
 
+@media screen and (min-width: 998px) {
+
+  .menu-teatro {
+    width: 90%;
+  }
+
+  .teatro {
+    border-left:  2px solid rgb(134, 43, 43);
+    border-right:  2px solid rgb(134, 43, 43);
+  }
+}
 .foto-teatro {
   background-size: contain;
   background-repeat: no-repeat;
   width: 7em;
   height: 8em;
+}
+
+#venue {
+  color: black;
 }
 
 .infos-teatro {

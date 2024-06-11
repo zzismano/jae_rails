@@ -28,7 +28,7 @@ puts "Creating one single banner..."
 
 banner = Banner.new(caption_one: "Mussum Ipsum, cacilds vidis abertis. Pra lá, depois divoltis, paradis.", caption_two: "Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.", caption_three: "Delegadis gente finis, bibendum egestas augue arcu ut est.", caption_four: "Praesent lacinia ultrices consectetur. Sed non ipsum felis.")
 
-# API call to unsplash 
+# API call to unsplash
 
 url = "https://api.unsplash.com/photos/random/?client_id=#{ENV['UNSPLASH_API_KEY']}&orientation=landscape&query=nature"
 
@@ -96,6 +96,10 @@ poeira = Venue.new(name: 'Teatro Poeira', address: 'R. São João Batista, 104',
 
 poeira.save!
 
+vivo = Venue.new(name: 'Vivo Rio', address: 'Av. Infante Dom Henrique, 104', capacity: 100, website: 'www.vivorio.com.br', user: users.sample)
+
+vivo.save!
+
 puts "Creating category...."
 
 filme = Category.new(name: 'Filme', subcategories: ["Drama", "Horror", "Comedy"], user: users.sample)
@@ -106,7 +110,11 @@ teatro = Category.new(name: 'Teatro', subcategories: ["Drama", "Horror", "Comedy
 
 teatro.save!
 
-# puts "Creating leisure..."
+musica = Category.new(name: 'Musica', subcategories:["show", "festival", "clubs", "clássica", "Vem aí"], user: users.sample)
+
+musica.save!
+
+puts "Creating leisure..."
 
 leisure = Leisure.new(category: filme, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'BR', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia', features: 'Wagner Moura', min_age: 16, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', time: Time.new(2024, 05, 16, 20, 00, 00), zone: "Zona Sul/Centro", user: users.sample)
 
@@ -117,13 +125,29 @@ leisure.photo.attach(io: pic, filename: "guerra_civil.png", content_type: "image
 
 leisure.save!
 
+
+puts "leisure created!"
+
+
 leisure2 = Leisure.new(category: teatro, link: 'www.teatropoeira.com.br', title: "Sonata de Outono", subtitle: 'Um subtitulo qualquer', director: 'Marieta Severo', country: 'BR', description: 'Uma sonata dedicada à relação de mãe e filho', features: 'Marieta Severo, Andrea Beltrao', min_age: 18, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', time: Time.new(2024, 05, 10, 17, 45, 00), zone: 'Zona Oeste', user: users.sample)
 
-pic2 = URI.open('https://www.papodecinema.com.br/wp-content/uploads/2024/05/20200806-sonata-de-outono-papo-de-cinema-cartaz.jpg')
+pic2 = URI.open('https://br.web.img2.acsta.net/c_310_420/medias/nmedia/18/90/65/22/20106956.jpg')
 
 leisure2.photo.attach(io: pic2, filename: "sonata_outono.png", content_type: "image/jpg")
 
 leisure2.save!
+
+puts "leisure 2 created!"
+
+leisure3 = Leisure.new(category: musica, link: 'www.babydobrasil.com.br', title: "Baby Do Brasil", subtitle: 'In Concert', country:'BR', description: 'Baby apresenta seus grandes hits, como “Telúrica”, “Sem pecado e sem juízo”, “Planeta Vênus”, “Cósmica”, “Seus olhos”, “Masculino e Feminino”, entre outros. Também vai ter homenagens aos amigos e parceiros com músicas como Baby, Malandro e Brasileirinho.', start_date: '13/08/2024', end_date: '13/08/2024', time: Time.new(2024, 05, 16, 20, 00, 00), zone: "Zona Sul/Centro", user: users.sample)
+
+pic3 = URI.open('https://www.mostrasescdeculturas.com.br/wp-content/uploads/2023/08/Baby-In-concert.jpg')
+
+leisure3.photo.attach(io: pic3, filename: "sonata_outono.png", content_type: "image/jpg")
+
+leisure3.save!
+
+puts "leisure 3 created!"
 
 puts "Creating genre..."
 
@@ -150,6 +174,10 @@ join_leisure_venue2.save!
 join_leisure_venue3 = LeisureVenue.new(leisure: leisure2, venue: poeira)
 
 join_leisure_venue3.save!
+
+join_leisure_venue4 = LeisureVenue.new(leisure: leisure3, venue: vivo)
+
+join_leisure_venue4.save!
 
 puts "Creating Card..."
 
