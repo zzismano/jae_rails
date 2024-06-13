@@ -3,8 +3,9 @@ class LeisuresController < ApplicationController
 
   def index
     @leisures = policy_scope(Leisure)
-    # load hero banner on LP. 
+    # load hero banner on LP.
     @banner = Banner.first
+
   end
 
   def new
@@ -43,6 +44,9 @@ class LeisuresController < ApplicationController
 
     if @leisure.save
       redirect_to dashboard_path
+    else
+      # Add `status: :unprocessable_entity` here
+      render :new, status: :unprocessable_entity
     end
   end
 

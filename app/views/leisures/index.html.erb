@@ -11,10 +11,12 @@
 </div>
 
 <div class="container">
-  <div class="row" style="margin-top: 7rem; margin-right: 0; margin-left: 0;">
-    <% @leisures.each do |leisure| %>
-      <%= render partial_select(leisure), leisure: leisure %>
-    <% end %>
-  </div>
+  <turbo-frame id="leisures">
+    <div class="row" style="margin-top: 7rem; margin-right: 0; margin-left: 0;">
+        <% @leisures.each do |leisure| %>
+          <%= render partial_select(leisure), leisure: leisure %>
+        <% end %>
+    </div>
+  </turbo-frame>
 
 </div>
