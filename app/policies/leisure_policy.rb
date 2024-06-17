@@ -32,4 +32,17 @@ class LeisurePolicy < ApplicationPolicy
   def dashboard?
     user.admin
   end
+
+  def filme_filter?
+    true
+  end
+
+  def musica_filter?
+    true
+  end
+
+  def teatro_filter?
+    true
+  end
+
 end

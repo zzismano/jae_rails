@@ -24,11 +24,14 @@ Rails.application.routes.draw do
   resources :venues, only: %i[index new create edit update]
   #Genres routes
   resources :genres, only: %i[index new create edit update]
-  
+
   resources :banners
 
   resources :cards
 
+  get "filme_filter", to: 'leisures#filme_filter'
+  get "teatro_filter", to: 'leisures#teatro_filter'
+  get "musica_filter", to: 'leisures#musica_filter'
   get "banner_config", to: 'banners#banner_config'
 
   get 'card_config', to: 'cards#card_config'

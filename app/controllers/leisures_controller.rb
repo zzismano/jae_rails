@@ -3,8 +3,26 @@ class LeisuresController < ApplicationController
 
   def index
     @leisures = policy_scope(Leisure)
-    # load hero banner on LP. 
+    # load hero banner on LP.
     @banner = Banner.first
+  end
+
+  def filme_filter
+    filme = Category.find_by_name("Filme")
+    @films = filme.leisures
+    authorize @films
+  end
+
+  def teatro_filter
+    teatro = Category.find_by_name("Teatro")
+    @plays = teatro.leisures
+    authorize @plays
+  end
+
+  def musica_filter
+    musica = Category.find_by_name("Musica")
+    @shows = musica.leisures
+    authorize @shows
   end
 
   def new

@@ -1,0 +1,10 @@
+
+<%= turbo_frame_tag "content" do %>
+  <div class="container">
+    <div class="row" style="margin-top: 7rem; margin-right: 0; margin-left: 0;">
+      <% @plays.each do |play| %>
+        <%= render partial_select(play), leisure: play %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
