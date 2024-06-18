@@ -5,6 +5,7 @@ class LeisuresController < ApplicationController
     @leisures = policy_scope(Leisure)
     # load hero banner on LP.
     @banner = Banner.first
+
   end
 
   def filme_filter
@@ -61,6 +62,9 @@ class LeisuresController < ApplicationController
 
     if @leisure.save
       redirect_to dashboard_path
+    else
+      # Add `status: :unprocessable_entity` here
+      render :new, status: :unprocessable_entity
     end
   end
 

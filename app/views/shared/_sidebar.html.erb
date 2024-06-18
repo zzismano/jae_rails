@@ -1,7 +1,9 @@
 <div id="sidebar">
+
   <ul class="categorias">
     <div class="square" id="filme" style="color: white; background-color: rgb(42, 42, 93);">
       <li><%= link_to "FILME", filme_filter_path, data: {turbo_frame: 'content'}, style: "color: white" %></li>
+
       <div class="menu-square d-none">
         <li>em cartaz</li>
         <li>mostra/<br>
@@ -9,8 +11,10 @@
         <li>vem aí</li>
       </div>
     </div>
+
     <div class="square" id="musica" style="color: white; background-color: rgb(23, 92, 27);">
       <li><%= link_to "MÚSICA", musica_filter_path, data: {turbo_frame: 'content'}, style: "color: white" %></li>
+
       <div class="menu-square d-none">
         <li>show</li>
         <li>festival</li>
@@ -19,8 +23,10 @@
         <li>vem aí</li>
       </div>
     </div>
+
     <div class="square" id="teatro" style="color: white; background-color: rgb(134, 43, 43);">
       <li><%= link_to "TEATRO", teatro_filter_path, data: {turbo_frame: 'content'}, style: "color: white" %></li>
+
       <div class="menu-square d-none">
         <li>peça</li>
         <li>musica</li>
@@ -28,21 +34,21 @@
         <li>vem aí</li>
       </div>
     </div>
-    <div class="square" id="evento" style="color: white; background-color: rgb(194, 108, 108);">
+    <div class="square" id="evento" style="color: white; background-color: rgb(194, 108, 108);" data-selector-target="evento" data-action="click->selector#select">
       <li>EVENTO</li>
       <div class="menu-square d-none">
         <li>evento</li>
         <li>vem aí</li>
       </div>
     </div>
-    <div class="square" id="expo" style="color: white; background-color:  rgb(206, 131, 56);">
+    <div class="square" id="expo" style="color: white; background-color:  rgb(206, 131, 56);"data-selector-target="expo" data-action="click->selector#select">
       <li>EXPO</li>
       <div class="menu-square d-none">
         <li>mostra</li>
         <li>permanente</li>
       </div>
     </div>
-    <div class="square" id="mais" style="color: white; background-color: rgb(181, 155, 127);">
+    <div class="square" id="mais" style="color: white; background-color: rgb(181, 155, 127);"data-selector-target="mais" data-action="click->selector#select">
       <li>MAIS</li>
       <div class="menu-square d-none">
         <li>dança/balé</li>
