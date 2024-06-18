@@ -1,7 +1,7 @@
 <div id="sidebar">
 
-  <ul class="categorias">
-    <div class="square" id="filme" style="color: white; background-color: rgb(42, 42, 93);">
+    <ul class="categorias" data-controller="selector">
+    <div class="square" id="filme" style="color: white; background-color: rgb(42, 42, 93);" data-selector-target="filme" data-action="click->selector#select">
       <li><%= link_to "FILME", filme_filter_path, data: {turbo_frame: 'content'}, style: "color: white" %></li>
 
       <div class="menu-square d-none">
@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="square" id="musica" style="color: white; background-color: rgb(23, 92, 27);">
+    <div class="square" id="musica" style="color: white; background-color: rgb(23, 92, 27);" data-selector-target="musica" data-action="click->selector#select">
       <li><%= link_to "MÚSICA", musica_filter_path, data: {turbo_frame: 'content'}, style: "color: white" %></li>
 
       <div class="menu-square d-none">
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="square" id="teatro" style="color: white; background-color: rgb(134, 43, 43);">
+    <div class="square" id="teatro" style="color: white; background-color: rgb(134, 43, 43);" data-selector-target="teatro" data-action="click->selector#select">
       <li><%= link_to "TEATRO", teatro_filter_path, data: {turbo_frame: 'content'}, style: "color: white" %></li>
 
       <div class="menu-square d-none">
