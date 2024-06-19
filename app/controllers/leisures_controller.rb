@@ -107,7 +107,7 @@ class LeisuresController < ApplicationController
   private
 
   def leisure_params
-    params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date, :zone)
+    params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date)
   end
 
   def set_leisure
