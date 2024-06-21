@@ -1,17 +1,17 @@
-.musica {
+.expo {
 
   padding-top: 5px;
   padding-bottom: 5px;
   // padding-left: 10px;
   // padding-right: 10px;
-  border-bottom: 4px solid rgb(23, 92, 27);
+  border-bottom: 4px solid rgb(232, 165, 98);
   height: auto;
 }
 
 
-.menu-musica {
-  background-color: rgb(23, 92, 27);
-  background-image: linear-gradient(rgb(23, 92, 27), rgb(226, 248, 227));
+.menu-expo {
+  background-color: rgb(232, 165, 98);
+  background-image: linear-gradient(rgb(232, 165, 98), rgb(226, 248, 227));
   height: 7rem;
   width: 80%;
   display: flex;
@@ -28,7 +28,7 @@
   color: black;
 }
 
-.foto-musica {
+.foto-expo {
 
   background-size: contain;
   background-repeat: no-repeat;
@@ -52,28 +52,28 @@
 
 @media screen and (min-width: 998px) {
 
-  .menu-musica {
+  .menu-expo {
     width: 90%;
   }
-  .musica {
-    border-left: 2px solid rgb(23, 92, 27);
-    border-right: 2px solid rgb(23, 92, 27);
+  .expo {
+    border-left: 2px solid rgb(232, 165, 98);
+    border-right: 2px solid rgb(232, 165, 98);
 
 
   }
 }
 
 
-.infos-musica p {
+.infos-expo p {
   font-weight: medium;
   font-size: 12px;
   margin-bottom: 0;
-  color:  rgb(23, 92, 27);
+  color:  rgb(232, 165, 98);
   line-height: 1.2;
 }
 
-.infos-musica strong {
+.infos-expo strong {
   line-height: 1.2;
-  color:  rgb(23, 92, 27);
+  color:  rgb(232, 165, 98);
   font-size: 14px;
 }

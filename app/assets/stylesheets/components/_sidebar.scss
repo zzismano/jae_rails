@@ -5,6 +5,7 @@ ul {
 .categorias {
   list-style-type: none;
   padding: 0;
+  height: 100%;
 
 }
 
@@ -24,6 +25,7 @@ ul {
 
 .square {
   height: 10%;
+  border-radius: 2px;
   width: auto;
   padding-right: 9px;
   padding-left: 9px;
@@ -32,10 +34,10 @@ ul {
   justify-content: center;
   align-items: center;
   border: 2px solid white;
-  -webkit-transition: all 0.5s linear;
-  -moz-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  transition: all 0.5s linear;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .square.transition {

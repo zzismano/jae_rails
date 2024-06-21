@@ -1,19 +1,21 @@
-<div id="sidebar">
+<div id="sidebar" data-controller="selector">
 
-    <ul class="categorias" data-controller="selector">
-    <div class="square" id="filme" style="color: white; background-color: rgb(42, 42, 93);" data-selector-target="filme" data-action="click->selector#select">
-      <li><%= link_to "FILME", filme_filter_path, data: {turbo_frame: 'content'}, style: "color: white" %></li>
+    <ul class="categorias" >
+    <%= link_to filme_filter_path, data: {turbo_frame: 'content'} do %>
+      <div class="square" id="filme" style="color: white; background-color: rgb(42, 42, 93);" data-selector-target="filme" data-action="click->selector#select" >
+        <li>FILME</li>
 
-      <div class="menu-square d-none">
-        <li>em cartaz</li>
-        <li>mostra/<br>
-          festival</li>
-        <li>vem aí</li>
+        <div class="menu-square d-none">
+          <li>em cartaz</li>
+          <li>mostra/<br>
+            festival</li>
+          <li>vem aí</li>
+        </div>
       </div>
-    </div>
-
+    <% end %>
+    <%= link_to musica_filter_path, data: {turbo_frame: 'content'} do %>
     <div class="square" id="musica" style="color: white; background-color: rgb(23, 92, 27);" data-selector-target="musica" data-action="click->selector#select">
-      <li><%= link_to "MÚSICA", musica_filter_path, data: {turbo_frame: 'content'}, style: "color: white" %></li>
+      <li>MÚSICA</li>
 
       <div class="menu-square d-none">
         <li>show</li>
@@ -23,9 +25,11 @@
         <li>vem aí</li>
       </div>
     </div>
+    <% end %>
 
+    <%= link_to teatro_filter_path, data: {turbo_frame: 'content'} do  %>
     <div class="square" id="teatro" style="color: white; background-color: rgb(134, 43, 43);" data-selector-target="teatro" data-action="click->selector#select">
-      <li><%= link_to "TEATRO", teatro_filter_path, data: {turbo_frame: 'content'}, style: "color: white" %></li>
+      <li>TEATRO</li>
 
       <div class="menu-square d-none">
         <li>peça</li>
@@ -34,6 +38,7 @@
         <li>vem aí</li>
       </div>
     </div>
+    <% end %>
     <div class="square" id="evento" style="color: white; background-color: rgb(194, 108, 108);" data-selector-target="evento" data-action="click->selector#select">
       <li>EVENTO</li>
       <div class="menu-square d-none">
