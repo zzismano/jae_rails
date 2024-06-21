@@ -28,13 +28,13 @@ class VenuesController < ApplicationController
     authorize @venue
     @venue.update(venue_params)
 
-    redirect_to dashboard_path
+    redirect_to venues_path
   end
 
   private
 
   def venue_params
-    params.require(:venue).permit(:name, :address, :capacity, :website)
+    params.require(:venue).permit(:name, :address, :capacity, :website, :zone)
   end
 
   def set_venue

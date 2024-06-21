@@ -84,19 +84,19 @@ puts "Saved banner!"
 
 puts "Creating venues..."
 
-cinemark = Venue.new(name: 'Cinemark', address: 'Praia de Botafogo', capacity: 100, website: 'www.cinemark.com.br', user: users.sample)
+cinemark = Venue.new(name: 'Cinemark', address: 'Praia de Botafogo', capacity: 100, website: 'www.cinemark.com.br', zone: "Zona Sul/Centro", user: users.sample)
 
 cinemark.save!
 
-uci = Venue.new(name: 'UCI NYCC', address: 'Avenida das Américas 5000', capacity: 150, website: 'www.uci-nycc.com.br', user: users.sample)
+uci = Venue.new(name: 'UCI NYCC', address: 'Avenida das Américas 5000', capacity: 150, website: 'www.uci-nycc.com.br', zone: "Zona Oeste", user: users.sample)
 
 uci.save!
 
-poeira = Venue.new(name: 'Teatro Poeira', address: 'R. São João Batista, 104', capacity: 80, website: 'www.teatropoeira.com.br', user: users.sample)
+poeira = Venue.new(name: 'Teatro Poeira', address: 'R. São João Batista, 104', capacity: 80, website: 'www.teatropoeira.com.br', zone: "Zona Sul/Centro", user: users.sample)
 
 poeira.save!
 
-vivo = Venue.new(name: 'Vivo Rio', address: 'Av. Infante Dom Henrique, 104', capacity: 100, website: 'www.vivorio.com.br', user: users.sample)
+vivo = Venue.new(name: 'Vivo Rio', address: 'Av. Infante Dom Henrique, 104', capacity: 100, website: 'www.vivorio.com.br', zone: "Zona Sul/Centro", user: users.sample)
 
 vivo.save!
 
@@ -116,7 +116,7 @@ musica.save!
 
 puts "Creating leisure..."
 
-leisure = Leisure.new(category: filme, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'BR', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia', features: 'Wagner Moura', min_age: 16, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', time: Time.new(2024, 05, 16, 20, 00, 00), zone: "Zona Sul/Centro", user: users.sample)
+leisure = Leisure.new(category: filme, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'BR', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia', features: 'Wagner Moura', min_age: 16, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', time: Time.new(2024, 05, 16, 20, 00, 00), user: users.sample)
 
 
 pic = URI.open('https://conteudo.imguol.com.br/c/splash/00/2024/03/21/poster-de-guerra-civil-1711029679742_v2_750x1.jpg.webp')
@@ -129,7 +129,7 @@ leisure.save!
 puts "leisure created!"
 
 
-leisure2 = Leisure.new(category: teatro, link: 'www.teatropoeira.com.br', title: "Sonata de Outono", subtitle: 'Um subtitulo qualquer', director: 'Marieta Severo', country: 'BR', description: 'Uma sonata dedicada à relação de mãe e filho', features: 'Marieta Severo, Andrea Beltrao', min_age: 18, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', time: Time.new(2024, 05, 10, 17, 45, 00), zone: 'Zona Oeste', user: users.sample)
+leisure2 = Leisure.new(category: teatro, link: 'www.teatropoeira.com.br', title: "Sonata de Outono", subtitle: 'Um subtitulo qualquer', director: 'Marieta Severo', country: 'BR', description: 'Uma sonata dedicada à relação de mãe e filho', features: 'Marieta Severo, Andrea Beltrao', min_age: 18, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', time: Time.new(2024, 05, 10, 17, 45, 00), user: users.sample)
 
 pic2 = URI.open('https://br.web.img2.acsta.net/c_310_420/medias/nmedia/18/90/65/22/20106956.jpg')
 
@@ -139,7 +139,7 @@ leisure2.save!
 
 puts "leisure 2 created!"
 
-leisure3 = Leisure.new(category: musica, link: 'www.babydobrasil.com.br', title: "Baby Do Brasil", subtitle: 'In Concert', country:'BR', description: 'Baby apresenta seus grandes hits, como “Telúrica”, “Sem pecado e sem juízo”, “Planeta Vênus”, “Cósmica”, “Seus olhos”, “Masculino e Feminino”, entre outros. Também vai ter homenagens aos amigos e parceiros com músicas como Baby, Malandro e Brasileirinho.', start_date: '13/08/2024', end_date: '13/08/2024', time: Time.new(2024, 05, 16, 20, 00, 00), zone: "Zona Sul/Centro", user: users.sample)
+leisure3 = Leisure.new(category: musica, link: 'www.babydobrasil.com.br', title: "Baby Do Brasil", subtitle: 'In Concert', country:'BR', description: 'Baby apresenta seus grandes hits, como “Telúrica”, “Sem pecado e sem juízo”, “Planeta Vênus”, “Cósmica”, “Seus olhos”, “Masculino e Feminino”, entre outros. Também vai ter homenagens aos amigos e parceiros com músicas como Baby, Malandro e Brasileirinho.', start_date: '13/08/2024', end_date: '13/08/2024', time: Time.new(2024, 05, 16, 20, 00, 00), user: users.sample)
 
 pic3 = URI.open('https://www.mostrasescdeculturas.com.br/wp-content/uploads/2023/08/Baby-In-concert.jpg')
 
@@ -151,15 +151,15 @@ puts "leisure 3 created!"
 
 puts "Creating genre..."
 
-artsy = Genre.new(name: 'Artsy', user: users.sample)
-artsy.save!
+comedia = Genre.new(name: 'Comédia', user: users.sample)
+comedia.save!
 
-cartaz = Genre.new(name: 'Em cartaz', user: users.sample)
-cartaz.save!
+drama = Genre.new(name: 'Drama', user: users.sample)
+drama.save!
 
 puts "Creating leisure_genre..."
 
-join_leisure_genre = LeisureGenre.new(leisure: leisure2, genre: artsy)
+join_leisure_genre = LeisureGenre.new(leisure: leisure2, genre: comedia)
 join_leisure_genre.save!
 
 puts "Creating leisure leisure_venues..."
