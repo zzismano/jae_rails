@@ -21,11 +21,15 @@ export default class extends Controller {
     const logo = document.querySelector('.navbar-brand')
     const conteudoHome = document.getElementById('conteudo-home')
     const categorias = [filme, musica, teatro, mais, evento, expo]
-
+    let click = event.currentTarget
     // var targetsCopia = this.constructor.targets
     // var index = targetsCopia.indexOf(event.currentTarget.id)
-    event.currentTarget.classList.add("transition")
-    event.currentTarget.lastElementChild.classList.remove("d-none")
+
+    function menu() {
+      click.lastElementChild.classList.remove("d-none");
+    }
+    click.classList.add("transition")
+    menu()
     var copia = categorias.slice()
     copia.splice(categorias.indexOf(event.currentTarget), 1)
 

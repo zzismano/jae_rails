@@ -6,6 +6,7 @@ ul {
   list-style-type: none;
   padding: 0;
   height: 100%;
+  background-color:rgb(137,	42,	91);
 
 }
 
@@ -25,23 +26,25 @@ ul {
 
 .square {
   height: 10%;
-  border-radius: 2px;
+  // border-radius: 2px;
   width: auto;
   padding-right: 9px;
   padding-left: 9px;
+  padding-top: 2px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid white;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  // border: 2px solid white;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .square.transition {
   height: 27%;
+  overflow: hidden;
   // align-items: first baseline;
 }
 
@@ -139,6 +142,7 @@ ul {
 #icones {
   background-color:rgb(137,	42,	91);
   color: white;
+  padding-top: 4px;
 
 }
 #icones li {
