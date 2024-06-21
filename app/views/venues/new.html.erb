@@ -10,6 +10,9 @@
         <%= f.input :address, label: 'Endereço:' , error: 'Endereço é obrigatório.', label_html: { class: 'fw-bold' } %>
         <%= f.input :capacity, label: 'Capacidade:' , error: 'Capacidade é obrigatória.', label_html: { class: 'fw-bold' } %>
         <%= f.input :website, label: 'Site:' , error: 'Site é obrigatório.', label_html: { class: 'fw-bold' } %>
+        <div class="col-lg-6 col-12">
+          <%= f.input :zone, collection: ['Zona Sul/Centro', 'Zona Oeste', 'Zona Norte'], label: 'Região:', label_html: { class: 'fw-bold' }, prompt: 'Escolha uma região:'  %>
+        </div>
         <div class="d-grid gap-2 col-6 mx-auto my-4">
           <%= f.button :submit, 'Salvar estabelecimento', class: 'btn btn-success fw-bold' %>
         </div>

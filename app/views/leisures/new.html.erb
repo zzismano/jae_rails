@@ -10,7 +10,7 @@
 
         <%= f.input :subtitle, label: 'Subtítulo:', label_html: { class: 'fw-bold' } %>
 
-        <%= f.input :description, as: :text, label: 'Sinopse:' , error: 'Sinopse é obrigatória.', label_html: { class: 'fw-bold' } %>
+        <%= f.input :description, as: :text, label: 'Sinopse:', label_html: { class: 'fw-bold' } %>
 
         <%= f.input :country, priority: ["BR", "US"],  include_blank: 'Selecione um país:' , label: 'País:', label_html: { class: 'fw-bold' }, input_html: { class: 'form-select' } %>
 
@@ -42,9 +42,6 @@
             <div class="col-lg-6 col-12">
               <%= f.association :genres, label: 'Gêneros:', label_html: { class: 'fw-bold' }, input_html: { multiple: true,
 						data: { controller: 'tom-select'}  }, prompt: "Escolha os gêneros:" %>
-            </div>
-            <div class="col-lg-6 col-12">
-              <%= f.input :zone, collection: ['Zona Sul/Centro', 'Zona Oeste', 'Zona Norte'], label: 'Região:', label_html: { class: 'fw-bold' }, prompt: 'Escolha uma região:'  %>
             </div>
           </div>
 
