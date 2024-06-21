@@ -43,12 +43,7 @@
               <%= f.association :genres, label: 'Gêneros:', label_html: { class: 'fw-bold' }, input_html: { multiple: true,
 						data: { controller: 'tom-select'}  }, prompt: "Escolha os gêneros:" %>
             </div>
-            <div class="col-lg-6 col-12">
-              <%= f.input :zone, collection: ['Zona Sul/Centro', 'Zona Oeste', 'Zona Norte'], label: 'Região:', label_html: { class: 'fw-bold' }, prompt: 'Escolha uma região:'  %>
-            </div>
           </div>
-
-
         <%= f.input :photo, as: :file, label_html: { class: 'fw-bold' } %>
         <%= f.input :link, label_html: { class: 'fw-bold' } %>
         <div class="d-grid gap-2 col-6 mx-auto my-4">
