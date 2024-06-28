@@ -116,7 +116,7 @@ musica.save!
 
 puts "Creating leisure..."
 
-leisure = Leisure.new(category: filme, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'BR', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia', features: 'Wagner Moura', min_age: 16, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', time: Time.new(2024, 05, 16, 20, 00, 00), user: users.sample)
+leisure = Leisure.new(category: filme, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'BR', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia lorem ipsum mastuto hello world meu deus tem que escrever uma duzia de coisas', features: 'Wagner Moura', min_age: 16, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', time: Time.new(2024, 05, 16, 20, 00, 00), user: users.sample)
 
 
 pic = URI.open('https://conteudo.imguol.com.br/c/splash/00/2024/03/21/poster-de-guerra-civil-1711029679742_v2_750x1.jpg.webp')
@@ -129,7 +129,7 @@ leisure.save!
 puts "leisure created!"
 
 
-leisure2 = Leisure.new(category: teatro, link: 'www.teatropoeira.com.br', title: "Sonata de Outono", subtitle: 'Um subtitulo qualquer', director: 'Marieta Severo', country: 'BR', description: 'Uma sonata dedicada à relação de mãe e filho', features: 'Marieta Severo, Andrea Beltrao', min_age: 18, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', time: Time.new(2024, 05, 10, 17, 45, 00), user: users.sample)
+leisure2 = Leisure.new(category: teatro, link: 'www.teatropoeira.com.br', title: "Sonata de Outono", subtitle: 'Um subtitulo qualquer', director: 'Marieta Severo', country: 'BR', description: 'Uma sonata dedicada à relação de mãe e filho e como suas vidas se entremeiam cheias de maluquices e brigas.', features: 'Marieta Severo, Andrea Beltrao', min_age: 18, duration: 2, start_date: '10/05/2024', end_date: '20/06/2024', time: Time.new(2024, 05, 10, 17, 45, 00), user: users.sample)
 
 pic2 = URI.open('https://br.web.img2.acsta.net/c_310_420/medias/nmedia/18/90/65/22/20106956.jpg')
 

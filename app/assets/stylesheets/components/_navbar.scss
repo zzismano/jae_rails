@@ -1,7 +1,8 @@
 
 .navbar-jae {
   justify-content: space-between;
-  background: rgb(137,	42,	91)
+  border-bottom: 2px solid $jae-wine;
+  background-color: #fff;
 }
 
 .navbar-jae .navbar-collapse {
@@ -9,7 +10,8 @@
 }
 
 .navbar-jae .nav-link {
-  color: white;
+  color: $jae-wine;
+  font-weight: 600;
 }
 
 .navbar-jae .navbar-brand img {
@@ -26,4 +28,9 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-form {
+  display: flex;
+  align-items: center;
 }
