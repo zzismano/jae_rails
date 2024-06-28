@@ -1,6 +1,11 @@
 class LeisuresController < ApplicationController
   before_action :set_leisure, only: [:edit, :update, :destroy]
 
+  def home 
+    @banner = Banner.first
+    authorize @banner
+  end
+
   def index
     @leisures = policy_scope(Leisure)
     # load hero banner on LP.

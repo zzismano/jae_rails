@@ -24,6 +24,12 @@
     <%= f.input :caption_four, label: 'Legenda 4:', label_html: { class: 'fw-bold' } %>
   </div>
 
+  <div class="border-start border-3 border-success-subtle px-3 py-2 my-2 bg-secondary-subtle rounded">
+    <%= f.input :photo_five, as: :file, label: 'Foto 5:', label_html: { class: 'fw-bold' } %>
+
+    <%= f.input :caption_five, label: 'Legenda 5:', label_html: { class: 'fw-bold' } %>
+  </div>
+
   <div class="d-grid gap-2 col-6 mx-auto my-4">
     <%= f.submit 'Atualizar banner', class: 'btn btn-success fw-bold' %>
   </div>
