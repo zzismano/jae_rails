@@ -15,12 +15,14 @@ export default class extends Controller {
     const filme = document.getElementById('filme')
     const musica = document.getElementById('musica')
     const teatro = document.getElementById('teatro')
+    const danca = document.getElementById('danca')
+    const festa = document.getElementById('festa')
     const evento = document.getElementById('evento')
     const expo = document.getElementById('expo')
     const mais = document.getElementById('mais')
     const logo = document.querySelector('.navbar-brand')
     const conteudoHome = document.getElementById('conteudo-home')
-    const categorias = [filme, musica, teatro, mais, evento, expo]
+    const categorias = [filme, musica, teatro, danca, festa, mais, evento, expo]
     let click = event.currentTarget
     // var targetsCopia = this.constructor.targets
     // var index = targetsCopia.indexOf(event.currentTarget.id)

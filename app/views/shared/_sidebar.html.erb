@@ -1,59 +1,91 @@
-<div id="sidebar" data-controller="selector">
+<div id="sidebar" class="sidebar" data-controller="selector">
 
-    <ul class="categorias" >
-    <%= link_to filme_filter_path, data: {turbo_frame: 'content'} do %>
-      <div class="square" id="filme" style="color: white; background-color: rgb(42, 42, 93);" data-selector-target="filme" data-action="click->selector#select" >
-        <li>FILME</li>
+  <ul class="categorias" >
 
-        <div class="menu-square d-none">
-          <li>em cartaz</li>
-          <li>mostra/<br>
-            festival</li>
-          <li>vem aí</li>
-        </div>
-      </div>
-    <% end %>
-    <%= link_to musica_filter_path, data: {turbo_frame: 'content'} do %>
-    <div class="square" id="musica" style="color: white; background-color: rgb(23, 92, 27);" data-selector-target="musica" data-action="click->selector#select">
-      <li>MÚSICA</li>
+  <%= link_to filme_filter_path, data: {turbo_frame: 'content'} do %>
+    <div class="square categorias-cinema" id="filme" data-selector-target="filme" data-action="click->selector#select" >
+      <li>CINEMA</li>
 
       <div class="menu-square d-none">
-        <li>show</li>
-        <li>festival</li>
-        <li>clubs</li>
-        <li>clássica</li>
+        <li>em cartaz</li>
+        <li>mostra/<br>
+          festival</li>
         <li>vem aí</li>
       </div>
     </div>
-    <% end %>
+  <% end %>
 
-    <%= link_to teatro_filter_path, data: {turbo_frame: 'content'} do  %>
-    <div class="square" id="teatro" style="color: white; background-color: rgb(134, 43, 43);" data-selector-target="teatro" data-action="click->selector#select">
-      <li>TEATRO</li>
+  <%= link_to musica_filter_path, data: {turbo_frame: 'content'} do %>
+  <div class="square categorias-musica" id="musica" data-selector-target="musica" data-action="click->selector#select">
+    <li>MÚSICA</li>
 
-      <div class="menu-square d-none">
-        <li>peça</li>
-        <li>musica</li>
-        <li>stand-up</li>
-        <li>vem aí</li>
-      </div>
+    <div class="menu-square d-none">
+      <li>show</li>
+      <li>festival</li>
+      <li>clubs</li>
+      <li>clássica</li>
+      <li>vem aí</li>
     </div>
-    <% end %>
-    <div class="square" id="evento" style="color: white; background-color: rgb(194, 108, 108);" data-selector-target="evento" data-action="click->selector#select">
+  </div>
+  <% end %>
+
+  <%= link_to teatro_filter_path, data: {turbo_frame: 'content'} do  %>
+  <div class="square categorias-teatro" id="teatro" data-selector-target="teatro" data-action="click->selector#select">
+    <li>TEATRO</li>
+
+    <div class="menu-square d-none">
+      <li>peça</li>
+      <li>musica</li>
+      <li>stand-up</li>
+      <li>vem aí</li>
+    </div>
+  </div>
+  <% end %>
+
+  <%= link_to "#", data: {turbo_frame: 'content'} do %>
+  <div class="square categorias-danca" id="danca" data-selector-target="danca" data-action="click->selector#select">
+    <li>DANÇA</li>
+
+    <div class="menu-square d-none">
+      <li>moderna</li>
+      <li>contemporânea</li>
+      <li>clássica</li>
+    </div>
+  </div>
+  <% end %>
+
+  <%= link_to "#", data: {turbo_frame: 'content'} do %>
+    <div class="square categorias-evento" id="evento" data-selector-target="evento" data-action="click->selector#select">
       <li>EVENTO</li>
       <div class="menu-square d-none">
         <li>evento</li>
         <li>vem aí</li>
       </div>
     </div>
-    <div class="square" id="expo" style="color: white; background-color:  rgb(206, 131, 56);"data-selector-target="expo" data-action="click->selector#select">
+  <% end %>
+
+  <%= link_to "#", data: {turbo_frame: 'content'} do %>
+    <div class="square categorias-festa" id="festa" data-selector-target="evento" data-action="click->selector#select">
+      <li>FESTA</li>
+      <div class="menu-square d-none">
+        <li>eletrônica</li>
+        <li>brasileira</li>
+      </div>
+    </div>
+  <% end %>
+
+  <%= link_to "#", data: {turbo_frame: 'content'} do %>
+    <div class="square categorias-expo" id="expo" data-selector-target="expo" data-action="click->selector#select">
       <li>EXPO</li>
       <div class="menu-square d-none">
         <li>mostra</li>
         <li>permanente</li>
       </div>
     </div>
-    <div class="square" id="mais" style="color: white; background-color: rgb(181, 155, 127);"data-selector-target="mais" data-action="click->selector#select">
+  <% end %>
+  
+  <%= link_to "#", data: {turbo_frame: 'content'} do %>
+    <div class="square categorias-mais" id="mais" data-selector-target="mais" data-action="click->selector#select">
       <li>MAIS</li>
       <div class="menu-square d-none">
         <li>dança/balé</li>
@@ -62,12 +94,7 @@
         <li>dicas do JAÉ</li>
       </div>
     </div>
-    <div class="square" id="icones">
-      <li>
-        <i class="fa-brands fa-whatsapp"></i>
-        <a href="https://www.instagram.com/jaeprogramacao/" style=" color:inherit;"><i class="fa-brands fa-instagram"></i></a>
-        <i class="fa-brands fa-facebook"></i>
-      </li>
-    </div>
-  </ul>
+  <% end %>
+
+</ul>
 </div>

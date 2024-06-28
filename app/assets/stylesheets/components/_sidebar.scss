@@ -1,25 +1,57 @@
-ul {
-  padding: 0;
+.sidebar {
+  height: 100%;
+  width: 12%;
+  position: fixed;
+  z-index: 1000;
+  left: 1%;
 }
 
 .categorias {
   list-style-type: none;
   padding: 0;
+  color: #fff;
   height: 100%;
-  background-color:rgb(137,	42,	91);
-
-}
-
-#sidebar {
-  height: 100%;
-  width: 20%;
-  position: fixed;
-  z-index: 1000;
-  border-top: 5px rgb(255,	171, 39);
+  // background-color:rgb(137,	42,	91);
+  &-cinema {
+    background-color: $dark-blue;
+    color: #fff;
+  }
+  &-musica {
+    background-color: $dark-green;
+    color: #fff;
+  }
+  &-teatro {
+    background-color: $dark-red;
+    color: #fff;
+  }
+  &-danca {
+    background-color: $dark-pink;
+    color: #fff;
+  }
+  &-evento {
+    background-color: $dark-mustard;
+    color: #fff;
+  }
+  &-festa {
+    background-color: $dark-yellow;
+    color: #fff;
+  }
+  &-expo {
+    background-color: $dark-mustard;
+    color: #fff;
+  }
+  &-mais {
+    background-color: $other-pink;
+    color: #fff;
+  }
+  &-icones {
+    background-color: $light-green;
+    font-size: 1.2em;
+  }
 }
 
 @media screen and (min-width: 998px) {
-  #sidebar {
+  .sidebar {
     width: 9%
   }
 }
@@ -27,10 +59,12 @@ ul {
 .square {
   height: 10%;
   // border-radius: 2px;
+  margin: 0.2em 0;
   width: auto;
   padding-right: 9px;
   padding-left: 9px;
   padding-top: 2px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -60,18 +94,18 @@ ul {
 }
 
 .menu-square li {
-  font-size: 12px;
+  font-size: 0.75em;
   opacity: 70%;
 
 
 }
 
-.square li {
+.square > span {
   font-weight: bold;
   // word-break: break-all;
   text-align: center;
   display: inline;
-  font-size: 14px;
+  font-size: 0.875em;
 }
 
 @media screen and  (max-width: 320px) {
@@ -82,61 +116,20 @@ ul {
   }
 
   .square li {
-    font-size: 10px;
+    font-size: 0.625em;
   }
 }
 
 @media screen and  (min-width: 321px) and (max-width: 375px) {
   .square {
     width: 20vw;
-    font-size: 11px;
+    font-size: 0.650em;
   }
 
   .square li {
-    font-size: 11px;
+    font-size: 0.650em;
   }
 
-}
-
-
-#filme {
-  // background-color: rgb(42, 42, 93);
-  // color: white;
-}
-
-#musica {
-  // background-color: white;
-  // color: rgb(23, 92, 27)
-}
-
-#teatro {
-  // background-color: rgb(134, 43, 43);
-  // color: white;
-}
-
-#espetaculo {
-  // background-color: rgb(194, 108, 108);
-  // color: white;
-}
-
-#evento {
-  // background-color: rgb(206, 131, 56);
-  // color: white;
-}
-
-#expo {
-  // background-color: rgb(232, 165, 98);
-  // color: white;
-}
-
-#literatura {
-  // background-color: rgb(135, 114, 92);
-  // color: white;
-}
-
-#ideias {
-  // background-color: rgb(181, 155, 127);
-  // color: white;
 }
 
 #icones {
