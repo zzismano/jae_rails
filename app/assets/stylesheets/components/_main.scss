@@ -1,0 +1,29 @@
+.home {
+  display: flex;
+  height: 100%;
+  width: 87%;
+  position: relative;
+  left: 12%;
+}
+
+.main-content {
+  // width: 86%;
+  flex: 1;
+  padding: 0.1em;
+}
+
+
+
+@media screen and (max-width: 425px) {
+  .home {
+    width: 84%;
+    left: 15%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .home {
+    width: 82%;
+    left: 17%;
+  }
+}
