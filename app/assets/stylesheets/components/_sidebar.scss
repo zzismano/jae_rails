@@ -5,9 +5,13 @@ ul {
 .categorias {
   list-style-type: none;
   padding: 0;
+  color: #fff;
   height: 100%;
   background-color:rgb(137,	42,	91);
-
+  &-cinema {
+    background-color: $dark-blue;
+    color: #fff;
+  }
 }
 
 #sidebar {
@@ -98,46 +102,6 @@ ul {
 
 }
 
-
-#filme {
-  // background-color: rgb(42, 42, 93);
-  // color: white;
-}
-
-#musica {
-  // background-color: white;
-  // color: rgb(23, 92, 27)
-}
-
-#teatro {
-  // background-color: rgb(134, 43, 43);
-  // color: white;
-}
-
-#espetaculo {
-  // background-color: rgb(194, 108, 108);
-  // color: white;
-}
-
-#evento {
-  // background-color: rgb(206, 131, 56);
-  // color: white;
-}
-
-#expo {
-  // background-color: rgb(232, 165, 98);
-  // color: white;
-}
-
-#literatura {
-  // background-color: rgb(135, 114, 92);
-  // color: white;
-}
-
-#ideias {
-  // background-color: rgb(181, 155, 127);
-  // color: white;
-}
 
 #icones {
   background-color:rgb(137,	42,	91);
