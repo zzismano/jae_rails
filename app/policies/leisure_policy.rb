@@ -13,6 +13,10 @@ class LeisurePolicy < ApplicationPolicy
 
   end
 
+  def home?
+    true
+  end
+
   def create?
     user.admin?
   end
