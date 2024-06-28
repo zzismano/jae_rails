@@ -1,9 +1,9 @@
 .home {
   display: flex;
   height: 100%;
-  width: 87%;
+  width: 89%;
   position: relative;
-  left: 12%;
+  left: 10%;
 }
 
 .main-content {
@@ -12,7 +12,12 @@
   padding: 0.1em;
 }
 
-
+@media screen and (max-width: 768px) {
+  .home {
+    width: 87%;
+    left: 12%;
+  }
+}
 
 @media screen and (max-width: 425px) {
   .home {
