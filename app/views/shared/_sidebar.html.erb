@@ -30,7 +30,7 @@
   <% end %>
 
   <%= link_to teatro_filter_path, data: {turbo_frame: 'content'} do  %>
-  <div class="square" id="teatro" style="color: white; background-color: rgb(134, 43, 43);" data-selector-target="teatro" data-action="click->selector#select">
+  <div class="square categorias-teatro" id="teatro" data-selector-target="teatro" data-action="click->selector#select">
     <li>TEATRO</li>
 
     <div class="menu-square d-none">
@@ -47,11 +47,9 @@
     <li>DANÇA</li>
 
     <div class="menu-square d-none">
-      <li>show</li>
-      <li>festival</li>
-      <li>clubs</li>
+      <li>moderna</li>
+      <li>contemporânea</li>
       <li>clássica</li>
-      <li>vem aí</li>
     </div>
   </div>
   <% end %>
@@ -67,11 +65,11 @@
   <% end %>
 
   <%= link_to "#", data: {turbo_frame: 'content'} do %>
-    <div class="square categorias-festa" id="evento" data-selector-target="evento" data-action="click->selector#select">
+    <div class="square categorias-festa" id="festa" data-selector-target="evento" data-action="click->selector#select">
       <li>FESTA</li>
       <div class="menu-square d-none">
-        <li>evento</li>
-        <li>vem aí</li>
+        <li>eletrônica</li>
+        <li>brasileira</li>
       </div>
     </div>
   <% end %>
