@@ -1,0 +1,57 @@
+
+.festa {
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 4px solid #C45911;
+}
+
+@media screen and (min-width: 998px) {
+
+  .menu-festa {
+    width: 90%;
+  }
+
+  .festa {
+    border-left:  2px solid #C45911;
+    border-right:  2px solid #C45911;
+  }
+}
+.foto-festa {
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 10em;
+  height: 6em;
+  margin-right: 0.7rem;
+
+}
+
+#venue {
+  color: black;
+}
+
+.infos-festa {
+  text-wrap: wrap;
+  margin-left: 1px;
+
+}
+
+
+.infos-festa p {
+  font-weight: medium;
+  font-size: 12px;
+  margin-bottom: 0;
+  color: #C45911;
+  line-height: 1.2;
+  text-wrap: wrap;
+}
+
+.infos-festa strong {
+  line-height: 1.2;
+  color: #C45911;
+  font-size: 14px;
+  text-wrap: wrap;
+}

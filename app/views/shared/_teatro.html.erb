@@ -23,7 +23,7 @@
       <%= leisure.description %>
       <br>
       <br>
-      <%= leisure.venues.first.address %>
+      <strong id="venue"><%= leisure.venues.last.name %></strong> - <%= leisure.venues.first.address %>
 
     </p>
     <% if leisure.description.length > 40%>

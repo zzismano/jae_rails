@@ -1,7 +1,7 @@
 class LeisuresController < ApplicationController
   before_action :set_leisure, only: [:edit, :update, :destroy]
 
-  def home 
+  def home
     @banner = Banner.first
     authorize @banner
   end
@@ -13,7 +13,7 @@ class LeisuresController < ApplicationController
 
   end
 
-  def filme_filter
+  def evento_filter
     filme = Category.find_by_name("Filme")
     @films = filme.leisures
     authorize @films
@@ -29,6 +29,31 @@ class LeisuresController < ApplicationController
     musica = Category.find_by_name("Musica")
     @shows = musica.leisures
     authorize @shows
+  end
+
+  def danca_filter
+    danca = Category.find_by_name("Danca")
+    @shows = danca.leisures
+    authorize @shows
+  end
+
+  def festa_filter
+    festa = Category.find_by_name("Festa")
+    @parties = festa.leisures
+    authorize @parties
+  end
+
+
+  def evento_filter
+    evento = Category.find_by_name("Evento")
+    @events = evento.leisures
+    authorize @events
+  end
+
+  def expo_filter
+    expo = Category.find_by_name("Expo")
+    @expos = expo.leisures
+    authorize @expos
   end
 
   def new

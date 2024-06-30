@@ -1,0 +1,61 @@
+
+.evento {
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 4px solid #BF8F01;
+}
+
+@media screen and (min-width: 998px) {
+
+  .menu-evento {
+    width: 90%;
+  }
+
+  .evento {
+    border-left:  2px solid #BF8F01;
+    border-right:  2px solid #BF8F01;
+  }
+}
+.foto-evento {
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 10em;
+  height: 6em;
+  margin-right: 0.7rem;
+
+}
+
+#venue {
+  color: black;
+}
+
+.infos-evento {
+  text-wrap: wrap;
+  margin-left: 1px;
+
+}
+
+.evento-features {
+  color: #BF8F01;
+  font-size: 14px;
+}
+
+.infos-evento p {
+  font-weight: medium;
+  font-size: 12px;
+  margin-bottom: 0;
+  color: #BF8F01;
+  line-height: 1.2;
+  text-wrap: wrap;
+}
+
+.infos-evento strong {
+  line-height: 1.2;
+  color: #BF8F01;
+  font-size: 14px;
+  text-wrap: wrap;
+}
