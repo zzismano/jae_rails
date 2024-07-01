@@ -48,6 +48,10 @@ class ApplicationPolicy
     false
   end
 
+  def section_config?
+    false
+  end
+
   def newsletter_subscription
     true
   end

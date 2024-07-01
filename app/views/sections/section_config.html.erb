@@ -1,0 +1,39 @@
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8 p-3">
+      <h1 class="text-center fw-bold">Configurações da Seção</h1>
+      <p class="fw-light text-center">Aqui você poderá realizar todas as ações relacionadas às seções de cards da landing page.</p>
+
+      <p class="fw-light text-center">Você pode criar quantas seções quiser, mas tente manter um número razoável de seções: recomendamos no máximo 5 seções sendo impressas na landing page.</p>
+      
+      <p class="fw-light text-center">Siga o passo-a-passo para criar uma nova seção no Já é:</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8 p-3">
+      <h2 class="fw-bold my-4">1 - Crie uma nova seção:</h2>
+      <p class="fs-6"> - Se a seção já existir, por favor, pule para o passo 2:</p>
+
+      <p class="fs-6"> - Caso a seção ainda não exista, crie a seção no formulário abaixo: </p>
+      <%= render 'sections/form', section: @section %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8 p-3">
+      <h2 class="fw-bold my-4">2 - Escolha a seção e os cards que farão parte de uma seção em particular:</h2>
+
+      <p class="fs-6"> - Se quiser apenas editar uma seção mais antiga, que já existe, pule para o passo 3.</p>
+
+      <p class="fs-6"> - Se a seção for completamente nova, preencha o formulário:</p>
+
+      <%= render 'section_cards/form', section_card: @section_card %>
+      
+    </div>
+  </div>
+</div>
