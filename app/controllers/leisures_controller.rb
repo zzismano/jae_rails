@@ -109,6 +109,11 @@ class LeisuresController < ApplicationController
     authorize @leisures
   end
 
+  def newsletter_subscription
+    @subscriber = {name: params[:name], email: params[:email]}
+    authorize @subscriber
+  end
+
   private
 
   def leisure_params

@@ -35,4 +35,6 @@ Rails.application.routes.draw do
   get "banner_config", to: 'banners#banner_config'
 
   get 'card_config', to: 'cards#card_config'
+
+  post 'newsletter_subscription', to: 'leisures#newsletter_subscription'
 end

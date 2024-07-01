@@ -49,4 +49,8 @@ class LeisurePolicy < ApplicationPolicy
     true
   end
 
+  def newsletter_subscription?
+    true
+  end
+
 end

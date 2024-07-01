@@ -48,6 +48,10 @@ class ApplicationPolicy
     false
   end
 
+  def newsletter_subscription
+    true
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user
