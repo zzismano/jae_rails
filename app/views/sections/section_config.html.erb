@@ -10,30 +10,8 @@
     </div>
   </div>
 </div>
+  <%= render 'sections/index', sections: @sections %>
+  <%= render 'sections/new_section' %>
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-10 col-lg-8 p-3">
-      <h2 class="fw-bold my-4">1 - Crie uma nova seção:</h2>
-      <p class="fs-6"> - Se a seção já existir, por favor, pule para o passo 2:</p>
 
-      <p class="fs-6"> - Caso a seção ainda não exista, crie a seção no formulário abaixo: </p>
-      <%= render 'sections/form', section: @section %>
-    </div>
-  </div>
-</div>
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-10 col-lg-8 p-3">
-      <h2 class="fw-bold my-4">2 - Escolha a seção e os cards que farão parte de uma seção em particular:</h2>
-
-      <p class="fs-6"> - Se quiser apenas editar uma seção mais antiga, que já existe, pule para o passo 3.</p>
-
-      <p class="fs-6"> - Se a seção for completamente nova, preencha o formulário:</p>
-
-      <%= render 'section_cards/form', section_card: @section_card %>
-      
-    </div>
-  </div>
-</div>

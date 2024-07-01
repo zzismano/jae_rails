@@ -13,6 +13,10 @@ class SectionCardsController < ApplicationController
     redirect_to section_config_path
   end
 
+  def destroy
+    
+  end
+
   private 
 
   def section_cards_params

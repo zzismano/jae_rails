@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8 p-3">
+      <h2 class="text-center fw-bold fs-4 text-decoration-underline my-3">Seções e Cards</h2>
+
+      <h2 class="fw-bold fs-5 my-4">
+        Esta é uma lista de todas as seções que existem na homepage.
+      </h2>
+      <p class="fs-6"> - Se quiser remover algum card de alguma seção, clique no X que existe dentro de cada card. </p>
+
+      
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <% sections.each do |section| %>
+    <div class="bg-light p-1 my-3">
+      <h3><%= section.title %></h3>
+      <div class="d-flex justify-content-evenly align-items-center flex-wrap">
+        <% section.section_cards.each do |section_card| %>
+          <div class="card m-1">
+            <%= cl_image_tag section_card.card.leisure.photo.key, width: '80', crop: :fill %>
+            <h4><%= section_card.card.leisure.title %></h4>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

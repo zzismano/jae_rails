@@ -8,6 +8,8 @@ class SectionsController < ApplicationController
     @cards = Card.all
 
     @section_card = SectionCard.new
+
+    @sections = Section.includes(:section_cards).includes(:cards).all
   end
 
   def create
