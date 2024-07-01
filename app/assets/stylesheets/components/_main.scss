@@ -18,7 +18,7 @@
 
 .main-link__search {
   color: #000;
-  font-size: 1.1em;
+  font-size: 1em;
   padding: 0.2em;
 }
 
@@ -54,12 +54,18 @@
     width: 87%;
     left: 12%;
   }
+  .main-content__col {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 425px) {
   .home {
     width: 84%;
     left: 15%;
+  }
+  .main-logo {
+    display: none;
   }
 }
 
