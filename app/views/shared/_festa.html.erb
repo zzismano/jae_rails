@@ -5,8 +5,8 @@
       <strong><%= leisure.title.upcase %></strong>
       <p><%= leisure.subtitle %></p>
       <p id="horario"> <%=  calculate_date(leisure.start_date) %>/
-        <%= (I18n.t :abbr_month_names, :scope => :date)[leisure.start_date.month]%> |
-        <%= leisure.time.hour %>h<%= leisure.time.min == 0 ? '00' : leisure.time.min %>
+        <%= leisure.time.hour %>h<%= leisure.time.min == 0 ? '00' : leisure.time.min %> |
+        <%= (I18n.t :abbr_month_names, :scope => :date)[leisure.start_date.month]%>
       </p>
       <a href="<% leisure.link %>"class="button-small">comprar ingresso</a>
     </div>

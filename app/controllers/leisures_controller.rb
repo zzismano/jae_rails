@@ -15,44 +15,44 @@ class LeisuresController < ApplicationController
 
   def evento_filter
     filme = Category.find_by_name("Filme")
-    @films = filme.leisures
+    @films = filme.leisures.published.visible
     authorize @films
   end
 
   def teatro_filter
     teatro = Category.find_by_name("Teatro")
-    @plays = teatro.leisures
+    @plays = teatro.leisures.published.visible
     authorize @plays
   end
 
   def musica_filter
     musica = Category.find_by_name("Musica")
-    @shows = musica.leisures
+    @shows = musica.leisures.published.visible
     authorize @shows
   end
 
   def danca_filter
     danca = Category.find_by_name("Danca")
-    @shows = danca.leisures
+    @shows = danca.leisures.published.visible
     authorize @shows
   end
 
   def festa_filter
     festa = Category.find_by_name("Festa")
-    @parties = festa.leisures
+    @parties = festa.leisures.published.visible
     authorize @parties
   end
 
 
   def evento_filter
     evento = Category.find_by_name("Evento")
-    @events = evento.leisures
+    @events = evento.leisures.published.visible
     authorize @events
   end
 
   def expo_filter
     expo = Category.find_by_name("Expo")
-    @expos = expo.leisures
+    @expos = expo.leisures.published.visible
     authorize @expos
   end
 
@@ -137,7 +137,7 @@ class LeisuresController < ApplicationController
   private
 
   def leisure_params
-    params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date)
+    params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden)
   end
 
   def set_leisure

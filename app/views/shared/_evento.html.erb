@@ -4,9 +4,13 @@
     <div class="infos-<%= leisure.category.name.downcase %>">
       <strong><%= leisure.title.upcase %></strong>
       <p><%= leisure.subtitle %></p>
-      <p id="horario"> <%=  calculate_date(leisure.start_date) %>/
-        <%= (I18n.t :abbr_month_names, :scope => :date)[leisure.start_date.month]%> |
-        <%= leisure.time.hour %>h<%= leisure.time.min == 0 ? '00' : leisure.time.min %>
+      <p id="horario">
+        <%= leisure.time.hour %>h<%= leisure.time.min == 0 ? '' : leisure.time.min %> |
+        <% if leisure.start_date == leisure.end_date %>
+          <%=  leisure.start_date.day %>/<%= (I18n.t :abbr_month_names, :scope => :date)[leisure.start_date.month]%>
+        <% else %>
+          <%=  leisure.start_date.day %>/<%= (I18n.t :abbr_month_names, :scope => :date)[leisure.start_date.month]%> a  <%=  leisure.end_date.day %>/<%= (I18n.t :abbr_month_names, :scope => :date)[leisure.end_date.month]%>
+        <% end %>
       </p>
       <p id="venue"><%=leisure.venues.first.name  %></p>
       <a href="<% leisure.link %>"class="button-small">comprar ingresso</a>
