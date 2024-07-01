@@ -1,0 +1,17 @@
+<p class="main-paragraph__wine"><strong class="text-uppercase">O guia cultural do Rio de Janeiro</strong> ao alcance de todos.</p>
+<p class="main-paragraph__wine">Para quem sabe o que procura, damos todas as informações.</p>
+<p class="main-paragraph__wine">Para quem não sabe, oferecemos inúmeras sugestões.</p>
+<div class="main-newsletterbox">
+  <p class="text-uppercase text-center mb-0">assine nossa</p>
+  <p class="text-center mt-0"><strong class="text-uppercase">newsletter gratuita</strong></p>
+  <div class="d-flex flex-column">
+    <%= simple_form_for newsletter_subscription_path do |f| %>
+     
+      <%= f.input :email, label: "E-mail:" %>
+      <div class="d-grid gap-2">
+        <%= f.submit "Assinar newsletter", class: 'btn btn-outline-dark fw-bold fs-5' %>
+      </div>
+    <% end %>
+  </div>
+  
+</div>

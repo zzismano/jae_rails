@@ -3,13 +3,34 @@
   height: 100%;
   width: 89%;
   position: relative;
-  left: 10%;
+  left: 8%;
 }
 
 .main-content {
   // width: 86%;
   flex: 1;
   padding: 0.1em;
+}
+
+.main-logo {
+  width: 6em;
+}
+
+.main-link__search {
+  color: #000;
+  font-size: 1.1em;
+  padding: 0.2em;
+}
+
+.main-paragraph__wine {
+  color: $jae-wine;
+  font-size: 1.1em;
+}
+
+.main-newsletterbox {
+  background-color: $dark-gray;
+  padding: 2.3em 1.6em;
+  font-size: 1.1em;
 }
 
 @media screen and (max-width: 768px) {
