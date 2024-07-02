@@ -14,7 +14,10 @@ class SectionCardsController < ApplicationController
   end
 
   def destroy
-    
+    @section_card = SectionCard.find(params[:id])
+    authorize @section_card
+    @section_card.destroy
+    redirect_to section_config_path
   end
 
   private 

@@ -19,10 +19,31 @@
       <h3><%= section.title %></h3>
       <div class="d-flex justify-content-evenly align-items-center flex-wrap">
         <% section.section_cards.each do |section_card| %>
-          <div class="card m-1">
-            <%= cl_image_tag section_card.card.leisure.photo.key, width: '80', crop: :fill %>
-            <h4><%= section_card.card.leisure.title %></h4>
+
+        <div class="card card-film">
+          <div class="position-relative">
+            <%= cl_image_tag section_card.card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: section_card.card.leisure.title %>
+      
+            <% if current_user.admin %>
+              <%= link_to section_card_path(section_card), class: 'text-danger p-2 bg-light rounded card-film-delete position-absolute',
+              data: {turbo_method: :delete, turbo_confirm: "Quer apagar este card?"} do
+              %>
+                <i class="fa-solid fa-delete-left"></i>
+              <% end %>
+            <% end %>
           </div>
+      
+          <div class="card-film-body">
+            <p class="m-0"><span class="fw-light px-1"><%= section_card.card.leisure.category.name %></span> | <span class="fw-bold px-1"><%= section_card.card.leisure.title %></span></p>
+            <p class="px-1 m-0"> <%= calculate_date(section_card.card.leisure.start_date) %> | <%= section_card.card.leisure.time.hour %>h<%= section_card.card.leisure.time.min == 0 ? '00' : section_card.card.leisure.time.min %> | <%= section_card.card.leisure.leisure_venues[0].venue.name %></p>
+          </div>
+          
+        </div>
+          
+
+
+
+
         <% end %>
       </div>
     </div>

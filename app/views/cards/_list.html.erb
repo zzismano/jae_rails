@@ -1,6 +1,6 @@
 <% cards.each do |card| %>
     
-<div class="card card-film">
+  <div class="card card-film">
     <div class="position-relative">
       <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: card.leisure.title %>
 
