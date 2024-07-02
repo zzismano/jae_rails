@@ -15,10 +15,18 @@ class LeisuresController < ApplicationController
 
   end
 
-  def evento_filter
+
+  def filme_filter
     filme = Category.find_by_name("Filme")
     @films = filme.leisures.published.visible
     authorize @films
+  end
+
+
+  def evento_filter
+    evento = Category.find_by_name("Evento")
+    @events = evento.leisures.published.visible
+    authorize @events
   end
 
   def teatro_filter
