@@ -1,0 +1,11 @@
+<%= simple_form_for (section_card) do |f| %>
+
+  <%= f.association :section, collection: Section.all.map {|s| [s.title, s.id] }, prompt: "Escolha uma seção:", label: "Título da Seção", label_html: { class: 'fw-bold' }, hint: 'Campo Obrigatório' %>
+
+  <%= f.association :card, collection: Card.includes(:leisure).all.map { |c| [ c.leisure.title, c.id, { class: c.id }] }, prompt: "Escolha os cards", label: 'Eventos dos Cards:', label_html: { class: 'fw-bold'}, input_html: { multiple: true,
+    data: { controller: 'tom-select'}  } %>
+
+
+  
+  <%= f.submit "Adicionar Cards", class:"btn btn-outline-dark" %>
+<% end %>

@@ -1,0 +1,26 @@
+<div class="my-4 px-2">
+  <% sections.each do |section| %>
+    <div class="main-section-bar">
+      <h2><%= section.title %></h2>
+
+      <div class="main-section-cards">
+
+      
+        <% section.cards.each do |card| %>
+
+          <div class="card card-film">
+            <div class="position-relative">
+              <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: card.leisure.title %>
+            </div>
+        
+            <div class="card-film-body">
+              <p class="m-0"><span class="fw-light px-1"><%= card.leisure.category.name %></span> | <span class="fw-bold px-1"><%= card.leisure.title %></span></p>
+              <p class="px-1 m-0"> <%= calculate_date(card.leisure.start_date) %> | <%= card.leisure.time.hour %>h<%= card.leisure.time.min == 0 ? '00' : card.leisure.time.min %> | <%= card.leisure.leisure_venues[0].venue.name %></p>
+            </div>
+            
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

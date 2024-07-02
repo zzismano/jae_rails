@@ -1,0 +1,4 @@
+<%= simple_form_for (section) do |f| %>
+  <%= f.input :title, label: "Título da Seção:", placeholder: "Ex: Mais Vistos", hint: "Campo obrigatório", label_html: { class: 'fw-bold' } %>
+  <%= f.submit "Criar Seção", class:"btn btn-outline-dark" %>
+<% end %>

@@ -1,4 +1,4 @@
-class LeisurePolicy < ApplicationPolicy
+class SectionCardPolicy < ApplicationPolicy
   # NOTE: Up to Pundit v2.3.1, the inheritance was declared as
   # `Scope < Scope` rather than `Scope < ApplicationPolicy::Scope`.
   # In most cases the behavior will be identical, but if updating existing
@@ -7,50 +7,20 @@ class LeisurePolicy < ApplicationPolicy
 
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
-    def resolve
-      scope.all
-    end
-
+    # def resolve
+    #   scope.all
+    # end
   end
 
-  def home?
-    true
+  def new?
+    create?
   end
 
   def create?
-    user.admin?
-  end
-
-  def edit?
-    update?
-  end
-
-  def update?
     user.admin
   end
 
   def destroy?
     user.admin
   end
-
-  def dashboard?
-    user.admin
-  end
-
-  def filme_filter?
-    true
-  end
-
-  def musica_filter?
-    true
-  end
-
-  def teatro_filter?
-    true
-  end
-
-  def newsletter_subscription?
-    true
-  end
-
 end

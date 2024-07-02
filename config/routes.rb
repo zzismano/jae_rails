@@ -29,10 +29,24 @@ Rails.application.routes.draw do
 
   resources :cards
 
+  resources :sections, only: [:create, :destroy, :edit, :update] do 
+    resources :section_cards, only: [:edit, :update]
+  end
+
+  resources :section_cards, only: [:destroy, :create]
+
+  
+
   get "filme_filter", to: 'leisures#filme_filter'
   get "teatro_filter", to: 'leisures#teatro_filter'
   get "musica_filter", to: 'leisures#musica_filter'
+
+
   get "banner_config", to: 'banners#banner_config'
 
   get 'card_config', to: 'cards#card_config'
+
+  get 'section_config', to: "sections#section_config"
+
+  post 'newsletter_subscription', to: 'leisures#newsletter_subscription'
 end
