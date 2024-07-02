@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_01_190149) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_01_181110) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -126,6 +126,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_01_190149) do
     t.index ["leisure_id"], name: "index_leisures_genres_on_leisure_id"
   end
 
+  create_table "section_cards", force: :cascade do |t|
+    t.bigint "card_id", null: false
+    t.bigint "section_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_section_cards_on_card_id"
+    t.index ["section_id"], name: "index_section_cards_on_section_id"
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -164,5 +179,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_01_190149) do
   add_foreign_key "leisures", "users"
   add_foreign_key "leisures_genres", "genres"
   add_foreign_key "leisures_genres", "leisures"
+  add_foreign_key "section_cards", "cards"
+  add_foreign_key "section_cards", "sections"
   add_foreign_key "venues", "users"
 end

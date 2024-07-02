@@ -4,6 +4,8 @@ class LeisuresController < ApplicationController
   def home
     @banner = Banner.first
     authorize @banner
+
+    @sections = Section.includes(:cards).all
   end
 
   def index
@@ -132,6 +134,11 @@ class LeisuresController < ApplicationController
   def dashboard
     @leisures = Leisure.all
     authorize @leisures
+  end
+
+  def newsletter_subscription
+    @subscriber = {name: params[:name], email: params[:email]}
+    authorize @subscriber
   end
 
   private

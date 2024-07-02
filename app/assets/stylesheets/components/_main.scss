@@ -3,7 +3,7 @@
   height: 100%;
   width: 89%;
   position: relative;
-  left: 10%;
+  left: 8%;
 }
 
 .main-content {
@@ -12,23 +12,75 @@
   padding: 0.1em;
 }
 
+.main-logo {
+  width: 6em;
+}
+
+.main-link__search {
+  color: #000;
+  font-size: 1em;
+  padding: 0.2em;
+}
+
+.main-paragraph__wine {
+  color: $jae-wine;
+  font-size: 1.1em;
+}
+
+.main-newsletterbox {
+  background-color: $dark-gray;
+  padding: 2.3em 1.6em;
+  font-size: 1.1em;
+}
+
+.main-social {
+  background-color: $dark-gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2em;
+  &__icon {
+    font-size: 3em;
+  }
+  &__paragraph {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+}
+
+.main-section-cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
 @media screen and (max-width: 768px) {
   .home {
     width: 87%;
     left: 12%;
   }
+  .main-content__col {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 425px) {
   .home {
-    width: 84%;
-    left: 15%;
+    width: 86%;
+    left: 13%;
+  }
+  .main-logo {
+    display: none;
   }
 }
 
 @media screen and (max-width: 375px) {
   .home {
-    width: 82%;
-    left: 17%;
+    width: 85%;
+    left: 14%;
   }
 }

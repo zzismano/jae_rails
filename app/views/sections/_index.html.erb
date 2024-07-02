@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8 p-3">
+      <h2 class="text-center fw-bold fs-4 text-decoration-underline my-3">Seções e Cards</h2>
+
+      <h2 class="fw-bold fs-5 my-4">
+        Esta é uma lista de todas as seções que existem na homepage.
+      </h2>
+      <p class="fs-6"> - Se quiser remover algum card de alguma seção, clique no X que existe dentro de cada card. </p>
+
+      
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <% sections.each do |section| %>
+    <div class="bg-light p-1 my-3">
+      <h3><%= section.title %></h3>
+      <div class="d-flex justify-content-evenly align-items-center flex-wrap">
+        <% section.section_cards.each do |section_card| %>
+
+        <div class="card card-film">
+          <div class="position-relative">
+            <%= cl_image_tag section_card.card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: section_card.card.leisure.title %>
+      
+            <% if current_user.admin %>
+              <%= link_to section_card_path(section_card), class: 'text-danger p-2 bg-light rounded card-film-delete position-absolute',
+              data: {turbo_method: :delete, turbo_confirm: "Quer apagar este card?"} do
+              %>
+                <i class="fa-solid fa-delete-left"></i>
+              <% end %>
+            <% end %>
+          </div>
+      
+          <div class="card-film-body">
+            <p class="m-0"><span class="fw-light px-1"><%= section_card.card.leisure.category.name %></span> | <span class="fw-bold px-1"><%= section_card.card.leisure.title %></span></p>
+            <p class="px-1 m-0"> <%= calculate_date(section_card.card.leisure.start_date) %> | <%= section_card.card.leisure.time.hour %>h<%= section_card.card.leisure.time.min == 0 ? '00' : section_card.card.leisure.time.min %> | <%= section_card.card.leisure.leisure_venues[0].venue.name %></p>
+          </div>
+          
+        </div>
+          
+
+
+
+
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
