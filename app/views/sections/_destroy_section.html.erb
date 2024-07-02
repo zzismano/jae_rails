@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8 p-3">
+      <h2 class="text-center fw-bold fs-4 text-decoration-underline my-3">Remover Seção + todos os Cards da Seção</h2>
+
+      <h2 class="fw-bold fs-5 my-4"> Se quiser deletar uma seção e todos os cards dentro da seção, clique no x dentro de cada Seção</h2>
+      
+      <% sections.each do |section| %>
+        <div class="card m-2 p-2">
+          <div class="position-relative">
+            <% if current_user.admin %>
+              <%= link_to section_path(section), class: 'text-danger p-2 bg-light rounded card-film-delete position-absolute',
+              data: {turbo_method: :delete, turbo_confirm: "Quer apagar esta Seção por completo?"} do
+              %>
+                <i class="fa-solid fa-delete-left"></i>
+              <% end %>
+            <% end %>
+          </div>
+          <h2 class="text-center"><%= section.title %></h2>
+        </div>
+      <% end %>
+    
+    </div>
+  </div>
+</div>

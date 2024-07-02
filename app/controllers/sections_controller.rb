@@ -22,6 +22,13 @@ class SectionsController < ApplicationController
     end
   end
 
+  def destroy
+    @section = Section.find(params[:id])
+    authorize @section
+    @section.destroy
+    redirect_to section_config_path
+  end
+
   private
 
   def section_params

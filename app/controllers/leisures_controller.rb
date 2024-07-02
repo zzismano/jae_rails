@@ -4,6 +4,8 @@ class LeisuresController < ApplicationController
   def home 
     @banner = Banner.first
     authorize @banner
+
+    @sections = Section.includes(:cards).all
   end
 
   def index
