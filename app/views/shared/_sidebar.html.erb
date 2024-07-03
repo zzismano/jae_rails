@@ -2,7 +2,7 @@
 
   <ul class="categorias" >
 
-  <%= link_to filme_filter_path, data: {turbo_frame: 'content'} do %>
+  <%= link_to leisures_path(category: 'Filme'), data: {turbo_frame: 'content'} do %>
     <div class="square categorias-cinema" id="filme" data-selector-target="filme" data-action="click->selector#select" >
       <li>CINEMA</li>
 

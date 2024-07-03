@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "content" do %>
+  <div class="container">
+    <div class="row">
+      <% @leisures.each do |leisure| %>
+        <%= render partial_select(leisure), leisure: leisure %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

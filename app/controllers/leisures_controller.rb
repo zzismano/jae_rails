@@ -6,6 +6,8 @@ class LeisuresController < ApplicationController
     authorize @banner
 
     @sections = Section.includes(:cards).all
+
+
   end
 
   def index
@@ -13,57 +15,12 @@ class LeisuresController < ApplicationController
     # load hero banner on LP.
     @banner = Banner.first
 
-  end
 
-
-  def filme_filter
-    filme = Category.find_by_name("Filme")
-    @films = filme.leisures.published.visible
-    authorize @films
-  end
-
-
-  def evento_filter
-    evento = Category.find_by_name("Evento")
-    @events = evento.leisures.published.visible
-    authorize @events
-  end
-
-  def teatro_filter
-    teatro = Category.find_by_name("Teatro")
-    @plays = teatro.leisures.published.visible
-    authorize @plays
-  end
-
-  def musica_filter
-    musica = Category.find_by_name("Musica")
-    @shows = musica.leisures.published.visible
-    authorize @shows
-  end
-
-  def danca_filter
-    danca = Category.find_by_name("Danca")
-    @shows = danca.leisures.published.visible
-    authorize @shows
-  end
-
-  def festa_filter
-    festa = Category.find_by_name("Festa")
-    @parties = festa.leisures.published.visible
-    authorize @parties
-  end
-
-
-  def evento_filter
-    evento = Category.find_by_name("Evento")
-    @events = evento.leisures.published.visible
-    authorize @events
-  end
-
-  def expo_filter
-    expo = Category.find_by_name("Expo")
-    @expos = expo.leisures.published.visible
-    authorize @expos
+    # search by category on sidebar
+    if params[:category].present?
+      category = Category.find_by_name(params[:category])
+      @leisures = @leisures.where(category: category)
+    end
   end
 
   def new
@@ -145,7 +102,7 @@ class LeisuresController < ApplicationController
   end
 
   def newsletter_subscription
-    @subscriber = {name: params[:name], email: params[:email]}
+    @subscriber = {email: params[:email]}
     authorize @subscriber
   end
 

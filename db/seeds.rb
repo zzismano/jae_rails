@@ -100,7 +100,7 @@ vivo = Venue.new(name: 'Vivo Rio', address: 'Av. Infante Dom Henrique, 104', cap
 
 vivo.save!
 
-puts "Creating category...."
+puts "Creating categories...."
 
 filme = Category.new(name: 'Filme', subcategories: ["Drama", "Horror", "Comedy"], user: users.sample)
 
@@ -113,6 +113,22 @@ teatro.save!
 musica = Category.new(name: 'Musica', subcategories:["show", "festival", "clubs", "clássica", "Vem aí"], user: users.sample)
 
 musica.save!
+
+danca = Category.new(name: 'Danca', subcategories: ['clássica', 'moderna'], user: users.sample)
+
+danca.save!
+
+evento = Category.new(name: 'Evento', subcategories: ['evento', 'vem aí'], user: users.sample)
+
+evento.save!
+
+festa = Category.new(name: 'Festa', subcategories: ['eletrônica', 'brasileira'], user: users.sample)
+
+festa.save!
+
+expo = Category.new(name: 'Expo', subcategories: ['mostra', 'permanente'], user: users.sample)
+
+expo.save!
 
 puts "Creating leisure..."
 
