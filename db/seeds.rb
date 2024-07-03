@@ -126,7 +126,7 @@ festa = Category.new(name: 'Festa', subcategories: ['eletrônica', 'brasileira']
 
 festa.save!
 
-expo = Category.new(name: 'Expo', subcategories: ['mostra', 'permanente'], user: users.sample)
+
 
 expo.save!
 
