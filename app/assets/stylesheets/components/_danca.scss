@@ -1,0 +1,57 @@
+
+.danca {
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 4px solid rgb(134, 43, 43);
+}
+
+@media screen and (min-width: 998px) {
+
+  .menu-danca {
+    width: 90%;
+  }
+
+  .danca {
+    border-left:  2px solid rgb(134, 43, 43);
+    border-right:  2px solid rgb(134, 43, 43);
+  }
+}
+.foto-danca {
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 10em;
+  height: 6em;
+  margin-right: 0.7rem;
+
+}
+
+#venue {
+  color: black;
+}
+
+.infos-danca {
+  text-wrap: wrap;
+  margin-left: 1px;
+
+}
+
+
+.infos-danca p {
+  font-weight: medium;
+  font-size: 12px;
+  margin-bottom: 0;
+  color: rgb(134, 43, 43);
+  line-height: 1.2;
+  text-wrap: wrap;
+}
+
+.infos-danca strong {
+  line-height: 1.2;
+  color: rgb(134, 43, 43);
+  font-size: 14px;
+  text-wrap: wrap;
+}

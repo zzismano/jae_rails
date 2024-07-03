@@ -49,6 +49,21 @@ class LeisurePolicy < ApplicationPolicy
     true
   end
 
+  def danca_filter?
+    true
+  end
+
+  def evento_filter?
+    true
+  end
+
+  def festa_filter?
+    true
+  end
+
+  def expo_filter?
+    true
+  end
   def newsletter_subscription?
     true
   end
