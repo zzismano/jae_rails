@@ -9,19 +9,17 @@
           <% end %>
           <%= names.join(" / ") %>
         | dir. <%= leisure.director %> | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "sem país"  %> | <%= leisure.min_age.to_s %>+ | <%= leisure.duration %>  </p>
-      <p id="horario"> <%=  calculate_date(leisure.start_date) %>/
-        <%= (I18n.t :abbr_month_names, :scope => :date)[leisure.start_date.month]%> |
-        <%= leisure.time.hour %>h<%= leisure.time.min == 0 ? '00' : leisure.time.min %>
+      <p id="horario">
+        Estreia <%= leisure.date %>
       </p>
       <a href="<% leisure.link %>"class="button-small">comprar ingresso</a>
     </div>
   </div>
   <div class="sinopse" data-controller="read-more" data-read-more-more-text-value="Ver mais" data-read-more-less-text-value="Ver menos">
-    <strong class="film-features">Com <%= leisure.features %></strong>
     <p class="mb-0" data-read-more-target="content">
       <%= leisure.description %>
       <br>
-
+      <strong class="film-features">Com <%= leisure.features %></strong>
       <br>
       <br>
       <strong>
