@@ -1,5 +1,6 @@
 class LeisuresController < ApplicationController
   before_action :set_leisure, only: [:edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:home, :index]
 
   def home
     @banner = Banner.first
