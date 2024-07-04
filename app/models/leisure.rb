@@ -9,7 +9,7 @@ class Leisure < ApplicationRecord
   has_one_attached :photo
   validates :description, length: { minimum: 100,
     too_short: "Descrição muito curta! O mínimo é 100." }
-  scope :published, -> {where("publish_date <= ? ", Date.today) }
+  scope :published, -> {where("start_date <= ? ", Date.today) }
   scope :visible, -> {where(hidden: [false, nil] )}
 
   include PgSearch::Model

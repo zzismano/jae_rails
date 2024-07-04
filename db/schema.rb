@@ -105,15 +105,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_032450) do
     t.string "features"
     t.integer "min_age"
     t.string "duration"
-    t.time "time"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
-    t.date "publish_date"
     t.boolean "hidden"
     t.boolean "free"
+    t.string "schedule"
+    t.string "date"
     t.index ["category_id"], name: "index_leisures_on_category_id"
     t.index ["user_id"], name: "index_leisures_on_user_id"
   end
