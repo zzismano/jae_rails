@@ -20,6 +20,8 @@ class LeisuresController < ApplicationController
     if params[:category].present?
       category = Category.find_by_name(params[:category])
       @leisures = @leisures.where(category: category)
+    elsif params[:date].present? 
+      date_search_filter(params[:date])
     end
   end
 
@@ -104,6 +106,25 @@ class LeisuresController < ApplicationController
   def newsletter_subscription
     @subscriber = {email: params[:email]}
     authorize @subscriber
+  end
+
+  def date_search_filter(date)
+    if date == 'hoje'
+      @leisures = Leisure.where(start_date: Date.today)
+    elsif date == 'proximo_mes'
+      today = Date.today
+      start_next_month = today.next_month.beginning_of_month
+      end_next_month = today.next_month.end_of_month
+      @leisures = Leisure.where(start_date: start_next_month..end_next_month)
+    elsif date == 'fim_de_semana'
+      today = Date.today
+      next_saturday = today + ((6 - today.wday) % 7)
+      next_sunday = next_saturday + 1
+      @leisures = Leisure.where(start_date: next_saturday..next_sunday)
+                  .or(Leisure.where(end_date: next_saturday..next_sunday))
+    elsif date == 'gratuito'
+      @leisures = Leisure.where(free: true)
+    end
   end
 
   private
