@@ -2,7 +2,7 @@
 
   <ul class="categorias" >
 
-  <%= link_to filme_filter_path, data: {turbo_frame: 'content'} do %>
+  <%= link_to leisures_path(category: 'Filme'), data: {turbo_frame: 'content'} do %>
     <div class="square categorias-cinema" id="filme" data-selector-target="filme" data-action="click->selector#select" >
       <li>CINEMA</li>
 
@@ -15,7 +15,7 @@
     </div>
   <% end %>
 
-  <%= link_to musica_filter_path, data: {turbo_frame: 'content'} do %>
+  <%= link_to leisures_path(category: 'Musica'), data: {turbo_frame: 'content'} do %>
   <div class="square categorias-musica" id="musica" data-selector-target="musica" data-action="click->selector#select">
     <li>MÚSICA</li>
 
@@ -29,7 +29,7 @@
   </div>
   <% end %>
 
-  <%= link_to teatro_filter_path, data: {turbo_frame: 'content'} do  %>
+  <%= link_to leisures_path(category: 'Teatro'), data: {turbo_frame: 'content'} do  %>
   <div class="square categorias-teatro" id="teatro" data-selector-target="teatro" data-action="click->selector#select">
     <li>TEATRO</li>
 
@@ -42,7 +42,7 @@
   </div>
   <% end %>
 
-  <%= link_to "#", data: {turbo_frame: 'content'} do %>
+  <%= link_to leisures_path(category: 'Danca'), data: {turbo_frame: 'content'} do %>
   <div class="square categorias-danca" id="danca" data-selector-target="danca" data-action="click->selector#select">
     <li>DANÇA</li>
 
@@ -54,7 +54,7 @@
   </div>
   <% end %>
 
-  <%= link_to "#", data: {turbo_frame: 'content'} do %>
+  <%= link_to leisures_path(category: 'Evento'), data: {turbo_frame: 'content'} do %>
     <div class="square categorias-evento" id="evento" data-selector-target="evento" data-action="click->selector#select">
       <li>EVENTO</li>
       <div class="menu-square d-none">
@@ -64,7 +64,7 @@
     </div>
   <% end %>
 
-  <%= link_to "#", data: {turbo_frame: 'content'} do %>
+  <%= link_to leisures_path(category: 'Festa'), data: {turbo_frame: 'content'} do %>
     <div class="square categorias-festa" id="festa" data-selector-target="evento" data-action="click->selector#select">
       <li>FESTA</li>
       <div class="menu-square d-none">
@@ -74,7 +74,7 @@
     </div>
   <% end %>
 
-  <%= link_to "#", data: {turbo_frame: 'content'} do %>
+  <%= link_to leisures_path(category: 'Expo'), data: {turbo_frame: 'content'} do %>
     <div class="square categorias-expo" id="expo" data-selector-target="expo" data-action="click->selector#select">
       <li>EXPO</li>
       <div class="menu-square d-none">
@@ -84,7 +84,7 @@
     </div>
   <% end %>
   
-  <%= link_to "#", data: {turbo_frame: 'content'} do %>
+  <%= link_to leisures_path(category: 'Mais'), data: {turbo_frame: 'content'} do %>
     <div class="square categorias-mais" id="mais" data-selector-target="mais" data-action="click->selector#select">
       <li>MAIS</li>
       <div class="menu-square d-none">

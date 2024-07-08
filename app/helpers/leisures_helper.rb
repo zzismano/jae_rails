@@ -3,3 +3,4 @@ module LeisuresHelper
     "shared/#{leisure.category.name.downcase}"
   end
 end
+

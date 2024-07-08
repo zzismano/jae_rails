@@ -12,6 +12,13 @@
 
         <%= f.input :description, as: :text, label: 'Sinopse:', label_html: { class: 'fw-bold' } %>
 
+        <div class="row ">
+          <p class="fw-bold">O evento é gratuito?</p>
+          <div class="d-flex justify-content-evenly py-2">
+            <%= f.collection_radio_buttons :free, [[true, 'Grátis'], [false, 'Pago']], :first, :last, label_html: { class: 'mx-1'} %>
+          </div>
+        </div>
+
         <%= f.input :country, priority: ["BR", "US"],  include_blank: 'Selecione um país:' , label: 'País:', label_html: { class: 'fw-bold' }, input_html: { class: 'form-select' } %>
 
         <%= f.input :director, label: 'Diretor(a):', label_html: { class: 'fw-bold' } %>
@@ -28,10 +35,10 @@
 
         <div class="row">
           <div class="col-lg-6 col-12">
-            <%= f.input :schedule, label: 'Horários', label_html: { class: 'fw-bold' }, placeholder: "Ex: sex/ sáb, 20h | dom, 18h" %>
+            <%= f.input :schedule, label: 'Horários:', label_html: { class: 'fw-bold' }, placeholder: "Ex: sex/ sáb, 20h | dom, 18h" %>
           </div>
           <div class="col-lg-6 col-12">
-            <%= f.input :date, label: 'Data', label_html: { class: 'fw-bold' }, placeholder: "Ex: 21/jun a 07/jul" %>
+            <%= f.input :date, label: 'Data:', label_html: { class: 'fw-bold' }, placeholder: "Ex: 21/jun a 07/jul" %>
           </div>
           <div class="col-lg-6 col-12">
             <%= f.input :start_date, label: 'Data de pulicação:', label_html: { class: 'fw-bold' } %>

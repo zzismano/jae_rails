@@ -26,6 +26,9 @@ gem "font-awesome-sass", "~> 6.1"
 # Use cloudinary to save media
 gem "cloudinary"
 
+# Use Pg Search to search for data
+gem "pg_search"
+
 # Use postgresql as the database for Active Record
 gem 'postgresql', '~> 1.0'
 

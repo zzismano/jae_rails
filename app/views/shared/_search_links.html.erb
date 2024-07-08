@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-lg-6 col-md-6 col-12 pe-lg-1 pe-md-1 pt-1">
     <div class="legenda-carrosel d-flex justify-content-between align-items-center  rounded">
-      <%= link_to "hoje", root_path, class: 'main-link__search'   %>
+      <%= link_to 'hoje', leisures_path(date: 'hoje'), class: 'main-link__search', data: {turbo_frame: 'content'}   %>
       <span><i class="fa-solid fa-caret-right"></i></span>
     </div>
   </div>
   
   <div class="col-lg-6 col-md-6 col-12 ps-lg-1 ps-md-1 pt-1">
     <div class="legenda-carrosel d-flex justify-content-between align-items-center  rounded">
-      <%= link_to "próximo mês", root_path, class: 'main-link__search' %>
+      <%= link_to "próximo mês", leisures_path(date: 'proximo_mes'), class: 'main-link__search', data: {turbo_frame: 'content'} %>
       <span><i class="fa-solid fa-caret-right"></i></span>
     </div>
   </div>
@@ -18,14 +18,14 @@
 
   <div class="col-lg-6 col-md-6 col-12 pe-lg-1 pe-md-1 pt-1">
     <div class="legenda-carrosel d-flex justify-content-between align-items-center rounded">
-      <%= link_to "fim de semana", root_path, class: 'main-link__search'   %>
+      <%= link_to "fim de semana", leisures_path(date: 'fim_de_semana'), class: 'main-link__search', data: {turbo_frame: 'content'}   %>
       <span><i class="fa-solid fa-caret-right"></i></span>
     </div>
   </div>
 
   <div class="col-lg-6 col-md-6 col-12 ps-lg-1 ps-md-1 pt-1"> 
     <div class="legenda-carrosel d-flex justify-content-between align-items-center  rounded">
-      <%= link_to "gratuito", root_path, class: 'main-link__search'   %>
+      <%= link_to "gratuito", leisures_path(date: 'gratuito'), class: 'main-link__search', data: {turbo_frame: 'content'}   %>
       <span><i class="fa-solid fa-caret-right"></i></span>
     </div>
   </div>

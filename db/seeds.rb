@@ -85,7 +85,7 @@ puts "Saved banner!"
 
 puts "Creating venues..."
 
-cinemark = Venue.new(name: 'Cinemark', address: 'Praia de Botafogo', capacity: 100, website: 'www.cinemark.com.br', zone: "Zona Sul/Centro", user: users.sample)
+cinemark = Venue.new(name: 'Cinemark', address: 'Praia de Botafogo', capacity: 100, website: 'www.cinemark.com.br', zone: "Zona Sul", user: users.sample)
 
 cinemark.save!
 
@@ -93,15 +93,35 @@ uci = Venue.new(name: 'UCI NYCC', address: 'Avenida das Américas 5000', capacit
 
 uci.save!
 
-poeira = Venue.new(name: 'Teatro Poeira', address: 'R. São João Batista, 104', capacity: 80, website: 'www.teatropoeira.com.br', zone: "Zona Sul/Centro", user: users.sample)
+poeira = Venue.new(name: 'Teatro Poeira', address: 'R. São João Batista, 104', capacity: 80, website: 'www.teatropoeira.com.br', zone: "Zona Sul", user: users.sample)
 
 poeira.save!
 
-vivo = Venue.new(name: 'Vivo Rio', address: 'Av. Infante Dom Henrique, 104', capacity: 100, website: 'www.vivorio.com.br', zone: "Zona Sul/Centro", user: users.sample)
+vivo = Venue.new(name: 'Vivo Rio', address: 'Av. Infante Dom Henrique, 104', capacity: 100, website: 'www.vivorio.com.br', zone: "Zona Sul", user: users.sample)
 
 vivo.save!
 
-puts "Creating category...."
+quinta = Venue.new(name: 'Quinta da Boa Vista', address: 'Parque Quinta da Boa Vista S/N', capacity: 1000, website: 'www.quintadaboavista.com.br', zone: "Zona Norte", user: users.sample)
+
+quinta.save!
+
+rival = Venue.new(name: 'Teatro Rival', address: 'Rua Álvaro Alvim, 33', capacity: 120, website: 'www.teatro-rival.com.br', zone: "Centro", user: users.sample)
+
+rival.save!
+
+ccbb = Venue.new(name: 'Espaço CCBB', address: 'Av. Primeiro de Março, 1', capacity: 300, website: 'www.ccbb.com.br', zone: "Centro", user: users.sample)
+
+ccbb.save!
+
+france_bresil = Venue.new(name: 'Casa França Brasil', address: 'Rua Visconde de Itaboraí, 78', capacity: 160, website: 'www.casafranca-brasil.com.br', zone: "Centro", user: users.sample)
+
+france_bresil.save!
+
+theatro = Venue.new(name: 'Theatro Municipal', address: 'Praça Floriano, S/N', capacity: 450, website: 'www.theatro-municipal-rj.com.br', zone: "Centro", user: users.sample)
+
+theatro.save!
+
+puts "Creating categories...."
 
 filme = Category.new(name: 'Filme', subcategories: ["Drama", "Horror", "Comedy"], user: users.sample)
 
@@ -115,9 +135,25 @@ musica = Category.new(name: 'Musica', subcategories:["show", "festival", "clubs"
 
 musica.save!
 
+danca = Category.new(name: 'Danca', subcategories: ['clássica', 'moderna'], user: users.sample)
+
+danca.save!
+
+evento = Category.new(name: 'Evento', subcategories: ['evento', 'vem aí'], user: users.sample)
+
+evento.save!
+
+festa = Category.new(name: 'Festa', subcategories: ['eletrônica', 'brasileira'], user: users.sample)
+
+festa.save!
+
+expo = Category.new(name: 'Expo', subcategories: ['permanente', 'temp'], user: users.sample)
+
+expo.save!
+
 puts "Creating leisure..."
 
-leisure = Leisure.new(category: filme, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'BR', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia lorem ipsum mastuto hello world meu deus tem que escrever uma duzia de coisas', start_date: '13/02/2024', features: 'Wagner Moura', min_age: 16, duration: 2, end_date: '20/06/2024', date: "08/ago", hidden: false, user: users.sample)
+leisure = Leisure.new(category: filme, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'BR', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia lorem ipsum mastuto hello world meu deus tem que escrever uma duzia de coisas', start_date: '13/02/2024', features: 'Wagner Moura', min_age: 16, duration: 2, end_date: '20/06/2024', date: "08/ago", hidden: false, free: false, user: users.sample)
 
 
 pic = URI.open('https://conteudo.imguol.com.br/c/splash/00/2024/03/21/poster-de-guerra-civil-1711029679742_v2_750x1.jpg.webp')
@@ -130,7 +166,7 @@ leisure.save!
 puts "leisure created!"
 
 
-leisure2 = Leisure.new(category: teatro, link: 'www.teatropoeira.com.br', title: "Sonata de Outono", subtitle: 'Um subtitulo qualquer', director: 'Marieta Severo', country: 'BR', description: 'Uma sonata dedicada à relação de mãe e filho e como suas vidas se entremeiam cheias de maluquices e brigas.', start_date: '13/02/2024', features: 'Marieta Severo, Andrea Beltrao', min_age: 18, duration: 2, date: "27/Jun a 30/Jul", schedule: "ter e qui 20h | sab e dom 19h", end_date: '20/06/2024', hidden: false , user: users.sample)
+leisure2 = Leisure.new(category: teatro, link: 'www.teatropoeira.com.br', title: "Sonata de Outono", subtitle: 'Um subtitulo qualquer', director: 'Marieta Severo', country: 'BR', description: 'Uma sonata dedicada à relação de mãe e filho e como suas vidas se entremeiam cheias de maluquices e brigas.', start_date: '13/02/2024', features: 'Marieta Severo, Andrea Beltrao', min_age: 18, duration: 2, date: "27/Jun a 30/Jul", schedule: "ter e qui 20h | sab e dom 19h", end_date: '20/06/2024', hidden: false , free: false, user: users.sample)
 
 pic2 = URI.open('https://br.web.img2.acsta.net/c_310_420/medias/nmedia/18/90/65/22/20106956.jpg')
 
@@ -140,7 +176,7 @@ leisure2.save!
 
 puts "leisure 2 created!"
 
-leisure3 = Leisure.new(category: musica, link: 'www.babydobrasil.com.br', title: "Baby Do Brasil", subtitle: 'In Concert', country:'BR', description: 'Baby apresenta seus grandes hits, como “Telúrica”, “Sem pecado e sem juízo”, “Planeta Vênus”, “Cósmica”, “Seus olhos”, “Masculino e Feminino”, entre outros. Também vai ter homenagens aos amigos e parceiros com músicas como Baby, Malandro e Brasileirinho.', start_date: '13/02/2024', end_date: '13/08/2024', date: "3/Jul", schedule: "Qua, 20h", hidden: false, user: users.sample)
+leisure3 = Leisure.new(category: musica, link: 'www.babydobrasil.com.br', title: "Baby Do Brasil", subtitle: 'In Concert', country:'BR', description: 'Baby apresenta seus grandes hits, como “Telúrica”, “Sem pecado e sem juízo”, “Planeta Vênus”, “Cósmica”, “Seus olhos”, “Masculino e Feminino”, entre outros. Também vai ter homenagens aos amigos e parceiros com músicas como Baby, Malandro e Brasileirinho.', start_date: '13/02/2024', end_date: '13/08/2024', date: "3/Jul", schedule: "Qua, 20h", hidden: false, free: false, user: users.sample)
 
 pic3 = URI.open('https://eventicket.s3-sa-east-1.amazonaws.com/imgs/28906-img-programacao.jpg')
 
@@ -150,6 +186,49 @@ leisure3.save!
 
 puts "leisure 3 created!"
 
+
+ziraldo = Leisure.new(category: expo, link: 'www.ccbb.com.br', title: "Ziraldo - 50 anos de cartoon", subtitle: 'Vida e trajetória do cartunista Ziraldo', director: 'Fulano', country: 'BR', description: 'A exposição no CCBB traz um repertório das obras do Ziraldo e traz uma mostra iterativa focada em crianças de 4 a 9 anos.', start_date: '06/07/2024', features: 'Wagner Moura', min_age: 16, duration: 2, end_date: '20/06/2024', date: "08/ago", hidden: false, free: true, user: User.first)
+
+pic4 = URI.open('https://ccbb.com.br/wp-content/uploads/2022/11/Img-13.jpg')
+  
+ziraldo.photo.attach(io: pic4, filename: "ziraldo.png", content_type: "image/jpg")
+  
+ziraldo.save!
+  
+puts "leisure 4 created!"
+
+
+
+rara = Leisure.new(category: festa, link: 'www.festa-rara.com.br', title: "Festa Rara", subtitle: 'Disco Raro', director: 'Fulano', country: 'BR', description: 'Os produtores da Rara trazem mais uma edição da festa alternativa/glamour. Sediada na Casa Maison Brasil França, os Djs prometem agitar a noite.', start_date: '27/07/2024', features: 'Dj Elisa Amaral', min_age: 18, duration: 2, end_date: '28/07/2024', date: "27/ago", hidden: false, free: false, user: User.second)
+
+pic5 = URI.open('https://www.revistalounge.com.br/wp-content/uploads/2018/10/%C3%9Altima-edi%C3%A7%C3%A3o-da-festa-RARA-Foto-Mark-Farina.jpg')
+
+rara.photo.attach(io: pic5, filename: "rara.png", content_type: "image/jpg")
+
+rara.save!
+
+puts "leisure 5 created!"
+
+junina = Leisure.new(category: evento, link: 'www.junina.com.br', title: "Junina na Quinta", subtitle: 'Festa Junina na Quinta da Boa Vista', director: 'Prefeitura do RJ', country: 'BR', description: 'A Quinta da Boa Vista se prepara para receber a sua edição da Festa Junina neste fim de semana. O evento contará com barraquinhas de comida, brincadeiras, fogueira e show de forró.', start_date: '27/08/2024', features: 'Trio Pé de Serra', min_age: 12, duration: 2, end_date: '28/08/2024', date: "27/ago", hidden: false, free: true, user: User.first)
+
+  pic6 = URI.open('https://static.itdg.com.br/images/622-auto/9710fa5ed78fff9d9cc974a861d2cc66/quando-e-a-festa-junina.jpg')
+
+  junina.photo.attach(io: pic6, filename: "junina.png", content_type: "image/jpg")
+  
+  junina.save!
+  
+  puts "leisure 6 created!"
+
+cisnes = Leisure.new(category: danca, link: 'www.theatro-municipal.com.br', title: "O Lago dos Cisnes", subtitle: '50 anos de Tchaikovsky', director: 'Ana Botafogo', country: 'BR', description: 'O Theatro Municipal do Rio de Janeiro abre suas portas para receber uma nova apresentação do clássico do balé. Corram por que os ingressos voam.', start_date: '27/08/2024', features: 'Ana Botafogo', min_age: 12, duration: 2, end_date: '28/08/2024', date: "27/ago", hidden: false, free: false, user: User.first)
+
+  pic7 = URI.open('https://detroitopera.org/app/uploads/2020/08/Swan-Lake.jpg')
+
+  cisnes.photo.attach(io: pic7, filename: "cisnes.png", content_type: "image/jpg")
+  
+  cisnes.save!
+  
+  puts "leisure 7 created!"
+
 puts "Creating genre..."
 
 comedia = Genre.new(name: 'Comédia', user: users.sample)
@@ -157,6 +236,9 @@ comedia.save!
 
 drama = Genre.new(name: 'Drama', user: users.sample)
 drama.save!
+
+terror = Genre.new(name: 'Terror', user: users.sample)
+terror.save!
 
 puts "Creating leisure_genre..."
 
@@ -180,6 +262,22 @@ join_leisure_venue4 = LeisureVenue.new(leisure: leisure3, venue: vivo)
 
 join_leisure_venue4.save!
 
+join_leisure_venue5 = LeisureVenue.new(leisure: cisnes, venue: theatro)
+
+join_leisure_venue5.save!
+
+join_leisure_venue6 = LeisureVenue.new(leisure: rara, venue: france_bresil)
+
+join_leisure_venue6.save!
+
+join_leisure_venue7 = LeisureVenue.new(leisure: junina, venue: quinta)
+
+join_leisure_venue7.save!
+
+join_leisure_venue8 = LeisureVenue.new(leisure: ziraldo, venue: ccbb)
+
+join_leisure_venue8.save!
+
 puts "Creating Card..."
 
 card = Card.new(leisure: leisure)
@@ -187,3 +285,5 @@ card = Card.new(leisure: leisure)
 card.save!
 
 puts "Seeding is done!"
+
+

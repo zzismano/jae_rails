@@ -1,69 +1,33 @@
 class LeisuresController < ApplicationController
   before_action :set_leisure, only: [:edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:home, :index]
 
   def home
     @banner = Banner.first
     authorize @banner
 
     @sections = Section.includes(:cards).all
+
+
   end
 
   def index
+    
     @leisures = policy_scope(Leisure)
     # load hero banner on LP.
     @banner = Banner.first
 
-  end
-
-
-  def filme_filter
-    filme = Category.find_by_name("Filme")
-    @films = filme.leisures.published.visible
-    authorize @films
-  end
-
-
-  def evento_filter
-    evento = Category.find_by_name("Evento")
-    @events = evento.leisures.published.visible
-    authorize @events
-  end
-
-  def teatro_filter
-    teatro = Category.find_by_name("Teatro")
-    @plays = teatro.leisures.published.visible
-    authorize @plays
-  end
-
-  def musica_filter
-    musica = Category.find_by_name("Musica")
-    @shows = musica.leisures.published.visible
-    authorize @shows
-  end
-
-  def danca_filter
-    danca = Category.find_by_name("Danca")
-    @shows = danca.leisures.published.visible
-    authorize @shows
-  end
-
-  def festa_filter
-    festa = Category.find_by_name("Festa")
-    @parties = festa.leisures.published.visible
-    authorize @parties
-  end
-
-
-  def evento_filter
-    evento = Category.find_by_name("Evento")
-    @events = evento.leisures.published.visible
-    authorize @events
-  end
-
-  def expo_filter
-    expo = Category.find_by_name("Expo")
-    @expos = expo.leisures.published.visible
-    authorize @expos
+    # search service for all tags
+    @search_service = SearchService.new
+    if params[:category].present?
+      @leisures = @search_service.search_by_category(params[:category])
+    elsif params[:date].present?
+      @leisures = @search_service.search_by_date(params[:date])
+    elsif params[:where].present?
+      @leisures = @search_service.search_by_where(params[:where])
+    elsif params[:when].present? 
+      @leisures = @search_service.search_by_when(params[:when])
+    end
   end
 
   def new
@@ -145,14 +109,16 @@ class LeisuresController < ApplicationController
   end
 
   def newsletter_subscription
-    @subscriber = {name: params[:name], email: params[:email]}
+    @subscriber = {email: params[:email]}
     authorize @subscriber
   end
+
+
 
   private
 
   def leisure_params
-    params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden)
+    params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free)
   end
 
   def set_leisure

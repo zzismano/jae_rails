@@ -11,4 +11,17 @@ class Leisure < ApplicationRecord
     too_short: "Descrição muito curta! O mínimo é 100." }
   scope :published, -> {where("start_date <= ? ", Date.today) }
   scope :visible, -> {where(hidden: [false, nil] )}
+
+  include PgSearch::Model
+
+  pg_search_scope :global_search,
+  against: [ :title, :subtitle, :director, :country, :description, :features, :min_age ],
+  associated_against: {
+    category: [ :name, :subcategories ], 
+    venues: [ :name, :address, :zone, :capacity ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
 end
