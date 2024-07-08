@@ -23,14 +23,11 @@ class LeisuresController < ApplicationController
       @leisures = @search_service.search_by_category(params[:category])
     elsif params[:date].present?
       @leisures = @search_service.search_by_date(params[:date])
-      
     elsif params[:where].present?
       @leisures = @search_service.search_by_where(params[:where])
     elsif params[:when].present? 
       @leisures = @search_service.search_by_when(params[:when])
     end
-
-   
   end
 
   def new

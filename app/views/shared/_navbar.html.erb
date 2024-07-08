@@ -1,8 +1,15 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-jae">
   <div class="container-fluid">
-    <div class="navbar-form">
-      <input type="text" class="form-control form-control-sm focus-ring focus-ring-dark">
-      <span class="ps-2"><i class="fa-solid fa-magnifying-glass"></i></span>
+    <div class="navbar-form" data-controller="search">
+      <%= form_with url: leisures_path, method: :get, html: {class:
+        "mb-4", data: {search_target: "form"}} do |f| %>
+        <%= f.text_field :query,
+          class: "form-control",
+          placeholder: "Procure por um evento",
+          value: params[:query],
+          data: {search_target: "input", 
+          action: "keyup->search#update"} %>
+        <% end %>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

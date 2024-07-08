@@ -2,7 +2,7 @@ class SearchService
 
   def search_by_category(params)
     category = Category.find_by_name(params)
-    @leisures = @leisures.where(category: category)
+    Leisure.where(category: category)
   end
 
   def search_by_date(params)
@@ -10,17 +10,17 @@ class SearchService
     today = Date.today
     case params
     when 'gratuito'
-      @leisures = Leisure.where(free: true)
+      Leisure.where(free: true)
     when 'hoje'
-      @leisures = Leisure.where(start_date: Date.today)
+      Leisure.where(start_date: Date.today)
     when 'proximo_mes'
       start_next_month = today.next_month.beginning_of_month
       end_next_month = today.next_month.end_of_month
-      @leisures = Leisure.where(start_date: start_next_month..end_next_month)
+      Leisure.where(start_date: start_next_month..end_next_month)
     when 'fim_de_semana'
       next_saturday = today + ((6 - today.wday) % 7)
       next_sunday = next_saturday + 1
-      @leisures = Leisure.where(start_date: next_saturday..next_sunday)
+      Leisure.where(start_date: next_saturday..next_sunday)
                   .or(Leisure.where(end_date: next_saturday..next_sunday))
     end
   end

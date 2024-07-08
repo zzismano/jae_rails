@@ -14,4 +14,14 @@ class Leisure < ApplicationRecord
 
   include PgSearch::Model
 
+  pg_search_scope :global_search,
+  against: [ :title, :subtitle, :director, :country, :description, :features, :min_age ],
+  associated_against: {
+    category: [ :name, :subcategories ], 
+    venues: [ :name, :address, :zone, :capacity ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
 end
