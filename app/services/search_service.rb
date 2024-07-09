@@ -42,4 +42,8 @@ class SearchService
       Leisure.where(start_date: Date.today..Date.today + 7)
     end
   end
+
+  def search_by_query(params)
+    Leisure.global_search(params)
+  end
 end

@@ -27,6 +27,8 @@ class LeisuresController < ApplicationController
       @leisures = @search_service.search_by_where(params[:where])
     elsif params[:when].present? 
       @leisures = @search_service.search_by_when(params[:when])
+    elsif params[:query].present? 
+      @leisures = @search_service.search_by_query(params[:query])
     end
   end
 
