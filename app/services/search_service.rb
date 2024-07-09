@@ -14,6 +14,8 @@ class SearchService
       search_by_when(@params[:when])
     elsif @params[:query].present? 
       search_by_query(@params[:query])
+    elsif @params[:category].present? && @params[:date].present? 
+      raise
     end
   end
 
