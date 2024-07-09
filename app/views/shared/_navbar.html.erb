@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-jae">
+<div class="navbar navbar-expand-sm navbar-light navbar-jae" >
   <div class="container-fluid">
     <div class="navbar-form" data-controller="search">
       <%= form_with url: leisures_path, method: :get, html: {class:
@@ -7,7 +7,7 @@
           class: "form-control",
           placeholder: "Procure por um evento",
           value: params[:query],
-          data: {search_target: "input", 
+          data: {search_target: "input",
           action: "keyup->search#update"} %>
         <% end %>
     </div>
