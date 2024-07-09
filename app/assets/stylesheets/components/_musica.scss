@@ -4,7 +4,7 @@
   padding-bottom: 5px;
   // padding-left: 10px;
   // padding-right: 10px;
-  border-bottom: 4px solid rgb(23, 92, 27);
+  // border-bottom: 4px solid rgb(23, 92, 27);
   height: auto;
 }
 
@@ -39,30 +39,17 @@
 }
 
 
-.foto-filme {
-
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-top: 5px;
-  width: 7em;
-  height: 8em;
-
-
-}
 
 @media screen and (min-width: 998px) {
 
   .menu-musica {
     width: 90%;
   }
-  .musica {
-    border-left: 2px solid rgb(23, 92, 27);
-    border-right: 2px solid rgb(23, 92, 27);
-
-
-  }
 }
 
+.infos-musica {
+  line-height: 1.1;
+}
 
 .infos-musica p {
   font-weight: medium;

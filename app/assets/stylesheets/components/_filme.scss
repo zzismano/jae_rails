@@ -13,11 +13,7 @@
 
 }
 
-.letreiro {
-  display: flex;
-  align-items: end;
-  width: 100%;
-}
+
 
 .film-features {
   color: rgb(42, 42, 93);
@@ -31,17 +27,11 @@
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  border-bottom: 4px solid rgb(42, 42, 93);
+  // border-bottom: 4px solid rgb(42, 42, 93);
 
 }
 
 @media (min-width: 998px) {
-  .filme {
-    border-left: 2px solid rgb(42, 42, 93);
-    border-right: 2px solid rgb(42, 42, 93);
-
-
-  }
 
   .menu-filme {
     width: 90%;
@@ -52,7 +42,6 @@
 
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 5px;
   width: 7em;
   height: 8em;
 
@@ -62,7 +51,7 @@
 .infos-filme {
   text-wrap: wrap;
   margin-left: 1px;
-
+  line-height: 1.1;
 
 }
 

@@ -1,7 +1,10 @@
-<div class="<%= leisure.category.name.downcase %> col-12 col-m-12 col-lg-4 ">
+<div class="<%= leisure.category.name.downcase %> col-12 col-m-12 col-lg-4 mb-2 ">
   <div class="letreiro">
     <div class="foto-<%= leisure.category.name.downcase %>" style="background-image: url('<%= cl_image_path leisure.photo.key %>')"></div>
     <div class="infos-<%= leisure.category.name.downcase %>">
+      <p id="categoria">
+        EXPO
+      </p>
       <strong><%= leisure.title.upcase %></strong>
       <p><%= leisure.subtitle %></p>
       <p id="horario">

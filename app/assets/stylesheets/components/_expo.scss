@@ -3,8 +3,8 @@
   padding-top: 5px;
   padding-bottom: 5px;
   // padding-left: 10px;
-  // padding-right: 10px;
-  border-bottom: 4px solid #8496B0;
+  // // padding-right: 10px;
+  // border-bottom: 4px solid #8496B0;
   height: auto;
 }
 
@@ -39,30 +39,19 @@
 }
 
 
-.foto-filme {
-
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-top: 5px;
-  width: 7em;
-  height: 8em;
-
-
-}
-
 @media screen and (min-width: 998px) {
 
   .menu-expo {
     width: 90%;
   }
-  .expo {
-    border-left: 2px solid #8496B0;
-    border-right: 2px solid #8496B0;
 
-
-  }
 }
 
+
+.infos-expo {
+  line-height: 1.1;
+
+}
 
 .infos-expo p {
   font-weight: medium;
@@ -73,7 +62,7 @@
 }
 
 .infos-expo strong {
-  line-height: 1.2;
+
   color:  #8496B0;
   font-size: 14px;
 }

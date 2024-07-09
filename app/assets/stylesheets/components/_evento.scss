@@ -5,7 +5,7 @@
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  border-bottom: 4px solid #BF8F01;
+  // border-bottom: 4px solid #BF8F01;
 }
 
 @media screen and (min-width: 998px) {
@@ -14,10 +14,7 @@
     width: 90%;
   }
 
-  .evento {
-    border-left:  2px solid #BF8F01;
-    border-right:  2px solid #BF8F01;
-  }
+
 }
 .foto-evento {
 
@@ -36,6 +33,7 @@
 .infos-evento {
   text-wrap: wrap;
   margin-left: 1px;
+  line-height: 1.1;
 
 }
 
