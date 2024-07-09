@@ -9,14 +9,14 @@ export default class extends Controller {
 
   update(event) {
     const turboFrame = document.getElementById('content');
-    
-    const url = `${this.formTarget.action}?query=${this.inputTarget.value}`
+    const query = this.inputTarget.value;
+    const url = `${this.formTarget.action}?query=${query}`
 
-    fetch(url, { headers: { "Accept": 'text/plain' } })
-    .then(response => response.text())
-    .then((data) => {
-      
-    turboFrame.src = url;
-    })
+    if (query.trim() === "") {
+      window.location.href = "/"
+    } else {
+      turboFrame.src = url;
+    }
+ 
   }
 }
