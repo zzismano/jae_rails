@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="navbar-form" data-controller="search">
       <%= form_with url: leisures_path, method: :get, html: {class:
-        "mb-4", data: {search_target: "form"}} do |f| %>
+        "", data: {search_target: "form"}} do |f| %>
         <%= f.text_field :query,
           class: "form-control",
           placeholder: "Procure por um evento",

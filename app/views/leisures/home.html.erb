@@ -2,10 +2,10 @@
   <%= render 'shared/sidebar' %>
   <div class="main-content">
 
+    <%= render 'shared/header' %>
     <%= turbo_frame_tag 'content' do %>
 
-      <%= render 'shared/header' %>
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-lg-4 main-content__col">
             <%= render 'shared/social_media' %>
