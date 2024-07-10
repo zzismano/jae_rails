@@ -18,16 +18,10 @@ class LeisuresController < ApplicationController
     @banner = Banner.first
 
     # search service for all tags
-    @search_service = SearchService.new
-    if params[:category].present?
-      @leisures = @search_service.search_by_category(params[:category])
-    elsif params[:date].present?
-      @leisures = @search_service.search_by_date(params[:date])
-    elsif params[:where].present?
-      @leisures = @search_service.search_by_where(params[:where])
-    elsif params[:when].present? 
-      @leisures = @search_service.search_by_when(params[:when])
-    end
+    @search_service = SearchService.new(params)
+    @leisures = @search_service.handle_searches
+
+    
   end
 
   def new

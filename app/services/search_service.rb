@@ -1,4 +1,23 @@
 class SearchService
+  def initialize(params)
+    @params = params
+  end
+
+  def handle_searches
+    if @params[:category].present? 
+      search_by_category(@params[:category])
+    elsif @params[:date].present?
+      search_by_date(@params[:date])
+    elsif @params[:where].present? 
+      search_by_where(@params[:where])
+    elsif @params[:when].present? 
+      search_by_when(@params[:when])
+    elsif @params[:query].present? 
+      search_by_query(@params[:query])
+    elsif @params[:category].present? && @params[:date].present? 
+      raise
+    end
+  end
 
   def search_by_category(params)
     category = Category.find_by_name(params)
@@ -41,5 +60,9 @@ class SearchService
     when 'semana'
       Leisure.where(start_date: Date.today..Date.today + 7)
     end
+  end
+
+  def search_by_query(params)
+    Leisure.global_search(params)
   end
 end

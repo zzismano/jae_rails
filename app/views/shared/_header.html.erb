@@ -2,7 +2,7 @@
   <div class="where">
     <h2 class="fs-4">onde:</h2>
     <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_zona_evento" data-action="change->header#searchWhereWhen">
-      <option selected>Selecione onde:</option>      
+      <option selected value="<%= leisures_path %>">Selecione onde:</option>      
       <option value="<%= leisures_path(where: 'zona_sul') %>">Zona Sul</option>     
       <option value="<%= leisures_path(where: 'zona_norte') %>">Zona Norte</option>
       <option value="<%= leisures_path(where: 'zona_oeste') %>">Zona Oeste</option>
@@ -13,7 +13,7 @@
   <div class="when">
     <h2 class="fs-4">quando:</h2>
     <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_data_evento" data-action="change->header#searchWhereWhen">
-      <option selected>Selecione quando:</option>
+      <option selected value="<%= leisures_path %>">Selecione quando:</option>
       <option value="<%= leisures_path(when: 'hoje') %>" >hoje</option>
       <option value="<%= leisures_path(when: 'amanha') %>">amanhã</option>
       <option value="<%= leisures_path(when: 'semana') %>">esta semana</option>
