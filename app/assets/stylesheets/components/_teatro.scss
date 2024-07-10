@@ -10,18 +10,13 @@
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  border-bottom: 4px solid rgb(134, 43, 43);
+  // border-bottom: 4px solid rgb(134, 43, 43);
 }
 
 @media screen and (min-width: 998px) {
 
   .menu-teatro {
     width: 90%;
-  }
-
-  .teatro {
-    border-left:  2px solid rgb(134, 43, 43);
-    border-right:  2px solid rgb(134, 43, 43);
   }
 }
 .foto-teatro {
@@ -38,7 +33,7 @@
 .infos-teatro {
   text-wrap: wrap;
   margin-left: 1px;
-
+  line-height: 1.1;
 }
 
 

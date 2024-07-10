@@ -5,7 +5,7 @@
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  border-bottom: 4px solid #C45911;
+  // border-bottom: 4px solid #C45911;
 }
 
 @media screen and (min-width: 998px) {
@@ -14,10 +14,7 @@
     width: 90%;
   }
 
-  .festa {
-    border-left:  2px solid #C45911;
-    border-right:  2px solid #C45911;
-  }
+
 }
 .foto-festa {
 
@@ -36,6 +33,7 @@
 .infos-festa {
   text-wrap: wrap;
   margin-left: 1px;
+  line-height: 1.1;
 
 }
 
