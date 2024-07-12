@@ -4,6 +4,14 @@
   position: fixed;
   z-index: 1000;
   left: 1%;
+
+}
+
+@media screen and (min-width: 767px) {
+  .sidebar {
+    width: 8%
+  }
+
 }
 
 .categorias {
@@ -37,7 +45,7 @@
     color: #fff;
   }
   &-expo {
-    background-color: $dark-mustard;
+    background-color:  #8496B0;
     color: #fff;
   }
   &-mais {
@@ -55,7 +63,7 @@
   height: 10%;
   // border-radius: 2px;
   margin: 0.2em 0;
-  width: 5em;
+  width: 100%;
   padding-right: 9px;
   padding-left: 9px;
   padding-top: 2px;
@@ -72,7 +80,7 @@
 }
 
 .square.transition {
-  height: 27%;
+  height: 20%;
   overflow: hidden;
   // align-items: first baseline;
 }
@@ -121,9 +129,7 @@
   .sidebar {
     width: 14%;
   }
-  .square {
-    width: 3.5em;
-  }
+
   .square li {
     font-size: 0.75em;
   }
