@@ -1,11 +1,12 @@
 .card-film {
-  // width: 15.5em;
+  min-width: 13.5em;
   height: 21.5em;
   margin: 0.4em;
 
   &-image {
     height: 17em;
     width: 100%;
+
   }
   &-delete {
     top: 5%;
@@ -18,3 +19,27 @@
   }
 }
 
+.card-else {
+
+    min-width: 18.5em;
+    height: 21.5em;
+    margin: 0.4em;
+
+    &-image {
+      height: 17em;
+      width: 100%;
+
+    }
+    &-delete {
+      top: 5%;
+      right: 5%;
+    }
+    &-body {
+      font-size: 0.9em;
+      height: 6.3em;
+      padding: 0.5em;
+
+  }
+
+
+}

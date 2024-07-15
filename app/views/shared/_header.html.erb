@@ -1,19 +1,19 @@
-<div class=" hello d-flex justify-content-between align-items-center p-3" data-controller="header">
-  <div class="where">
-    <h2 class="fs-4">onde:</h2>
+<div class=" hello d-flex justify-content-between align-items-center py-3 px-4" data-controller="header">
+  <div class="where me-2">
+    <h2 class="fs-6">onde</h2>
     <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_zona_evento" data-action="change->header#searchWhereWhen">
-      <option selected value="<%= leisures_path %>">Selecione onde:</option>      
-      <option value="<%= leisures_path(where: 'zona_sul') %>">Zona Sul</option>     
+      <option selected value="<%= leisures_path %>">selecione...</option>
+      <option value="<%= leisures_path(where: 'zona_sul') %>">Zona Sul</option>
       <option value="<%= leisures_path(where: 'zona_norte') %>">Zona Norte</option>
       <option value="<%= leisures_path(where: 'zona_oeste') %>">Zona Oeste</option>
       <option value="<%= leisures_path(where: 'centro') %>">Centro</option>
     </select>
   </div>
-  <%= image_tag 'logo_transparent.png', class: 'main-logo' %> 
-  <div class="when">
-    <h2 class="fs-4">quando:</h2>
+  <%= image_tag 'logo_transparent.png', class: 'main-logo' %>
+  <div class="when d-flex flex-column align-items-end ms-2">
+    <h2 class="fs-6">quando</h2>
     <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_data_evento" data-action="change->header#searchWhereWhen">
-      <option selected value="<%= leisures_path %>">Selecione quando:</option>
+      <option selected value="<%= leisures_path %>">selecione...</option>
       <option value="<%= leisures_path(when: 'hoje') %>" >hoje</option>
       <option value="<%= leisures_path(when: 'amanha') %>">amanhã</option>
       <option value="<%= leisures_path(when: 'semana') %>">esta semana</option>
