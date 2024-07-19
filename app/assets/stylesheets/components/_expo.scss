@@ -10,7 +10,7 @@
 
 
 .menu-expo {
-  background-color: #8496B0;
+  background-color: $moss-green;
   background-image: linear-gradient(#8496B0, rgb(226, 248, 227));
   height: 7rem;
   width: 80%;
@@ -57,12 +57,12 @@
   font-weight: medium;
   font-size: 12px;
   margin-bottom: 0;
-  color:  #8496B0;
+  color:   $moss-green;
   line-height: 1.2;
 }
 
 .infos-expo strong {
 
-  color:  #8496B0;
+  color:   $moss-green;
   font-size: 14px;
 }
