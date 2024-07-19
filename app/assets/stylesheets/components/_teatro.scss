@@ -18,6 +18,8 @@
   .menu-teatro {
     width: 90%;
   }
+
+
 }
 .foto-teatro {
   background-size: contain;
@@ -31,9 +33,11 @@
 }
 
 .infos-teatro {
-  text-wrap: wrap;
-  margin-left: 1px;
   line-height: 1.1;
+  min-height: 6.7em;
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-end;
 }
 
 

@@ -40,16 +40,18 @@
 
 .foto-filme {
 
+  width: 51%;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 7em;
-  height: 8em;
+  aspect-ratio: 2 / 3;
+  flex-shrink: 0;
+  margin-right: 1em;
 
 }
 
 .letreiro-filme {
   display: flex;
-  align-items: start;
+  align-items: end;
   width: 100%;
 }
 
