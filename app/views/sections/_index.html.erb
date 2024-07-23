@@ -15,35 +15,49 @@
 
 <div class="container">
   <% sections.each do |section| %>
-    <div class="bg-light p-1 my-3">
-      <h3><%= section.title %></h3>
-      <div class="d-flex justify-content-evenly align-items-center flex-wrap">
-        <% section.section_cards.each do |section_card| %>
+    <div class="main-section-bar">
+      <h3 class="m-2"><%= section.title.downcase %></h3>
+      <div class="main-section-cards">
+        <% section.cards.each do |card| %>
+          <% if card.leisure.category.name == "Filme" %>
+            <div class="card card-film">
+              <div class="position-relative">
+                <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: card.leisure.title %>
+                <% if current_user.admin %>
+                  <%= link_to section_card_path(card), class: 'text-danger p-2 bg-light rounded card-film-delete position-absolute',
+                  data: {turbo_method: :delete, turbo_confirm: "Quer apagar este card?"} do
+                  %>
+                    <i class="fa-solid fa-delete-left"></i>
+                  <% end %>
 
-        <div class="card card-film">
-          <div class="position-relative">
-            <%= cl_image_tag section_card.card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: section_card.card.leisure.title %>
+                <% end %>
 
-            <% if current_user.admin %>
-              <%= link_to section_card_path(section_card), class: 'text-danger p-2 bg-light rounded card-film-delete position-absolute',
-              data: {turbo_method: :delete, turbo_confirm: "Quer apagar este card?"} do
-              %>
-                <i class="fa-solid fa-delete-left"></i>
+              </div>
+              <div class="card-film-body">
+                <p class="m-0"><span class="fw-light px-1"><%= card.leisure.category.name %></span> | <span class="fw-bold px-1"><%= card.leisure.title %></span></p>
+                <p class="px-1 m-0"> <%= card.leisure.date %> | <%= card.leisure.schedule %> | <%= card.leisure.leisure_venues[0].venue.name %></p>
+              </div>
+            </div>
+
+          <% else %>
+            <div class="card card-else">
+              <div class="position-relative">
+                <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-else-image', alt: card.leisure.title %>
+                <% if current_user.admin %>
+                  <%= link_to section_card_path(card), class: 'text-danger p-2 bg-light rounded card-film-delete position-absolute',
+                  data: {turbo_method: :delete, turbo_confirm: "Quer apagar este card?"} do
+                  %>
+                    <i class="fa-solid fa-delete-left"></i>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
+              </div>
 
-          <div class="card-film-body">
-            <p class="m-0"><span class="fw-light px-1"><%= section_card.card.leisure.category.name %></span> | <span class="fw-bold px-1"><%= section_card.card.leisure.title %></span></p>
-            <p class="px-1 m-0"> <%= section_card.card.leisure.date %> | <%= section_card.card.leisure.schedule %> | <%= section_card.card.leisure.leisure_venues[0].venue.name %></p>
-          </div>
-
-        </div>
-
-
-
-
-
+              <div class="card-else-body">
+                <p class="m-0"><span class="fw-light px-1"><%= card.leisure.category.name %></span> | <span class="fw-bold px-1"><%= card.leisure.title %></span></p>
+                <p class="px-1 m-0"> <%= card.leisure.date %> | <%= card.leisure.schedule %> | <%= card.leisure.leisure_venues[0].venue.name %></p>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
