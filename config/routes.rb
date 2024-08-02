@@ -37,13 +37,13 @@ Rails.application.routes.draw do
 
 
 
-  get "filme_filter", to: 'leisures#filme_filter'
-  get "teatro_filter", to: 'leisures#teatro_filter'
-  get "musica_filter", to: 'leisures#musica_filter'
-  get "danca_filter", to: 'leisures#danca_filter'
-  get "evento_filter", to: 'leisures#evento_filter'
-  get "festa_filter", to: 'leisures#festa_filter'
-  get "expo_filter", to: 'leisures#expo_filter'
+  get "filme", to: 'leisures#filme'
+  get "teatro", to: 'leisures#teatro'
+  get "musica", to: 'leisures#musica'
+  get "danca", to: 'leisures#danca'
+  get "evento", to: 'leisures#evento'
+  get "festa", to: 'leisures#festa'
+  get "expo", to: 'leisures#expo'
 
 
   get "banner_config", to: 'banners#banner_config'
