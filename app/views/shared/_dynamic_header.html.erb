@@ -3,10 +3,10 @@
     <h2 class="fs-6">onde</h2>
     <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_zona_evento" data-action="change->header#searchWhereWhen" data-header-route-value="<%= @path %>">
       <option selected value="<%= leisures_path %>">selecione...</option>
-      <option value="<%= leisures_path(where: 'zona_sul')  %>">Zona Sul</option>
-      <option value="<%= leisures_path(where: 'zona_norte') %>">Zona Norte</option>
-      <option value="<%= leisures_path(where: 'zona_oeste') %>">Zona Oeste</option>
-      <option value="<%= leisures_path(where: 'centro') %>">Centro</option>
+      <option value="<%= "#{@path}?where=zona_sul" %>">Zona Sul</option>
+      <option value="<%= "#{@path}?where=zona_norte" %>">Zona Norte</option>
+      <option value="<%= "#{@path}?where=zona_oeste" %>">Zona Oeste</option>
+      <option value="<%= "#{@path}?where=centro" %>">Centro</option>
      
       
     </select>
@@ -16,9 +16,9 @@
     <h2 class="fs-6">quando</h2>
     <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_data_evento" data-action="change->header#searchWhereWhen">
       <option selected value="<%= leisures_path %>">selecione...</option>
-      <option value="<%= leisures_path(when: 'hoje') %>" >hoje</option>
-      <option value="<%= leisures_path(when: 'amanha') %>">amanhã</option>
-      <option value="<%= leisures_path(when: 'semana') %>">esta semana</option>
+      <option value="<%= "#{@path}?when=hoje" %>" >hoje</option>
+      <option value="<%= "#{@path}?when=amanha" %>">amanhã</option>
+      <option value="<%= "#{@path}?when=semana" %>">esta semana</option>
     </select>
   </div>
 </div>

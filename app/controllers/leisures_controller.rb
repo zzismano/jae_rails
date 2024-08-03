@@ -1,5 +1,6 @@
 class LeisuresController < ApplicationController
   before_action :set_leisure, only: [:edit, :update, :destroy]
+  before_action :set_fullpath, only: [:filme, :teatro, :musica, :danca, :evento, :festa, :expo]
   skip_before_action :authenticate_user!, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo]
 
   def home
@@ -20,17 +21,16 @@ class LeisuresController < ApplicationController
     # search service for all tags
     @search_service = SearchService.new(params)
     @leisures = @search_service.handle_searches
+  end
 
-    
+  def set_fullpath
+    @path = request.fullpath
   end
 
   def filme
     filme = Category.find_by(name: 'Filme')
     @leisures = Leisure.where(category: filme)
-    path = request.fullpath  # filme_path
-    
     authorize @leisures
-    raise
   end
 
   def teatro
