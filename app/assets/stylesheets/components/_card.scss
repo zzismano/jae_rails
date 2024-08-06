@@ -6,6 +6,7 @@
   &-image {
     height: 15em;
     width: 100%;
+    object-fit: cover;
 
   }
   &-delete {
@@ -28,6 +29,7 @@
     &-image {
       height: 15em;
       width: 100%;
+      object-fit: cover;
 
     }
     &-delete {
@@ -51,6 +53,7 @@
     &-image {
       height: 12em;
       width: 100%;
+      object-fit: cover;
 
     }
   }
@@ -61,6 +64,7 @@
     &-image {
       height: 12em;
       width: 100%;
+      object-fit: cover;
 
     }
   }
