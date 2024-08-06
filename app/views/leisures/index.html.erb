@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "content" do %>
   <div class="container-fluid mx-2">
 
-    <div class="row">
+    <div class="row px-lg-4">
       <% @leisures.each do |leisure| %>
         <%= render partial_select(leisure), leisure: leisure %>
       <% end %>
