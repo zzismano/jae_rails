@@ -26,7 +26,7 @@
         <%= f.input :features, label: 'Destaques:', label_html: { class: 'fw-bold' },  placeholder: 'Ex: Angelina Jolie, Brad Pitt e Lázaro Ramos' %>
         <div class="row">
           <div class="col-lg-6 col-12">
-            <%= f.input :min_age, label: 'Faixa etária:', label_html: { class: 'fw-bold' } %>
+            <%= f.input :min_age, collection: [12, 14, 16, 18], label: 'Faixa etária:', label_html: { class: 'fw-bold' } %>
           </div>
           <div class="col-lg-6 col-12">
             <%= f.input :duration, as: :string, label: 'Duração:', label_html: { class: 'fw-bold' }, placeholder: "Ex: 60'" %>

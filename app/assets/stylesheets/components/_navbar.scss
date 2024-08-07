@@ -15,8 +15,24 @@
 }
 
 .navbar-jae .navbar-brand img {
-  width: 40px;
+  width: 16vw;
 }
+
+.navbar-jae .navbar-brand {
+  position: relative;
+  left: 42%;
+
+
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-jae .navbar-brand {
+    display: none !important;
+  }
+
+}
+
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -26,11 +42,28 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
 
-.navbar-form {
+
+.navbar-form-sm {
   display: flex;
   align-items: center;
+}
+
+.navbar-form-lg {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-form-sm {
+    display: none !important;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-form-lg {
+    display: none !important;
+  }
+
 }

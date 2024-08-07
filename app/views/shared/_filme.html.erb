@@ -11,7 +11,7 @@
             <% names << genre.name %>
           <% end %>
           <%= names.join(" / ") %>
-        | dir. <%= leisure.director %> | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "sem país"  %> | <%= leisure.min_age.to_s %>+ | <%= leisure.duration %>  </p>
+        | Dir. <%= leisure.director %> | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "sem país"  %> | <%= leisure.min_age.to_s %> | <%= leisure.duration %>  </p>
       <p id="horario">
         Estreia <%= leisure.date %>
       </p>
