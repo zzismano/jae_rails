@@ -64,6 +64,10 @@ class LeisurePolicy < ApplicationPolicy
   def expo?
     true
   end
+
+  def mais?
+    true
+  end
   
   def newsletter_subscription?
     true

@@ -1,7 +1,7 @@
 class LeisuresController < ApplicationController
   before_action :set_leisure, only: [:edit, :update, :destroy]
   before_action :set_fullpath, only: [:filme, :teatro, :musica, :danca, :evento, :festa, :expo]
-  skip_before_action :authenticate_user!, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo]
+  skip_before_action :authenticate_user!, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
 
   def home
     @banner = Banner.first
@@ -31,6 +31,10 @@ class LeisuresController < ApplicationController
     filme = Category.find_by(name: 'Filme')
     @leisures = Leisure.where(category: filme)
     authorize @leisures
+
+    if params[:where] || params[:when]
+      
+    end
   end
 
   def teatro
@@ -66,6 +70,11 @@ class LeisuresController < ApplicationController
   def expo
     expo = Category.find_by(name: 'Expo')
     @leisures = Leisure.where(category: expo)
+    authorize @leisures
+  end
+
+  def mais
+    @leisures = Leisure.all
     authorize @leisures
   end
 

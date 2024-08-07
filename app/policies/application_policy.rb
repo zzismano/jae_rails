@@ -80,6 +80,10 @@ class ApplicationPolicy
     true
   end
 
+  def mais? 
+    true
+  end
+
   def newsletter_subscription
     true
   end
