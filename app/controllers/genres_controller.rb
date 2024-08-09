@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-  before_action :set_genre, only: [:edit, :update]
+  before_action :set_genre, only: [:edit, :update, :destroy]
 
   def index
     @genres = policy_scope(Genre)
@@ -29,6 +29,14 @@ class GenresController < ApplicationController
     @genre.update(genre_params)
 
     redirect_to dashboard_path
+  end
+
+  def destroy
+    authorize @genre
+    @genre.destroy
+    if @genre.destroy
+      redirect_to genres_path
+    end
   end
 
   private
