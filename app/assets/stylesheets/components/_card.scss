@@ -1,7 +1,7 @@
 .card-film {
   width: 10em;
   height: 20em;
-  margin: 0.4em;
+  margin: 0.4em 0.8em 0.4em 0.0em;
   flex-shrink: 0;
   &-image {
     height: 15em;
@@ -24,7 +24,7 @@
 
     width: 20em;
     height: 20em;
-    margin: 0.4em;
+    margin: 0.4em 0.8em 0.4em 0.0em;
     flex-shrink: 0;
     &-image {
       height: 15em;
@@ -48,23 +48,33 @@
 
 @media screen and (max-width: 425px) {
   .card-else {
-    width: 16em;
-    height: 16em;
+    width: 14em;
+    height: 14em;
     &-image {
-      height: 12em;
+      height: 10.5em;
+      width: 100%;
+      object-fit: cover;
+
+
+    }
+    &-body {
+      font-size: 0.75em;
+      height: 6.3em;
+      padding: 0.5em;
+    }
+  }
+  .card-film {
+    width: 7em;
+    height: 14em;
+    &-image {
+      height: 10.5em;
       width: 100%;
       object-fit: cover;
 
     }
-  }
-
-  .card-film {
-    width: 9.6em;
-    height: 16em;
-    &-image {
-      height: 12em;
-      width: 100%;
-      object-fit: cover;
+    &-body {
+      font-size: 0.65em;
+      height: 7.3em;
 
     }
   }

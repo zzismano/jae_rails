@@ -1,15 +1,16 @@
 .home {
   display: flex;
   height: 100%;
-  width: 92%;
-  position: relative;
-  left: 8%;
+  width: 100%;
 }
 
 .main-content {
   // width: 86%;
   flex: 1;
   padding: 0.1em;
+  position: relative;
+  left: 9%;
+  max-width: 91%;
 }
 
 .main-logo {
@@ -24,8 +25,8 @@
   letter-spacing: 1px;
 }
 .main-section-bar {
-  h2 {
-    font-size: 4em;
+  h3 {
+    font-size: 1.3em;
   }
 }
 .main-search__box {
@@ -79,12 +80,12 @@
 
 .main-section-cards {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
   overflow-x: scroll;
   overflow-y: auto;
   white-space: nowrap;
-  max-width: 92vw !important;
+  max-width: 91vw !important;
   border-top: 3px solid $jae-wine;
 }
 
@@ -92,6 +93,11 @@
 
 
 @media screen and (min-width: 768px) and (max-width: 940px) {
+  .main-content {
+    max-width: 86%;
+    left: 8%;
+  }
+
   .main-content__col {
     display: none !important;
   }
@@ -103,21 +109,21 @@
 }
 
 @media screen and (max-width: 767px) {
-  .home {
-    width: 88%;
-    left: 12%;
+  .main-content {
+    max-width: 91%;
+    left: 9%;
   }
   .main-content__col {
     display: none !important;
   }
   .main-section-cards {
-    max-width: 88vw !important;
+    max-width: 91vw !important;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .home {
-    width: 85%;
+  .main-content {
+    max-width: 85%;
     left: 15%;
   }
   .main-logo {
@@ -130,12 +136,12 @@
 }
 
 @media screen and (max-width: 375px) {
-  .home {
-    width: 86%;
-    left: 14%;
+  .main-content {
+    max-width: 85%;
+    left: 15%;
   }
   .main-section-cards {
-    max-width: 86vw !important;
+    max-width: 85vw !important;
   }
 }
 
