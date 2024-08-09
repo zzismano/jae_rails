@@ -2,6 +2,7 @@ class LeisuresController < ApplicationController
   before_action :set_leisure, only: [:edit, :update, :destroy]
   before_action :set_fullpath, only: [:filme, :teatro, :musica, :danca, :evento, :festa, :expo]
   skip_before_action :authenticate_user!, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
+  before_action :start_search_service, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
 
   def home
     @banner = Banner.first
@@ -19,8 +20,12 @@ class LeisuresController < ApplicationController
     @banner = Banner.first
 
     # search service for all tags
-    @search_service = SearchService.new(params)
-    @leisures = @search_service.handle_searches
+    # @search_service = SearchService.new(params)
+    # @leisures = @search_service.handle_searches
+
+    if params[:query].present? 
+      @leisures = @service.search_by_query(params[:query])
+    end
   end
 
   def set_fullpath
@@ -164,6 +169,10 @@ class LeisuresController < ApplicationController
 
 
   private
+
+  def start_search_service
+    @service = SearchService.new
+  end
 
   def leisure_params
     params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free)

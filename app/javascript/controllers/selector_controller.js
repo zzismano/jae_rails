@@ -10,7 +10,7 @@ export default class extends Controller {
     console.log(window.location.href);
   }
 
-  select() {
+  select(event) {
   //  console.log(event.currentTarget.innerHTML);
     const filme = document.getElementById('filme')
     const musica = document.getElementById('musica')
@@ -44,12 +44,6 @@ export default class extends Controller {
 
 
     });
-
-
-
-
-
-
 
   }
 }
