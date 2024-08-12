@@ -19,13 +19,14 @@ class LeisuresController < ApplicationController
     # load hero banner on LP.
     @banner = Banner.first
 
-    # search service for all tags
-    # @search_service = SearchService.new(params)
-    # @leisures = @search_service.handle_searches
-
     if params[:query].present? 
       @leisures = @service.search_by_query(params[:query])
+    elsif params[:query].present? && params[:where].present?
+      @leisures = @service.search_by_query_and_where(params)
+    elsif params[:query].present? && params[:when].present?
+      @leisures = @service.search_by_query_and_when(params)
     end
+
   end
 
   def set_fullpath
@@ -37,8 +38,10 @@ class LeisuresController < ApplicationController
     @leisures = Leisure.where(category: filme)
     authorize @leisures
 
-    if params[:where] || params[:when]
-      
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
     end
   end
 
