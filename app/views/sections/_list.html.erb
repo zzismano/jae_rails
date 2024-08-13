@@ -1,7 +1,7 @@
-<div class="my-4 px-2">
+<div class="mb-4 mt-2 px-2">
   <% sections.each do |section| %>
     <div class="main-section-bar">
-      <h3 class="m-2"><%= section.title.downcase %></h3>
+      <h3 class="mb-1"><%= section.title.downcase %></h3>
 
       <div class="main-section-cards">
 
@@ -26,7 +26,15 @@
               </div>
 
               <div class="card-else-body">
-                <p class="m-0"><span class="fw-light px-1"><%= card.leisure.category.name %></span> | <span class="fw-bold px-1"><%= card.leisure.title %></span></p>
+                <p class="m-0"><span class="fw-light px-1">
+                  <% if card.leisure.category.name == "Danca" %>
+                    Dança
+                  <% elsif card.leisure.category.name == "Musica" %>
+                    Música
+                  <% else %>
+                    <%=card.leisure.category.name  %>
+                  <% end %>
+                </span> | <span class="fw-bold px-1"><%= card.leisure.title %></span></p>
                 <p class="px-1 m-0"> <%= card.leisure.date %> | <%= card.leisure.schedule %> | <%= card.leisure.leisure_venues[0].venue.name %></p>
               </div>
             </div>

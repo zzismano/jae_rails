@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   #Categories routes
   resources :categories, only: %i[index new create edit update]
   #Venues routes
-  resources :venues, only: %i[index new create edit update]
+  resources :venues, only: %i[index new create edit update destroy]
   #Genres routes
-  resources :genres, only: %i[index new create edit update]
+  resources :genres, only: %i[index new create edit update destroy]
 
   resources :banners
 

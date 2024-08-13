@@ -11,13 +11,13 @@
             <% names << genre.name %>
           <% end %>
           <%= names.join(" / ") %>
-        | dir. <%= leisure.director %> | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "sem país"  %> | <%= leisure.min_age.to_s %> | <%= leisure.duration %>  </p>
+        | Dir. <%= leisure.director %> | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "sem país"  %> | <%= leisure.min_age.to_s %> | <%= leisure.duration %>  </p>
       <p id="horario">
         <%= leisure.schedule %> | <%= leisure.date %>
       </p>
 
       <p id="venue"><%= leisure.venues.last.name %></p>
-      <a href="<% leisure.link %>"class="button-small">comprar ingresso</a>
+      <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small">comprar ingresso</a>
     </div>
     <div></div>
   </div>

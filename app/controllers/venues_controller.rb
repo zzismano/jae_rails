@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-  before_action :set_venue, only: [:edit, :update]
+  before_action :set_venue, only: [:edit, :update, :destroy]
 
   def index
     @venues = policy_scope(Venue)
@@ -29,6 +29,14 @@ class VenuesController < ApplicationController
     @venue.update(venue_params)
 
     redirect_to venues_path
+  end
+
+  def destroy
+    authorize @venue
+    @venue.destroy
+    if @venue.destroy
+      redirect_to venues_path
+    end
   end
 
   private

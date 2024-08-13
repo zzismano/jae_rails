@@ -14,7 +14,7 @@ class LeisuresController < ApplicationController
   end
 
   def index
-    
+
     @leisures = policy_scope(Leisure)
     # load hero banner on LP.
     @banner = Banner.first
@@ -31,6 +31,7 @@ class LeisuresController < ApplicationController
   def set_fullpath
     @path = request.fullpath
   end
+
 
   def filme
     filme = Category.find_by(name: 'Filme')
@@ -213,7 +214,7 @@ class LeisuresController < ApplicationController
   end
 
   def leisure_params
-    params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free)
+    params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :schedule, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free, :date)
   end
 
   def set_leisure
