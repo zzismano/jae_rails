@@ -1,6 +1,8 @@
 class LeisuresController < ApplicationController
   before_action :set_leisure, only: [:edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:home, :index]
+  before_action :set_fullpath, only: [:filme, :teatro, :musica, :danca, :evento, :festa, :expo]
+  skip_before_action :authenticate_user!, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
+  before_action :start_search_service, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
 
   def home
     @banner = Banner.first
@@ -16,12 +18,108 @@ class LeisuresController < ApplicationController
     @leisures = policy_scope(Leisure)
     # load hero banner on LP.
     @banner = Banner.first
+    
+    if params[:query].present? && params[:where].present?
+      @leisures = @service.search_by_query_and_where(params)
+    elsif params[:query].present? && params[:when].present?
+      @leisures = @service.search_by_query_and_when(params)
+    elsif params[:query].present? 
+      @leisures = @service.search_by_query(params[:query])
+    end
+  end
 
-    # search service for all tags
-    @search_service = SearchService.new(params)
-    @leisures = @search_service.handle_searches
+  def set_fullpath
+    @path = request.fullpath
+  end
 
 
+  def filme
+    filme = Category.find_by(name: 'Filme')
+    @leisures = Leisure.where(category: filme)
+    authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
+  end
+
+  def teatro
+    teatro = Category.find_by(name: 'Teatro')
+    @leisures = Leisure.where(category: teatro)
+    authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
+  end
+
+  def musica
+    musica = Category.find_by(name: 'Musica')
+    @leisures = Leisure.where(category: musica)
+    authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
+  end
+
+  def danca
+    danca = Category.find_by(name: 'Danca')
+    @leisures = Leisure.where(category: danca)
+    authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
+  end
+
+  def evento
+    evento = Category.find_by(name: 'Evento')
+    @leisures = Leisure.where(category: evento)
+    authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
+  end
+
+  def festa
+    festa = Category.find_by(name: 'Festa')
+    @leisures = Leisure.where(category: festa)
+    authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
+  end
+
+  def expo
+    expo = Category.find_by(name: 'Expo')
+    @leisures = Leisure.where(category: expo)
+    authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
+  end
+
+  def mais
+    @leisures = Leisure.all
+    authorize @leisures
   end
 
   def new
@@ -110,6 +208,10 @@ class LeisuresController < ApplicationController
 
 
   private
+
+  def start_search_service
+    @service = SearchService.new
+  end
 
   def leisure_params
     params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :schedule, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free, :date)

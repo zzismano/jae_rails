@@ -37,33 +37,38 @@ class LeisurePolicy < ApplicationPolicy
     user.admin
   end
 
-  def filme_filter?
+  def filme?
     true
   end
 
-  def musica_filter?
+  def musica?
     true
   end
 
-  def teatro_filter?
+  def teatro?
     true
   end
 
-  def danca_filter?
+  def danca?
     true
   end
 
-  def evento_filter?
+  def evento?
     true
   end
 
-  def festa_filter?
+  def festa?
     true
   end
 
-  def expo_filter?
+  def expo?
     true
   end
+
+  def mais?
+    true
+  end
+  
   def newsletter_subscription?
     true
   end
