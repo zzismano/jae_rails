@@ -18,15 +18,14 @@ class LeisuresController < ApplicationController
     @leisures = policy_scope(Leisure)
     # load hero banner on LP.
     @banner = Banner.first
-
-    if params[:query].present? 
-      @leisures = @service.search_by_query(params[:query])
-    elsif params[:query].present? && params[:where].present?
+    
+    if params[:query].present? && params[:where].present?
       @leisures = @service.search_by_query_and_where(params)
     elsif params[:query].present? && params[:when].present?
       @leisures = @service.search_by_query_and_when(params)
+    elsif params[:query].present? 
+      @leisures = @service.search_by_query(params[:query])
     end
-
   end
 
   def set_fullpath
@@ -49,36 +48,72 @@ class LeisuresController < ApplicationController
     teatro = Category.find_by(name: 'Teatro')
     @leisures = Leisure.where(category: teatro)
     authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
   end
 
   def musica
     musica = Category.find_by(name: 'Musica')
     @leisures = Leisure.where(category: musica)
     authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
   end
 
   def danca
     danca = Category.find_by(name: 'Danca')
     @leisures = Leisure.where(category: danca)
     authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
   end
 
   def evento
     evento = Category.find_by(name: 'Evento')
     @leisures = Leisure.where(category: evento)
     authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
   end
 
   def festa
     festa = Category.find_by(name: 'Festa')
     @leisures = Leisure.where(category: festa)
     authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
   end
 
   def expo
     expo = Category.find_by(name: 'Expo')
     @leisures = Leisure.where(category: expo)
     authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present? 
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
   end
 
   def mais
