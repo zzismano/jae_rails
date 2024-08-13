@@ -1,27 +1,27 @@
 class SearchService
-  def initialize(params)
-    @params = params
+
+  def search_by_query(params) # search by typing query
+    Leisure.global_search(params)
   end
 
-  def handle_searches
-    if @params[:category].present? 
-      search_by_category(@params[:category])
-    elsif @params[:date].present?
-      search_by_date(@params[:date])
-    elsif @params[:where].present? 
-      search_by_where(@params[:where])
-    elsif @params[:when].present? 
-      search_by_when(@params[:when])
-    elsif @params[:query].present? 
-      search_by_query(@params[:query])
-    elsif @params[:category].present? && @params[:date].present? 
-      raise
+  def search_by_when(leisures, params)
+    case params
+    when 'hoje'
+      leisures.where(start_date: Date.today)
+    when 'amanha'
+      leisures.where(start_date: Date.today + 1)
+    when 'semana'
+      leisures.where(start_date: Date.today..Date.today + 7)
     end
   end
 
-  def search_by_category(params)
-    category = Category.find_by_name(params)
-    Leisure.where(category: category)
+  def search_by_where(leisures, params)
+    # zones = { 'zona_sul' => 'Zona Sul', 'zona_norte' =>  'Zona Norte', 'zona_oeste' => 'Zona Oeste', 'centro' => 'Centro' }
+
+    # venues = Venue.where(zone: zones[params])
+    # venues.map { |venue| venue.leisures}.flatten
+
+    leisures.global_search(params)
   end
 
   def search_by_date(params)
@@ -44,25 +44,15 @@ class SearchService
     end
   end
 
-  def search_by_where(params)
-    zones = { 'zona_sul' => 'Zona Sul', 'zona_norte' =>  'Zona Norte', 'zona_oeste' => 'Zona Oeste', 'centro' => 'Centro' }
-
-    venues = Venue.where(zone: zones[params])
-    venues.map { |venue| venue.leisures}.flatten
+  def search_by_query_and_where(params)
+    Leisure.global_search(params[:query]).global_search(params[:where])
   end
 
-  def search_by_when(params)
-    case params
-    when 'hoje'
-      Leisure.where(start_date: Date.today)
-    when 'amanha'
-      Leisure.where(start_date: Date.today + 1)
-    when 'semana'
-      Leisure.where(start_date: Date.today..Date.today + 7)
-    end
+  def search_by_query_and_when(params)
+    Leisure.global_search(params[:query]).global_search(params[:when])
   end
 
-  def search_by_query(params)
-    Leisure.global_search(params)
+  def search_by_date
+    
   end
 end

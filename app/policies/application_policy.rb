@@ -52,6 +52,38 @@ class ApplicationPolicy
     false
   end
 
+  def filme?
+    true
+  end
+
+  def musica?
+    true
+  end
+
+  def teatro?
+    true
+  end
+
+  def danca?
+    true
+  end
+
+  def evento?
+    true
+  end
+
+  def festa?
+    true
+  end
+
+  def expo?
+    true
+  end
+
+  def mais? 
+    true
+  end
+
   def newsletter_subscription
     true
   end
