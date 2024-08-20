@@ -17,7 +17,7 @@
         <%= f.input :features, label: 'Protagonistas:', label_html: { class: 'fw-bold' } %>
         <div class="row">
           <div class="col-lg-6 col-12">
-            <%= f.input :min_age,  collection: [12, 14, 16, 18], label: 'Faixa etária:', label_html: { class: 'fw-bold' } %>
+            <%= f.input :min_age,  collection: [10, 12, 14, 16, 18], label: 'Faixa etária:', label_html: { class: 'fw-bold' } %>
           </div>
           <div class="col-lg-6 col-12">
             <%= f.input :duration, as: :string, label: 'Duração:', label_html: { class: 'fw-bold' }, placeholder: "Ex: 60'" %>
@@ -26,10 +26,10 @@
 
         <div class="row">
           <div class="col-lg-6 col-12">
-            <%= f.input :schedule, label: 'Horários', label_html: { class: 'fw-bold' }, placeholder: "Ex: sex/ sáb, 20h | dom, 18h" %>
+            <%= f.input :date, label: 'Data', label_html: { class: 'fw-bold' }, placeholder: "Ex: 21/jun a 07/jul" %>
           </div>
           <div class="col-lg-6 col-12">
-            <%= f.input :date, label: 'Data', label_html: { class: 'fw-bold' }, placeholder: "Ex: 21/jun a 07/jul" %>
+            <%= f.input :schedule, label: 'Horários', label_html: { class: 'fw-bold' }, placeholder: "Ex: sex/ sáb, 20h | dom, 18h" %>
           </div>
           <div class="col-lg-6 col-12">
             <%= f.input :start_date, label: 'Data de pulicação:', label_html: { class: 'fw-bold' } %>

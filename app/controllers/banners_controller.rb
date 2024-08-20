@@ -6,7 +6,7 @@ class BannersController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
@@ -22,7 +22,7 @@ class BannersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-    
+
   end
 
   def edit
@@ -44,13 +44,13 @@ class BannersController < ApplicationController
     authorize @banner
   end
 
-  private 
+  private
 
   def set_banner
     @banner = Banner.find(params[:id])
   end
 
   def banner_params
-    params.require(:banner).permit(:caption_one, :caption_two, :caption_three, :caption_four, :caption_five, :photo_one, :photo_two, :photo_three, :photo_four, :photo_five)
+    params.require(:banner).permit(:title_one, :title_two, :title_three, :title_four, :title_five, :caption_one, :caption_two, :caption_three, :caption_four, :caption_five, :photo_one, :photo_two, :photo_three, :photo_four, :photo_five)
   end
 end
