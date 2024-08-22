@@ -18,12 +18,12 @@ class LeisuresController < ApplicationController
     @leisures = policy_scope(Leisure)
     # load hero banner on LP.
     @banner = Banner.first
-    
+
     if params[:query].present? && params[:where].present?
       @leisures = @service.search_by_query_and_where(params)
     elsif params[:query].present? && params[:when].present?
       @leisures = @service.search_by_query_and_when(params)
-    elsif params[:query].present? 
+    elsif params[:query].present?
       @leisures = @service.search_by_query(params[:query])
     end
   end
@@ -40,7 +40,7 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
-    elsif params[:when].present? 
+    elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
     end
   end
@@ -52,7 +52,7 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
-    elsif params[:when].present? 
+    elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
     end
   end
@@ -64,7 +64,7 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
-    elsif params[:when].present? 
+    elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
     end
   end
@@ -76,7 +76,7 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
-    elsif params[:when].present? 
+    elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
     end
   end
@@ -88,7 +88,7 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
-    elsif params[:when].present? 
+    elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
     end
   end
@@ -100,7 +100,7 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
-    elsif params[:when].present? 
+    elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
     end
   end
@@ -112,14 +112,21 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
-    elsif params[:when].present? 
+    elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
     end
   end
 
   def mais
-    @leisures = Leisure.all
+    mais = Category.find_by(name: 'Mais')
+    @leisures = Leisure.where(category: mais)
     authorize @leisures
+
+    if params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+    elsif params[:when].present?
+      @leisures = @service.search_by_when(@leisures, params[:when])
+    end
   end
 
   def new
