@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @category.subcategories.build
     authorize @category
   end
 
@@ -21,6 +22,7 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+    @category.subcategories.build if @category.subcategories.empty?
     authorize @category
   end
 
@@ -33,7 +35,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :subcategories)
+    params.require(:category).permit(:name, subcategories_attributes: [:id, :name, :_destroy])
   end
 
   def set_category

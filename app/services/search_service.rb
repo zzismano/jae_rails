@@ -77,4 +77,9 @@ class SearchService
     end
 
   end
+
+  def filter_by_subcategory(leisures, subcategory_param)
+    Leisure.where(subcategory: subcategory_param)
+
+  end
 end

@@ -1,99 +1,97 @@
 <div id="sidebar" class="sidebar" data-controller="selector">
+  <ul class="categorias">
 
-  <ul class="categorias" >
-
-  <%= link_to filme_path, data: {turbo_frame: 'content'} do %>
-    <div class="square categorias-cinema" id="filme" data-selector-target="filme" data-action="click->selector#select" >
-      <li>CINEMA</li>
-
-      <div class="menu-square d-none">
-        <li>filme</li>
-        <li>mostra</li>
-        <li>vem aí</li>
+    <%= link_to filme_path, data: { turbo_frame: 'content' } do %>
+      <div class="square categorias-cinema" id="filme" data-selector-target="filme" data-action="click->selector#select">
+        <li>CINEMA</li>
+        <ul class="menu-square d-none">
+          <% Category.find_by(name: 'Filme').subcategories.each do |subcategory| %>
+            <li><%= subcategory.name %></li>
+          <% end %>
+        </ul>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <%= link_to musica_path, data: {turbo_frame: 'content'} do %>
-  <div class="square categorias-musica" id="musica" data-selector-target="musica" data-action="click->selector#select">
-    <li>MÚSICA</li>
-
-    <div class="menu-square d-none">
-      <li>show</li>
-      <li>festival</li>
-      <li>clubs</li>
-      <li>samba</li>
-      <li>clássica</li>
-      <li>vem aí</li>
-    </div>
-  </div>
-  <% end %>
-
-  <%= link_to teatro_path, data: {turbo_frame: 'content'} do  %>
-  <div class="square categorias-teatro" id="teatro" data-selector-target="teatro" data-action="click->selector#select">
-    <li>TEATRO</li>
-
-    <div class="menu-square d-none">
-      <li>peça</li>
-      <li>musical</li>
-      <li>stand-up</li>
-      <li>ópera</li>
-      <li>vem aí</li>
-    </div>
-  </div>
-  <% end %>
-
-  <%= link_to danca_path, data: {turbo_frame: 'content'} do %>
-  <div class="square categorias-danca" id="danca" data-selector-target="danca" data-action="click->selector#select">
-    <li>DANÇA</li>
-
-    <div class="menu-square d-none">
-      <li>vem aí</li>
-    </div>
-  </div>
-  <% end %>
-
-  <%= link_to evento_path, data: {turbo_frame: 'content'} do %>
-    <div class="square categorias-evento" id="evento" data-selector-target="evento" data-action="click->selector#select">
-      <li>EVENTO</li>
-      <div class="menu-square d-none">
-        <li>feira</li>
-        <li>vem aí</li>
+    <%= link_to musica_path, data: { turbo_frame: 'content' } do %>
+      <div class="square categorias-musica" id="musica" data-selector-target="musica" data-action="click->selector#select">
+        <li>MÚSICA</li>
+        <ul class="menu-square d-none">
+          <% Category.find_by(name: 'Musica').subcategories.each do |subcategory| %>
+            <li><%= subcategory.name %></li>
+          <% end %>
+        </ul>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <%= link_to festa_path, data: {turbo_frame: 'content'} do %>
-    <div class="square categorias-festa" id="festa" data-selector-target="evento" data-action="click->selector#select">
-      <li>FESTA</li>
-      <div class="menu-square d-none">
-        <li>18+</li>
-        <li>30+</li>
-        <li>vem aí</li>
+    <%= link_to teatro_path, data: { turbo_frame: 'content' } do %>
+      <div class="square categorias-teatro" id="teatro" data-selector-target="teatro" data-action="click->selector#select">
+        <li>TEATRO</li>
+        <ul class="menu-square d-none">
+          <% Category.find_by(name: 'Teatro').subcategories.each do |subcategory| %>
+            <%= link_to teatro_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+              <li><%= subcategory.name %></li>
+            <% end %>
+          <% end %>
+        </ul>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <%= link_to expo_path, data: {turbo_frame: 'content'} do %>
-    <div class="square categorias-expo" id="expo" data-selector-target="expo" data-action="click->selector#select">
-      <li>EXPO</li>
-      <div class="menu-square d-none">
-        <li>mostra</li>
-        <li>coleção</li>
+    <%= link_to danca_path, data: { turbo_frame: 'content' } do %>
+      <div class="square categorias-danca" id="danca" data-selector-target="danca" data-action="click->selector#select">
+        <li>DANÇA</li>
+        <ul class="menu-square d-none">
+          <% Category.find_by(name: 'Danca').subcategories.each do |subcategory| %>
+            <%= link_to danca_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+              <li><%= subcategory.name %></li>
+            <% end %>
+          <% end %>
+        </ul>
       </div>
-    </div>
-  <% end %>
-  <%= link_to mais_path, data: {turbo_frame: 'content'} do %>
+    <% end %>
 
-    <div class="square categorias-mais" id="mais" data-selector-target="mais" data-action="click->selector#select">
-      <li>MAIS</li>
-      <div class="menu-square d-none">
-        <li>literatura</li>
-        <li>debate</li>
-        <li>off Rio</li>
+    <%= link_to evento_path, data: { turbo_frame: 'content' } do %>
+      <div class="square categorias-evento" id="evento" data-selector-target="evento" data-action="click->selector#select">
+        <li>EVENTO</li>
+        <ul class="menu-square d-none">
+          <% Category.find_by(name: 'Evento').subcategories.each do |subcategory| %>
+            <li><%= subcategory.name %></li>
+          <% end %>
+        </ul>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-</ul>
+    <%= link_to festa_path, data: { turbo_frame: 'content' } do %>
+      <div class="square categorias-festa" id="festa" data-selector-target="festa" data-action="click->selector#select">
+        <li>FESTA</li>
+        <ul class="menu-square d-none">
+          <% Category.find_by(name: 'Festa').subcategories.each do |subcategory| %>
+            <li><%= subcategory.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= link_to expo_path, data: { turbo_frame: 'content' } do %>
+      <div class="square categorias-expo" id="expo" data-selector-target="expo" data-action="click->selector#select">
+        <li>EXPO</li>
+        <ul class="menu-square d-none">
+          <% Category.find_by(name: 'Expo').subcategories.each do |subcategory| %>
+            <li><%= subcategory.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= link_to mais_path, data: { turbo_frame: 'content' } do %>
+      <div class="square categorias-mais" id="mais" data-selector-target="mais" data-action="click->selector#select">
+        <li>MAIS</li>
+        <ul class="menu-square d-none">
+          <% Category.find_by(name: 'Mais').subcategories.each do |subcategory| %>
+            <li><%= subcategory.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  </ul>
 </div>
