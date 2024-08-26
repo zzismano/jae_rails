@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-jae" >
-  <div class="container-fluid">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
     <div class="navbar-form-lg" data-controller="search">
       <%= form_with url: leisures_path, method: :get, html: {class:
         "", data: { search_target: "form" } } do |f| %>
@@ -13,14 +13,14 @@
         %>
       <% end %>
     </div>
-    <div class="navbar-brand" href="/">
-      <%= image_tag 'logo_transparent.png' %>
-    </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-brand mx-auto order-2" href="/">
+      <%= image_tag 'logo_transparent.png' %>
+    </div>
+    <div class="d-none d-sm-block order-3" style="width: 48px;"></div>
+    <div class="collapse navbar-collapse order-4" id="navbarSupportedContent">
       <div class="navbar-form-sm" data-controller="search">
         <%= form_with url: leisures_path, method: :get, html: {class:
           "", data: { search_target: "form" } } do |f| %>

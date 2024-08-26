@@ -18,14 +18,18 @@ class LeisuresController < ApplicationController
     @leisures = policy_scope(Leisure)
     # load hero banner on LP.
     @banner = Banner.first
-
+    date_param = params[:date]
     if params[:query].present? && params[:where].present?
       @leisures = @service.search_by_query_and_where(params)
     elsif params[:query].present? && params[:when].present?
       @leisures = @service.search_by_query_and_when(params)
     elsif params[:query].present?
       @leisures = @service.search_by_query(params[:query])
+    elsif params[:date].present?
+      @leisures = SearchService.new.search_by_date(date_param)
     end
+
+
   end
 
   def set_fullpath
