@@ -46,6 +46,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -70,6 +72,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -96,6 +100,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -108,6 +114,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -120,6 +128,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -132,6 +142,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 

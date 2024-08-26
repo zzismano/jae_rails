@@ -6,7 +6,9 @@
         <li>CINEMA</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Filme').subcategories.each do |subcategory| %>
-            <li><%= subcategory.name %></li>
+            <%= link_to filme_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+              <li><%= subcategory.name %></li>
+            <% end %>
           <% end %>
         </ul>
       </div>
@@ -17,7 +19,9 @@
         <li>MÚSICA</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Musica').subcategories.each do |subcategory| %>
-            <li><%= subcategory.name %></li>
+            <%= link_to musica_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+              <li><%= subcategory.name %></li>
+            <% end %>
           <% end %>
         </ul>
       </div>
@@ -28,7 +32,7 @@
         <li>TEATRO</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Teatro').subcategories.each do |subcategory| %>
-            <%= link_to teatro_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+          <%= link_to teatro_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
               <li><%= subcategory.name %></li>
             <% end %>
           <% end %>
@@ -54,7 +58,9 @@
         <li>EVENTO</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Evento').subcategories.each do |subcategory| %>
-            <li><%= subcategory.name %></li>
+            <%= link_to evento_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+              <li><%= subcategory.name %></li>
+            <% end %>
           <% end %>
         </ul>
       </div>
@@ -65,7 +71,9 @@
         <li>FESTA</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Festa').subcategories.each do |subcategory| %>
-            <li><%= subcategory.name %></li>
+            <%= link_to festa_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+              <li><%= subcategory.name %></li>
+            <% end %>
           <% end %>
         </ul>
       </div>
@@ -76,7 +84,9 @@
         <li>EXPO</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Expo').subcategories.each do |subcategory| %>
-            <li><%= subcategory.name %></li>
+            <%= link_to expo_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+              <li><%= subcategory.name %></li>
+            <% end %>
           <% end %>
         </ul>
       </div>
@@ -87,7 +97,9 @@
         <li>MAIS</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Mais').subcategories.each do |subcategory| %>
-            <li><%= subcategory.name %></li>
+            <%= link_to mais_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+              <li><%= subcategory.name %></li>
+            <% end %>
           <% end %>
         </ul>
       </div>
