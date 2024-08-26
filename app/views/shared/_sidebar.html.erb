@@ -1,12 +1,12 @@
 <div id="sidebar" class="sidebar" data-controller="selector">
   <ul class="categorias">
 
-    <%= link_to filme_path, data: { turbo_frame: 'content' } do %>
+    <%= link_to filme_path, data: { turbo_frame: 'content' }, style: "color: white" do %>
       <div class="square categorias-cinema" id="filme" data-selector-target="filme" data-action="click->selector#select">
         <li>CINEMA</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Filme').subcategories.each do |subcategory| %>
-            <%= link_to filme_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+            <%= link_to filme_path(subcategory: subcategory), data: { turbo_frame: 'content' }, style: "color: white"  do  %>
               <li><%= subcategory.name %></li>
             <% end %>
           <% end %>
@@ -14,12 +14,12 @@
       </div>
     <% end %>
 
-    <%= link_to musica_path, data: { turbo_frame: 'content' } do %>
+    <%= link_to musica_path, data: { turbo_frame: 'content' }, style: "color: white" do %>
       <div class="square categorias-musica" id="musica" data-selector-target="musica" data-action="click->selector#select">
         <li>MÚSICA</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Musica').subcategories.each do |subcategory| %>
-            <%= link_to musica_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+            <%= link_to musica_path(subcategory: subcategory), data: { turbo_frame: 'content' }, style: "color: white"  do  %>
               <li><%= subcategory.name %></li>
             <% end %>
           <% end %>
@@ -27,12 +27,12 @@
       </div>
     <% end %>
 
-    <%= link_to teatro_path, data: { turbo_frame: 'content' } do %>
+    <%= link_to teatro_path, data: { turbo_frame: 'content' }, style: "color: white"  do %>
       <div class="square categorias-teatro" id="teatro" data-selector-target="teatro" data-action="click->selector#select">
         <li>TEATRO</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Teatro').subcategories.each do |subcategory| %>
-          <%= link_to teatro_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+          <%= link_to teatro_path(subcategory: subcategory), data: { turbo_frame: 'content' }, style: "color: white"  do  %>
               <li><%= subcategory.name %></li>
             <% end %>
           <% end %>
@@ -40,12 +40,12 @@
       </div>
     <% end %>
 
-    <%= link_to danca_path, data: { turbo_frame: 'content' } do %>
+    <%= link_to danca_path, data: { turbo_frame: 'content' }, style: "color: white"  do %>
       <div class="square categorias-danca" id="danca" data-selector-target="danca" data-action="click->selector#select">
         <li>DANÇA</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Danca').subcategories.each do |subcategory| %>
-            <%= link_to danca_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+            <%= link_to danca_path(subcategory: subcategory), data: { turbo_frame: 'content' }, style: "color: white"  do  %>
               <li><%= subcategory.name %></li>
             <% end %>
           <% end %>
@@ -53,12 +53,12 @@
       </div>
     <% end %>
 
-    <%= link_to evento_path, data: { turbo_frame: 'content' } do %>
+    <%= link_to evento_path, data: { turbo_frame: 'content' }, style: "color: white"  do %>
       <div class="square categorias-evento" id="evento" data-selector-target="evento" data-action="click->selector#select">
         <li>EVENTO</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Evento').subcategories.each do |subcategory| %>
-            <%= link_to evento_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+            <%= link_to evento_path(subcategory: subcategory), data: { turbo_frame: 'content' }, style: "color: white"  do  %>
               <li><%= subcategory.name %></li>
             <% end %>
           <% end %>
@@ -66,12 +66,12 @@
       </div>
     <% end %>
 
-    <%= link_to festa_path, data: { turbo_frame: 'content' } do %>
+    <%= link_to festa_path, data: { turbo_frame: 'content' }, style: "color: white"  do %>
       <div class="square categorias-festa" id="festa" data-selector-target="festa" data-action="click->selector#select">
         <li>FESTA</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Festa').subcategories.each do |subcategory| %>
-            <%= link_to festa_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+            <%= link_to festa_path(subcategory: subcategory), data: { turbo_frame: 'content' }, style: "color: white"  do  %>
               <li><%= subcategory.name %></li>
             <% end %>
           <% end %>
@@ -79,12 +79,12 @@
       </div>
     <% end %>
 
-    <%= link_to expo_path, data: { turbo_frame: 'content' } do %>
+    <%= link_to expo_path, data: { turbo_frame: 'content' }, style: "color: white"  do %>
       <div class="square categorias-expo" id="expo" data-selector-target="expo" data-action="click->selector#select">
         <li>EXPO</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Expo').subcategories.each do |subcategory| %>
-            <%= link_to expo_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+            <%= link_to expo_path(subcategory: subcategory), data: { turbo_frame: 'content' }, style: "color: white"  do  %>
               <li><%= subcategory.name %></li>
             <% end %>
           <% end %>
@@ -92,12 +92,12 @@
       </div>
     <% end %>
 
-    <%= link_to mais_path, data: { turbo_frame: 'content' } do %>
+    <%= link_to mais_path, data: { turbo_frame: 'content' }, style: "color: white"  do %>
       <div class="square categorias-mais" id="mais" data-selector-target="mais" data-action="click->selector#select">
         <li>MAIS</li>
         <ul class="menu-square d-none">
           <% Category.find_by(name: 'Mais').subcategories.each do |subcategory| %>
-            <%= link_to mais_path(subcategory: subcategory), data: { turbo_frame: 'content' } do  %>
+            <%= link_to mais_path(subcategory: subcategory), data: { turbo_frame: 'content' }, style: "color: white"  do  %>
               <li><%= subcategory.name %></li>
             <% end %>
           <% end %>
