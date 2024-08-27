@@ -1,5 +1,7 @@
 class Category < ApplicationRecord
-  has_many :leisures
+  has_many :subcategories, dependent: :destroy
+  accepts_nested_attributes_for :subcategories, allow_destroy: true
+  has_many :leisures, through: :subcategories
   belongs_to :user
 
   include PgSearch::Model

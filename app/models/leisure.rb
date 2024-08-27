@@ -1,5 +1,6 @@
 class Leisure < ApplicationRecord
   belongs_to :category
+  belongs_to :subcategory
   belongs_to :user
   has_many :leisure_genres
   has_many :leisure_venues
@@ -17,7 +18,7 @@ class Leisure < ApplicationRecord
   pg_search_scope :global_search,
   against: [ :title, :subtitle, :director, :country, :description, :features, :min_age ],
   associated_against: {
-    category: [ :name, :subcategories ], 
+    category: [ :name, :subcategories ],
     venues: [ :name, :address, :zone, :capacity ]
   },
   using: {

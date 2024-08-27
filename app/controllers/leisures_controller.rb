@@ -18,14 +18,18 @@ class LeisuresController < ApplicationController
     @leisures = policy_scope(Leisure)
     # load hero banner on LP.
     @banner = Banner.first
-
+    date_param = params[:date]
     if params[:query].present? && params[:where].present?
       @leisures = @service.search_by_query_and_where(params)
     elsif params[:query].present? && params[:when].present?
       @leisures = @service.search_by_query_and_when(params)
     elsif params[:query].present?
       @leisures = @service.search_by_query(params[:query])
+    elsif params[:date].present?
+      @leisures = SearchService.new.search_by_date(date_param)
     end
+
+
   end
 
   def set_fullpath
@@ -42,6 +46,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -66,6 +72,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -78,6 +86,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -90,6 +100,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -102,6 +114,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -114,6 +128,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -126,6 +142,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -221,7 +239,7 @@ class LeisuresController < ApplicationController
   end
 
   def leisure_params
-    params.require(:leisure).permit(:category_id, :photo, :link, :title, :subtitle, :director, :country, :description, :schedule, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free, :date)
+    params.require(:leisure).permit(:venue_ids, :genre_ids, :category_id, :subcategory_id, :photo, :link, :title, :subtitle, :director, :country, :description, :schedule, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free, :date)
   end
 
   def set_leisure

@@ -35,7 +35,7 @@ Rails.application.routes.draw do
 
   resources :section_cards, only: [:destroy, :create]
 
-
+  resources :subcategories, only: [:index]
 
   get "filme", to: 'leisures#filme'
   get "teatro", to: 'leisures#teatro'
@@ -54,4 +54,7 @@ Rails.application.routes.draw do
   get 'section_config', to: "sections#section_config"
 
   post 'newsletter_subscription', to: 'leisures#newsletter_subscription'
+
+
+
 end
