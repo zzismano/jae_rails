@@ -12,34 +12,51 @@ export default class extends Controller {
     let url = event.target.value;
 
     // limpa params anteriores
-    if (url.match(/\?where=[a-z]+_[a-z]+\?where=/)) {
+    if (url.match(/\?where=[a-z]+_[a-z]+\?where=/) || url.match(/\?where=[a-z]+\?where=/))  {
       const new_url = url.replace(/^.*(?=\?where=[a-z]+)/, '');
       const base = url.match(/\/[a-z]+/)[0];
       url = `${base}${new_url}`;
-    }
+    } else if (url.match(/\?when=[a-z]+\?where=/)) {
+      const new_url = url.replace(/\?when=[a-z]+/, '');
+      url = `${new_url}`
 
+    }
+    console.log(url);
     const turboFrame = document.getElementById('content');
     turboFrame.src = url;
+
 
   }
 
   searchWhen(event) {
-    console.log('Hello World!');
+
 
     let url = event.target.value;
+    console.log(url);
 
     if (url.match(/\?when=[a-z]+\?when=[a-z]+/)) {
 
       const new_url = url.replace(/^.*(?=\?when=[a-z]+)/, '');
       const base = url.match(/\/[a-z]+/)[0];
       url = `${base}${new_url}`;
+    } else if  (url.match(/\?where=[a-z]+\?when=/)) {
+      const new_url = url.replace(/\?where=[a-z]+/, '');
+      url = `${new_url}`;
+
+    } else if (url.match(/\?where=[a-z]+_[a-z]+\?when=/)) {
+      const new_url = url.replace(/\?where=[a-z]+_[a-z]+/, '');
+      url = `${new_url}`;
     }
 
+
+    console.log(url);
     const turboFrame = document.getElementById('content');
     turboFrame.src = url;
     event.target.value = '';
 
   }
+
+
 
   searchQueryAndWhere(event) {
 
@@ -82,4 +99,7 @@ export default class extends Controller {
     turboFrame.src = finalUrl;
 
   }
+
+
+
 }

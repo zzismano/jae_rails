@@ -4,7 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ 'form', 'input' ]
   connect() {
-   
   }
 
   update(event) {
@@ -17,6 +16,5 @@ export default class extends Controller {
     } else {
       turboFrame.src = url;
     }
- 
   }
 }
