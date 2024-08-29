@@ -205,7 +205,7 @@ class LeisuresController < ApplicationController
     # Temporarily remove genre_ids and venue_ids from params before update
     genre_ids = params[:leisure].delete(:genre_ids).compact_blank
     venue_ids = params[:leisure].delete(:venue_ids).compact_blank
-
+    @leisure.dates = params[:leisure][:dates].split(',').map(&:strip) if params[:leisure][:dates]
     if @leisure.update(leisure_params)
       # Handle genres
       genre_ids.each do |genre_id|
@@ -260,7 +260,7 @@ class LeisuresController < ApplicationController
   end
 
   def leisure_params
-    params.require(:leisure).permit(:category_id, :subcategory_id, :photo, :link, :title, :subtitle, :director, :country, :description, :schedule, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free, :date)
+    params.require(:leisure).permit(:category_id, :subcategory_id, :photo, :link, :title, :subtitle, :director, :country, :description, :schedule, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free, :date, dates: [])
   end
 
   def set_leisure

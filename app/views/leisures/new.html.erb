@@ -46,6 +46,12 @@
           <div class="col-lg-6 col-12">
             <%= f.input :end_date, label: 'Data de validade:', label_html: { class: 'fw-bold' } %>
           </div>
+
+          <div class="col-lg-6 col-12">
+            <%= f.label :dates, 'Datas de Publicação:', class: 'fw-bold' %>
+            <%= f.text_field :dates, id: 'start_dates', class: 'form-control', value: @leisure.dates.join(', ') %>
+          </div>
+
         </div>
 
         <%= f.input :hidden, label: 'Oculto',label_html: { class: 'fw-bold' } %>

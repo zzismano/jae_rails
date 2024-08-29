@@ -8,6 +8,7 @@ class Leisure < ApplicationRecord
   has_many :genres, through: :leisure_genres, dependent: :destroy
   has_many :venues, through: :leisure_venues, dependent: :destroy
   has_one_attached :photo
+  attribute :dates, :json, default: []
   validates :description, length: { minimum: 100,
     too_short: "Descrição muito curta! O mínimo é 100." }
   scope :published, -> {where("start_date <= ? ", Date.today) }
@@ -24,5 +25,14 @@ class Leisure < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
+  def dates
+    read_attribute(:dates) || []
+  end
+
+  def dates=(dates_array)
+    write_attribute(:dates, dates_array)
+  end
+
 
 end

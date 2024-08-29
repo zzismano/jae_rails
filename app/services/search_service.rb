@@ -5,15 +5,31 @@ class SearchService
   end
 
   def search_by_when(leisures, params)
+    today = Date.today
+
     case params
     when 'hoje'
-      leisures.where(start_date: Date.today)
+      leisures.where("dates @> ?::jsonb", [today.to_s].to_json)
     when 'amanha'
-      leisures.where(start_date: Date.today + 1)
+      leisures.where("dates @> ?::jsonb", [(today + 1).to_s].to_json)
     when 'semana'
-      leisures.where(start_date: Date.today..Date.today + 7)
+      start_of_week = today
+      end_of_week = today + 7
+      date_range = (start_of_week..end_of_week).to_a.map(&:to_s)
+      matches = []
+      leisures.each do |leisure|
+        unless (leisure.dates & date_range).empty?
+          matches << leisure
+        end
+      end
+      matches
+
+
     end
   end
+
+
+
 
   def search_by_where(leisures, params)
     zones = { 'zona_sul' => 'Zona Sul', 'zona_norte' =>  'Zona Norte', 'zona_oeste' => 'Zona Oeste', 'centro' => 'Centro' }
@@ -62,21 +78,32 @@ class SearchService
     when 'gratuito'
       Leisure.where(free: true)
     when 'hoje'
-      Leisure.where(start_date: today)
+      Leisure.where("dates @> ?::jsonb", [today.to_s].to_json)
     when 'proximo_mes'
       start_next_month = today.next_month.beginning_of_month
       end_next_month = today.next_month.end_of_month
-      Leisure.where(start_date: start_next_month..end_next_month)
+      date_range = (start_next_month..end_next_month).to_a.map(&:to_s)
+      matches = []
+      Leisure.all.each do |leisure|
+        unless (leisure.dates & date_range).empty?
+          matches << leisure
+        end
+      end
+      matches
+
+
     when 'fim_de_semana'
       next_saturday = today + ((6 - today.wday) % 7)
       next_sunday = next_saturday + 1
-      Leisure.where(start_date: next_saturday..next_sunday)
-              .or(Leisure.where(end_date: next_saturday..next_sunday))
+      Leisure.where("dates @> ?::jsonb", [next_saturday.to_s, next_sunday.to_s].to_json)
     else
       Leisure.none # or handle unexpected cases
     end
-
   end
+
+
+
+
 
   def filter_by_subcategory(leisures, subcategory_param)
     Leisure.where(subcategory: subcategory_param)
