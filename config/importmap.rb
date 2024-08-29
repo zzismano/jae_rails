@@ -13,3 +13,4 @@ pin "tom-select" # @2.3.1
 pin "@stimulus-components/read-more", to: "@stimulus-components--read-more.js" # @5.0.0
 pin "jquery", to: "jquery.min.js", preload: true
 pin "cocoon", to: "cocoon/cocoon.min.js"
+pin "flatpickr" # @4.6.13

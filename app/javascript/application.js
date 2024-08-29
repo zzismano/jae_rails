@@ -5,6 +5,8 @@ import "@popperjs/core";
 import "bootstrap";
 import "jquery";
 import "cocoon";
+
+
 // Wait for the document to be fully loaded before initializing Cocoon
 if (typeof Cocoon !== 'undefined') {
   Cocoon.init();
