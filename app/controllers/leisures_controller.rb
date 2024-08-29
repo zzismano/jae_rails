@@ -1,5 +1,5 @@
 class LeisuresController < ApplicationController
-  before_action :set_leisure, only: [:edit, :update, :destroy]
+  before_action :set_leisure, only: [:edit, :destroy]
   before_action :set_fullpath, only: [:filme, :teatro, :musica, :danca, :evento, :festa, :expo]
   skip_before_action :authenticate_user!, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
   before_action :start_search_service, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
@@ -46,8 +46,11 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:when].present? && params[:where].present?
+      @leisures = @service.search_by_when_and_where(params)
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
+
     end
   end
 
@@ -60,6 +63,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where(@leisures, params[:where])
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
   end
 
@@ -194,23 +199,39 @@ class LeisuresController < ApplicationController
   end
 
   def update
+    @leisure = Leisure.find(params[:id])
     authorize @leisure
-    @leisure.update(leisure_params)
-    params[:leisure][:genre_ids].compact_blank.each do |genre_id|
-      if LeisureGenre.where(leisure_id: @leisure.id, genre_id: genre_id).empty?
-        @leisure_genre = LeisureGenre.new(leisure_id: @leisure.id, genre_id: genre_id)
-        @leisure_genre.save
-      end
-    end
-    params[:leisure][:venue_ids].compact_blank.each do |venue_id|
-      if LeisureVenue.where(leisure_id: @leisure.id, venue_id: venue_id).empty?
-        @leisure_venue = LeisureVenue.new(leisure_id: @leisure.id, venue_id: venue_id)
-        @leisure_venue.save
-      end
-    end
 
-    redirect_to dashboard_path
+    # Temporarily remove genre_ids and venue_ids from params before update
+    genre_ids = params[:leisure].delete(:genre_ids).compact_blank
+    venue_ids = params[:leisure].delete(:venue_ids).compact_blank
+
+    if @leisure.update(leisure_params)
+      # Handle genres
+      genre_ids.each do |genre_id|
+        if LeisureGenre.where(leisure_id: @leisure.id, genre_id: genre_id).empty?
+          @leisure_genre = LeisureGenre.new(leisure_id: @leisure.id, genre_id: genre_id)
+          @leisure_genre.save
+        end
+      end
+
+      # Handle venues
+      venue_ids.each do |venue_id|
+        if LeisureVenue.where(leisure_id: @leisure.id, venue_id: venue_id).empty?
+          @leisure_venue = LeisureVenue.new(leisure_id: @leisure.id, venue_id: venue_id)
+          @leisure_venue.save
+        end
+      end
+
+      redirect_to dashboard_path, notice: 'Leisure updated successfully.'
+    else
+      puts @leisure.errors.full_messages # Debugging line
+      render :edit
+    end
   end
+
+
+
 
   def destroy
     authorize @leisure
@@ -239,7 +260,7 @@ class LeisuresController < ApplicationController
   end
 
   def leisure_params
-    params.require(:leisure).permit(:venue_ids, :genre_ids, :category_id, :subcategory_id, :photo, :link, :title, :subtitle, :director, :country, :description, :schedule, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free, :date)
+    params.require(:leisure).permit(:category_id, :subcategory_id, :photo, :link, :title, :subtitle, :director, :country, :description, :schedule, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free, :date)
   end
 
   def set_leisure

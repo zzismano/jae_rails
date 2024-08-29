@@ -1,6 +1,6 @@
 class Leisure < ApplicationRecord
   belongs_to :category
-  belongs_to :subcategory
+  belongs_to :subcategory, optional: true
   belongs_to :user
   has_many :leisure_genres
   has_many :leisure_venues
