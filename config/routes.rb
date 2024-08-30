@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root "leisures#home"
   #admin routes
   get "dashboard", to: "leisures#dashboard"
+  get "about_us", to: "leisures#about_us"
   #Leisures routes
   resources :leisure_genres, only: %i[destroy]
   resources :leisure_venues, only: %i[destroy]

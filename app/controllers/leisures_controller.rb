@@ -3,7 +3,7 @@ class LeisuresController < ApplicationController
   before_action :set_fullpath, only: [:filme, :teatro, :musica, :danca, :evento, :festa, :expo]
   skip_before_action :authenticate_user!, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
   before_action :start_search_service, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
-
+  skip_after_action :verify_authorized, only: [:about_us]
   def home
     @banner = Banner.first
     authorize @banner
@@ -249,6 +249,13 @@ class LeisuresController < ApplicationController
   def newsletter_subscription
     @subscriber = {email: params[:email]}
     authorize @subscriber
+  end
+
+  def about_us
+    respond_to do |format|
+      format.turbo_stream
+      format.html
+    end
   end
 
 

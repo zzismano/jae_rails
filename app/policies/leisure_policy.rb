@@ -13,6 +13,10 @@ class LeisurePolicy < ApplicationPolicy
 
   end
 
+  def about_us?
+    true
+  end
+
   def home?
     true
   end
@@ -68,7 +72,7 @@ class LeisurePolicy < ApplicationPolicy
   def mais?
     true
   end
-  
+
   def newsletter_subscription?
     true
   end

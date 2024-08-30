@@ -92,10 +92,20 @@
 
 .main-rio {
   color: $jae-wine;
-  font-size: 0.8em;
+  font-size: 1em;
   font-weight: 400;
   justify-self: center;
-  margin-bottom: none;
+  margin-bottom: 0px;
+
+
+}
+
+.about-us {
+  color: $jae-wine
+}
+
+.main-rio h1 {
+  margin-bottom: 0px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 940px) {
@@ -124,6 +134,11 @@
   }
   .main-section-cards {
     max-width: 91vw !important;
+  }
+
+  .main-rio {
+    display: none !important;
+
   }
 }
 
