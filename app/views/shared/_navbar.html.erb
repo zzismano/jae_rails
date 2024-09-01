@@ -16,11 +16,11 @@
     <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <h1 class="main-rio">RIO DE JANEIRO</h2>
     <div class="navbar-brand mx-auto order-2" href="/">
       <%= image_tag 'logo_transparent.png' %>
     </div>
-
     <div class="collapse navbar-collapse order-4" id="navbarSupportedContent">
       <div class="navbar-form-sm" data-controller="search">
         <%= form_with url: leisures_path, method: :get, html: {class:
@@ -40,6 +40,9 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <% if current_user.admin? %>
+            <li>
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
             <li>
               <%= link_to "Quem somos", about_us_path, data: { turbo_frame: 'content' }, class: "nav-link" %>
             </li>
@@ -66,10 +69,12 @@
               </div>
             </li>
           <% else %>
+              <%= link_to "Home", root_path, class: "nav-link" %>
               <%= link_to "Quem somos", about_us_path, data: { turbo_frame: 'content' }, class: "nav-link" %>
             </li>
           <% end %>
         <% else %>
+          <%= link_to "Home", root_path, class: "nav-link" %>
           <%= link_to "Quem somos", about_us_path, data: { turbo_frame: 'content' }, class: "nav-link" %>
         <% end %>
       </ul>
