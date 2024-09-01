@@ -42,19 +42,24 @@ class LeisuresController < ApplicationController
   def filme
     filme = Category.find_by(name: 'Filme')
     @leisures = Leisure.where(category: filme)
-    authorize @leisures
 
+    authorize @leisures
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
+      @where = params[:where]
+
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+      @when = params[:when]
     elsif params[:when].present? && params[:where].present?
       @leisures = @service.search_by_when_and_where(params)
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
 
     end
-      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+
+
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -65,12 +70,18 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
+      @where = params[:where]
+
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+      @when = params[:when]
+    elsif params[:when].present? && params[:where].present?
+      @leisures = @service.search_by_when_and_where(params)
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
+
     end
-      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -81,12 +92,18 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
+      @where = params[:where]
+
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+      @when = params[:when]
+    elsif params[:when].present? && params[:where].present?
+      @leisures = @service.search_by_when_and_where(params)
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
+
     end
-      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -97,12 +114,18 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
+      @where = params[:where]
+
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+      @when = params[:when]
+    elsif params[:when].present? && params[:where].present?
+      @leisures = @service.search_by_when_and_where(params)
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
+
     end
-      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
 
   end
@@ -130,12 +153,18 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
+      @where = params[:where]
+
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+      @when = params[:when]
+    elsif params[:when].present? && params[:where].present?
+      @leisures = @service.search_by_when_and_where(params)
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
+
     end
-      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -146,12 +175,18 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
+      @where = params[:where]
+
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+      @when = params[:when]
+    elsif params[:when].present? && params[:where].present?
+      @leisures = @service.search_by_when_and_where(params)
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
+
     end
-      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -162,12 +197,18 @@ class LeisuresController < ApplicationController
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
+      @where = params[:where]
+
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
+      @when = params[:when]
+    elsif params[:when].present? && params[:where].present?
+      @leisures = @service.search_by_when_and_where(params)
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
+
     end
-      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
