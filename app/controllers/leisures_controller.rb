@@ -1,7 +1,7 @@
 class LeisuresController < ApplicationController
   before_action :set_leisure, only: [:edit, :destroy]
   before_action :set_fullpath, only: [:filme, :teatro, :musica, :danca, :evento, :festa, :expo]
-  skip_before_action :authenticate_user!, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
+  skip_before_action :authenticate_user!, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais, :about_us]
   before_action :start_search_service, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
   skip_after_action :verify_authorized, only: [:about_us]
   def home
@@ -28,6 +28,8 @@ class LeisuresController < ApplicationController
     elsif params[:date].present?
       @leisures = SearchService.new.search_by_date(date_param)
     end
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+    @leisures
 
 
   end
@@ -52,6 +54,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
 
     end
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+    @leisures
   end
 
   def teatro
@@ -66,6 +70,8 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+    @leisures
   end
 
   def musica
@@ -80,6 +86,8 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+    @leisures
   end
 
   def danca
@@ -94,6 +102,9 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+    @leisures
+
   end
 
   def evento
@@ -108,6 +119,8 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+    @leisures
   end
 
   def festa
@@ -122,6 +135,8 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+    @leisures
   end
 
   def expo
@@ -136,6 +151,8 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+    @leisures
   end
 
   def mais
@@ -150,6 +167,8 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+    @leisures
   end
 
   def new
@@ -158,23 +177,34 @@ class LeisuresController < ApplicationController
   end
 
   def create
+    genre_ids = params[:leisure].delete(:genre_ids).compact_blank
+    venue_ids = params[:leisure].delete(:venue_ids).compact_blank
     @leisure = Leisure.new(leisure_params)
     @leisure.user = current_user
-    @leisure.save
-    # redirect_to leisure_leisure_venues_path(@leisure)
-    if !params[:leisure][:genre_ids].empty?
-      params[:leisure][:genre_ids].compact_blank.each do |genre_id|
-        @leisure_genre = LeisureGenre.new(leisure_id: @leisure.id, genre_id: genre_id)
-        @leisure_genre.save
+    sorted_dates = @leisure.dates.sort
+    @leisure.dates = sorted_dates
+    if @leisure.save
+      # Handle genres
+      genre_ids.each do |genre_id|
+        if LeisureGenre.where(leisure_id: @leisure.id, genre_id: genre_id).empty?
+          @leisure_genre = LeisureGenre.new(leisure_id: @leisure.id, genre_id: genre_id)
+          @leisure_genre.save
+        end
       end
+
+      # Handle venues
+      venue_ids.each do |venue_id|
+        if LeisureVenue.where(leisure_id: @leisure.id, venue_id: venue_id).empty?
+          @leisure_venue = LeisureVenue.new(leisure_id: @leisure.id, venue_id: venue_id)
+          @leisure_venue.save
+        end
+      end
+      redirect_to dashboard_path
+      else
+      # Add `status: :unprocessable_entity` here
+      render :new, status: :unprocessable_entity
     end
 
-    if !params[:leisure][:venue_ids].empty?
-      params[:leisure][:venue_ids].compact_blank.each do |venue_id|
-        @leisure_venue = LeisureVenue.new(leisure_id: @leisure.id, venue_id: venue_id)
-        @leisure_venue.save
-      end
-    end
 
     authorize @leisure
 
@@ -206,6 +236,9 @@ class LeisuresController < ApplicationController
     genre_ids = params[:leisure].delete(:genre_ids).compact_blank
     venue_ids = params[:leisure].delete(:venue_ids).compact_blank
     @leisure.dates = params[:leisure][:dates].split(',').map(&:strip) if params[:leisure][:dates]
+    sorted_dates = @leisure.dates.sort
+    @leisure.dates = sorted_dates
+
     if @leisure.update(leisure_params)
       # Handle genres
       genre_ids.each do |genre_id|
