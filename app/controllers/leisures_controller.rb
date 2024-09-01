@@ -54,7 +54,7 @@ class LeisuresController < ApplicationController
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
 
     end
-    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -70,7 +70,7 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
-    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -86,7 +86,7 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
-    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -102,7 +102,7 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
-    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
 
   end
@@ -119,7 +119,7 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
-    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -135,7 +135,7 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
-    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -151,7 +151,7 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
-    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -167,7 +167,7 @@ class LeisuresController < ApplicationController
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     end
-    @leisures = @leisures.sort_by { |leisure| leisure[:dates]}
+      @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
