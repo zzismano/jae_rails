@@ -1,24 +1,24 @@
-<div class=" hello d-flex justify-content-between align-items-center py-3 px-4" data-controller="header">
+<div class="hello d-flex justify-content-between align-items-center py-3 px-4" data-controller="header">
   <div class="where me-2">
     <h2 class="fs-6">onde</h2>
     <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_zona_evento" data-action="change->header#searchWhere" data-header-route-value="<%= @path %>">
-      <option selected value="<%= leisures_path %>">selecione...</option>
-      <option value="<%= "#{@path}?where=zona_sul" %>">Zona Sul</option>
-      <option value="<%= "#{@path}?where=zona_norte" %>">Zona Norte</option>
-      <option value="<%= "#{@path}?where=zona_oeste" %>">Zona Oeste</option>
-      <option value="<%= "#{@path}?where=centro" %>">Centro</option>
-     
-      
+      <option value="<%= leisures_path %>" <%= 'selected' if @where.blank? %>>selecione...</option>
+      <option value="<%= "#{@path}?where=zona_sul" %>" <%= 'selected' if @where == 'zona_sul' %>>Zona Sul</option>
+      <option value="<%= "#{@path}?where=zona_norte" %>" <%= 'selected' if @where == 'zona_norte' %>>Zona Norte</option>
+      <option value="<%= "#{@path}?where=zona_oeste" %>" <%= 'selected' if @where == 'zona_oeste' %>>Zona Oeste</option>
+      <option value="<%= "#{@path}?where=centro" %>" <%= 'selected' if @where == 'centro' %>>Centro</option>
     </select>
   </div>
+
   <a href="/"><%= image_tag 'logo_transparent.png', class: 'main-logo' %></a>
+
   <div class="when d-flex flex-column align-items-end ms-2">
     <h2 class="fs-6">quando</h2>
     <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_data_evento" data-action="change->header#searchWhen">
-      <option selected value="<%= leisures_path %>">selecione...</option>
-      <option value="<%= "#{@path}?when=hoje" %>" >hoje</option>
-      <option value="<%= "#{@path}?when=amanha" %>">amanhã</option>
-      <option value="<%= "#{@path}?when=semana" %>">esta semana</option>
+      <option value="<%= leisures_path %>" <%= 'selected' if @when.blank? %>>selecione...</option>
+      <option value="<%= "#{@path}?when=hoje" %>" <%= 'selected' if @when == 'hoje' %>>hoje</option>
+      <option value="<%= "#{@path}?when=amanha" %>" <%= 'selected' if @when == 'amanha' %>>amanhã</option>
+      <option value="<%= "#{@path}?when=semana" %>" <%= 'selected' if @when == 'semana' %>>esta semana</option>
     </select>
   </div>
 </div>
