@@ -109,4 +109,13 @@ class SearchService
     Leisure.where(subcategory: subcategory_param)
 
   end
+
+  def filter_by_subcategory_and_where(params)
+    subcategory_leisures = Leisure.where(subcategory: params[:subcategory])
+    filtered_leisures = subcategory_leisures.global_search(params[:where])
+    filtered_leisures
+  end
+
+
+
 end

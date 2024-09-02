@@ -184,7 +184,8 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_when_and_where(params)
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
-
+    elsif params[:subcategory].present? && params[:where].present?
+      @leisures = @service.filter_by_subcategory_and_where
     end
     @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
