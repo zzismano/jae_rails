@@ -18,8 +18,8 @@ export default class extends Controller {
 
 
     const siblings =[...clickedElement.parentElement.children].filter(c => c !== clickedElement);
-    siblings.forEach(sibling => sibling.classList.remove("text-decoration-underline"));
-    clickedElement.classList.add("text-decoration-underline");
+    siblings.forEach(sibling => sibling.classList.remove("text-decoration-underline-thick"));
+    clickedElement.classList.add("text-decoration-underline-thick");
 
 
 
