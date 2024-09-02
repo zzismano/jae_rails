@@ -1,7 +1,7 @@
 class SearchService
 
   def search_by_query(params) # search by typing query
-    Leisure.global_search(params)
+    Leisure.global_search(params).visible
   end
 
   def search_by_when(leisures, params)
@@ -76,15 +76,15 @@ class SearchService
     today = Date.today
     case date_param
     when 'gratuito'
-      Leisure.where(free: true)
+      Leisure.where(free: true).visible
     when 'hoje'
-      Leisure.where("dates @> ?::jsonb", [today.to_s].to_json)
+      Leisure.where("dates @> ?::jsonb", [today.to_s].to_json).visible
     when 'proximo_mes'
       start_next_month = today.next_month.beginning_of_month
       end_next_month = today.next_month.end_of_month
       date_range = (start_next_month..end_next_month).to_a.map(&:to_s)
       matches = []
-      Leisure.all.each do |leisure|
+      Leisure.visible.each do |leisure|
         unless (leisure.dates & date_range).empty?
           matches << leisure
         end
@@ -95,7 +95,7 @@ class SearchService
     when 'fim_de_semana'
       next_saturday = today + ((6 - today.wday) % 7)
       next_sunday = next_saturday + 1
-      Leisure.where("dates @> ?::jsonb", [next_saturday.to_s, next_sunday.to_s].to_json)
+      Leisure.where("dates @> ?::jsonb", [next_saturday.to_s, next_sunday.to_s].to_json).visible
     else
       Leisure.none # or handle unexpected cases
     end
@@ -106,12 +106,12 @@ class SearchService
 
 
   def filter_by_subcategory(leisures, subcategory_param)
-    Leisure.where(subcategory: subcategory_param)
+    Leisure.where(subcategory: subcategory_param).visible
 
   end
 
   def filter_by_subcategory_and_where(params)
-    subcategory_leisures = Leisure.where(subcategory: params[:subcategory])
+    subcategory_leisures = Leisure.where(subcategory: params[:subcategory]).visible
     filtered_leisures = subcategory_leisures.global_search(params[:where])
     filtered_leisures
   end

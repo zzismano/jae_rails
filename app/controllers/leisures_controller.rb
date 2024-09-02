@@ -29,7 +29,7 @@ class LeisuresController < ApplicationController
       @leisures = SearchService.new.search_by_date(date_param)
     end
     @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
-    @leisures
+
 
 
   end
@@ -41,7 +41,7 @@ class LeisuresController < ApplicationController
 
   def filme
     filme = Category.find_by(name: 'Filme')
-    @leisures = Leisure.where(category: filme)
+    @leisures = Leisure.where(category: filme).visible
 
     authorize @leisures
     if params[:where].present?
@@ -65,7 +65,7 @@ class LeisuresController < ApplicationController
 
   def teatro
     teatro = Category.find_by(name: 'Teatro')
-    @leisures = Leisure.where(category: teatro)
+    @leisures = Leisure.where(category: teatro).visible
     authorize @leisures
 
     if params[:where].present?
@@ -87,7 +87,7 @@ class LeisuresController < ApplicationController
 
   def musica
     musica = Category.find_by(name: 'Musica')
-    @leisures = Leisure.where(category: musica)
+    @leisures = Leisure.where(category: musica).visible
     authorize @leisures
 
     if params[:where].present?
@@ -109,7 +109,7 @@ class LeisuresController < ApplicationController
 
   def danca
     danca = Category.find_by(name: 'Danca')
-    @leisures = Leisure.where(category: danca)
+    @leisures = Leisure.where(category: danca).visible
     authorize @leisures
 
     if params[:where].present?
@@ -132,7 +132,7 @@ class LeisuresController < ApplicationController
 
   def evento
     evento = Category.find_by(name: 'Evento')
-    @leisures = Leisure.where(category: evento)
+    @leisures = Leisure.where(category: evento).visible
     authorize @leisures
 
     if params[:where].present?
@@ -148,7 +148,7 @@ class LeisuresController < ApplicationController
 
   def festa
     festa = Category.find_by(name: 'Festa')
-    @leisures = Leisure.where(category: festa)
+    @leisures = Leisure.where(category: festa).visible
     authorize @leisures
 
     if params[:where].present?
@@ -170,13 +170,12 @@ class LeisuresController < ApplicationController
 
   def expo
     expo = Category.find_by(name: 'Expo')
-    @leisures = Leisure.where(category: expo)
+    @leisures = Leisure.where(category: expo).visible
     authorize @leisures
 
     if params[:where].present?
       @leisures = @service.search_by_where(@leisures, params[:where])
       @where = params[:where]
-
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
       @when = params[:when]
@@ -193,7 +192,7 @@ class LeisuresController < ApplicationController
 
   def mais
     mais = Category.find_by(name: 'Mais')
-    @leisures = Leisure.where(category: mais)
+    @leisures = Leisure.where(category: mais).visible
     authorize @leisures
 
     if params[:where].present?

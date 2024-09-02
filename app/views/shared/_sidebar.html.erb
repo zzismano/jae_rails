@@ -7,7 +7,7 @@
         <ul class="menu-square d-none" data-controller="subcategory-selector">
           <% Category.find_by(name: 'Filme').subcategories.each do |subcategory| %>
             <%= link_to filme_path(subcategory: subcategory), data: { turbo_frame: 'content', action: 'click->subcategory-selector#filter' }, style: "color: white"  do  %>
-              <li id="subcategory-link" data-subcategory-selector-target="subcategory" ><%= subcategory.name.downcase %></li>
+              <li id="subcategory-link" class=""  class="" data-subcategory-selector-target="subcategory" ><%= subcategory.name.downcase %></li>
             <% end %>
           <% end %>
         </ul>
@@ -20,7 +20,7 @@
         <ul class="menu-square d-none" data-controller="subcategory-selector">
           <% Category.find_by(name: 'Musica').subcategories.each do |subcategory| %>
             <%= link_to musica_path(subcategory: subcategory), data: { turbo_frame: 'content',  action: 'click->subcategory-selector#filter' }, style: "color: white"  do  %>
-              <li id="subcategory-link" data-subcategory-selector-target="subcategory" class=""><%= subcategory.name.downcase  %></li>
+              <li id="subcategory-link" class=""  data-subcategory-selector-target="subcategory" class=""><%= subcategory.name.downcase  %></li>
             <% end %>
           <% end %>
         </ul>
@@ -33,7 +33,7 @@
         <ul class="menu-square d-none" data-controller="subcategory-selector">
           <% Category.find_by(name: 'Teatro').subcategories.each do |subcategory| %>
           <%= link_to teatro_path(subcategory: subcategory), data: { turbo_frame: 'content', action: 'click->subcategory-selector#filter' }, style: "color: white"  do  %>
-              <li id="subcategory-link" data-subcategory-selector-target="subcategory"><%= subcategory.name.downcase  %></li>
+              <li id="subcategory-link" class=""  data-subcategory-selector-target="subcategory"><%= subcategory.name.downcase  %></li>
             <% end %>
           <% end %>
         </ul>
@@ -46,7 +46,7 @@
         <ul class="menu-square d-none" data-controller="subcategory-selector">
           <% Category.find_by(name: 'Danca').subcategories.each do |subcategory| %>
             <%= link_to danca_path(subcategory: subcategory), data: { turbo_frame: 'content', action: 'click->subcategory-selector#filter' }, style: "color: white"  do  %>
-              <li id="subcategory-link" data-subcategory-selector-target="subcategory"><%= subcategory.name.downcase  %></li>
+              <li id="subcategory-link" class=""  data-subcategory-selector-target="subcategory"><%= subcategory.name.downcase  %></li>
             <% end %>
           <% end %>
         </ul>
@@ -59,7 +59,7 @@
         <ul class="menu-square d-none" data-controller="subcategory-selector">
           <% Category.find_by(name: 'Evento').subcategories.each do |subcategory| %>
             <%= link_to evento_path(subcategory: subcategory), data: { turbo_frame: 'content', action: 'click->subcategory-selector#filter' }, style: "color: white"  do  %>
-              <li id="subcategory-link" data-subcategory-selector-target="subcategory"><%= subcategory.name.downcase  %></li>
+              <li id="subcategory-link" class=""  data-subcategory-selector-target="subcategory"><%= subcategory.name.downcase  %></li>
             <% end %>
           <% end %>
         </ul>
@@ -72,7 +72,7 @@
         <ul class="menu-square d-none" data-controller="subcategory-selector">
           <% Category.find_by(name: 'Festa').subcategories.each do |subcategory| %>
             <%= link_to festa_path(subcategory: subcategory), data: { turbo_frame: 'content', action: 'click->subcategory-selector#filter' }, style: "color: white"  do  %>
-              <li id="subcategory-link" data-subcategory-selector-target="subcategory"><%= subcategory.name.downcase  %></li>
+              <li id="subcategory-link" class=""  data-subcategory-selector-target="subcategory"><%= subcategory.name.downcase  %></li>
             <% end %>
           <% end %>
         </ul>
@@ -85,7 +85,7 @@
         <ul class="menu-square d-none" data-controller="subcategory-selector">
           <% Category.find_by(name: 'Expo').subcategories.each do |subcategory| %>
             <%= link_to expo_path(subcategory: subcategory), data: { turbo_frame: 'content', action: 'click->subcategory-selector#filter' }, style: "color: white"  do  %>
-              <li id="subcategory-link" data-subcategory-selector-target="subcategory"><%= subcategory.name %></li>
+              <li id="subcategory-link" class=""  data-subcategory-selector-target="subcategory"><%= subcategory.name %></li>
             <% end %>
           <% end %>
         </ul>
@@ -98,7 +98,7 @@
         <ul class="menu-square d-none" data-controller="subcategory-selector">
           <% Category.find_by(name: 'Mais').subcategories.each do |subcategory| %>
             <%= link_to mais_path(subcategory: subcategory), data: { turbo_frame: 'content', action: 'click->subcategory-selector#filter' }, style: "color: white"  do  %>
-              <li id="subcategory-link" data-subcategory-selector-target="subcategory"><%= subcategory.name %></li>
+              <li id="subcategory-link" class=""  data-subcategory-selector-target="subcategory"><%= subcategory.name %></li>
             <% end %>
           <% end %>
         </ul>
