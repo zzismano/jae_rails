@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="selector"
 export default class extends Controller {
 
-  static targets = ["filme", "teatro", "musica", "evento", "expo", "mais"]
+  static targets = ["filme", "teatro", "musica", "evento", "expo", "mais", "subcategory"]
 
 
   connect() {
@@ -46,4 +46,7 @@ export default class extends Controller {
     });
 
   }
+
+
+
 }
