@@ -1,7 +1,7 @@
 class SearchService
 
   def search_by_query(params) # search by typing query
-    Leisure.global_search(params).visible
+    Leisure.global_search(params).visible.published
   end
 
   def search_by_when(leisures, params)
@@ -65,26 +65,26 @@ class SearchService
 
 
   def search_by_query_and_where(params)
-    Leisure.global_search(params[:query]).global_search(params[:where])
+    Leisure.global_search(params[:query]).global_search(params[:where]).visible.published
   end
 
   def search_by_query_and_when(params)
-    Leisure.global_search(params[:query]).global_search(params[:when])
+    Leisure.global_search(params[:query]).global_search(params[:when]).visible.published
   end
 
   def search_by_date(date_param)
     today = Date.today
     case date_param
     when 'gratuito'
-      Leisure.where(free: true).visible
+      Leisure.where(free: true).visible.published
     when 'hoje'
-      Leisure.where("dates @> ?::jsonb", [today.to_s].to_json).visible
+      Leisure.where("dates @> ?::jsonb", [today.to_s].to_json).visible.published
     when 'proximo_mes'
       start_next_month = today.next_month.beginning_of_month
       end_next_month = today.next_month.end_of_month
       date_range = (start_next_month..end_next_month).to_a.map(&:to_s)
       matches = []
-      Leisure.visible.each do |leisure|
+      Leisure.visible.published.each do |leisure|
         unless (leisure.dates & date_range).empty?
           matches << leisure
         end
@@ -95,7 +95,7 @@ class SearchService
     when 'fim_de_semana'
       next_saturday = today + ((6 - today.wday) % 7)
       next_sunday = next_saturday + 1
-      Leisure.where("dates @> ?::jsonb", [next_saturday.to_s, next_sunday.to_s].to_json).visible
+      Leisure.where("dates @> ?::jsonb", [next_saturday.to_s, next_sunday.to_s].to_json).visible.published
     else
       Leisure.none # or handle unexpected cases
     end
@@ -106,12 +106,12 @@ class SearchService
 
 
   def filter_by_subcategory(leisures, subcategory_param)
-    Leisure.where(subcategory: subcategory_param).visible
+    Leisure.where(subcategory: subcategory_param).visible.published
 
   end
 
   def filter_by_subcategory_and_where(params)
-    subcategory_leisures = Leisure.where(subcategory: params[:subcategory]).visible
+    subcategory_leisures = Leisure.where(subcategory: params[:subcategory]).visible.published
     filtered_leisures = subcategory_leisures.global_search(params[:where])
     filtered_leisures
   end
