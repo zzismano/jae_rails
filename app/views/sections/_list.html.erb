@@ -9,34 +9,40 @@
         <% section.cards.each do |card| %>
           <% if card.leisure.category.name == "Filme" %>
             <div class="card card-film">
-              <div class="position-relative">
-                <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: card.leisure.title %>
-              </div>
+              <%= link_to "#{card.leisure.link}", style: "color: black" do %>
 
-              <div class="card-film-body">
-                <p class="m-0"><span class="fw-light px-1"><%= card.leisure.category.name %></span> | <span class="fw-bold px-1 text-wrap"><%= card.leisure.title %></span></p>
+                <div class="position-relative">
+                  <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: card.leisure.title %>
+                </div>
 
-              </div>
+                <div class="card-film-body">
+                  <p class="m-0"><span class="fw-light px-1"><%= card.leisure.category.name %></span> | <span class="fw-bold px-1 text-wrap"><%= card.leisure.title %></span></p>
+
+                </div>
+              <% end %>
             </div>
 
           <% else %>
             <div class="card card-else">
-              <div class="position-relative">
-                <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-else-image', alt: card.leisure.title %>
-              </div>
+              <%= link_to "#{card.leisure.link}", style: "color: black" do %>
 
-              <div class="card-else-body">
-                <p class="m-0"><span class="fw-light px-1">
-                  <% if card.leisure.category.name == "Danca" %>
-                    Dança
-                  <% elsif card.leisure.category.name == "Musica" %>
-                    Música
-                  <% else %>
-                    <%=card.leisure.category.name  %>
-                  <% end %>
-                </span> | <span class="fw-bold px-1"><%= card.leisure.title %></span></p>
-                <p class="px-1 m-0"> <%= card.leisure.date %></p>
-              </div>
+                <div class="position-relative">
+                  <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-else-image', alt: card.leisure.title %>
+                </div>
+
+                <div class="card-else-body">
+                  <p class="m-0"><span class="fw-light px-1">
+                    <% if card.leisure.category.name == "Danca" %>
+                      Dança
+                    <% elsif card.leisure.category.name == "Musica" %>
+                      Música
+                    <% else %>
+                      <%=card.leisure.category.name  %>
+                    <% end %>
+                  </span> | <span class="fw-bold px-1"><%= card.leisure.title %></span></p>
+                  <p class="px-1 m-0"> <%= card.leisure.date %></p>
+                </div>
+              <% end %>
             </div>
 
           <% end %>

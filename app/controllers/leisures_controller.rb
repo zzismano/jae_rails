@@ -41,7 +41,7 @@ class LeisuresController < ApplicationController
 
   def filme
     filme = Category.find_by(name: 'Filme')
-    @leisures = Leisure.where(category: filme).visible
+    @leisures = Leisure.where(category: filme).visible.published
 
     authorize @leisures
     if params[:where].present?
@@ -65,7 +65,7 @@ class LeisuresController < ApplicationController
 
   def teatro
     teatro = Category.find_by(name: 'Teatro')
-    @leisures = Leisure.where(category: teatro).visible
+    @leisures = Leisure.where(category: teatro).visible.published
     authorize @leisures
 
     if params[:where].present?
@@ -87,7 +87,7 @@ class LeisuresController < ApplicationController
 
   def musica
     musica = Category.find_by(name: 'Musica')
-    @leisures = Leisure.where(category: musica).visible
+    @leisures = Leisure.where(category: musica).visible.published
     authorize @leisures
 
     if params[:where].present?
@@ -109,7 +109,7 @@ class LeisuresController < ApplicationController
 
   def danca
     danca = Category.find_by(name: 'Danca')
-    @leisures = Leisure.where(category: danca).visible
+    @leisures = Leisure.where(category: danca).visible.published
     authorize @leisures
 
     if params[:where].present?
@@ -132,7 +132,7 @@ class LeisuresController < ApplicationController
 
   def evento
     evento = Category.find_by(name: 'Evento')
-    @leisures = Leisure.where(category: evento).visible
+    @leisures = Leisure.where(category: evento).visible.published
     authorize @leisures
 
     if params[:where].present?
@@ -148,7 +148,7 @@ class LeisuresController < ApplicationController
 
   def festa
     festa = Category.find_by(name: 'Festa')
-    @leisures = Leisure.where(category: festa).visible
+    @leisures = Leisure.where(category: festa).visible.published
     authorize @leisures
 
     if params[:where].present?
@@ -170,7 +170,7 @@ class LeisuresController < ApplicationController
 
   def expo
     expo = Category.find_by(name: 'Expo')
-    @leisures = Leisure.where(category: expo).visible
+    @leisures = Leisure.where(category: expo).visible.published
     authorize @leisures
 
     if params[:where].present?
@@ -192,7 +192,7 @@ class LeisuresController < ApplicationController
 
   def mais
     mais = Category.find_by(name: 'Mais')
-    @leisures = Leisure.where(category: mais).visible
+    @leisures = Leisure.where(category: mais).visible.published
     authorize @leisures
 
     if params[:where].present?
