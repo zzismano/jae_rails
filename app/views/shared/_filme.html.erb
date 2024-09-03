@@ -21,7 +21,7 @@
         <% end %>
         | <%= leisure.duration %>  </p>
       <p id="horario">
-        Estreia <%= leisure.date %>
+        <%= leisure.date? ? leisure.date : " " %>
       </p>
       <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small"><%= leisure.free? ? "mais informações" : "comprar igresso" %></a>
     </div>
