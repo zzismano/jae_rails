@@ -3,6 +3,7 @@
   height: 20em;
   margin: 0.4em 0.8em 0.4em 0.0em;
   flex-shrink: 0;
+  overflow: hidden;
   &-image {
     height: 15em;
     width: 100%;
@@ -26,6 +27,7 @@
     height: 20em;
     margin: 0.4em 0.8em 0.4em 0.0em;
     flex-shrink: 0;
+    overflow: hidden;
     &-image {
       height: 15em;
       width: 100%;
