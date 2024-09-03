@@ -1,7 +1,12 @@
 <%= turbo_frame_tag "content" do %>
 <%= render 'shared/written_search_header' %>
   <div class="container-fluid">
+    <% if params[:date] == "gratuito" %>
+    <div class="d-flex justify-content-center">
+      <h2 class="main-free ">GRATUITO</h2>
+    </div>
 
+    <% end %>
     <div class="row">
       <% @leisures.each do |leisure| %>
         <%= render partial_select(leisure), leisure: leisure %>
