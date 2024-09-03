@@ -63,14 +63,63 @@ class SearchService
   # end
 
 
+  def search_by_query_and_where_and_when(leisures, params)
+    filtered_leisures = leisures.global_search(params[:query]).global_search(params[:where]).visible.published
+    filtered_leisures.global_search(params[:when])
+    today = Date.today
+    when_param = params[:when]
+    where_param = params[:where]
 
+    case params[:when]
+    when 'hoje'
+      filtered_leisures.where("dates @> ?::jsonb", [today.to_s].to_json)
+    when 'amanha'
+      filtered_leisures.where("dates @> ?::jsonb", [(today + 1).to_s].to_json)
+    when 'semana'
+      start_of_week = today
+      end_of_week = today + 7
+      date_range = (start_of_week..end_of_week).to_a.map(&:to_s)
+      matches = []
+      filtered_leisures.each do |leisure|
+        unless (leisure.dates & date_range).empty?
+          matches << leisure
+        end
+      end
+      matches
+
+
+    end
+
+  end
   def search_by_query_and_where(params)
     Leisure.global_search(params[:query]).global_search(params[:where]).visible.published
   end
 
   def search_by_query_and_when(params)
-    Leisure.global_search(params[:query]).global_search(params[:when]).visible.published
+    leisures = Leisure.global_search(params[:query]).visible.published
+    today = Date.today
+
+    case params[:when]
+    when 'hoje'
+      leisures.where("dates @> ?::jsonb", [today.to_s].to_json)
+    when 'amanha'
+      leisures.where("dates @> ?::jsonb", [(today + 1).to_s].to_json)
+    when 'semana'
+      start_of_week = today
+      end_of_week = today + 7
+      date_range = (start_of_week..end_of_week).to_a.map(&:to_s)
+      matches = []
+      leisures.each do |leisure|
+        unless (leisure.dates & date_range).empty?
+          matches << leisure
+        end
+      end
+      matches
+
+
+    end
   end
+
 
   def search_by_date(date_param)
     today = Date.today
@@ -105,15 +154,71 @@ class SearchService
 
 
 
+  def search_by_where_and_when(leisures, params)
+    # Extract the 'when' and 'where' parameters
+    when_param = params[:when]
+    where_param = params[:where]
+
+    # Filter by 'when' first
+    today = Date.today
+
+    case when_param
+    when 'hoje'
+      leisures = leisures.where("dates @> ?::jsonb", [today.to_s].to_json)
+    when 'amanha'
+      leisures = leisures.where("dates @> ?::jsonb", [(today + 1).to_s].to_json)
+    when 'semana'
+      start_of_week = today
+      end_of_week = today + 7
+      date_range = (start_of_week..end_of_week).to_a.map(&:to_s)
+      leisures = leisures.select do |leisure|
+        !(leisure.dates & date_range).empty?
+      end
+    else
+      leisures = Leisure.none
+    end
+
+    # Then filter by 'where'
+    zones = { 'zona_sul' => 'Zona Sul', 'zona_norte' => 'Zona Norte', 'zona_oeste' => 'Zona Oeste', 'centro' => 'Centro' }
+    venues = Venue.where(zone: zones[where_param])
+    venue_leisures = venues.flat_map(&:leisures)
+
+    # Intersect the two results
+    filtered_leisures = leisures & venue_leisures
+
+    # Return the filtered leisures
+    filtered_leisures
+  end
+
   def filter_by_subcategory(leisures, subcategory_param)
     Leisure.where(subcategory: subcategory_param).visible.published
 
   end
 
-  def filter_by_subcategory_and_where(params)
-    subcategory_leisures = Leisure.where(subcategory: params[:subcategory]).visible.published
-    filtered_leisures = subcategory_leisures.global_search(params[:where])
+  def filter_by_subcategory_and_where(leisures, subcategory_param, where_param)
+    # Filter by subcategory and ensure the leisure is visible and published
+    subcategory_leisures = leisures.where(subcategory: subcategory_param).visible.published
+
+    # Further filter by the 'where' parameter using global search
+    filtered_leisures = subcategory_leisures.global_search(where_param)
+
     filtered_leisures
+
+  end
+
+  def filter_by_subcategory_and_when(leisures, subcategory_param, when_param)
+    # Filter by subcategory and ensure the leisure is visible and published
+    subcategory_leisures = leisures.where(subcategory: subcategory_param).visible.published
+
+    # Further filter by the 'where' parameter using global search
+    filtered_leisures = subcategory_leisures.global_search(when_param)
+
+    filtered_leisures
+
+  end
+
+  def filter_by_subcategory_and_when_and_where
+
   end
 
 

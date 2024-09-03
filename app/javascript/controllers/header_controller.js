@@ -14,14 +14,22 @@ export default class extends Controller {
     // limpa params anteriores
     if (url.match(/\?where=[a-z]+_[a-z]+\?where=/) || url.match(/\?where=[a-z]+\?where=/))  {
       const new_url = url.replace(/^.*(?=\?where=[a-z]+)/, '');
-      const base = url.match(/\/[a-z]+/)[0];
+      let base = url.match(/\/[a-z]+/)[0];
       url = `${base}${new_url}`;
+      console.log(new_url);
     } else if (url.match(/\?when=[a-z]+\?where=/)) {
       const new_url = url.replace(/\?when=[a-z]+/, '');
       url = `${new_url}`
+      console.log(new_url);
+
+    } else if (url.match(/\/[a-z]+\?subcategory=[1-9]+/)) {
+      const new_url = url.replace(/^.*(?=\?where=[a-z]+)\?/, '');
+      let base = url.match(/\/[a-z]+\?subcategory=[1-9]+/)[0];
+      url = `${base}&${new_url}`;
+      console.log(url);
 
     }
-    console.log(url);
+
     const turboFrame = document.getElementById('content');
     turboFrame.src = url;
 
@@ -32,7 +40,7 @@ export default class extends Controller {
 
 
     let url = event.target.value;
-    console.log(url);
+
 
     if (url.match(/\?when=[a-z]+\?when=[a-z]+/)) {
 
@@ -46,10 +54,17 @@ export default class extends Controller {
     } else if (url.match(/\?where=[a-z]+_[a-z]+\?when=/)) {
       const new_url = url.replace(/\?where=[a-z]+_[a-z]+/, '');
       url = `${new_url}`;
+
+    } else if (url.match(/\/[a-z]+\?subcategory=[1-9]+/)) {
+      const new_url = url.replace(/^.*(?=\?when=[a-z]+)\?/, '');
+      let base = url.match(/\/[a-z]+\?subcategory=[1-9]+/)[0];
+      url = `${base}&${new_url}`;
+      console.log(url);
+
     }
 
 
-    console.log(url);
+
     const turboFrame = document.getElementById('content');
     turboFrame.src = url;
     event.target.value = '';
