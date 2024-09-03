@@ -4,13 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="category-subcategory"
 export default class extends Controller {
   static targets = ["subcategory"]
-  static values = { subcategoryId: Number }
-
-  connect() {
-    if (this.hasSubcategoryIdValue) {
-      this.updateSubcategorySelectOnLoad()
-    }
-  }
 
   update(event) {
     const categoryId = event.target.value;
@@ -35,36 +28,33 @@ export default class extends Controller {
   }
 
   updateSubcategorySelect(subcategories) {
-    const subcategorySelect = this.subcategoryTarget;
-    if (!subcategorySelect) {
-      console.error('Subcategory select target not found');
-      return;
-    }
-
-    subcategorySelect.innerHTML = ""; // Clear existing options
-
-    const promptOption = document.createElement("option");
-    promptOption.value = "";
-    promptOption.textContent = "Escolha uma subcategoria:";
-    subcategorySelect.appendChild(promptOption);
-
-    subcategories.forEach(subcategory => {
-      const option = document.createElement("option");
-      option.value = subcategory.id;
-      option.textContent = subcategory.name;
-      if (subcategory.id === this.subcategoryIdValue) { // Select the option
-        option.selected = true;
-      }
-      subcategorySelect.appendChild(option);
-    });
+  const subcategorySelect = this.subcategoryTarget;
+  if (!subcategorySelect) {
+    console.error('Subcategory select target not found');
+    return;
   }
 
-  updateSubcategorySelectOnLoad() {
-    const categoryId = this.element.querySelector('#leisure_category_id').value;
-    if (categoryId) {
-      this.update({ target: { value: categoryId } });
+  subcategorySelect.innerHTML = ""; // Clear existing options
+
+  const promptOption = document.createElement("option");
+  promptOption.value = "";
+  promptOption.textContent = "Escolha uma subcategoria:";
+  subcategorySelect.appendChild(promptOption);
+
+  subcategories.forEach(subcategory => {
+    const option = document.createElement("option");
+    option.value = subcategory.id;
+    option.textContent = subcategory.name;
+
+    // Check if this subcategory should be selected
+    if (subcategory.id == this.element.dataset.subcategoryId) {
+      option.selected = true;
     }
-  }
+
+    subcategorySelect.appendChild(option);
+  });
+}
+
 
   clearSubcategorySelect() {
     const subcategorySelect = this.subcategoryTarget;

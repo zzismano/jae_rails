@@ -17,7 +17,7 @@
         <%= f.input :features, label: 'Protagonistas:', label_html: { class: 'fw-bold' } %>
         <div class="row">
           <div class="col-lg-6 col-12">
-            <%= f.input :min_age,  collection: [10, 12, 14, 16, 18], label: 'Faixa etária:', label_html: { class: 'fw-bold' } %>
+            <%= f.input :min_age,  collection: [0, 10, 12, 14, 16, 18], label: 'Faixa etária:', label_html: { class: 'fw-bold' } %>
           </div>
           <div class="col-lg-6 col-12">
             <%= f.input :duration, as: :string, label: 'Duração:', label_html: { class: 'fw-bold' }, placeholder: "Ex: 60'" %>
@@ -50,15 +50,26 @@
               <%= f.association :venues,  label: 'Estabelecimento*:', label_html: { class: 'fw-bold' }, input_html: {multiple: true, required: true,
 						data: { controller: 'tom-select'}  }, prompt: "Escolha os estabelecimentos:" %>
             </div>
-            <div class="row" data-controller="category-subcategory">
+            <div class="row" data-controller="category-subcategory" data-category-subcategory-subcategory-id-value="<%= @leisure.subcategory_id %>">
               <div class="col-lg-6 col-12">
-                <%= f.association :category, label: 'Categoria*:', label_html: { class: 'fw-bold' }, input_html: { id: 'leisure_category_id', data: { action: 'change->category-subcategory#update' }, class: 'form-select' }, prompt: "Escolha uma categoria:" %>
-              </div>
-              <div class="col-lg-6 col-12">
-                <%= f.input :subcategory_id, as: :select, collection: [], label_html: { class: 'fw-bold' }, label: "Subcategoria:", include_blank: "Escolha uma subcategoria:", input_html: { id: 'leisure_subcategory_id', class: 'form-select', data: { category_subcategory_target: 'subcategory' } } %>
+                <%= f.association :category, label: 'Categoria*:', label_html: { class: 'fw-bold' },
+                    input_html: { id: 'leisure_category_id',
+                    data: { action: 'change->category-subcategory#update' },
+                    class: 'form-select' },
+                    prompt: "Escolha uma categoria:" %>
               </div>
 
+              <div class="col-lg-6 col-12">
+                <%= f.input :subcategory_id, as: :select, collection: [],
+                    label: "Subcategoria:",
+                    include_blank: "Escolha uma subcategoria:",
+                    input_html: { id: 'leisure_subcategory_id',
+                    class: 'form-select',
+                    data: { category_subcategory_target: 'subcategory' } } %>
+              </div>
             </div>
+
+
             <div class="col-lg-6 col-12">
               <%= f.association :genres, label: 'Gêneros:', label_html: { class: 'fw-bold' }, input_html: { multiple: true,
 						data: { controller: 'tom-select'}  }, prompt: "Escolha os gêneros:" %>
