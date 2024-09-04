@@ -92,7 +92,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: auto;
   white-space: nowrap;
   max-width: 91vw !important;
@@ -103,6 +103,10 @@
   scroll-behavior: smooth; /* Optional: smooth scrolling */
 }
 
+.main-section-cards > .card {
+  flex: 0 0 auto;
+  scroll-snap-align: start; /* Ensure the cards align at the start */
+}
 
 .main-rio {
   color: $jae-wine;
