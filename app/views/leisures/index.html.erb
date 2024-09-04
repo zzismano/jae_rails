@@ -2,10 +2,21 @@
 <%= render 'shared/written_search_header' %>
   <div class="container-fluid">
     <% if params[:date] == "gratuito" %>
-    <div class="d-flex justify-content-center">
-      <h2 class="main-free ">GRATUITO</h2>
-    </div>
-
+      <div class="d-flex justify-content-center">
+        <h2 class="main-free ">GRATUITO</h2>
+      </div>
+    <% elsif params[:date] == "hoje" %>
+      <div class="d-flex justify-content-center">
+        <h2 class="main-free ">HOJE</h2>
+      </div>
+    <% elsif params[:date] == "fim_de_semana" %>
+      <div class="d-flex justify-content-center">
+        <h2 class="main-free ">FIM DE SEMANA</h2>
+      </div>
+    <% elsif params[:date] == "proximo_mes" %>
+      <div class="d-flex justify-content-center">
+        <h2 class="main-free ">PRÓXIMO MÊS</h2>
+      </div>
     <% end %>
     <div class="row">
       <% @leisures.each do |leisure| %>

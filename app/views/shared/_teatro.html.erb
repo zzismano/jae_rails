@@ -26,13 +26,13 @@
 
       <p id="venue"><%= leisure.venues.last.name %></p>
       <br>
-      <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small">comprar ingresso</a>
+      <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small"><%= leisure.free? ? "mais informações" : "comprar ingresso" %></a>
     </div>
     <div></div>
   </div>
   <div class="sinopse" data-controller="read-more" data-read-more-more-text-value="Ver mais" data-read-more-less-text-value="Ver menos">
     <p class="mb-0" data-read-more-target="content">
-      <%= leisure.description %>
+      <%= leisure.description.gsub("\n", "<br>").html_safe %>
       <br>
       <strong class="atores">Com <%= leisure.features %></strong>
       <br>

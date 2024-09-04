@@ -97,6 +97,10 @@
   white-space: nowrap;
   max-width: 91vw !important;
   border-top: 3px solid $jae-wine;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scroll-snap-type: x mandatory; /* Optional: for snap scrolling */
+  scrollbar-width: thin; /* Optional: to customize scrollbar appearance */
+  scroll-behavior: smooth; /* Optional: smooth scrolling */
 }
 
 
