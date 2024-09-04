@@ -121,11 +121,11 @@ class SearchService
   end
 
 
-  def search_by_date(date_param)
+  def search_by_date(leisures, date_param)
     today = Date.today
     case date_param
     when 'gratuito'
-      Leisure.where(free: true).visible.published
+      leisures.where(free: true).visible.published
     when 'hoje'
       Leisure.where("dates @> ?::jsonb", [today.to_s].to_json).visible.published
     when 'proximo_mes'
