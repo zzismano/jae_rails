@@ -11,3 +11,8 @@ import "cocoon";
 if (typeof Cocoon !== 'undefined') {
   Cocoon.init();
 }
+
+window.onload = function() {
+  const scrollableSection = document.querySelector('.main-section-cards');
+  scrollableSection.scrollLeft = 0; // Scroll to the start when the page loads
+};
