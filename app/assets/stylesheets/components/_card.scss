@@ -4,6 +4,7 @@
   margin: 0.4em 0.8em 0.4em 0.0em;
   flex-shrink: 0;
   overflow: hidden;
+
   &-image {
     height: 15em;
     width: 100%;
@@ -19,6 +20,10 @@
     height: 6.3em;
     padding: 0.5em;
   }
+}
+
+.card-film-title {
+  text-wrap: wrap;
 }
 
 .card-else {
@@ -46,6 +51,10 @@
   }
 
 
+}
+
+.card-else-title {
+  text-wrap: wrap;
 }
 
 @media screen and (max-width: 425px) {
