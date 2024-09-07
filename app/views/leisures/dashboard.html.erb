@@ -73,7 +73,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @leisures.each do |leisure|%>
+    <% @leisures.order(:title).each do |leisure|%>
     <tr>
       <td>
         <%=link_to "#{leisure.title.upcase}", edit_leisure_path(leisure)%>
