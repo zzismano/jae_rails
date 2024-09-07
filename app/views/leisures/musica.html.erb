@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "content" do %>
+<%= turbo_frame_tag "content", turbo_cache_control: 'no-cache' do %>
 <%= render 'shared/dynamic_header' %>
   <div class="container-fluid mx-2">
 

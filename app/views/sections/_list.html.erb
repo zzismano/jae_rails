@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="card-film-body">
-                  <p class="m-0"><span class="fw-light px-1">Cinema | <span class="fw-bold px-1 card-film-title"><%= card.leisure.title %></span></p>
+                  <p class="m-0 text-wrap"><span class="fw-light px-1">Cinema | <span class="fw-bold px-1 card-film-title"><%= card.leisure.title %></span></p>
 
                 </div>
               <% end %>
@@ -40,7 +40,7 @@
                       <%=card.leisure.category.name  %>
                     <% end %>
                   </span> | <span class="fw-bold px-1 card-else-title"><%= card.leisure.title %></span></p>
-                  <p class="px-1 m-0"> <%= card.leisure.date %></p>
+                  <p class="px-1 m-0 text-wrap"> <%= card.leisure.date %></p>
                 </div>
               <% end %>
             </div>
