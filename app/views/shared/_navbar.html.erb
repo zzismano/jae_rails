@@ -1,23 +1,25 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-jae" >
   <div class="container-fluid d-flex justify-content-between align-items-center">
-    <div class="navbar-form-lg" data-controller="search">
-      <%= form_with url: leisures_path, method: :get, html: {class:
-        "", data: { search_target: "form" } } do |f| %>
-        <%= f.text_field :query,
-          class: "form-control",
-          placeholder: "Pesquisar...",
-          value: params[:query],
+    <div class="d-flex align-items-center">
+      <div class="navbar-form-lg" data-controller="search">
+        <%= form_with url: leisures_path, method: :get, html: {class:
+          "", data: { search_target: "form" } } do |f| %>
+          <%= f.text_field :query,
+            class: "form-control",
+            placeholder: "Pesquisar...",
+            value: params[:query],
 
-          data: { search_target: "input",
-          action: "keyup->search#update" }
-        %>
-      <% end %>
+            data: { search_target: "input",
+            action: "keyup->search#update" }
+          %>
+        <% end %>
+      </div>
+      <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <h1 class="main-rio"><strong>RIO DE JANEIRO</strong> um mar de opções</h2>
     </div>
-    <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <h1 class="main-rio"><strong>RIO DE JANEIRO</strong> um mar de opções</h2>
     <a class="navbar-brand mx-auto order-2" href="/">
       <%= image_tag 'logo_transparent.png' %>
     </a>

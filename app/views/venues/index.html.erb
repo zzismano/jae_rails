@@ -17,7 +17,7 @@
 
           </tr>
         <tbody>
-          <% @venues.each do |venue|%>
+          <% @venues.order(:name).each do |venue|%>
             <tr>
               <td>
                 <%= link_to "#{venue.name}", edit_venue_path(venue)%>
