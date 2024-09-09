@@ -313,6 +313,7 @@ class LeisuresController < ApplicationController
     venue_ids = params[:leisure].delete(:venue_ids).compact_blank
     @leisure = Leisure.new(leisure_params)
     @leisure.user = current_user
+    authorize @leisure
     sorted_dates = @leisure.dates.sort
     @leisure.dates = sorted_dates
     if @leisure.save
@@ -331,14 +332,15 @@ class LeisuresController < ApplicationController
           @leisure_venue.save
         end
       end
-      redirect_to dashboard_path
-      else
+        redirect_to dashboard_path
+        return
+    else
       # Add `status: :unprocessable_entity` here
       render :new, status: :unprocessable_entity
     end
 
 
-    authorize @leisure
+
 
     if @leisure_genre
       authorize @leisure_genre
@@ -348,12 +350,7 @@ class LeisuresController < ApplicationController
       authorize @leisure_venue
     end
 
-    if @leisure.save
-      redirect_to dashboard_path
-    else
-      # Add `status: :unprocessable_entity` here
-      render :new, status: :unprocessable_entity
-    end
+
   end
 
   def edit
