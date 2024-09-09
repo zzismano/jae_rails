@@ -114,12 +114,19 @@
   font-weight: 400;
   justify-self: center;
   margin-bottom: 0px;
+  margin-left: 1em;
 
 
 }
 
 .about-us {
-  color: $jae-wine
+  color: black;
+}
+
+.about-us h1 {
+  color: black;
+  font-size: 1.3em;
+  font-weight: bolder;
 }
 
 .header-rio{

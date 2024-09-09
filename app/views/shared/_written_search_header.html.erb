@@ -1,23 +1,5 @@
-<div class=" hello d-flex justify-content-between align-items-center py-3 px-4" data-controller="header">
-  <div class="where me-2">
-    <h2 class="fs-6">onde</h2>
-    <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_zona_evento" data-action="change->header#searchQueryAndWhere" data-header-target="selectWhere">
-      <option selected value="<%= leisures_path %>">selecione...</option>
-      <option value="zona_sul">Zona Sul</option>
-      <option value="zona_norte">Zona Norte</option>
-      <option value="zona_oeste">Zona Oeste</option>
-      <option value="centro">Centro</option>
+<div class=" hello d-flex justify-content-center align-items-center py-3 px-4" data-controller="header">
 
-    </select>
-  </div>
   <a href="/"><%= image_tag 'logo_transparent.png', class: 'main-logo' %></a>
-  <div class="when d-flex flex-column align-items-end ms-2">
-    <h2 class="fs-6">quando</h2>
-    <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_data_evento" data-action="change->header#searchQueryAndWhen">
-      <option selected value="leisures">selecione...</option>
-      <option value="hoje" >hoje</option>
-      <option value="amanha">amanhã</option>
-      <option value="semana">esta semana</option>
-    </select>
-  </div>
+
 </div>
