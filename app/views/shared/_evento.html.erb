@@ -11,7 +11,6 @@
         <%= leisure.schedule %> | <%= leisure.date %>
       </p>
       <p id="venue"><%=leisure.venues.first.name  %></p>
-      <br>
       <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small"><%= leisure.free? ? "mais informações" : "comprar ingresso" %></a>
     </div>
   </div>
