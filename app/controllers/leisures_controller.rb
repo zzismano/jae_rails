@@ -311,9 +311,16 @@ class LeisuresController < ApplicationController
   def create
     genre_ids = params[:leisure].delete(:genre_ids).compact_blank
     venue_ids = params[:leisure].delete(:venue_ids).compact_blank
+
+
     @leisure = Leisure.new(leisure_params)
     @leisure.user = current_user
     authorize @leisure
+    if venue_ids.empty?
+      @leisure.errors.add(:venues, "Por favor, adicione pelo menos um estabelecimento")
+      render :new, status: :unprocessable_entity
+      return
+    end
     sorted_dates = @leisure.dates.sort
     @leisure.dates = sorted_dates
     if @leisure.save

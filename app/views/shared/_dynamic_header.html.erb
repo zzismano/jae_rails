@@ -19,7 +19,7 @@
       <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_data_evento" data-action="change->header#searchWhen">
         <option value="<%= leisures_path %>" <%= 'selected' if @when.blank? %>>selecione...</option>
         <option value="<%= "#{@path}?when=hoje" %>" <%= 'selected' if @when == 'hoje' %>>hoje</option>
-        <option value="<%= "#{@path}?when=amanha" %>" <%= 'selected' if @when == 'amanha' %>>amanhã</option>
+        <option value="<%= "#{@path}?when=fimdesemana" %>" <%= 'selected' if @when == 'fimdesemana' %>>fim de semana</option>
         <option value="<%= "#{@path}?when=semana" %>" <%= 'selected' if @when == 'semana' %>>esta semana</option>
       </select>
     </div>
