@@ -1,44 +1,47 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-jae" >
+<div class="navbar navbar-expand-sm navbar-light navbar-jae">
   <div class="container-fluid d-flex justify-content-between align-items-center">
-    <div class="d-flex align-items-center">
-      <div class="navbar-form-lg" data-controller="search">
-        <%= form_with url: leisures_path, method: :get, html: {class:
-          "", data: { search_target: "form" } } do |f| %>
+
+    <!-- Left: Collapsible Menu -->
+    <button class="navbar-toggler border-0 no-border order-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Center: Logo -->
+    <a class="navbar-brand mx-auto order-2" href="/">
+      <%= image_tag 'logo_transparent.png' %>
+    </a>
+
+    <!-- Right: Collapsible Search Icon (Mobile View) -->
+    <button class="navbar-toggler border-0 no-border order-3 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearchContent" aria-controls="navbarSearchContent" aria-expanded="false" aria-label="Toggle search">
+      <i class="fas fa-search fa-lg "></i> <!-- Add a search icon here, using FontAwesome or similar -->
+    </button>
+
+    <!-- Search Collapse (Mobile View) -->
+    <div class="collapse navbar-collapse order-4 d-lg-none" id="navbarSearchContent">
+      <div class="navbar-form-sm" data-controller="search">
+        <%= form_with url: leisures_path, method: :get, html: { class: "", data: { search_target: "form" } } do |f| %>
           <%= f.text_field :query,
             class: "form-control",
             placeholder: "Pesquisar...",
             value: params[:query],
-
-            data: { search_target: "input",
-            action: "keyup->search#update" }
-          %>
+            data: { search_target: "input", action: "keyup->search#update" } %>
         <% end %>
       </div>
-      <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <h1 class="main-rio"><strong>RIO DE JANEIRO</strong> um mar de opções</h2>
     </div>
-    <a class="navbar-brand mx-auto order-2" href="/">
-      <%= image_tag 'logo_transparent.png' %>
-    </a>
+
+    <!-- Search Bar (Desktop/Laptop View) -->
+    <div class="navbar-form-lg d-none d-lg-block" data-controller="search">
+      <%= form_with url: leisures_path, method: :get, html: {class: "", data: { search_target: "form" } } do |f| %>
+        <%= f.text_field :query,
+          class: "form-control",
+          placeholder: "Pesquisar...",
+          value: params[:query],
+          data: { search_target: "input", action: "keyup->search#update" } %>
+      <% end %>
+    </div>
+
+    <!-- Left: Existing Collapse Content (Laptop and Mobile) -->
     <div class="collapse navbar-collapse order-4" id="navbarSupportedContent">
-      <div class="navbar-form-sm" data-controller="search">
-        <%= form_with url: leisures_path, method: :get, html: {class:
-          "", data: { search_target: "form" } } do |f| %>
-          <%= f.text_field :query,
-            class: "form-control",
-            placeholder: "Procure por um evento",
-            value: params[:query],
-
-            data: { search_target: "input",
-            action: "keyup->search#update" }
-          %>
-        <% end %>
-      </div>
-
-
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <% if current_user.admin? %>
@@ -55,25 +58,24 @@
               <a href="#" class="nav-link" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Listas
               </a>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "Eventos", leisures_path, class: "dropdown-item" %>
-                  <%= link_to "Categorias", categories_path, class: "dropdown-item" %>
-                  <%= link_to "Estabelecimentos", venues_path, class: "dropdown-item" %>
-                  <%= link_to "Gêneros", genres_path, class: "dropdown-item" %>
-                </div>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Eventos", leisures_path, class: "dropdown-item" %>
+                <%= link_to "Categorias", categories_path, class: "dropdown-item" %>
+                <%= link_to "Estabelecimentos", venues_path, class: "dropdown-item" %>
+                <%= link_to "Gêneros", genres_path, class: "dropdown-item" %>
+              </div>
             </li>
             <li class="nav-item dropdown">
-            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag "ja_e_fundo_uva.png", alt: "logo jaé", class: 'avatar mt-1' %>
-            </a>
+              <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag "ja_e_fundo_uva.png", alt: "logo jaé", class: 'avatar mt-1' %>
+              </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
               </div>
             </li>
           <% else %>
-              <%= link_to "Home", root_path, class: "nav-link" %>
-              <%= link_to "Quem somos", about_us_path, data: { turbo_frame: 'content' }, class: "nav-link" %>
-            </li>
+            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to "Quem somos", about_us_path, data: { turbo_frame: 'content' }, class: "nav-link" %>
           <% end %>
         <% else %>
           <%= link_to "Home", root_path, class: "nav-link" %>
