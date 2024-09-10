@@ -32,6 +32,10 @@
 
 }
 
+.no-border:focus {
+  outline: none;
+  box-shadow: none;
+}
 
 .navbar-lewagon {
   justify-content: space-between;
