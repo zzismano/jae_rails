@@ -10,8 +10,11 @@ class SearchService
     case params
     when 'hoje'
       leisures.where("dates @> ?::jsonb", [today.to_s].to_json)
-    when 'amanha'
-      leisures.where("dates @> ?::jsonb", [(today + 1).to_s].to_json)
+    when 'fimdesemana'
+      next_friday = today + ((5 - today.wday) % 7)
+      next_saturday = today + ((6 - today.wday) % 7)
+      next_sunday = next_saturday + 1
+      leisures = leisures.where("dates @> ?::jsonb", [next_friday.to_s, next_saturday.to_s, next_sunday.to_s].to_json)
     when 'semana'
       start_of_week = today
       end_of_week = today + 7
@@ -142,9 +145,10 @@ class SearchService
 
 
     when 'fim_de_semana'
+      next_friday = today + ((5 - today.wday) % 7)
       next_saturday = today + ((6 - today.wday) % 7)
       next_sunday = next_saturday + 1
-      Leisure.where("dates @> ?::jsonb", [next_saturday.to_s, next_sunday.to_s].to_json).visible.published
+      Leisure.where("dates @> ?::jsonb", [next_friday.to_s, next_saturday.to_s, next_sunday.to_s].to_json).visible.published
     else
       Leisure.none # or handle unexpected cases
     end
@@ -165,8 +169,11 @@ class SearchService
     case when_param
     when 'hoje'
       leisures = leisures.where("dates @> ?::jsonb", [today.to_s].to_json)
-    when 'amanha'
-      leisures = leisures.where("dates @> ?::jsonb", [(today + 1).to_s].to_json)
+    when 'fimdesemana'
+      next_friday = today + ((5 - today.wday) % 7)
+      next_saturday = today + ((6 - today.wday) % 7)
+      next_sunday = next_saturday + 1
+      leisures = leisures.where("dates @> ?::jsonb", [next_friday.to_s, next_saturday.to_s, next_sunday.to_s].to_json)
     when 'semana'
       start_of_week = today
       end_of_week = today + 7

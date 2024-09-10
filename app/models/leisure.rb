@@ -8,9 +8,11 @@ class Leisure < ApplicationRecord
   has_many :genres, through: :leisure_genres, dependent: :destroy
   has_many :venues, through: :leisure_venues, dependent: :destroy
   has_one_attached :photo
+  validates :photo, presence: true
   attribute :dates, :json, default: []
   validates :description, length: { minimum: 100,
     too_short: "Descrição muito curta! O mínimo é 100." }
+  validates :title, presence: true
   scope :published, -> {where("start_date <= ? ", Date.today) }
   scope :visible, -> {where(hidden: [false, nil] )}
 
