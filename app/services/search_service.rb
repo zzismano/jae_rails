@@ -14,7 +14,14 @@ class SearchService
       next_friday = today + ((5 - today.wday) % 7)
       next_saturday = today + ((6 - today.wday) % 7)
       next_sunday = next_saturday + 1
-      leisures = leisures.where("dates @> ?::jsonb", [next_friday.to_s, next_saturday.to_s, next_sunday.to_s].to_json)
+      date_range = (next_friday..next_sunday).to_a.map(&:to_s)
+      matches = []
+      leisures.each do |leisure|
+        unless (leisure.dates & date_range).empty?
+          matches << leisure
+        end
+      end
+      matches
     when 'semana'
       start_of_week = today
       end_of_week = today + 7
@@ -148,9 +155,14 @@ class SearchService
       next_friday = today + ((5 - today.wday) % 7)
       next_saturday = today + ((6 - today.wday) % 7)
       next_sunday = next_saturday + 1
-      Leisure.where("dates @> ?::jsonb", [next_friday.to_s, next_saturday.to_s, next_sunday.to_s].to_json).visible.published
-    else
-      Leisure.none # or handle unexpected cases
+      date_range = (next_friday..next_sunday).to_a.map(&:to_s)
+      matches = []
+      Leisure.visible.published.each do |leisure|
+        unless (leisure.dates & date_range).empty?
+          matches << leisure
+        end
+      end
+      matches
     end
   end
 
