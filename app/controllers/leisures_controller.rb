@@ -54,6 +54,7 @@ class LeisuresController < ApplicationController
 
   def filme
     filme = Category.find_by(name: 'Filme')
+    @blank = filme_path
     @leisures = Leisure.where(category: filme).visible.published
 
     authorize @leisures
@@ -87,6 +88,7 @@ class LeisuresController < ApplicationController
 
   def teatro
     teatro = Category.find_by(name: 'Teatro')
+    @blank = teatro_path
     @leisures = Leisure.where(category: teatro).visible.published
     authorize @leisures
 
@@ -118,6 +120,7 @@ class LeisuresController < ApplicationController
 
   def musica
     musica = Category.find_by(name: 'Musica')
+    @blank = musica_path
     @leisures = Leisure.where(category: musica).visible.published
     authorize @leisures
 
@@ -149,6 +152,7 @@ class LeisuresController < ApplicationController
 
   def danca
     danca = Category.find_by(name: 'Danca')
+    @blank = danca_path
     @leisures = Leisure.where(category: danca).visible.published
     authorize @leisures
 
@@ -181,6 +185,7 @@ class LeisuresController < ApplicationController
 
   def evento
     evento = Category.find_by(name: 'Evento')
+    @blank = evento_path
     @leisures = Leisure.where(category: evento).visible.published
     authorize @leisures
 
@@ -212,6 +217,7 @@ class LeisuresController < ApplicationController
 
   def festa
     festa = Category.find_by(name: 'Festa')
+    @blank = festa_path
     @leisures = Leisure.where(category: festa).visible.published
     authorize @leisures
 
@@ -243,6 +249,7 @@ class LeisuresController < ApplicationController
 
   def expo
     expo = Category.find_by(name: 'Expo')
+    @blank = expo_path
     @leisures = Leisure.where(category: expo).visible.published
     authorize @leisures
 
@@ -274,6 +281,7 @@ class LeisuresController < ApplicationController
 
   def mais
     mais = Category.find_by(name: 'Mais')
+    @blank = mais_path
     @leisures = Leisure.where(category: mais).visible.published
     authorize @leisures
 
