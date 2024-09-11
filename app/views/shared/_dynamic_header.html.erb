@@ -4,7 +4,7 @@
     <div class="where me-2">
       <h2 class="fs-6">onde</h2>
       <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_zona_evento" data-action="change->header#searchWhere" data-header-route-value="<%= @path %>">
-        <option value="<%= leisures_path %>" <%= 'selected' if @where.blank? %>>selecione...</option>
+        <option value="<%= @blank %>" <%= 'selected' if @where.blank? %>>selecione...</option>
         <option value="<%= "#{@path}?where=zona_sul" %>" <%= 'selected' if @where == 'zona_sul' %>>Zona Sul</option>
         <option value="<%= "#{@path}?where=zona_norte" %>" <%= 'selected' if @where == 'zona_norte' %>>Zona Norte</option>
         <option value="<%= "#{@path}?where=zona_oeste" %>" <%= 'selected' if @where == 'zona_oeste' %>>Zona Oeste</option>
@@ -17,7 +17,7 @@
     <div class="when d-flex flex-column align-items-end ms-2">
       <h2 class="fs-6">quando</h2>
       <select class="form-select form-select-sm focus-ring focus-ring-light" aria-label="selecione_data_evento" data-action="change->header#searchWhen">
-        <option value="<%= leisures_path %>" <%= 'selected' if @when.blank? %>>selecione...</option>
+        <option value="<%= @blank %>" <%= 'selected' if @when.blank? %>>selecione...</option>
         <option value="<%= "#{@path}?when=hoje" %>" <%= 'selected' if @when == 'hoje' %>>hoje</option>
         <option value="<%= "#{@path}?when=fimdesemana" %>" <%= 'selected' if @when == 'fimdesemana' %>>fim de semana</option>
         <option value="<%= "#{@path}?when=semana" %>" <%= 'selected' if @when == 'semana' %>>esta semana</option>
