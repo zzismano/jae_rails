@@ -218,6 +218,8 @@ class SearchService
     # Filter by subcategory and ensure the leisure is visible and published
     subcategory_leisures = leisures.where(subcategory: subcategory_param).visible.published
 
+
+
     # Further filter by the 'where' parameter using global search
     filtered_leisures = subcategory_leisures.global_search(where_param)
 
@@ -230,9 +232,38 @@ class SearchService
     subcategory_leisures = leisures.where(subcategory: subcategory_param).visible.published
 
     # Further filter by the 'where' parameter using global search
-    filtered_leisures = subcategory_leisures.global_search(when_param)
+    today = Date.today
 
-    filtered_leisures
+    case when_param
+    when 'hoje'
+      subcategory_leisures.where("dates @> ?::jsonb", [today.to_s].to_json)
+    when 'fimdesemana'
+      next_friday = today + ((5 - today.wday) % 7)
+      next_saturday = today + ((6 - today.wday) % 7)
+      next_sunday = next_saturday + 1
+      date_range = (next_friday..next_sunday).to_a.map(&:to_s)
+      matches = []
+      subcategory_leisures.each do |leisure|
+        unless (leisure.dates & date_range).empty?
+          matches << leisure
+        end
+      end
+      matches
+    when 'semana'
+      start_of_week = today
+      end_of_week = today + 7
+      date_range = (start_of_week..end_of_week).to_a.map(&:to_s)
+      matches = []
+      subcategory_leisures.each do |leisure|
+        unless (leisure.dates & date_range).empty?
+          matches << leisure
+        end
+      end
+      matches
+
+
+    end
+
 
   end
 
