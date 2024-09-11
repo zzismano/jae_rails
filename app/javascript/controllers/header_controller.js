@@ -55,9 +55,9 @@ export default class extends Controller {
       const new_url = url.replace(/\?where=[a-z]+_[a-z]+/, '');
       url = `${new_url}`;
 
-    } else if (url.match(/\/[a-z]+\?subcategory=[1-9]+/)) {
+    } else if (url.match(/\/[a-z]+\?subcategory=[0-9]+/)) {
       const new_url = url.replace(/^.*(?=\?when=[a-z]+)\?/, '');
-      let base = url.match(/\/[a-z]+\?subcategory=[1-9]+/)[0];
+      let base = url.match(/\/[a-z]+\?subcategory=[0-9]+/)[0];
       url = `${base}&${new_url}`;
       console.log(url);
 
