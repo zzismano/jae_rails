@@ -59,7 +59,7 @@
 
           <div class="row">
             <div class="col-lg-6 col-12">
-              <%= f.association :venues,  label: 'Estabelecimento*:', label_html: { class: 'fw-bold' }, input_html: {multiple: true, required: true,
+              <%= f.association :venues,  label: 'Estabelecimento*(OBRIGATÓRIO):', label_html: { class: 'fw-bold text-danger' }, input_html: {multiple: true, required: true,
 						data: { controller: 'tom-select'}  }, prompt: "Escolha os estabelecimentos:" %>
             </div>
             <div class="row" data-controller="category-subcategory">
@@ -76,7 +76,7 @@
 						data: { controller: 'tom-select'}  }, prompt: "Escolha os gêneros:" %>
             </div>
           </div>
-        <%= f.input :photo, as: :file, label: "Foto*:", label_html: { class: 'fw-bold' } %>
+        <%= f.input :photo, as: :file, label: "Foto(OBRIGATÓRIO)*:", label_html: { class: 'fw-bold text-danger' } %>
         <%= f.input :link, label_html: { class: 'fw-bold' }, label: "Link*:" %>
         <div class="d-grid gap-2 col-6 mx-auto my-4">
           <%= f.button :submit, "Salvar evento", class: 'btn btn-success fw-bold' %>
