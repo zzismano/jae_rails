@@ -1,16 +1,13 @@
 
-  <div class="main-newsletterbox">
-    <div class="main-newsletter__text">
-      <p class="text-uppercase text-center mb-0 fs-6">assine nossa</p>
-      <p class="text-center mt-0 fs-6"><strong class="text-uppercase">newsletter gratuita</strong></p>
-      <div class="d-flex flex-column">
-    </div>
-    <%= simple_form_for newsletter_subscription_path do |f| %>
+  <div class="main-newsletterbox rounded">
+    <a href="http://eepurl.com/iMr0Ws" class="text-secondary">
 
-      <%= f.input :email, label: "E-mail:" %>
-      <div class="d-grid gap-2">
-        <%= f.submit "Assinar newsletter", class: 'btn btn-outline-dark fw-bold fs-6' %>
+      <div class="main-newsletter__text">
+        <p class="text-uppercase text-center mb-0 fs-6">assine nossa</p>
+        <p class="text-center mt-0 fs-6"><strong class="text-uppercase">newsletter gratuita</strong></p>
+        <div class="d-flex flex-column">
       </div>
-    <% end %>
+    </a>
+
 
   </div>
