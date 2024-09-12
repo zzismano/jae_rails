@@ -64,7 +64,7 @@
             </div>
             <div class="row" data-controller="category-subcategory">
               <div class="col-lg-6 col-12">
-                <%= f.association :category, label: 'Categoria*:', label_html: { class: 'fw-bold' }, input_html: { id: 'leisure_category_id', data: { action: 'change->category-subcategory#update' }, class: 'form-select' }, prompt: "Escolha uma categoria:" %>
+                <%= f.association :category, label: 'Categoria(OBRIGATÓRIO)*:', label_html: { class: 'fw-bold text-danger' }, input_html: { id: 'leisure_category_id', data: { action: 'change->category-subcategory#update' }, class: 'form-select' }, prompt: "Escolha uma categoria:" %>
               </div>
               <div class="col-lg-6 col-12">
                 <%= f.input :subcategory_id, as: :select, collection: [], label_html: { class: 'fw-bold' }, label: "Subcategoria:", include_blank: "Escolha uma subcategoria:", input_html: { id: 'leisure_subcategory_id', class: 'form-select', data: { category_subcategory_target: 'subcategory' } } %>

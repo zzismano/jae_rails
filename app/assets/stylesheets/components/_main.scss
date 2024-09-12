@@ -129,8 +129,14 @@
 }
 
 .about-us h1 {
-  color: black;
+  color: $jae-wine;
   font-size: 1.3em;
+  font-weight: bolder;
+}
+
+.about-us h2 {
+  color: $jae-wine;
+  font-size: 1.1em;
   font-weight: bolder;
 }
 

@@ -38,7 +38,7 @@
             <%= f.input :end_date, label: 'Data de validade:', label_html: { class: 'fw-bold' } %>
           </div>
           <div class="col-lg-6 col-12">
-            <%= f.label :dates, 'Datas dos Eventos:', class: 'fw-bold' %>
+            <%= f.label :dates, 'Datas dos Eventos(OBRIGATÓRIO):', class: 'fw-bold text-danger' %>
             <%= f.text_field :dates, id: 'start_dates', class: 'form-control', value: @leisure.dates.join(', '), data: { controller: "datepicker" } %>
           </div>
         </div>

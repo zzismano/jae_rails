@@ -4,7 +4,8 @@
       <h1 class="fw-bold text-center">Criar novo card</h1>
       <p class="text-center">Ao criar um novo card, ele automaticamente entrará na landing page.</p>
       <%= simple_form_for (@card) do |f| %>
-        <%= f.association :leisure, label: 'Evento:', label_html: { class: 'fw-bold' }, input_html: {class: 'form-select' }, prompt: "Escolha um evento:" %>
+        <%= f.association :leisure, collection: @leisures, label: 'Evento:', label_html: { class: 'fw-bold' }, input_html: {class: 'form-select' }, prompt: "Escolha uma atração:" %>
+
         <div class="d-grid gap-2 col-6 mx-auto my-4">
           <%= f.button :submit, "Criar Card", class: 'btn btn-success fw-bold' %>
         </div>

@@ -321,6 +321,8 @@ class LeisuresController < ApplicationController
     venue_ids = params[:leisure].delete(:venue_ids).compact_blank
 
 
+
+
     @leisure = Leisure.new(leisure_params)
     @leisure.user = current_user
     authorize @leisure
@@ -329,8 +331,10 @@ class LeisuresController < ApplicationController
       render :new, status: :unprocessable_entity
       return
     end
+    @leisure.dates = params[:leisure][:dates].split(',').map(&:strip) if params[:leisure][:dates]
     sorted_dates = @leisure.dates.sort
     @leisure.dates = sorted_dates
+
     if @leisure.save
       # Handle genres
       genre_ids.each do |genre_id|
