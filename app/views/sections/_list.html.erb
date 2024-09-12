@@ -9,7 +9,7 @@
         <% section.cards.each do |card| %>
           <% if card.leisure.category.name == "Filme" %>
             <div class="card card-film">
-              <%= link_to "#{card.leisure.link}", style: "color: black" do %>
+              <%= link_to "#{card.leisure.link}", style: "color: black", target: "_blank" do %>
 
                 <div class="position-relative">
                   <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: card.leisure.title %>
@@ -24,7 +24,7 @@
 
           <% else %>
             <div class="card card-else">
-              <%= link_to "#{card.leisure.link}", style: "color: black" do %>
+              <%= link_to "#{card.leisure.link}", style: "color: black", target: "_blank" do %>
 
                 <div class="position-relative">
                   <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-else-image', alt: card.leisure.title %>

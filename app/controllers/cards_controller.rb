@@ -6,6 +6,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
+    @leisures = Leisure.order(:title)
     authorize @card
   end
 
