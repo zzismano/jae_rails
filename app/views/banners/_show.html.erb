@@ -2,55 +2,69 @@
   <div class="carousel-inner">
 
     <div class="carousel-item active">
+      <%= link_to @banner.link_one, target: "_blank" do %>
+        <div class="banner-photo"
+        style="background-image: url('<%= cl_image_path @banner.photo_one.key, crop: :fill %>')">
+        </div>
 
-      <div class="banner-photo"
-      style="background-image: url('<%= cl_image_path @banner.photo_one.key, crop: :fill %>')">
-      </div>
-
-      <div class="legenda-carrosel">
-        <p><strong><%= @banner.title_one %></strong> <%= @banner.caption_one %></p>
-      </div>
+        <div class="legenda-carrosel">
+          <p><strong><%= @banner.title_one %></strong> <%= @banner.caption_one %></p>
+        </div>
+      <% end %>
     </div>
 
+
     <div class="carousel-item">
-      <div class="banner-photo"
-      style="background-image: url('<%= cl_image_path @banner.photo_two.key, crop: :fill %>')">
-      </div>
-      <div class="legenda-carrosel">
-        <p><strong><%= @banner.title_two %></strong><%= @banner.caption_two %></p>
-      </div>
+      <%= link_to @banner.link_two, target: "_blank" do %>
+        <div class="banner-photo"
+        style="background-image: url('<%= cl_image_path @banner.photo_two.key, crop: :fill %>')">
+        </div>
+
+        <div class="legenda-carrosel">
+          <p><strong><%= @banner.title_two %></strong> <%= @banner.caption_two %></p>
+        </div>
+      <% end %>
     </div>
 
     <% if @banner.caption_three? && @banner.photo_three.attached? %>
       <div class="carousel-item">
-        <div class="banner-photo"
-        style="background-image: url('<%= cl_image_path @banner.photo_three.key, crop: :fill %>')">
-        </div>
-        <div class="legenda-carrosel">
-          <p><strong><%= @banner.title_three %></strong><%= @banner.caption_three %></p>
-        </div>
+        <%= link_to @banner.link_three, target: "_blank" do %>
+          <div class="banner-photo"
+          style="background-image: url('<%= cl_image_path @banner.photo_three.key, crop: :fill %>')">
+          </div>
+
+          <div class="legenda-carrosel">
+            <p><strong><%= @banner.title_three %></strong> <%= @banner.caption_three %></p>
+          </div>
+        <% end %>
       </div>
     <% end %>
 
     <% if @banner.caption_four? && @banner.photo_four.attached? %>
       <div class="carousel-item">
-        <div class="banner-photo"
-        style="background-image: url('<%= cl_image_path @banner.photo_four.key, crop: :fill %>')">
-        </div>
-        <div class="legenda-carrosel">
-          <p><strong><%= @banner.title_four %></strong><%= @banner.caption_four %></p>
-        </div>
+        <%= link_to @banner.link_four, target: "_blank" do %>
+          <div class="banner-photo"
+          style="background-image: url('<%= cl_image_path @banner.photo_four.key, crop: :fill %>')">
+          </div>
+
+          <div class="legenda-carrosel">
+            <p><strong><%= @banner.title_four %></strong> <%= @banner.caption_four %></p>
+          </div>
+        <% end %>
       </div>
     <% end %>
 
     <% if @banner.caption_five? && @banner.photo_five.attached? %>
       <div class="carousel-item">
-        <div class="banner-photo"
-        style="background-image: url('<%= cl_image_path @banner.photo_five.key, crop: :fill %>')">
-        </div>
-        <div class="legenda-carrosel">
-          <p><strong><%= @banner.title_five %></strong><%= @banner.caption_five %></p>
-        </div>
+        <%= link_to @banner.link_five, target: "_blank" do %>
+          <div class="banner-photo"
+          style="background-image: url('<%= cl_image_path @banner.photo_five.key, crop: :fill %>')">
+          </div>
+
+          <div class="legenda-carrosel">
+            <p><strong><%= @banner.title_five %></strong> <%= @banner.caption_five %></p>
+          </div>
+        <% end %>
       </div>
     <% end %>
 
