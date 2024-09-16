@@ -152,15 +152,17 @@ class SearchService
 
 
     when 'fim_de_semana'
+      # Calculate next Friday, Saturday, and Sunday
       next_friday = today + ((5 - today.wday) % 7)
       next_saturday = today + ((6 - today.wday) % 7)
       next_sunday = next_saturday + 1
+
+      # Create date range array
       date_range = (next_friday..next_sunday).to_a.map(&:to_s)
-      matches = []
-      Leisure.visible.published.each do |leisure|
-        unless (leisure.dates & date_range).empty?
-          matches << leisure
-        end
+
+      # Find matching leisures
+      matches = Leisure.visible.published.select do |leisure|
+        (leisure.dates & date_range).any?
       end
       matches
     end
