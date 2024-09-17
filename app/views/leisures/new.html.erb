@@ -44,7 +44,7 @@
             <%= f.input :start_date, label: 'Data de pulicação:', label_html: { class: 'fw-bold' } %>
           </div>
           <div class="col-lg-6 col-12">
-            <%= f.input :end_date, label: 'Data de validade:', label_html: { class: 'fw-bold' } %>
+            <%= f.input :end_date, label: 'Data de validade:', label_html: { class: 'fw-bold' }, default: Date.today + 730  %>
           </div>
 
           <div class="col-lg-6 col-12">
