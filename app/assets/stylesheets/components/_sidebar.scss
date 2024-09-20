@@ -63,6 +63,21 @@
   }
 }
 
+.icon-square {
+  height: 8%;
+  // border-radius: 2px;
+  width: 100%;
+  padding-right: 9px;
+  padding-left: 9px;
+
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // border: 2px solid white;
+}
+
 
 .square {
   height: 10%;
