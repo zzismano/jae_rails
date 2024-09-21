@@ -315,17 +315,30 @@ class SearchService
     when 'hoje'
       subcategory_leisures.where("dates @> ?::jsonb", [today.to_s].to_json)
     when 'fimdesemana'
-      next_friday = today + ((5 - today.wday) % 7)
-      next_saturday = today + ((6 - today.wday) % 7)
-      next_sunday = next_saturday + 1
-      date_range = (next_friday..next_sunday).to_a.map(&:to_s)
-      matches = []
-      subcategory_leisures.each do |leisure|
-        unless (leisure.dates & date_range).empty?
-          matches << leisure
+      today = Date.today
+
+      if today.saturday? || today.sunday?
+        # Calculate last Friday
+        last_friday = today - (today.wday == 6 ? 1 : 2) # 6 for Saturday, 0 for Sunday
+        next_saturday = last_friday + 1
+        next_sunday = last_friday + 2
+        date_range = (last_friday..next_sunday).to_a.map(&:to_s)
+        matches = leisures.select do |leisure|
+          (leisure.dates & date_range).any?
         end
+        matches
+
+      else
+        # Calculate next Friday, Saturday, and Sunday
+        next_friday = today + ((5 - today.wday) % 7)
+        next_saturday = next_friday + 1
+        next_sunday = next_friday + 2
+        date_range = (next_friday..next_sunday).to_a.map(&:to_s)
+        matches = leisures.select do |leisure|
+          (leisure.dates & date_range).any?
+        end
+        matches
       end
-      matches
     when 'semana'
       start_of_week = today
       end_of_week = today + 7
