@@ -323,7 +323,7 @@ class SearchService
         next_saturday = last_friday + 1
         next_sunday = last_friday + 2
         date_range = (last_friday..next_sunday).to_a.map(&:to_s)
-        matches = leisures.select do |leisure|
+        matches = subcategory_leisures.select do |leisure|
           (leisure.dates & date_range).any?
         end
         matches
@@ -334,7 +334,7 @@ class SearchService
         next_saturday = next_friday + 1
         next_sunday = next_friday + 2
         date_range = (next_friday..next_sunday).to_a.map(&:to_s)
-        matches = leisures.select do |leisure|
+        matches = subcategory_leisures.select do |leisure|
           (leisure.dates & date_range).any?
         end
         matches
