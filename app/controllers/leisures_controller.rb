@@ -1,6 +1,6 @@
 class LeisuresController < ApplicationController
   before_action :set_leisure, only: [:edit, :destroy]
-  before_action :set_fullpath, only: [:filme, :teatro, :musica, :danca, :evento, :festa, :expo]
+  before_action :set_fullpath, only: [:filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
   skip_before_action :authenticate_user!, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais, :about_us]
   before_action :start_search_service, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
   skip_after_action :verify_authorized, only: [:about_us]

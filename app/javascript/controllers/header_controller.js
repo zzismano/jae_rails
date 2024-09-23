@@ -10,6 +10,7 @@ export default class extends Controller {
   searchWhere(event) {
 
     let url = event.target.value;
+    console.log(event.target);
 
     // limpa params anteriores
     if (url.match(/\?where=[a-z]+_[a-z]+\?where=/) || url.match(/\?where=[a-z]+\?where=/))  {
