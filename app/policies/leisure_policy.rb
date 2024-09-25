@@ -21,6 +21,10 @@ class LeisurePolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   def create?
     user.admin?
   end

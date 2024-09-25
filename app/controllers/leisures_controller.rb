@@ -47,6 +47,11 @@ class LeisuresController < ApplicationController
 
   end
 
+  def show
+    @leisure = Leisure.find(params[:id])
+    authorize @leisure
+  end
+
   def set_fullpath
     @path = request.fullpath
   end
