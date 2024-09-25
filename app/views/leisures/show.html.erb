@@ -1,0 +1,8 @@
+
+<%= turbo_frame_tag "content" do %>
+  <div class="container-fluid">
+    <div class="row">
+        <%= render partial_select(@leisure), leisure: @leisure %>
+    </div>
+  </div>
+<% end %>
