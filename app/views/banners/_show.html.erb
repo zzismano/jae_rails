@@ -4,8 +4,9 @@
     <div class="carousel-item active">
       <%= link_to @banner.link_one, target: "_blank" do %>
         <div class="banner-photo"
-        style="background-image: url('<%= cl_image_path @banner.photo_one.key, crop: :fill %>')">
+        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_one.key, width: 1000, crop: :fill, gravity: :auto) %>')">
         </div>
+
 
         <div class="legenda-carrosel">
           <p><strong><%= @banner.title_one %></strong> <%= @banner.caption_one %></p>
@@ -17,7 +18,7 @@
     <div class="carousel-item">
       <%= link_to @banner.link_two, target: "_blank" do %>
         <div class="banner-photo"
-        style="background-image: url('<%= cl_image_path @banner.photo_two.key, crop: :fill %>')">
+        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_two.key, width: 1000, crop: :fill, gravity: :auto) %>')">
         </div>
 
         <div class="legenda-carrosel">
@@ -30,8 +31,8 @@
       <div class="carousel-item">
         <%= link_to @banner.link_three, target: "_blank" do %>
           <div class="banner-photo"
-          style="background-image: url('<%= cl_image_path @banner.photo_three.key, crop: :fill %>')">
-          </div>
+        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_three.key, width: 1000, crop: :fill, gravity: :auto) %>')">
+        </div>
 
           <div class="legenda-carrosel">
             <p><strong><%= @banner.title_three %></strong> <%= @banner.caption_three %></p>
@@ -44,8 +45,8 @@
       <div class="carousel-item">
         <%= link_to @banner.link_four, target: "_blank" do %>
           <div class="banner-photo"
-          style="background-image: url('<%= cl_image_path @banner.photo_four.key, crop: :fill %>')">
-          </div>
+        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_four.key, width: 1000, crop: :fill, gravity: :auto) %>')">
+        </div>
 
           <div class="legenda-carrosel">
             <p><strong><%= @banner.title_four %></strong> <%= @banner.caption_four %></p>
@@ -58,8 +59,8 @@
       <div class="carousel-item">
         <%= link_to @banner.link_five, target: "_blank" do %>
           <div class="banner-photo"
-          style="background-image: url('<%= cl_image_path @banner.photo_five.key, crop: :fill %>')">
-          </div>
+        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_five.key, width: 1000, crop: :fill, gravity: :auto) %>')">
+        </div>
 
           <div class="legenda-carrosel">
             <p><strong><%= @banner.title_five %></strong> <%= @banner.caption_five %></p>
