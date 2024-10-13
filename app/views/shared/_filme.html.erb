@@ -1,6 +1,6 @@
 <div class="<%= leisure.category.name.downcase %> col-12 col-md-6  col-lg-4 mb-2 " id="leisure-card">
   <div class="letreiro-filme">
-    <div class="foto-<%= leisure.category.name.downcase %>" style="background-image: url('<%= cl_image_path leisure.photo.key %>')"></div>
+    <div class="foto-<%= leisure.category.name.downcase %>" style="background-image: url('<%= optimized_cl_image_path(leisure.photo.key, width: 1000, crop: :fill, gravity: :auto) %>')"></div>
     <div class="infos-<%= leisure.category.name.downcase %>">
       <p id="categoria">
         CINEMA
