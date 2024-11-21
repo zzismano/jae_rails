@@ -55,6 +55,22 @@
   justify-content: center;
 
 }
+
+.button-small-2 {
+  // height: 1em;
+  // width: 5em;
+  font-size: 11px;
+  border: none;
+  color:  rgb(137,	42,	91);
+  background-color: white;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+
+}
+
 @media screen and (max-width: 350px) {
   .button-small {
 

@@ -14,3 +14,4 @@ pin "@stimulus-components/read-more", to: "@stimulus-components--read-more.js" #
 pin "jquery", to: "jquery.min.js", preload: true
 pin "cocoon", to: "cocoon/cocoon.min.js"
 pin "flatpickr" # @4.6.13
+pin "sweetalert2" # @11.14.5
