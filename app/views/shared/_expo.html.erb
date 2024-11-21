@@ -1,4 +1,4 @@
-<div class="<%= leisure.category.name.downcase %> col-12 col-md-6 col-lg-4 mb-2 " id="leisure-card">
+<div class="<%= leisure.category.name.downcase %> col-12 col-md-6 col-lg-4 mb-2 " id="leisure-card" data-controller="share">
   <div class="letreiro">
     <div class="foto-horizontal" style="background-image: url('<%= optimized_cl_image_path(leisure.photo.key, width: 500, crop: :fill, gravity: :auto) %>')"></div>
     <div class="infos-<%= leisure.category.name.downcase %>">
@@ -10,8 +10,10 @@
       <p id="horario">
         <%= leisure.schedule %> | <%= leisure.date %>
       </p>
-      <p id="venue"><%= leisure.venues.last.name %></p>
+      <p id="venue"><%= leisure.venues.first.name %></p>
       <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small" target="_blank"><%= leisure.free? ? "mais informações" : "comprar ingresso" %></a>
+      <button class="button-small-2" style="font-weight: bold" data-share-target="botao" data-action="click->share#share">compartilhar <i class="fa-solid fa-link"></i></button>
+      <p class="d-none" data-share-target="id"><%= leisure.id %></p>
     </div>
   </div>
   <div class="sinopse" data-controller="read-more" data-read-more-more-text-value="Ver mais" data-read-more-less-text-value="Ver menos">
