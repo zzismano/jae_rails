@@ -77,12 +77,12 @@
             </li>
           <% else %>
             <%= link_to "Home", root_path, class: "nav-link" %>
-            <%= link_to "Quem somos", about_us_path, data: { turbo_frame: 'content' }, class: "nav-link" %>
+            <%= link_to "Sobre o JáÉ!", about_us_path, data: { turbo_frame: 'content' }, class: "nav-link" %>
             <a href="http://eepurl.com/iMr0Ws" class="nav-link" target="_blank">Newsletter Gratuita</a>
           <% end %>
         <% else %>
           <%= link_to "Home", root_path, class: "nav-link" %>
-          <%= link_to "Sobre o JáÉ", about_us_path, data: { turbo_frame: 'content' }, class: "nav-link" %>
+          <%= link_to "Sobre o JáÉ!", about_us_path, data: { turbo_frame: 'content' }, class: "nav-link" %>
           <a href="http://eepurl.com/iMr0Ws" class="nav-link" target="_blank">Newsletter Gratuita</a>
         <% end %>
       </ul>
