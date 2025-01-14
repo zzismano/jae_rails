@@ -1,5 +1,8 @@
 class LeisureVenuesController < ApplicationController
+  include ActionView::RecordIdentifier
+
   before_action :set_leisure, only: %i[new create]
+  before_action :set_leisure_venue, only: [:destroy]
 
   def new
     authorize @leisure
@@ -19,16 +22,25 @@ class LeisureVenuesController < ApplicationController
   end
 
   def destroy
-    @leisure_venue = LeisureVenue.find(params[:id])
-    @leisure_venue.destroy
+
     authorize @leisure_venue
-    if @leisure_venue.destroy
-      redirect_to dashboard_path
+    @leisure_venue.destroy
+
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(dom_id(@leisure_venue)) }
+      format.html { redirect_to leisure_path(@leisure_venue.leisure), notice: 'Sucesso.' }
     end
+    # if @leisure_venue.destroy
+    #   redirect_to dashboard_path
+    # end
 
   end
 
   private
+
+  def set_leisure_venue
+    @leisure_venue = LeisureVenue.find(params[:id])
+  end
 
   def set_leisure
     @leisure = Leisure.find(params[:leisure_id])

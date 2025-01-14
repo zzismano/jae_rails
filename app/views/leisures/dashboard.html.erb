@@ -82,17 +82,20 @@
       <td><%=link_to "#{leisure.category.name.upcase}", edit_category_path(leisure.category)%></td>
       <td><% if leisure.venues.empty? %>
             <i style="color: gray">sem estabelecimentos</i>
-          <%else%>
-            <% leisure.venues.each do |venue|  %>
-              <% leisure_venue = LeisureVenue.where(leisure_id: leisure.id, venue_id: venue.id)[0]  %>
-              <span class="badge badge-dark">
-                <%=link_to "#{venue.name}", edit_venue_path(venue) %>
-                <%= link_to leisure_venue_path(leisure_venue), data: {turbo_method: :delete, turbo_confirm: "tem certeza?"} do %>
-                  <i class="fa-solid fa-delete-left"></i>
-                <% end %>
-              </span>
+          <% else %>
+            <% leisure.venues.each do |venue| %>
+              <% leisure_venue = LeisureVenue.where(leisure_id: leisure.id, venue_id: venue.id).first %>
+
+              <div id="<%= dom_id(leisure_venue) %>">
+                <span class="badge badge-dark" id="venue-<%= venue.id %>">
+                  <%= link_to venue.name, edit_venue_path(venue) %>
+                    <%= link_to leisure_venue_path(leisure_venue), data: { turbo_method: :delete, turbo_confirm: "Tem certeza?", turbo_stream: "true" }, class: "delete-venue-link", remote: true do %>
+                      <i class="fa-solid fa-delete-left"></i>
+                    <% end %>
+                </span>
+              </div>
             <% end %>
-        <% end %>
+          <% end %>
       </td>
       <td><% if leisure.genres.empty? %>
             <i style="color: gray">sem gêneros</i>
