@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :leisures, only: %i[index new create edit show update destroy] do
     resources :leisure_genres, only: %i[new create]
-    resources :leisure_venues, only: %i[new create]
+    resources :leisure_venues, only: %i[new create destroy]
   end
   #Categories routes
   resources :categories, only: %i[index new create edit update]
