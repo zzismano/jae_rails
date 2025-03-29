@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="selector"
 export default class extends Controller {
 
-  static targets = ["filme", "teatro", "musica", "evento", "expo", "mais", "subcategory"]
+  static targets = ["filme", "teatro", "musica", "evento", "expo", "mais", "visão", "subcategory"]
 
 
   connect() {
@@ -16,13 +16,13 @@ export default class extends Controller {
     const musica = document.getElementById('musica')
     const teatro = document.getElementById('teatro')
     const danca = document.getElementById('danca')
-    const festa = document.getElementById('festa')
+    const visão = document.getElementById('visão')
     const evento = document.getElementById('evento')
     const expo = document.getElementById('expo')
     const mais = document.getElementById('mais')
     const logo = document.querySelector('.navbar-brand')
     const conteudoHome = document.getElementById('conteudo-home')
-    const categorias = [filme, musica, teatro, danca, festa, mais, evento, expo]
+    const categorias = [filme, musica, teatro, danca, visão, mais, evento, expo, visão]
     let click = event.currentTarget
     // var targetsCopia = this.constructor.targets
     // var index = targetsCopia.indexOf(event.currentTarget.id)

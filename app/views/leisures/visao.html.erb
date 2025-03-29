@@ -1,0 +1,11 @@
+<%= turbo_frame_tag "content" do %>
+  <%= render 'shared/dynamic_header' %>
+  <div class="container-fluid">
+
+    <div class="row">
+      <% @leisures.each do |leisure| %>
+        <%= render partial_select(leisure), leisure: leisure %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
