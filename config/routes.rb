@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   get "festa", to: 'leisures#festa'
   get "expo", to: 'leisures#expo'
   get 'mais', to: 'leisures#mais'
+  get 'visao', to: 'leisures#visao'
+
 
 
   get "banner_config", to: 'banners#banner_config'

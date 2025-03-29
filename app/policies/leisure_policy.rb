@@ -77,6 +77,10 @@ class LeisurePolicy < ApplicationPolicy
     true
   end
 
+  def visao?
+    true
+  end
+
   def newsletter_subscription?
     true
   end

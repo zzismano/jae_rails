@@ -1,8 +1,8 @@
 class LeisuresController < ApplicationController
   before_action :set_leisure, only: [:edit, :destroy]
-  before_action :set_fullpath, only: [:filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
-  skip_before_action :authenticate_user!, only: [:home, :show, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais, :about_us]
-  before_action :start_search_service, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais]
+  before_action :set_fullpath, only: [:filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais, :visao]
+  skip_before_action :authenticate_user!, only: [:home, :show, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais, :about_us, :visao]
+  before_action :start_search_service, only: [:home, :index, :filme, :teatro, :musica, :danca, :evento, :festa, :expo, :mais, :visao]
   skip_after_action :verify_authorized, only: [:about_us, :show]
   def home
     @banner = Banner.first
@@ -224,6 +224,38 @@ class LeisuresController < ApplicationController
     festa = Category.find_by(name: 'Festa')
     @blank = festa_path
     @leisures = Leisure.where(category: festa).visible.published
+    authorize @leisures
+
+    if params[:subcategory].present? && params[:where].present?
+      @leisures = @service.filter_by_subcategory_and_where(@leisures, params[:subcategory], params[:where])
+      @where = params[:where]
+    elsif params[:when].present? && params[:where].present?
+      @leisures = @service.search_by_where_and_when(@leisures, params)
+      @where = params[:where]
+      @when = params[:when]
+
+    elsif params[:subcategory].present? && params[:when].present?
+      @leisures = @service.filter_by_subcategory_and_when(@leisures, params[:subcategory], params[:when])
+      @when = params[:when]
+
+    elsif params[:subcategory].present?
+      @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
+    elsif params[:where].present?
+      @leisures = @service.search_by_where(@leisures, params[:where])
+      @where = params[:where]
+    elsif params[:when].present?
+      @leisures = @service.search_by_when(@leisures, params[:when])
+      @when = params[:when]
+
+    end
+    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+    @leisures
+  end
+
+  def visao
+    visão = Category.find_by(name: 'Visão')
+    @blank = visao_path
+    @leisures = Leisure.where(category: visão).visible.published
     authorize @leisures
 
     if params[:subcategory].present? && params[:where].present?
