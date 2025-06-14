@@ -1,6 +1,6 @@
 <div class="<%= leisure.category.name.downcase %> col-12 col-md-6  col-lg-4 mb-2 " id="leisure-card" data-controller="share">
   <div class="letreiro-filme">
-    <div class="foto-<%= leisure.category.name.downcase %>" style="background-image: url('<%= optimized_cl_image_path(leisure.photo.key, width: 500, crop: :fill, gravity: :auto) %>')"></div>
+    <div class="foto-<%= leisure.category.name.downcase %>" style="background-image: url('<%= optimized_cl_image_path(leisure.photo.key, width: 500, crop: :fill, gravity: :auto) %>')" aria-label="<%= leisure.title %>" role="img"></div>
     <div class="infos-<%= leisure.category.name.downcase %>">
       <p id="categoria">
         CINEMA
