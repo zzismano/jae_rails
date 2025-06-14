@@ -51,6 +51,6 @@ class BannersController < ApplicationController
   end
 
   def banner_params
-    params.require(:banner).permit(:title_one, :title_two, :title_three, :title_four, :title_five, :caption_one, :caption_two, :caption_three, :caption_four, :caption_five, :photo_one, :photo_two, :photo_three, :photo_four, :photo_five, :link_one, :link_two, :link_three, :link_four, :link_five)
+    params.require(:banner).permit(:title_one, :title_two, :title_three, :title_four, :title_five, :caption_one, :caption_two, :caption_three, :caption_four, :caption_five, :photo_one, :photo_two, :photo_three, :photo_four, :photo_five, :link_one, :link_two, :link_three, :link_four, :link_five, :alt_text_one, :alt_text_two, :alt_text_three, :alt_text_four, :alt_text_five)
   end
 end

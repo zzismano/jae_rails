@@ -12,7 +12,7 @@
               <%= link_to leisure_path(card.leisure), style: "color: black", data: {turbo_frame: 'content'} do %>
 
                 <div class="position-relative">
-                  <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: card.leisure.title %>
+                  <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: card.leisure.alt_text.presence || card.leisure.title %>
                 </div>
 
                 <div class="card-film-body">
@@ -27,7 +27,7 @@
               <%= link_to leisure_path(card.leisure), style: "color: black",  data: {turbo_frame: 'content'} do %>
 
                 <div class="position-relative">
-                  <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-else-image', alt: card.leisure.title %>
+                  <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-else-image', alt: card.leisure.alt_text.presence || card.leisure.title %>
                 </div>
 
                 <div class="card-else-body">

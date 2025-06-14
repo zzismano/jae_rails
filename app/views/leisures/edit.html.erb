@@ -78,6 +78,7 @@
 
 
         <%= f.input :photo, as: :file, label: 'Foto(OBRIGATÓRIO)*:', label_html: { class: 'fw-bold text-danger' } %>
+        <%= f.input :alt_text, label: 'Texto Alternativo da Foto:', label_html: { class: 'fw-bold' }, placeholder: 'Descreva a imagem para acessibilidade e SEO - Um texto curto e descritivo' %>
         <%= f.input :link, label_html: { class: 'fw-bold' }, label: "Link*:" %>
         <div class="d-grid gap-2 col-6 mx-auto my-4">
           <%= f.button :submit, "Salvar evento", class: 'btn btn-success fw-bold' %>
