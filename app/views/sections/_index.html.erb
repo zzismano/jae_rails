@@ -22,7 +22,7 @@
           <% if card.leisure.category.name == "Filme" %>
             <div class="card card-film">
               <div class="position-relative">
-                <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: card.leisure.title %>
+                <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-film-image', alt: card.leisure.alt_text.presence || card.leisure.title %>
                 <% if current_user.admin %>
                   <%= link_to section_card_path(SectionCard.find_by_section_id_and_card_id(section.id, card.id)), class: 'text-danger p-2 bg-light rounded card-film-delete position-absolute',
                   data: {turbo_method: :delete, turbo_confirm: "Quer apagar este card?"} do
@@ -42,7 +42,7 @@
           <% else %>
             <div class="card card-else">
               <div class="position-relative">
-                <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-else-image', alt: card.leisure.title %>
+                <%= cl_image_tag card.leisure.photo.key, crop: :fill, class: 'card-else-image', alt: card.leisure.alt_text.presence || card.leisure.title %>
                 <% if current_user.admin %>
                   <%= link_to section_card_path(SectionCard.find_by_section_id_and_card_id(section.id, card.id)), class: 'text-danger p-2 bg-light rounded card-film-delete position-absolute',
                   data: {turbo_method: :delete, turbo_confirm: "Quer apagar este card?"} do

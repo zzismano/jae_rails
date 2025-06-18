@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_12_235853) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_14_232106) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_12_235853) do
     t.string "link_three"
     t.string "link_four"
     t.string "link_five"
+    t.string "alt_text_one"
+    t.string "alt_text_two"
+    t.string "alt_text_three"
+    t.string "alt_text_four"
+    t.string "alt_text_five"
   end
 
   create_table "cards", force: :cascade do |t|
@@ -126,6 +131,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_12_235853) do
     t.boolean "free"
     t.bigint "subcategory_id"
     t.jsonb "dates", default: []
+    t.string "alt_text"
     t.index ["category_id"], name: "index_leisures_on_category_id"
     t.index ["user_id"], name: "index_leisures_on_user_id"
   end

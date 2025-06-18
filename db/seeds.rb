@@ -123,31 +123,31 @@ theatro.save!
 
 puts "Creating categories...."
 
-filme = Category.new(name: 'Filme', subcategories: ["Drama", "Horror", "Comedy"], user: users.sample)
+filme = Category.new(name: 'Filme', user: users.sample)
 
 filme.save!
 
-teatro = Category.new(name: 'Teatro', subcategories: ["Drama", "Horror", "Comedy"], user: users.sample)
+teatro = Category.new(name: 'Teatro', user: users.sample)
 
 teatro.save!
 
-musica = Category.new(name: 'Musica', subcategories:["show", "festival", "clubs", "clássica", "Vem aí"], user: users.sample)
+musica = Category.new(name: 'Musica', user: users.sample)
 
 musica.save!
 
-danca = Category.new(name: 'Danca', subcategories: ['clássica', 'moderna'], user: users.sample)
+danca = Category.new(name: 'Danca', user: users.sample)
 
 danca.save!
 
-evento = Category.new(name: 'Evento', subcategories: ['evento', 'vem aí'], user: users.sample)
+evento = Category.new(name: 'Evento', user: users.sample)
 
 evento.save!
 
-festa = Category.new(name: 'Festa', subcategories: ['eletrônica', 'brasileira'], user: users.sample)
+festa = Category.new(name: 'Festa', user: users.sample)
 
 festa.save!
 
-expo = Category.new(name: 'Expo', subcategories: ['permanente', 'temp'], user: users.sample)
+expo = Category.new(name: 'Expo', user: users.sample)
 
 expo.save!
 
@@ -221,7 +221,7 @@ junina = Leisure.new(category: evento, link: 'www.junina.com.br', title: "Junina
 
 cisnes = Leisure.new(category: danca, link: 'www.theatro-municipal.com.br', title: "O Lago dos Cisnes", subtitle: '50 anos de Tchaikovsky', director: 'Ana Botafogo', country: 'BR', description: 'O Theatro Municipal do Rio de Janeiro abre suas portas para receber uma nova apresentação do clássico do balé. Corram por que os ingressos voam.', start_date: '27/08/2024', features: 'Ana Botafogo', min_age: 12, duration: 2, end_date: '28/08/2024', date: "27/ago", hidden: false, free: false, user: User.first)
 
-  pic7 = URI.open('https://detroitopera.org/app/uploads/2020/08/Swan-Lake.jpg')
+  pic7 = URI.open('https://static.itdg.com.br/images/622-auto/9710fa5ed78fff9d9cc974a861d2cc66/quando-e-a-festa-junina.jpg')
 
   cisnes.photo.attach(io: pic7, filename: "cisnes.png", content_type: "image/jpg")
   

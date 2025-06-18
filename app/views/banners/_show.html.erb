@@ -4,7 +4,7 @@
     <div class="carousel-item active">
       <%= link_to @banner.link_one, target: "_blank" do %>
         <div class="banner-photo"
-        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_one.key, width: 1000, crop: :fill, gravity: :auto) %>')">
+        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_one.key, width: 1000, crop: :fill, gravity: :auto) %>')" aria-label="<%= @banner.alt_text_one.presence || @banner.title_one %>" role="img">
         </div>
 
 
@@ -18,7 +18,7 @@
     <div class="carousel-item">
       <%= link_to @banner.link_two, target: "_blank" do %>
         <div class="banner-photo"
-        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_two.key, width: 1000, crop: :fill, gravity: :auto) %>')">
+        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_two.key, width: 1000, crop: :fill, gravity: :auto) %>')" aria-label="<%= @banner.alt_text_two.presence || @banner.title_two %>" role="img">
         </div>
 
         <div class="legenda-carrosel">
@@ -31,7 +31,7 @@
       <div class="carousel-item">
         <%= link_to @banner.link_three, target: "_blank" do %>
           <div class="banner-photo"
-        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_three.key, width: 1000, crop: :fill, gravity: :auto) %>')">
+        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_three.key, width: 1000, crop: :fill, gravity: :auto) %>')" aria-label="<%= @banner.alt_text_three.presence || @banner.title_three %>" role="img">
         </div>
 
           <div class="legenda-carrosel">
@@ -45,7 +45,7 @@
       <div class="carousel-item">
         <%= link_to @banner.link_four, target: "_blank" do %>
           <div class="banner-photo"
-        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_four.key, width: 1000, crop: :fill, gravity: :auto) %>')">
+        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_four.key, width: 1000, crop: :fill, gravity: :auto) %>')" aria-label="<%= @banner.alt_text_four.presence || @banner.title_four %>" role="img">
         </div>
 
           <div class="legenda-carrosel">
@@ -59,7 +59,7 @@
       <div class="carousel-item">
         <%= link_to @banner.link_five, target: "_blank" do %>
           <div class="banner-photo"
-        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_five.key, width: 500, crop: :fill, gravity: :auto) %>')">
+        style="background-image: url('<%= optimized_cl_image_path(@banner.photo_five.key, width: 500, crop: :fill, gravity: :auto) %>')" aria-label="<%= @banner.alt_text_five.presence || @banner.title_five %>" role="img">
         </div>
 
           <div class="legenda-carrosel">
