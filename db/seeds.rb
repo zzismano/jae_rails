@@ -151,6 +151,9 @@ expo = Category.new(name: 'Expo', user: users.sample)
 
 expo.save!
 
+visao = Category.new(name: 'Visão', user: users.sample)
+visao.save!
+
 puts "Creating leisure..."
 
 leisure = Leisure.new(category: filme, link: 'www.guerracivil.com.br', title: "Guerra Civil", subtitle: 'A Guerra de dois mundos', director: 'Francisco Padilha', country: 'BR', description: 'O fime retrata a guerra de dois mundos e a cobertura jornalistica realizada pela grande mídia lorem ipsum mastuto hello world meu deus tem que escrever uma duzia de coisas', start_date: '13/02/2024', features: 'Wagner Moura', min_age: 16, duration: 2, end_date: '20/06/2024', date: "08/ago", hidden: false, free: false, user: users.sample)
@@ -229,6 +232,29 @@ cisnes = Leisure.new(category: danca, link: 'www.theatro-municipal.com.br', titl
   
   puts "leisure 7 created!"
 
+# VISÃO LEISURES
+visao_leisure1 = Leisure.new(category: visao, link: 'www.visao1.com.br', title: "Exposição Visão 1", subtitle: 'Olhares do Futuro', director: 'Curador 1', country: 'BR', description: 'Uma exposição sobre o futuro da arte e tecnologia.', start_date: '01/09/2024', features: 'Artista A', min_age: 10, duration: 1, end_date: '10/09/2024', date: "01/set", hidden: false, free: true, user: users.sample)
+img1 = URI.open('https://images.unsplash.com/photo-1464983953574-0892a716854b')
+visao_leisure1.photo.attach(io: img1, filename: "visao1.png", content_type: "image/jpg")
+visao_leisure1.save!
+
+visao_leisure2 = Leisure.new(category: visao, link: 'www.visao2.com.br', title: "Exposição Visão 2", subtitle: 'Visões Urbanas', director: 'Curador 2', country: 'BR', description: 'Fotografias e instalações sobre a cidade contemporânea.', start_date: '15/09/2024', features: 'Artista B', min_age: 12, duration: 2, end_date: '25/09/2024', date: "15/set", hidden: false, free: false, user: users.sample)
+img2 = URI.open('https://images.unsplash.com/photo-1506744038136-46273834b3fb')
+visao_leisure2.photo.attach(io: img2, filename: "visao2.png", content_type: "image/jpg")
+visao_leisure2.save!
+
+visao_leisure3 = Leisure.new(category: visao, link: 'www.visao3.com.br', title: "Exposição Visão 3", subtitle: 'Natureza e Olhar', director: 'Curador 3', country: 'BR', description: 'A relação entre natureza e percepção humana.', start_date: '20/10/2024', features: 'Artista C', min_age: 8, duration: 1, end_date: '30/10/2024', date: "20/out", hidden: false, free: true, user: users.sample)
+img3 = URI.open('https://images.unsplash.com/photo-1519125323398-675f0ddb6308')
+visao_leisure3.photo.attach(io: img3, filename: "visao3.png", content_type: "image/jpg")
+visao_leisure3.save!
+
+visao_leisure4 = Leisure.new(category: visao, link: 'www.visao4.com.br', title: "Exposição Visão 4", subtitle: 'Luz e Sombra', director: 'Curador 4', country: 'BR', description: 'Instalações interativas sobre luz e sombra.', start_date: '05/11/2024', features: 'Artista D', min_age: 14, duration: 2, end_date: '15/11/2024', date: "05/nov", hidden: false, free: false, user: users.sample)
+img4 = URI.open('https://images.unsplash.com/photo-1465101046530-73398c7f28ca')
+visao_leisure4.photo.attach(io: img4, filename: "visao4.png", content_type: "image/jpg")
+visao_leisure4.save!
+
+puts "4 leisures Visão criados!"
+
 puts "Creating genre..."
 
 comedia = Genre.new(name: 'Comédia', user: users.sample)
@@ -277,6 +303,18 @@ join_leisure_venue7.save!
 join_leisure_venue8 = LeisureVenue.new(leisure: ziraldo, venue: ccbb)
 
 join_leisure_venue8.save!
+
+join_leisure_venue9 = LeisureVenue.new(leisure: visao_leisure1, venue: ccbb)
+join_leisure_venue9.save!
+
+join_leisure_venue10 = LeisureVenue.new(leisure: visao_leisure2, venue: ccbb)
+join_leisure_venue10.save!
+
+join_leisure_venue11 = LeisureVenue.new(leisure: visao_leisure3, venue: ccbb)
+join_leisure_venue11.save!
+
+join_leisure_venue12 = LeisureVenue.new(leisure: visao_leisure4, venue: ccbb)
+join_leisure_venue12.save!
 
 puts "Creating Card..."
 

@@ -11,6 +11,8 @@ export default class extends Controller {
   }
 
   select(event) {
+    // Faz scroll para o topo da página
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   //  console.log(event.currentTarget.innerHTML);
     const filme = document.getElementById('filme')
     const musica = document.getElementById('musica')
