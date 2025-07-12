@@ -60,7 +60,7 @@ class LeisuresController < ApplicationController
   def filme
     filme = Category.find_by(name: 'Filme')
     @blank = filme_path
-    @leisures = Leisure.where(category: filme).visible.published
+    @leisures = Leisure.where(category: filme).visible.published.order(created_at: :desc)
 
     authorize @leisures
     if params[:subcategory].present? && params[:where].present?
@@ -255,7 +255,7 @@ class LeisuresController < ApplicationController
   def visao
     visão = Category.find_by(name: 'Visão')
     @blank = visao_path
-    @leisures = Leisure.where(category: visão).visible.published
+    @leisures = Leisure.where(category: visão).visible.published.order(created_at: :desc)
     authorize @leisures
 
     if params[:subcategory].present? && params[:where].present?
