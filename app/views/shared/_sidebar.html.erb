@@ -96,9 +96,11 @@
       <div class="square categorias-mais" id="mais" data-selector-target="mais"  data-action="click->selector#select click->subcategory-selector#clear">
         <li>MAIS</li>
         <ul class="menu-square d-none" data-controller="subcategory-selector">
-          <% Category.find_by(name: 'Mais').subcategories.each do |subcategory| %>
-            <%= link_to mais_path(subcategory: subcategory), data: { turbo_frame: 'content', action: 'click->subcategory-selector#filter', subcategory_selector_target: "subcategory" }, style: "color: white"  do  %>
-              <li id="subcategory-link"><%= subcategory.name %></li>
+          <% if (mais = Category.find_by(name: 'Mais')) && mais.subcategories.any? %>
+            <% mais.subcategories.each do |subcategory| %>
+              <%= link_to mais_path(subcategory: subcategory), data: { turbo_frame: 'content', action: 'click->subcategory-selector#filter', subcategory_selector_target: "subcategory" }, style: "color: white"  do  %>
+                <li id="subcategory-link"><%= subcategory.name %></li>
+              <% end %>
             <% end %>
           <% end %>
         </ul>

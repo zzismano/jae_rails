@@ -25,43 +25,25 @@
   color: #fff;
   height: 100%;
   // background-color:rgb(137,	42,	91);
-  &-cinema {
-    background-color: $dark-blue;
-    color: #fff;
-  }
-  &-musica {
-    background-color: $dark-green;
-    color: #fff;
-  }
-  &-teatro {
-    background-color: $dark-red;
-    color: #fff;
-  }
-  &-danca {
-    background-color: $dark-pink;
-    color: #fff;
-  }
-  &-evento {
-    background-color: $dark-mustard;
-    color: #fff;
-  }
-  &-visao {
-    background-color: $dark-yellow;
-    color: #fff;
-  }
-  &-expo {
-    background-color:  $moss-green;
-    color: #fff;
-  }
+  &-cinema,
+  &-musica,
+  &-teatro,
+  &-danca,
+  &-evento,
+  &-visao,
+  &-expo,
   &-mais {
-    background-color: $other-pink;
-    color: #fff;
+    background-color: #602f56 !important;
   }
 
   &-icones {
     background-color: $light-green;
     font-size: 1.2em;
   }
+}
+
+.categorias li, .menu-square li, .categorias > li, .square > li, .categorias a, .menu-square a {
+  color: #fff !important;
 }
 
 .icon-square {
