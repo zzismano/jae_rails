@@ -144,12 +144,19 @@
 
 .header-rio{
 
-  color: $jae-wine;
-  font-size: 0.8em;
+  // color: $jae-wine;
+  font-size: 0.80em;
   font-weight: 400;
   margin-bottom: 0px;
   justify-content: center;
   display: flex
+}
+
+.header-rio-light {
+  color: #323232;
+  font-size: 0.75em;
+  font-weight: 300;
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 940px) {
