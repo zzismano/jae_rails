@@ -70,3 +70,9 @@
   color: $ice;
   font-size: 16px;
 }
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}

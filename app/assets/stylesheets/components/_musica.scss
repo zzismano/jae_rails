@@ -38,6 +38,11 @@
 
 }
 
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
 
 
 @media screen and (min-width: 998px) {

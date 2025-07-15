@@ -6,13 +6,15 @@
         EXPO
       </p>
       <strong><%= leisure.title.upcase %></strong>
-      <p><%= leisure.subtitle %></p>
+      <p><em><%= leisure.subtitle %></em></p>
       <p id="horario">
         <%= leisure.schedule %> | <%= leisure.date %>
       </p>
       <p id="venue"><%= leisure.venues.first.name %></p>
-      <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small" target="_blank"><%= leisure.free? ? "mais informações" : "comprar ingresso" %></a>
-      <button class="button-small-2" style="font-weight: bold" data-share-target="botao" data-action="click->share#share">compartilhar <i class="fa-solid fa-link"></i></button>
+      <div class="card-actions">
+        <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small" target="_blank"><%= leisure.free? ? "mais informações" : "comprar ingresso" %></a>
+        <button class="button-small-2" style="font-weight: bold" data-share-target="botao" data-action="click->share#share">compartilhar <i class="fa-solid fa-link"></i></button>
+      </div>
       <p class="d-none" data-share-target="id"><%= leisure.id %></p>
     </div>
   </div>
