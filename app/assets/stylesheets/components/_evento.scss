@@ -61,3 +61,9 @@
   font-size: 16px;
   text-wrap: wrap;
 }
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
