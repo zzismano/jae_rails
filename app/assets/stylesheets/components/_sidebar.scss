@@ -42,12 +42,16 @@
   }
 }
 
+.lightwine {
+  background-color: #b998ab !important;
+}
+
 .categorias li, .menu-square li, .categorias > li, .square > li, .categorias a, .menu-square a {
   color: #fff !important;
 }
 
 #subcategory-link {
-  color: #f8aa23 !important;
+  color: #000000 !important;
 }
 
 .icon-square {
@@ -168,7 +172,7 @@
   }
 
   .categorias li {
-    font-size: 0.65em;
+    font-size: 0.72em;
   }
 
 }

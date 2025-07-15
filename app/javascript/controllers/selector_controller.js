@@ -32,7 +32,8 @@ export default class extends Controller {
     function menu() {
       click.lastElementChild.classList.remove("d-none");
     }
-    click.classList.add("transition")
+    click.classList.add("transition");
+    click.classList.add("lightwine");
     menu()
     var copia = categorias.slice()
     copia.splice(categorias.indexOf(event.currentTarget), 1)
@@ -40,6 +41,7 @@ export default class extends Controller {
     copia.forEach((elemento) => {
       if (elemento.classList.contains("transition")) {
         elemento.classList.remove("transition")
+        elemento.classList.remove("lightwine");
         elemento.lastElementChild.classList.add("d-none")
       };
 
