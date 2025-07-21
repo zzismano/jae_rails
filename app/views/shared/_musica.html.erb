@@ -7,9 +7,9 @@
       </p>
       <strong><%= leisure.title.upcase %></strong>
       <p><em><%= leisure.subtitle %></em></p>
-      <p id="horario">
-        <%= leisure.schedule %> | <%= leisure.date %>
-      </p>
+      <p id="horario"><em>
+        <i class="fa-regular fa-calendar"></i><%= leisure.schedule %> | <%= leisure.date %>
+      </em></p>
       <p id="venue"><%= leisure.venues.last.name %></p>
       <div class="card-actions">
         <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small" target="_blank"><%= leisure.free? ? "mais informações" : "comprar ingresso" %></a>
