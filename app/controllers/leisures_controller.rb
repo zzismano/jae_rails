@@ -61,7 +61,6 @@ class LeisuresController < ApplicationController
     filme = Category.find_by(name: 'Filme')
     @blank = filme_path
     @leisures = Leisure.where(category: filme).visible.published.order(created_at: :desc)
-
     authorize @leisures
     if params[:subcategory].present? && params[:where].present?
       @leisures = @service.filter_by_subcategory_and_where(@leisures, params[:subcategory], params[:where])
@@ -70,11 +69,9 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where_and_when(@leisures, params)
       @where = params[:where]
       @when = params[:when]
-
     elsif params[:subcategory].present? && params[:when].present?
       @leisures = @service.filter_by_subcategory_and_when(@leisures, params[:subcategory], params[:when])
       @when = params[:when]
-
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     elsif params[:where].present?
@@ -83,11 +80,8 @@ class LeisuresController < ApplicationController
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
       @when = params[:when]
-
     end
-
-
-    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+    # Removido: @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
@@ -257,7 +251,6 @@ class LeisuresController < ApplicationController
     @blank = visao_path
     @leisures = Leisure.where(category: visão).visible.published.order(created_at: :desc)
     authorize @leisures
-
     if params[:subcategory].present? && params[:where].present?
       @leisures = @service.filter_by_subcategory_and_where(@leisures, params[:subcategory], params[:where])
       @where = params[:where]
@@ -265,11 +258,9 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where_and_when(@leisures, params)
       @where = params[:where]
       @when = params[:when]
-
     elsif params[:subcategory].present? && params[:when].present?
       @leisures = @service.filter_by_subcategory_and_when(@leisures, params[:subcategory], params[:when])
       @when = params[:when]
-
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     elsif params[:where].present?
@@ -278,18 +269,16 @@ class LeisuresController < ApplicationController
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
       @when = params[:when]
-
     end
-    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+    # Removido: @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
   def expo
     expo = Category.find_by(name: 'Expo')
     @blank = expo_path
-    @leisures = Leisure.where(category: expo).visible.published
+    @leisures = Leisure.where(category: expo).visible.published.order(created_at: :desc)
     authorize @leisures
-
     if params[:subcategory].present? && params[:where].present?
       @leisures = @service.filter_by_subcategory_and_where(@leisures, params[:subcategory], params[:where])
       @where = params[:where]
@@ -297,11 +286,9 @@ class LeisuresController < ApplicationController
       @leisures = @service.search_by_where_and_when(@leisures, params)
       @where = params[:where]
       @when = params[:when]
-
     elsif params[:subcategory].present? && params[:when].present?
       @leisures = @service.filter_by_subcategory_and_when(@leisures, params[:subcategory], params[:when])
       @when = params[:when]
-
     elsif params[:subcategory].present?
       @leisures = @service.filter_by_subcategory(@leisures, params[:subcategory])
     elsif params[:where].present?
@@ -310,9 +297,8 @@ class LeisuresController < ApplicationController
     elsif params[:when].present?
       @leisures = @service.search_by_when(@leisures, params[:when])
       @when = params[:when]
-
     end
-    @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
+    # Removido: @leisures = @leisures.sort_by { |leisure| leisure[:dates] || [] }
     @leisures
   end
 
