@@ -26,7 +26,8 @@
 }
 .main-section-bar {
   h3 {
-    font-size: 1.1em;
+    font-size: 1.25em;
+    font-weight: 900;
   }
 }
 .main-search__box {
@@ -145,16 +146,17 @@
 .header-rio{
 
   // color: $jae-wine;
-  font-size: 1em;
+  font-size: 1.17em;
   font-weight: 400;
   margin-bottom: 0px;
   justify-content: center;
-  display: flex
+  display: flex;
+  white-space: nowrap;
 }
 
 .header-rio-light {
   color: #323232;
-  font-size: 0.85em;
+  font-size: 1em;
   font-weight: 300;
 
 }
