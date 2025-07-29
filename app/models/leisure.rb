@@ -13,6 +13,7 @@ class Leisure < ApplicationRecord
   validates :description, length: { minimum: 100,
     too_short: "Descrição muito curta! O mínimo é 100." }
   validates :title, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
   scope :published, -> {where("start_date <= ? ", Date.today) }
   scope :visible, -> {where(hidden: [false, nil] )}
 
