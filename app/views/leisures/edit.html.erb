@@ -6,16 +6,18 @@
         <%= f.input :title, label: 'Título*:' , error: 'Título é obrigatório.', label_html: { class: 'fw-bold' } %>
         <%= f.input :subtitle, label: 'Subtítulo:', label_html: { class: 'fw-bold' } %>
         <%= f.input :description, as: :text, label: 'Sinopse*:' , error: 'Sinopse é obrigatória.', label_html: { class: 'fw-bold' } %>
-        <div class="row" data-controller="price-free">
-          <p class="fw-bold">O evento é gratuito?</p>
-          <div class="d-flex justify-content-evenly py-2">
-            <%= f.collection_radio_buttons :free, [[true, 'Grátis'], [false, 'Pago']], :first, :last, label_html: { class: 'mx-1'}, input_html: { data: { action: 'change->price-free#togglePrice' } } %>
+        <div data-controller="price-free">
+          <div class="row">
+            <p class="fw-bold">O evento é gratuito?</p>
+            <div class="d-flex justify-content-evenly py-2">
+              <%= f.collection_radio_buttons :free, [[true, 'Grátis'], [false, 'Pago']], :first, :last, label_html: { class: 'mx-1'}, input_html: { data: { action: 'change->price-free#togglePrice' } } %>
+            </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-lg-6 col-12">
-            <%= f.input :price, label: 'Preço (R$):', label_html: { class: 'fw-bold' }, placeholder: 'TEATRO, DANÇA e SHOW', input_html: { step: '0.01', min: '0', data: { price_free_target: 'price' } } %>
+          <div class="row">
+            <div class="col-lg-6 col-12">
+              <%= f.input :price, label: 'Preço (R$):', label_html: { class: 'fw-bold' }, placeholder: 'TEATRO, DANÇA e SHOW', input_html: { step: '0.01', min: '0', data: { price_free_target: 'price' } } %>
+            </div>
           </div>
         </div>
         <%= f.input :country, label: 'País:', label_html: { class: 'fw-bold' } %>

@@ -4,40 +4,33 @@ export default class extends Controller {
   static targets = ["price"]
 
   connect() {
+    console.log("Price-free controller connected")
     // Inicializar o estado baseado no valor atual
     this.updatePriceField()
   }
 
   togglePrice(event) {
+    console.log("togglePrice called with value:", event.target.value)
     const isFree = event.target.value === "true"
     
     if (isFree) {
-      // Se selecionou "Grátis", definir preço como 0
-      this.priceTarget.value = "0"
-      this.priceTarget.disabled = true
-      this.priceTarget.style.backgroundColor = "#f8f9fa"
-    } else {
-      // Se selecionou "Pago", limpar o campo e habilitar
+      console.log("Setting to FREE - clearing price field")
+      // Se selecionou "Grátis", apenas limpar o campo
       this.priceTarget.value = ""
-      this.priceTarget.disabled = false
-      this.priceTarget.style.backgroundColor = ""
     }
+    // Se selecionou "Pago", não fazer nada - campo permanece habilitado
   }
 
   updatePriceField() {
+    console.log("updatePriceField called")
     // Verificar se algum radio button está selecionado
     const freeRadio = this.element.querySelector('input[value="true"]:checked')
-    const paidRadio = this.element.querySelector('input[value="false"]:checked')
     
     if (freeRadio) {
-      // Se "Grátis" está selecionado
-      this.priceTarget.value = "0"
-      this.priceTarget.disabled = true
-      this.priceTarget.style.backgroundColor = "#f8f9fa"
-    } else if (paidRadio) {
-      // Se "Pago" está selecionado
-      this.priceTarget.disabled = false
-      this.priceTarget.style.backgroundColor = ""
+      console.log("FREE radio found - clearing price field")
+      // Se "Grátis" está selecionado, apenas limpar o campo
+      this.priceTarget.value = ""
     }
+    // Em todos os outros casos, deixar o campo habilitado
   }
 } 
