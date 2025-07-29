@@ -10,6 +10,15 @@
       <p id="horario"><em>
         <i class="fa-regular fa-calendar"></i> <%= leisure.schedule %> | <%= leisure.date %>
       </em></p>
+      <% if leisure.price.present? %>
+        <p class="real"><i class="fa-solid fa-ticket fa-rotate-by" style="color: #080a0c; --fa-rotate-angle: 45deg;"></i> 
+          <% if leisure.price == 0 %>
+            Grátis
+          <% else %>
+            A partir de R$ <%= number_with_precision(leisure.price, precision: 2, separator: ',', delimiter: '.') %>
+          <% end %>
+        </p>
+      <% end %>
       <p id="venue"><%= leisure.venues.last.name %></p>
       <div class="card-actions">
         <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small" target="_blank"><%= leisure.free? ? "mais informações" : "comprar ingresso" %></a>
