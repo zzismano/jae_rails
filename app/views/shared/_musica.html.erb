@@ -7,9 +7,9 @@
       </p>
       <strong><%= leisure.title.upcase %></strong>
       <p><em><%= leisure.subtitle %></em></p>
-      <p id="horario"><em>
+      <p id="horario">
         <i class="fa-regular fa-calendar"></i> <%= leisure.schedule %> | <%= leisure.date %>
-      </em></p>
+      </p>
       <% if leisure.price.present? && !leisure.free? %>
         <p class="real"><i class="fa-solid fa-ticket fa-rotate-by" style="color: #080a0c; --fa-rotate-angle: 45deg;"></i> 
           A partir de R$ <%= number_with_precision(leisure.price, precision: 2, separator: ',', delimiter: '.') %>
