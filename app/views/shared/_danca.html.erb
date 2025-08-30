@@ -14,7 +14,7 @@
             <% names << genre.name %>
           <% end %>
           <%= names.join(" / ") %>
-        | <%= leisure.director %>  | <%= leisure.duration %> |
+        | <%= leisure.director %>  | <%= leisure.duration %>' |
         <%if leisure.min_age == 0 %>
           L
         <% elsif leisure.min_age.nil? %>
