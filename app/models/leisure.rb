@@ -36,6 +36,4 @@ class Leisure < ApplicationRecord
   def dates=(dates_array)
     write_attribute(:dates, dates_array)
   end
-
-
 end

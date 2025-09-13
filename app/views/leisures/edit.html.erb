@@ -53,6 +53,13 @@
 
         <%= f.input :hidden, label: 'Oculto',label_html: { class: 'fw-bold' } %>
 
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <%= f.input :hide_date, label: 'Data para ocultar automaticamente:', label_html: { class: 'fw-bold' }, input_html: { class: 'form-control' } %>
+            <small class="form-text text-muted">Quando esta data chegar, o evento será automaticamente ocultado</small>
+          </div>
+        </div>
+
           <div class="row">
             <div class="col-lg-6 col-12">
               <%= f.association :venues,  label: 'Estabelecimento*(OBRIGATÓRIO):', label_html: { class: 'fw-bold text-danger' }, input_html: {multiple: true, required: true,

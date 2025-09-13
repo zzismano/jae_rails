@@ -471,7 +471,7 @@ class LeisuresController < ApplicationController
   end
 
   def leisure_params
-    params.require(:leisure).permit(:category_id, :subcategory_id, :photo, :link, :title, :subtitle, :director, :country, :description, :schedule, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free, :price, :date, :alt_text, dates: [])
+    params.require(:leisure).permit(:category_id, :subcategory_id, :photo, :link, :title, :subtitle, :director, :country, :description, :schedule, :features, :min_age, :duration, :time, :start_date, :end_date, :publish_date, :hidden, :free, :price, :date, :alt_text, :hide_date, dates: [])
   end
 
   def set_leisure
