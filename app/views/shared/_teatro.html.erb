@@ -26,7 +26,7 @@
       </p>
         <% if leisure.price.present? && !leisure.free? %>
         <p class="real"><i class="fa-solid fa-ticket fa-rotate-by" style="color: #080a0c; --fa-rotate-angle: 45deg;"></i> 
-          A partir de R$ <%= number_with_precision(leisure.price, precision: 0, separator: ',', delimiter: '.') %>
+          A partir de R$ <%= format_price(leisure.price) %>
         </p>
       <% end %>
       <% if leisure.free? %>
