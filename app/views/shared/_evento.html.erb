@@ -7,16 +7,21 @@
       </p>
       <strong><%= leisure.title.upcase %></strong>
       <p><em><%= leisure.subtitle %></em></p>
+      <% if leisure.schedule %>
+        <p id="horario">
+          <i class="fa-regular fa-clock"></i> <%= leisure.schedule %>
+        </p>
+      <% end %>
       <p id="horario">
-        <i class="fa-regular fa-calendar"></i> <%= leisure.schedule %> | <%= leisure.date %>
+        <i class="fa-regular fa-calendar"></i> <%= leisure.date %>
       </p>
       <% if leisure.price.present? && !leisure.free? %>
-        <p class="real"><i class="fa-solid fa-ticket fa-rotate-by" style="color: #080a0c; --fa-rotate-angle: 45deg;"></i> 
+        <p class="real"><i class="fa-solid fa-ticket fa-rotate-by" style="color: #080a0c; --fa-rotate-angle: 45deg;"></i>
           A partir de R$ <%= format_price(leisure.price) %>
         </p>
       <% end %>
       <% if leisure.free? %>
-        <p class="real"><i class="fa-solid fa-ticket fa-rotate-by" style="color: #080a0c; --fa-rotate-angle: 45deg;"></i> 
+        <p class="real"><i class="fa-solid fa-ticket fa-rotate-by" style="color: #080a0c; --fa-rotate-angle: 45deg;"></i>
           <span style="color: #b998ab;">Gratuito</span>
         </p>
       <% end %>
