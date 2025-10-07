@@ -7,8 +7,13 @@
       </p>
       <strong><%= leisure.title.upcase %></strong>
       <p><em><%= leisure.subtitle %></em></p>
+      <% if leisure.schedule %>
+        <p id="horario">
+          <i class="fa-regular fa-clock"></i> <%= leisure.schedule %>
+        </p>
+      <% end %>
       <p id="horario">
-        <i class="fa-regular fa-calendar"></i> <%= leisure.schedule %> | <%= leisure.date %>
+        <i class="fa-regular fa-calendar"></i> <%= leisure.date %>
       </p>
 
       <p id="venue"><%= leisure.venues.last.name %></p>

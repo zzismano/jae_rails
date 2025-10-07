@@ -8,7 +8,6 @@
       </p>
       <strong><%= leisure.title.upcase %></strong>
       <p><em><%= leisure.subtitle %></em></p>
-       
       <p><em> <% names = [] %>
           <% leisure.genres.each do |genre| %>
             <% names << genre.name %>
@@ -23,22 +22,27 @@
           <%= leisure.min_age.to_s %>
         <% end %>
         | <%= leisure.country? ? ISO3166::Country[leisure.country].alpha3 : "-"  %> </em></p>
+      <% if leisure.schedule %>
+        <p id="horario">
+          <i class="fa-regular fa-clock"></i> <%= leisure.schedule %>
+        </p>
+      <% end %>
       <p id="horario">
-        <i class="fa-regular fa-calendar"></i> <%= leisure.schedule %> | <%= leisure.date %>
+        <i class="fa-regular fa-calendar"></i> <%= leisure.date %>
       </p>
       <% if leisure.price.present? && !leisure.free? %>
-        <p class="real"><i class="fa-solid fa-ticket fa-rotate-by" style="color: #080a0c; --fa-rotate-angle: 45deg;"></i> 
+        <p class="real"><i class="fa-solid fa-ticket fa-rotate-by" style="color: #080a0c; --fa-rotate-angle: 45deg;"></i>
           A partir de R$ <%= format_price(leisure.price) %>
         </p>
-      <% end %>  
+      <% end %>
       <% if leisure.free? %>
-        <p class="real"><i class="fa-solid fa-ticket fa-rotate-by" style="color: #080a0c; --fa-rotate-angle: 45deg;"></i> 
+        <p class="real"><i class="fa-solid fa-ticket fa-rotate-by" style="color: #080a0c; --fa-rotate-angle: 45deg;"></i>
           <span style="color: #b998ab;">Gratuito</span>
         </p>
-      <% end %>  
+      <% end %>
       <p id="venue"><%= leisure.venues.last.name %></p>
       <div class="card-actions">
-        <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small" target="_blank"><%= leisure.free? ? "mais informações" : "comprar ingresso" %></a>
+        <a href="<%= leisure.link.starts_with?('http') ? leisure.link : 'https://' + leisure.link %>"class="button-small" target="_blank"><%= leisure.free? ? "LINK" : "INGRESSOS" %></a>
         <button class="button-small-2" style="font-weight: bold" data-share-target="botao" data-action="click->share#share">compartilhar <i class="fa-solid fa-link"></i></button>
       </div>
       <p class="d-none" data-share-target="id"><%= leisure.id %></p>
