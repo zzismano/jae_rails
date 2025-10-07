@@ -60,7 +60,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_11_041444) do
     t.string "link_three"
     t.string "link_four"
     t.string "link_five"
-    t.string "alt_text"
     t.string "alt_text_one"
     t.string "alt_text_two"
     t.string "alt_text_three"
