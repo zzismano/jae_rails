@@ -194,7 +194,8 @@ class SearchService
     today = Date.today
     case date_param
     when 'gratuito'
-      leisures.where(free: true).visible.published
+      leisures.where(free: true).visible.published.joins(:category).where.not(categories: { name: "Expo" })
+    #retira exposições dos gratuitos
     when 'hoje'
       Leisure.where("dates @> ?::jsonb", [today.to_s].to_json).visible.published
     when 'proximo_mes'
@@ -208,7 +209,6 @@ class SearchService
         end
       end
       matches
-
 
     when 'fim_de_semana'
       today = Date.today
