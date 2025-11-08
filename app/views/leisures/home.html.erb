@@ -6,12 +6,20 @@
     <%= render 'shared/home_header' %>
       <div class="container p-1">
         <div class="row d-flex">
-          <div class=" align-self-center main-banner col-lg-8 pe-lg-1 col-12">
+          <div class=" align-self-center main-banner col-lg-6 pe-lg-1 col-12">
             <div>
               <%= render 'banners/show' %>
+              <div class="pw-3 col-12" >
+              <%= render 'shared/search_links' %>
+            </div>
             </div>
 
           </div>
+          <div class="col-lg-6 main-content__col">
+            <%= render 'shared/newsletter' %>
+
+          </div>
+          <!-- Previous code>
           <div class="col-lg-4 pw-3 col-12" >
             <div class="" >
               <%= render 'shared/search_links' %>
@@ -20,6 +28,7 @@
               <%= render 'shared/newsletter' %>
             </div>
           </div>
+          <!-->
         </div>
       </div>
 
