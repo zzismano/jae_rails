@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   get "expo", to: 'leisures#expo'
   get 'mais', to: 'leisures#mais'
   get 'visao', to: 'leisures#visao'
-
+  get "/privacy-policy", to: redirect("/politica-de-privacidade.html")
 
 
   get "banner_config", to: 'banners#banner_config'
