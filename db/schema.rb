@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_09_11_041444) do
+ActiveRecord::Schema[7.1].define(version: 2026_11_12_185219) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -158,6 +158,16 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_11_041444) do
 
   create_table "sections", force: :cascade do |t|
     t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sponsored_banners", force: :cascade do |t|
+    t.string "sponsor_name"
+    t.string "link_url"
+    t.boolean "active", default: false, null: false
+    t.date "starts_on"
+    t.date "ends_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

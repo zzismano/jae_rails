@@ -1,0 +1,2 @@
+class SponsoredBanner < ApplicationRecord
+end
