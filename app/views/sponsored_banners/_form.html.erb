@@ -1,0 +1,29 @@
+<%= form_with model: sponsored_banner do |f| %>
+  <% if sponsored_banner.errors.any? %>
+    <ul>
+      <% sponsored_banner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :sponsor_name, "Patrocinador" %>
+  <%= f.text_field :sponsor_name %>
+
+  <%= f.label :link_url, "Link de destino" %>
+  <%= f.url_field :link_url, placeholder: "https://..." %>
+
+  <%= f.label :image, "Arte do banner" %>
+  <%= f.file_field :image, accept: "image/*" %>
+
+  <%= f.label :starts_on, "Início" %>
+  <%= f.date_field :starts_on %>
+
+  <%= f.label :ends_on, "Fim" %>
+  <%= f.date_field :ends_on %>
+
+  <%= f.check_box :active %>
+  <%= f.label :active, "Ativo" %>
+
+  <%= f.submit "Salvar" %>
+<% end %>

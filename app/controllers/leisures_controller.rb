@@ -7,7 +7,7 @@ class LeisuresController < ApplicationController
   def home
     @banner = Banner.first
     authorize @banner
-
+    @sponsored_banner = SponsoredBanner.current.with_attached_image.order(:created_at).last
     @sections = Section.includes(:cards).all
 
 

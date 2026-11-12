@@ -1,0 +1,15 @@
+.sponsored-banner {
+  margin: 1rem 0;
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 24 / 5; // close to the yellow banner; sponsors deliver e.g. 1200x250
+    object-fit: cover;
+    display: block;
+  }
+
+  &__label {
+    font-size: 0.7rem;
+    color: #888;
+  }
+}
