@@ -1,0 +1,23 @@
+.advertise-here {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.75rem 0;
+  padding: 0.4rem 0.5rem;
+  aspect-ratio: 24 / 5;      // same proportion as the sponsor banner
+  background: #f5a800;
+  color: #5b1f4f;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.2;
+
+  &__title {
+    font-size: clamp(0.62rem, 2.9vw, 0.9rem);  // shrinks with the screen so it stays on one line
+    white-space: nowrap;
+  }
+
+  &__cta {
+    font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+  }
+}

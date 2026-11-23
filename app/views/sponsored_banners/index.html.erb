@@ -1,0 +1,47 @@
+<div class="container p-3">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Banners patrocinados</h2>
+    <%= link_to "+ Novo banner", new_sponsored_banner_path, class: "btn btn-primary" %>
+  </div>
+
+  <% if @sponsored_banners.empty? %>
+    <p>Nenhum banner cadastrado ainda.</p>
+  <% else %>
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th>Arte</th>
+          <th>Patrocinador</th>
+          <th>Período</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @sponsored_banners.each do |banner| %>
+          <tr>
+            <td>
+              <% if banner.image.attached? %>
+                <%= image_tag banner.image, style: "width: 120px;" %>
+              <% end %>
+            </td>
+            <td><%= banner.sponsor_name %></td>
+            <td>
+              <%= banner.starts_on&.strftime("%d/%m/%Y") || "—" %>
+              a
+              <%= banner.ends_on&.strftime("%d/%m/%Y") || "—" %>
+            </td>
+            <td><%= banner.active? ? "Ativo" : "Inativo" %></td>
+            <td>
+              <%= link_to "Editar", edit_sponsored_banner_path(banner), class: "btn btn-sm btn-secondary" %>
+              <%= button_to "Remover", sponsored_banner_path(banner),
+                    method: :delete,
+                    form: { data: { turbo_confirm: "Remover este banner?" }, style: "display:inline" },
+                    class: "btn btn-sm btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

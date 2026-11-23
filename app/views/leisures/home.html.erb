@@ -9,6 +9,11 @@
           <div class=" align-self-center main-banner col-lg-6 pe-lg-1 col-12">
             <div>
               <%= render 'banners/show' %>
+              <% if @sponsored_banner.present? %>
+                <%= render 'shared/sponsored_banner', banner: @sponsored_banner %>
+              <% else %>
+                <%= render 'shared/advertise_here' %>
+              <% end %>
               <div class="pw-3 col-12" >
               <%= render 'shared/search_links' %>
             </div>

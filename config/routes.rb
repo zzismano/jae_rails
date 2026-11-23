@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :genres, only: %i[index new create edit update destroy]
 
   resources :banners
+  resources :sponsored_banners, except: [:show]
 
   resources :cards
 
@@ -51,6 +52,7 @@ Rails.application.routes.draw do
 
 
   get "banner_config", to: 'banners#banner_config'
+
 
   get 'card_config', to: 'cards#card_config'
 

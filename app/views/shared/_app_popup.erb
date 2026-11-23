@@ -1,0 +1,26 @@
+<div id="Banner_para_download_app"
+     class="app-popup"
+     hidden
+     data-controller="app-popup"
+     data-action="click->app-popup#backdropClick">
+
+  <div class="app-popup__card" role="dialog" aria-modal="true" aria-labelledby="app-popup-title">
+    <button type="button" class="app-popup__close" aria-label="Fechar"
+            data-app-popup-target="close" data-action="app-popup#dismiss">×</button>
+
+    <h2 id="app-popup-title" class="app-popup__title">Conhece o app do JÁÉ Programação?</h2>
+    <p class="app-popup__text">Baixe agora.<br>O guia do Rio sempre à mão.</p>
+
+    <a id="Botao_download_google_play" class="app-popup__store"
+       href="https://play.google.com/store/apps/details?id=br.com.jaeprogramacao.app_jae&hl=pt_BR"
+       target="_blank" rel="noopener" data-action="app-popup#dismiss">
+      <%= image_tag "google-play-badge.png", alt: "Disponível no Google Play" %>
+    </a>
+
+    <a id="Botao_download_app_store" class="app-popup__store"
+       href="https://apps.apple.com/br/app/j%C3%A1%C3%A9-programa%C3%A7%C3%A3o/id6774343380"
+       target="_blank" rel="noopener" data-action="app-popup#dismiss">
+      <%= image_tag "app-store-badge.svg", alt: "Baixar na App Store" %>
+    </a>
+  </div>
+</div>
