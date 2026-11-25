@@ -4,6 +4,15 @@
     <title>JáÉ!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <%# Link preview (Instagram, WhatsApp, Facebook...) %>
+    <meta property="og:site_name" content="JáÉ!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta property="og:title" content="<%= content_for(:og_title).presence || 'JáÉ! Programação' %>">
+    <meta property="og:description" content="<%= content_for(:og_description).presence || 'O guia da cultura e do lazer do Rio de Janeiro.' %>">
+    <meta property="og:image" content="<%= content_for(:og_image).presence || image_url('ja_e_fundo_uva.png') %>">
+    <meta name="twitter:card" content="summary_large_image">
+
     <%= favicon_link_tag 'favicon.png' %>
     <%= favicon_link_tag 'favicon.png', rel: 'apple-touch-icon', type: 'image/png', sizes: '180x180' %>
     <%= csrf_meta_tags %>
@@ -15,24 +24,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script defer src="https://ga.jspm.io/npm:es-module-shims@1.6.0/dist/es-module-shims.js"></script>
     <%= javascript_importmap_tags %>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ME1B2YF4QD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ME1B2YF4QD');
+    </script>
   </head>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ME1B2YF4QD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-ME1B2YF4QD');
-  </script>
-  <%= render "shared/app_popup" %>
   <body>
-
     <main>
       <%= render 'shared/navbar' %>
       <%= yield %>
     </main>
-      <%= render 'shared/flashes' %>
+    <%= render 'shared/flashes' %>
+    <%= render "shared/app_popup" %>
   </body>
 </html>

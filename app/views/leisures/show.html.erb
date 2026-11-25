@@ -1,4 +1,6 @@
-
+<% content_for :og_title, @leisure.title %>
+<% content_for :og_description, truncate(strip_tags(@leisure.description), length: 150) %>
+<% content_for :og_image, @leisure.photo.url if @leisure.photo.attached? %>
 <%= turbo_frame_tag "content" do %>
   <div class="container-fluid">
     <div class="row">
